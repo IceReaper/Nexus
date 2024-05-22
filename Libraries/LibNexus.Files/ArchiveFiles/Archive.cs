@@ -51,7 +51,7 @@ public class Archive : IDisposable
 
 	public void Store(byte[] data)
 	{
-		var hash = new Hash(data);
+		var hash = Hash.Create(data);
 		var entry = _entries.FirstOrDefault(entry => entry != null && entry.Hash == hash);
 
 		if (entry != null)

@@ -8,9 +8,14 @@ public readonly struct Hash : IEquatable<Hash>
 
 	public byte[] Bytes { get; } = new byte[Length];
 
-	public Hash(byte[] sha1)
+	public Hash(byte[] bytes)
 	{
-		Array.Copy(SHA1.HashData(sha1), Bytes, Length);
+		Array.Copy(bytes, Bytes, Length);
+	}
+
+	public static Hash Create(byte[] data)
+	{
+		return new Hash(SHA1.HashData(data));
 	}
 
 	public bool Validate(byte[] data)

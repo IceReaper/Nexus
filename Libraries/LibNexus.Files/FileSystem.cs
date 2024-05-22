@@ -141,7 +141,6 @@ public class FileSystem : IDisposable
 		var file = new IndexFile
 		{
 			Flags = IndexFileFlags.Complete,
-			Hash = new Hash(data),
 			CompressedSize = (ulong)data.Length,
 			DecompressedSize = (ulong)data.Length,
 			DateTime = dateTime
@@ -157,8 +156,6 @@ public class FileSystem : IDisposable
 				Directory.CreateDirectory(baseDir);
 
 			File.WriteAllBytes(path, data);
-
-			file.Hash = new Hash(data);
 		}
 		else
 		{
@@ -177,9 +174,9 @@ public class FileSystem : IDisposable
 			}
 
 			_archive.Store(data);
-
-			file.Hash = new Hash(data);
 		}
+
+		file.Hash = Hash.Create(data);
 
 		_index.WriteFile(path, file);
 	}
