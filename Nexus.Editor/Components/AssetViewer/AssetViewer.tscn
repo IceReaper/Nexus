@@ -1,0 +1,176 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1lkcr1gfo0gf"]
+
+[ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Components/ThemeBase/ThemeBase.tscn" id="1_ailg0"]
+[ext_resource type="Texture2D" uid="uid://bgu7c1vt0smmc" path="res://Assets/Icons/AccountTree.png" id="2_8b7v0"]
+[ext_resource type="Texture2D" uid="uid://fdq6lieo0wda" path="res://Assets/Icons/ArrowDown.png" id="3_isnyb"]
+[ext_resource type="Texture2D" uid="uid://bypf52hxei3l4" path="res://Assets/Icons/ArrowRight.png" id="3_qigjm"]
+[ext_resource type="Texture2D" uid="uid://botf2c3flo2w6" path="res://Assets/Icons/Default.png" id="5_0in07"]
+
+[node name="AssetViewer" type="Control"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ThemeBase" parent="." instance=ExtResource("1_ailg0")]
+layout_mode = 1
+script = null
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Surface"
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_type_variation = &"All"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Right"
+
+[node name="TextureRect" type="TextureRect" parent="ThemeBase/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_8b7v0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="ThemeBase/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Assets"
+
+[node name="HSeparator" type="HSeparator" parent="ThemeBase/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="ThemeBase/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"Background"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ThemeBase/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_constants/autohide = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"All"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Right"
+
+[node name="TextureRect" type="TextureRect" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_isnyb")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Expanded directory"
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Left"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Right"
+
+[node name="TextureRect" type="TextureRect" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_qigjm")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Collapsed directory"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_type_variation = &"Right"
+
+[node name="TextureRect" type="TextureRect" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("5_0in07")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "No children"
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"All"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"All"
+
+[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/HFlowContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"Border"
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/HFlowContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_type_variation = &"All"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/HFlowContainer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/HFlowContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_8b7v0")
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/HFlowContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Top"
+
+[node name="Label" type="Label" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/HFlowContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "My Texture"
+horizontal_alignment = 1
