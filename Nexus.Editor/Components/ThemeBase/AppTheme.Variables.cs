@@ -17,6 +17,10 @@ public partial class AppTheme
 	private static readonly Color Border = new(0x4c4b53ff);
 
 	private static readonly Color Primary = new(0x5b4be3ff);
+	private static readonly Color Info = new(0x3299ffff);
+	private static readonly Color Success = new(0x0bba83ff);
+	private static readonly Color Warning = new(0xffaa00ff);
+	private static readonly Color Error = new(0xf64e62ff);
 
 	private static readonly Color TextPrimary = new(0xb2b2b2ff);
 	private static readonly Color TextActive = new(0xffffffff);

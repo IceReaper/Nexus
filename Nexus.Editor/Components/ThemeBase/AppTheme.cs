@@ -13,6 +13,7 @@ public partial class AppTheme : Theme
 		SplitContainers();
 		Labels();
 		ScrollBars();
+		Buttons();
 		MenuBars();
 		PopupMenus();
 	}
@@ -45,6 +46,10 @@ public partial class AppTheme : Theme
 		SetConstant("margin_right", "All", Padding);
 		SetConstant("margin_bottom", "All", Padding);
 		SetConstant("margin_left", "All", Padding);
+
+		SetTypeVariation("Horizontal", nameof(MarginContainer));
+		SetConstant("margin_right", "Horizontal", Padding);
+		SetConstant("margin_left", "Horizontal", Padding);
 
 		SetTypeVariation("Top", nameof(MarginContainer));
 		SetConstant("margin_top", "Top", Padding);
@@ -90,6 +95,46 @@ public partial class AppTheme : Theme
 		SetStylebox("grabber_highlight", nameof(VScrollBar), GetBackground(Border));
 		SetStylebox("grabber_pressed", nameof(HScrollBar), GetBackground(Border));
 		SetStylebox("grabber_pressed", nameof(VScrollBar), GetBackground(Border));
+	}
+
+	private void Buttons()
+	{
+		SetFont("font", nameof(Button), Font);
+		SetFontSize("font_size", nameof(Button), FontSize);
+
+		SetStylebox("normal", nameof(Button), GetBackground(BackgroundDark));
+		SetStylebox("hover", nameof(Button), GetBackground(BackgroundLight));
+		SetStylebox("pressed", nameof(Button), GetBackground(BackgroundLight));
+		SetStylebox("disabled", nameof(Button), GetEmpty());
+		SetStylebox("focus", nameof(Button), GetBackground(BackgroundLight));
+
+		SetTypeVariation("Info", nameof(Button));
+		SetColor("icon_normal_color", "Info", Info);
+		SetColor("font_normal_color", "Info", Info);
+		SetStylebox("hover", "Info", GetBackground(Info));
+		SetStylebox("pressed", "Info", GetBackground(Info));
+		SetStylebox("focus", "Info", GetBackground(Info));
+
+		SetTypeVariation("Success", nameof(Button));
+		SetColor("icon_normal_color", "Success", Success);
+		SetColor("font_normal_color", "Success", Success);
+		SetStylebox("hover", "Success", GetBackground(Success));
+		SetStylebox("pressed", "Success", GetBackground(Success));
+		SetStylebox("focus", "Success", GetBackground(Success));
+
+		SetTypeVariation("Warning", nameof(Button));
+		SetColor("icon_normal_color", "Warning", Warning);
+		SetColor("font_normal_color", "Warning", Warning);
+		SetStylebox("hover", "Warning", GetBackground(Warning));
+		SetStylebox("pressed", "Warning", GetBackground(Warning));
+		SetStylebox("focus", "Warning", GetBackground(Warning));
+
+		SetTypeVariation("Error", nameof(Button));
+		SetColor("icon_normal_color", "Error", Error);
+		SetColor("font_normal_color", "Error", Error);
+		SetStylebox("hover", "Error", GetBackground(Error));
+		SetStylebox("pressed", "Error", GetBackground(Error));
+		SetStylebox("focus", "Error", GetBackground(Error));
 	}
 
 	private void MenuBars()

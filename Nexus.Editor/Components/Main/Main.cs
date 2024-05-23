@@ -1,4 +1,6 @@
 using Godot;
+using Nexus.Editor.Executables;
+using System.Diagnostics;
 
 namespace Nexus.Editor.Components.Main;
 
@@ -13,6 +15,14 @@ public partial class Main : Control
 	[Export]
 	public required PopupMenu HelpMenu { get; set; }
 
+	[Export]
+	public required Button PlayButton { get; set; }
+
+	[Export]
+	public required Button StopButton { get; set; }
+
+	private Process? _process;
+
 	public override void _Ready()
 	{
 		Owner = null;
@@ -24,6 +34,41 @@ public partial class Main : Control
 		AddButton(ToolsMenu, "Map Editor");
 
 		AddButton(HelpMenu, "About");
+
+		PlayButton.Pressed += Play;
+		StopButton.Pressed += Stop;
+	}
+
+	private void Play()
+	{
+		var clientExecutable = new ClientExecutable("../Assets/Client64/WildStar64.exe");
+		clientExecutable.EnableBypassLauncher();
+
+		_process = ExecutableRunner.Run(
+			clientExecutable.Bytes,
+			"../Assets/Client64/WildStar64.exe",
+			"/auth localhost /authNc localhost /lang de /patcher localhost /SettingsKey WildStar /RealmDataCenterId 9"
+		);
+
+		PlayButton.Hide();
+		StopButton.Show();
+	}
+
+	private void Stop()
+	{
+		_process?.Kill();
+	}
+
+	public override void _Process(double delta)
+	{
+		if (_process is not { HasExited: true })
+			return;
+
+		_process.Dispose();
+		_process = null;
+
+		PlayButton.Show();
+		StopButton.Hide();
 	}
 
 	private void Exit()
@@ -54,5 +99,12 @@ public partial class Main : Control
 	private static void AddSeparator(PopupMenu popupMenu, string label)
 	{
 		popupMenu.AddSeparator(label, popupMenu.ItemCount);
+	}
+
+	protected override void Dispose(bool disposing)
+	{
+		base.Dispose(disposing);
+
+		_process?.Dispose();
 	}
 }
