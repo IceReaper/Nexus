@@ -1,4 +1,4 @@
-﻿using LibNexus.Files.Extensions;
+﻿using LibNexus.Core.Extensions;
 using System.Collections.ObjectModel;
 using System.Data;
 
@@ -30,10 +30,10 @@ public class Pack : IDisposable
 		var version = stream.ReadUInt32();
 
 		if (pack != Magic)
-			throw new DataException("Pack: Invalid magic");
+			throw new Exception("Pack: Invalid magic");
 
 		if (version != Version)
-			throw new DataException("Pack: Invalid version");
+			throw new Exception("Pack: Invalid version");
 
 		_header = new PackHeader(_stream);
 

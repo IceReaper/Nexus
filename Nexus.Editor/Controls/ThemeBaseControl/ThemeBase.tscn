@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsb4mmlotcmh8"]
 
-[ext_resource type="Script" path="res://Components/ThemeBase/ThemeBase.cs" id="1_xwcnj"]
+[ext_resource type="Script" path="res://Controls/ThemeBaseControl/ThemeBase.cs" id="1_xwcnj"]
 
 [node name="ThemeBase" type="PanelContainer"]
 anchors_preset = 15

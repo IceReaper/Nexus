@@ -1,0 +1,128 @@
+[gd_scene load_steps=3 format=3 uid="uid://rcv5vifsfq3f"]
+
+[ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_1al35"]
+[ext_resource type="Script" path="res://Controls/AboutControl/About.cs" id="1_jq58t"]
+
+[node name="About" type="Control" node_paths=PackedStringArray("Window", "Version", "Date", "Commit", "Repository")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jq58t")
+Window = NodePath("ThemeBase/Window")
+Version = NodePath("ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer/Label")
+Date = NodePath("ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer2/MarginContainer/Label")
+Commit = NodePath("ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/MarginContainer/Label")
+Repository = NodePath("ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer4/MarginContainer/RichTextLabel")
+
+[node name="ThemeBase" parent="." instance=ExtResource("1_1al35")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Window" type="Window" parent="ThemeBase"]
+title = "About"
+initial_position = 2
+wrap_controls = true
+transient = true
+unresizable = true
+always_on_top = true
+popup_window = true
+
+[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/Window"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_type_variation = &"Background"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/Window/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"All"
+
+[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Nexus Editor"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"All"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Version"
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Left"
+
+[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0.0.0.0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Date"
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Left"
+
+[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "2024.01.01"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Commit"
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Left"
+
+[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "1cef8a0"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Repository"
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Left"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer4/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+bbcode_enabled = true
+text = "[url=https://github.com/owner/repo]owner/repo[/url]
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

@@ -1,6 +1,5 @@
-using LibNexus.Files.Extensions;
+using LibNexus.Core.Extensions;
 using System.Collections.ObjectModel;
-using System.Data;
 
 namespace LibNexus.Files.PackFiles;
 
@@ -78,20 +77,18 @@ public class PackPhysicalPage
 		// TODO length can be negative... If, what does it mean? Deleted ones?
 		_length = _stream.ReadUInt64();
 
-		// ReSharper disable once IntVariableOverflowInUncheckedContext
-		if (_length > 1UL << 63)
+		if ((long)_length < 0)
 			_length = (ulong)((long)_length * -1);
 
 		_offset = (ulong)_stream.Position;
 		_stream.Position += (long)_length;
 		var length2 = _stream.ReadUInt64();
 
-		// ReSharper disable once IntVariableOverflowInUncheckedContext
-		if (length2 > 1UL << 63)
+		if ((long)length2 < 0)
 			length2 = (ulong)((long)length2 * -1);
 
 		if (_length != length2)
-			throw new DataException("PackPhysicalPage: Invalid length");
+			throw new Exception("PackPhysicalPage: Invalid length");
 	}
 
 	public static PackPhysicalPage Create(Stream stream, ulong length)

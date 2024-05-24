@@ -1,5 +1,4 @@
-using LibNexus.Files.Extensions;
-using System.Data;
+using LibNexus.Core.Extensions;
 
 namespace LibNexus.Files.IndexFiles;
 
@@ -24,7 +23,7 @@ public class IndexFile
 		Hash = new Hash(stream.ReadBytes(Hash.Length));
 
 		if ((Flags & ~(IndexFileFlags.Complete | IndexFileFlags.Compressed)) != 0x00)
-			throw new DataException("IndexFile: Invalid flags");
+			throw new Exception("IndexFile: Invalid flags");
 	}
 
 	public void Write(Stream stream)

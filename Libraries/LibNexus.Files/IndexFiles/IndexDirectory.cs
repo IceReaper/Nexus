@@ -1,4 +1,4 @@
-﻿using LibNexus.Files.Extensions;
+﻿using LibNexus.Core.Extensions;
 
 namespace LibNexus.Files.IndexFiles;
 

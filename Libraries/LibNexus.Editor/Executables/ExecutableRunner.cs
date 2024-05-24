@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Nexus.Editor.Executables;
+namespace LibNexus.Editor.Executables;
 
 public static class ExecutableRunner
 {

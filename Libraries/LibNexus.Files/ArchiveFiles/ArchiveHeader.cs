@@ -1,5 +1,4 @@
-﻿using LibNexus.Files.Extensions;
-using System.Data;
+﻿using LibNexus.Core.Extensions;
 
 namespace LibNexus.Files.ArchiveFiles;
 
@@ -56,10 +55,10 @@ public class ArchiveHeader
 		var version = _stream.ReadUInt32();
 
 		if (aidx != Magic)
-			throw new DataException("ArchiveHeader: Invalid magic");
+			throw new Exception("ArchiveHeader: Invalid magic");
 
 		if (version != Version)
-			throw new DataException("ArchiveHeader: Invalid version");
+			throw new Exception("ArchiveHeader: Invalid version");
 
 		_files = _stream.ReadUInt32();
 		_filesPage = _stream.ReadUInt32();

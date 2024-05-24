@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace LibNexus.Files.Extensions;
+namespace LibNexus.Core.Extensions;
 
 public static class StreamExtensions
 {

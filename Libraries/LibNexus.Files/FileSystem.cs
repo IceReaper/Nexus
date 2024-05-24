@@ -1,5 +1,5 @@
-﻿using LibNexus.Files.ArchiveFiles;
-using LibNexus.Files.Extensions;
+﻿using LibNexus.Core.Extensions;
+using LibNexus.Files.ArchiveFiles;
 using LibNexus.Files.IndexFiles;
 using SharpCompress.Compressors.LZMA;
 using Index = LibNexus.Files.IndexFiles.Index;

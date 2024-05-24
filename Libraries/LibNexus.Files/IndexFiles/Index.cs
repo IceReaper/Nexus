@@ -26,7 +26,6 @@ public class Index : IDisposable
 
 	public static Index Create(Stream stream)
 	{
-#pragma warning disable CA2000
 		var pack = Pack.Create(stream);
 		pack.Update(pack.RootPage, IndexHeader.Stride);
 
@@ -42,7 +41,6 @@ public class Index : IDisposable
 		stream.Position = 0;
 
 		return new Index(stream);
-#pragma warning restore CA2000
 	}
 
 	public void CreateDirectory(string path)

@@ -1,4 +1,4 @@
-using LibNexus.Files.Extensions;
+using LibNexus.Core.Extensions;
 using LibNexus.Files.PackFiles;
 using System.Collections.ObjectModel;
 
@@ -34,7 +34,6 @@ public class Archive : IDisposable
 
 	public static Archive Create(Stream stream)
 	{
-#pragma warning disable CA2000
 		var pack = Pack.Create(stream);
 		pack.Update(pack.RootPage, ArchiveHeader.Stride);
 
@@ -46,7 +45,6 @@ public class Archive : IDisposable
 		stream.Position = 0;
 
 		return new Archive(stream);
-#pragma warning restore CA2000
 	}
 
 	public void Store(byte[] data)

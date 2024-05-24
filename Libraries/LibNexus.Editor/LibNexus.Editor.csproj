@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<ProjectReference Include="..\LibNexus.Files\LibNexus.Files.csproj"/>
+	</ItemGroup>
+
+</Project>

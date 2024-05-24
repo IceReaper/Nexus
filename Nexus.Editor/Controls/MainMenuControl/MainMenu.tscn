@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://h580nkkc01hb"]
+
+[ext_resource type="Script" path="res://Controls/MainMenuControl/MainMenu.cs" id="1_2onkb"]
+[ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_df2gs"]
+[ext_resource type="Script" path="res://Controls/MainMenuControl/FileMenu.cs" id="2_hu7hr"]
+[ext_resource type="Script" path="res://Controls/MainMenuControl/ToolsMenu.cs" id="3_evicu"]
+[ext_resource type="Script" path="res://Controls/MainMenuControl/HelpMenu.cs" id="4_icurl"]
+
+[node name="MainMenu" type="PanelContainer"]
+offset_right = 125.0
+offset_bottom = 27.0
+script = ExtResource("1_2onkb")
+
+[node name="ThemeBase" parent="." instance=ExtResource("1_df2gs")]
+layout_mode = 2
+
+[node name="MenuBar" type="MenuBar" parent="ThemeBase"]
+layout_mode = 2
+
+[node name="File" type="PopupMenu" parent="ThemeBase/MenuBar" node_paths=PackedStringArray("MainMenu")]
+script = ExtResource("2_hu7hr")
+MainMenu = NodePath("../../..")
+
+[node name="Tools" type="PopupMenu" parent="ThemeBase/MenuBar" node_paths=PackedStringArray("MainMenu")]
+script = ExtResource("3_evicu")
+MainMenu = NodePath("../../..")
+
+[node name="Help" type="PopupMenu" parent="ThemeBase/MenuBar" node_paths=PackedStringArray("MainMenu")]
+script = ExtResource("4_icurl")
+MainMenu = NodePath("../../..")

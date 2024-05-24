@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq8cqbdh6eph3"]
+
+[ext_resource type="Script" path="res://Controls/PlayStopControl/PlayStop.cs" id="1_d2twc"]
+[ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_fobu1"]
+[ext_resource type="Texture2D" uid="uid://q744lyy4hk3r" path="res://Assets/Icons/PlayArrow.png" id="1_hhph7"]
+[ext_resource type="Texture2D" uid="uid://3aobgsd2tama" path="res://Assets/Icons/Stop.png" id="2_jeh1x"]
+
+[node name="PlayStop" type="PanelContainer" node_paths=PackedStringArray("PlayButton", "StopButton")]
+script = ExtResource("1_d2twc")
+PlayButton = NodePath("ThemeBase/HBoxContainer/Play")
+StopButton = NodePath("ThemeBase/HBoxContainer/Stop")
+
+[node name="ThemeBase" parent="." instance=ExtResource("1_fobu1")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ThemeBase"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="ThemeBase/HBoxContainer"]
+custom_minimum_size = Vector2(35, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"Success"
+icon = ExtResource("1_hhph7")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Stop" type="Button" parent="ThemeBase/HBoxContainer"]
+custom_minimum_size = Vector2(35, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"Error"
+icon = ExtResource("2_jeh1x")
+icon_alignment = 1
+expand_icon = true

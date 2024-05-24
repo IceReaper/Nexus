@@ -3,7 +3,6 @@ using System.Diagnostics;
 
 namespace LibNexus.Files.Tests;
 
-// ReSharper disable once MemberCanBeFileLocal
 public class FileSystemTests
 {
 	private static readonly string[] ExpectedFiles = ["Test1.txt"];

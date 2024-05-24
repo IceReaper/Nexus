@@ -1,5 +1,4 @@
-﻿using LibNexus.Files.Extensions;
-using System.Data;
+﻿using LibNexus.Core.Extensions;
 
 namespace LibNexus.Files.IndexFiles;
 
@@ -56,10 +55,10 @@ public class IndexHeader
 		var version = _stream.ReadUInt32();
 
 		if (aidx != Magic)
-			throw new DataException("IndexHeader: Invalid magic");
+			throw new Exception("IndexHeader: Invalid magic");
 
 		if (version != Version)
-			throw new DataException("IndexHeader: Invalid version");
+			throw new Exception("IndexHeader: Invalid version");
 
 		_build = _stream.ReadUInt32();
 		_page = _stream.ReadUInt32();

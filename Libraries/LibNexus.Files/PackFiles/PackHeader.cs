@@ -1,5 +1,4 @@
-using LibNexus.Files.Extensions;
-using System.Data;
+using LibNexus.Core.Extensions;
 
 namespace LibNexus.Files.PackFiles;
 
@@ -97,10 +96,10 @@ public class PackHeader
 		var unk3 = stream.ReadUInt64(); // TODO
 
 		if (_length != (ulong)_stream.Length)
-			throw new DataException("PackHeader: Invalid size");
+			throw new Exception("PackHeader: Invalid size");
 
 		if (unk3 != 0)
-			throw new DataException("PackHeader: Invalid unk3");
+			throw new Exception("PackHeader: Invalid unk3");
 	}
 
 	public static PackHeader Create(Stream stream)

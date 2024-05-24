@@ -1,13 +1,15 @@
 using Godot;
 
-namespace Nexus.Editor.Components.ThemeBase;
+namespace Nexus.Editor.Controls.ThemeBaseControl;
 
 public partial class AppTheme
 {
-	private const int Padding = 5;
+	private const int Padding = 4;
 
 	private const int FontSize = 14;
 	private const int FontSizeSmall = 12;
+
+	public static readonly Sides WindowDecorations = new(FontSize + Padding + 3, 1, 1, 1);
 
 	private static readonly Font Font;
 
@@ -16,14 +18,13 @@ public partial class AppTheme
 	private static readonly Color BackgroundLight = new(0x373740ff);
 	private static readonly Color Border = new(0x4c4b53ff);
 
-	private static readonly Color Primary = new(0x5b4be3ff);
 	private static readonly Color Info = new(0x3299ffff);
 	private static readonly Color Success = new(0x0bba83ff);
 	private static readonly Color Warning = new(0xffaa00ff);
 	private static readonly Color Error = new(0xf64e62ff);
 
 	private static readonly Color TextPrimary = new(0xb2b2b2ff);
-	private static readonly Color TextActive = new(0xffffffff);
+	public static readonly Color TextActive = new(0xffffffff);
 	private static readonly Color TextDisabled = new(0x666666ff);
 
 	static AppTheme()
