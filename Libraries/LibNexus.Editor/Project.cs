@@ -1,4 +1,5 @@
 using LibNexus.Editor.Executables;
+using LibNexus.Files;
 
 namespace LibNexus.Editor;
 
@@ -13,12 +14,20 @@ public class Project
 
 	public string RootPath { get; }
 
+	public Dictionary<string, FileSystem> FileSystems { get; } = [];
+
 	public Project(string projectFilePath)
 	{
 		RootPath = Path.GetDirectoryName(projectFilePath) ?? string.Empty;
+
+		FileSystems.Add("LauncherData", new FileSystem(Path.Combine(RootPath, DistDirectory, "Bootstrap", "LauncherData")));
+		FileSystems.Add("ClientData", new FileSystem(Path.Combine(RootPath, DistDirectory, "Patch", "ClientData")));
+		FileSystems.Add("ClientDataEN", new FileSystem(Path.Combine(RootPath, DistDirectory, "Patch", "ClientDataEN")));
+		FileSystems.Add("ClientDataDE", new FileSystem(Path.Combine(RootPath, DistDirectory, "Patch", "ClientDataDE")));
+		FileSystems.Add("ClientDataFR", new FileSystem(Path.Combine(RootPath, DistDirectory, "Patch", "ClientDataFR")));
 	}
 
-	public static Project Create(string rootPath)
+	public static string Create(string rootPath)
 	{
 		if (!Directory.Exists(rootPath))
 			Directory.CreateDirectory(rootPath);
@@ -29,7 +38,7 @@ public class Project
 
 		File.WriteAllBytes(Path.Combine(rootPath, ".gitignore"), "/dist/"u8.ToArray());
 
-		return new Project(projectFilePath);
+		return projectFilePath;
 	}
 
 	public static bool ValidateInstallation(string rootPath)

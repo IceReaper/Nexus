@@ -66,6 +66,7 @@ size_flags_vertical = 3
 [node name="HSeparator" type="HSeparator" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer2/VSplitContainer/PanelContainer2"]
 layout_mode = 2
 
-[node name="AssetViewer" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer2/VSplitContainer/PanelContainer2" instance=ExtResource("2_gp81g")]
+[node name="AssetViewer" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer2/VSplitContainer/PanelContainer2" node_paths=PackedStringArray("Main") instance=ExtResource("2_gp81g")]
 layout_mode = 2
 size_flags_vertical = 3
+Main = NodePath("../../../../../../..")

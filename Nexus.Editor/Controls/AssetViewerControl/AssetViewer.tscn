@@ -1,18 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1lkcr1gfo0gf"]
+[gd_scene load_steps=5 format=3 uid="uid://b1lkcr1gfo0gf"]
 
 [ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_ailg0"]
+[ext_resource type="Script" path="res://Controls/AssetViewerControl/AssetViewer.cs" id="1_xbvxt"]
 [ext_resource type="Texture2D" uid="uid://bgu7c1vt0smmc" path="res://Assets/Icons/AccountTree.png" id="2_8b7v0"]
-[ext_resource type="Texture2D" uid="uid://fdq6lieo0wda" path="res://Assets/Icons/ArrowDown.png" id="3_isnyb"]
-[ext_resource type="Texture2D" uid="uid://bypf52hxei3l4" path="res://Assets/Icons/ArrowRight.png" id="3_qigjm"]
-[ext_resource type="Texture2D" uid="uid://botf2c3flo2w6" path="res://Assets/Icons/Default.png" id="5_0in07"]
+[ext_resource type="PackedScene" uid="uid://b7mox10n25h8i" path="res://Controls/AssetViewerControl/TreeEntry.tscn" id="4_71vls"]
 
-[node name="AssetViewer" type="PanelContainer"]
+[node name="AssetViewer" type="PanelContainer" node_paths=PackedStringArray("TreeRoot")]
 custom_minimum_size = Vector2(0, 200)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xbvxt")
+TreeRoot = NodePath("ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/Root")
+TreeEntry = ExtResource("4_71vls")
 
 [node name="ThemeBase" parent="." instance=ExtResource("1_ailg0")]
 layout_mode = 2
@@ -69,66 +71,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"All"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer"]
+[node name="Root" type="VBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"Right"
-
-[node name="TextureRect" type="TextureRect" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("3_isnyb")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Expanded directory"
-
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"Left"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"Right"
-
-[node name="TextureRect" type="TextureRect" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("3_qigjm")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Collapsed directory"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_type_variation = &"Right"
-
-[node name="TextureRect" type="TextureRect" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("5_0in07")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "No children"
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer"]
 custom_minimum_size = Vector2(200, 0)
