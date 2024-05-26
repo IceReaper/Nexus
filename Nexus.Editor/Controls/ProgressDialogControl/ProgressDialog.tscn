@@ -5,13 +5,14 @@
 
 [sub_resource type="ImageTexture" id="ImageTexture_eje77"]
 
-[node name="ProgressDialog" type="Control" node_paths=PackedStringArray("Window", "ProgressBar", "Progress")]
+[node name="ProgressDialog" type="Control" node_paths=PackedStringArray("Window", "Title", "ProgressBar", "Progress")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_2f3cg")
 Window = NodePath("ThemeBase/Window")
-ProgressBar = NodePath("ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer/ProgressBar")
-Progress = NodePath("ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/Label")
+Title = NodePath("ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer/Label")
+ProgressBar = NodePath("ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2/ProgressBar")
+Progress = NodePath("ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer3/Label")
 
 [node name="ThemeBase" parent="." instance=ExtResource("1_3br1a")]
 layout_mode = 0
@@ -24,7 +25,7 @@ grow_vertical = 1
 [node name="Window" type="Window" parent="ThemeBase"]
 title = "Progress"
 initial_position = 2
-size = Vector2i(208, 58)
+size = Vector2i(208, 83)
 wrap_controls = true
 transient = true
 unresizable = true
@@ -48,17 +49,25 @@ layout_mode = 2
 layout_mode = 2
 theme_type_variation = &"All"
 
-[node name="ProgressBar" type="ProgressBar" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-max_value = 1.0
-value = 0.5
+text = "Loading..."
 
 [node name="MarginContainer2" type="MarginContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"All"
 
-[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2"]
+[node name="ProgressBar" type="ProgressBar" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+value = 0.5
+
+[node name="MarginContainer3" type="MarginContainer" parent="ThemeBase/Window/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"All"
+
+[node name="Label" type="Label" parent="ThemeBase/Window/PanelContainer/VBoxContainer/MarginContainer3"]
 layout_mode = 2
 text = "0 / 0"
 horizontal_alignment = 2

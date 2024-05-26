@@ -1,4 +1,5 @@
-﻿using LibNexus.Core.Extensions;
+﻿using LibNexus.Core;
+using LibNexus.Core.Extensions;
 using System.Collections.ObjectModel;
 using System.Data;
 
@@ -18,8 +19,9 @@ public class Pack : IDisposable
 	private PackPhysicalPage VirtualPagesPhysicalPage => _physicalPages.First(physicalPage => physicalPage.Offset == _header.VirtualPagesOffset);
 
 	public ulong RootPage => _header.RootPage;
+	public ulong VirtualPages => (ulong)_virtualPages.LongCount(static virtualPage => virtualPage.PhysicalPage != null);
 
-	public Pack(Stream stream)
+	public Pack(Stream stream, ProgressTask progressTask)
 	{
 		_stream = stream;
 
@@ -36,6 +38,10 @@ public class Pack : IDisposable
 			throw new Exception("Pack: Invalid version");
 
 		_header = new PackHeader(_stream);
+
+		progressTask.Total = _header.VirtualPages;
+		progressTask.Completed = 0;
+		progressTask.UpdateDefault();
 
 		while (_stream.Position < (long)_header.Length)
 		{
@@ -61,10 +67,13 @@ public class Pack : IDisposable
 			}
 
 			_virtualPages.Add(virtualPage);
+
+			progressTask.Completed++;
+			progressTask.UpdateDefault();
 		}
 	}
 
-	public static Pack Create(Stream stream)
+	public static Pack Create(Stream stream, ProgressTask progressTask)
 	{
 		if (stream.Position != 0)
 			throw new ConstraintException("Pack: Invalid stream position");
@@ -97,7 +106,7 @@ public class Pack : IDisposable
 
 		stream.Position = 0;
 
-		return new Pack(stream);
+		return new Pack(stream, progressTask);
 	}
 
 	public ulong Add(ulong length)

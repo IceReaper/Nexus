@@ -1,3 +1,4 @@
+using LibNexus.Core;
 using LibNexus.Files.PackFiles;
 
 namespace LibNexus.Files.IndexFiles;
@@ -11,22 +12,24 @@ public class Index : IDisposable
 	private readonly Dictionary<uint, IndexDirectory> _directories = [];
 	private readonly Dictionary<Hash, uint> _fileReferences = [];
 
-	public Index(Stream stream)
+	public Index(Stream stream, ProgressTask progressTask)
 	{
 		_stream = stream;
-		_pack = new Pack(_stream);
+		_pack = new Pack(_stream, progressTask);
 
 		_stream.Position = (long)_pack.Locate(_pack.RootPage);
 		_header = new IndexHeader(_stream);
 
-		ReadDirectory(_header.Page);
+		progressTask.Total = _pack.VirtualPages;
+		progressTask.Completed = 1;
+		progressTask.UpdateDefault();
 
-		_stream.Position = (long)_pack.Locate(_header.Page);
+		ReadDirectory(_header.Page, progressTask);
 	}
 
-	public static Index Create(Stream stream)
+	public static Index Create(Stream stream, ProgressTask progressTask)
 	{
-		var pack = Pack.Create(stream);
+		var pack = Pack.Create(stream, progressTask);
 		pack.Update(pack.RootPage, IndexHeader.Stride);
 
 		stream.Position = (long)pack.Locate(pack.RootPage);
@@ -40,7 +43,7 @@ public class Index : IDisposable
 
 		stream.Position = 0;
 
-		return new Index(stream);
+		return new Index(stream, progressTask);
 	}
 
 	public void CreateDirectory(string path)
@@ -211,7 +214,7 @@ public class Index : IDisposable
 		return true;
 	}
 
-	private void ReadDirectory(uint page)
+	private void ReadDirectory(uint page, ProgressTask progressTask)
 	{
 		_stream.Position = (long)_pack.Locate(page);
 		var directory = new IndexDirectory(_stream);
@@ -223,8 +226,11 @@ public class Index : IDisposable
 			_fileReferences[file.Hash]++;
 		}
 
+		progressTask.Completed++;
+		progressTask.UpdateDefault();
+
 		foreach (var childPage in directory.Directories.Values)
-			ReadDirectory(childPage);
+			ReadDirectory(childPage, progressTask);
 	}
 
 	private void WriteDirectory(uint page)

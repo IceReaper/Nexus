@@ -1,4 +1,5 @@
-﻿using LibNexus.Core.Extensions;
+﻿using LibNexus.Core;
+using LibNexus.Core.Extensions;
 using LibNexus.Files.ArchiveFiles;
 using LibNexus.Files.IndexFiles;
 using SharpCompress.Compressors.LZMA;
@@ -12,18 +13,19 @@ public class FileSystem : IDisposable
 	private readonly Archive? _archive;
 	private readonly string _directory = string.Empty;
 
-	public FileSystem(string path, string? directory = null)
+	public FileSystem(ProgressTask progressTask, string path, string? directory = null)
 	{
 		var indexPath = $"{path}.index";
-
 		var baseDirectory = Path.GetDirectoryName(path);
+
+		progressTask.Title = $"Loading {Path.GetFileName(path)}";
 
 		if (!string.IsNullOrEmpty(baseDirectory) && !Directory.Exists(baseDirectory))
 			Directory.CreateDirectory(baseDirectory);
 
 		_index = !File.Exists(indexPath)
-			? Index.Create(File.Open(indexPath, FileMode.Create, FileAccess.ReadWrite, FileShare.Read))
-			: new Index(File.Open(indexPath, FileMode.Open, FileAccess.ReadWrite, FileShare.Read));
+			? Index.Create(File.Open(indexPath, FileMode.Create, FileAccess.ReadWrite, FileShare.Read), progressTask)
+			: new Index(File.Open(indexPath, FileMode.Open, FileAccess.ReadWrite, FileShare.Read), progressTask);
 
 		if (directory != null)
 			_directory = directory;
@@ -32,8 +34,8 @@ public class FileSystem : IDisposable
 			var archivePath = $"{path}.archive";
 
 			_archive = !File.Exists(archivePath)
-				? Archive.Create(File.Open(archivePath, FileMode.Create, FileAccess.ReadWrite, FileShare.Read))
-				: new Archive(File.Open(archivePath, FileMode.Open, FileAccess.ReadWrite, FileShare.Read));
+				? Archive.Create(File.Open(archivePath, FileMode.Create, FileAccess.ReadWrite, FileShare.Read), progressTask)
+				: new Archive(File.Open(archivePath, FileMode.Open, FileAccess.ReadWrite, FileShare.Read), progressTask);
 		}
 	}
 
@@ -140,10 +142,7 @@ public class FileSystem : IDisposable
 
 		var file = new IndexFile
 		{
-			Flags = IndexFileFlags.Complete,
-			CompressedSize = (ulong)data.Length,
-			DecompressedSize = (ulong)data.Length,
-			DateTime = dateTime
+			Flags = IndexFileFlags.Complete, CompressedSize = (ulong)data.Length, DecompressedSize = (ulong)data.Length, DateTime = dateTime
 		};
 
 		if (_archive == null)

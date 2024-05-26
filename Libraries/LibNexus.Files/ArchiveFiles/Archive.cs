@@ -1,3 +1,4 @@
+using LibNexus.Core;
 using LibNexus.Core.Extensions;
 using LibNexus.Files.PackFiles;
 using System.Collections.ObjectModel;
@@ -14,27 +15,34 @@ public class Archive : IDisposable
 
 	private ulong FilesOffset => _pack.Locate(_header.FilesPage);
 
-	public Archive(Stream stream)
+	public Archive(Stream stream, ProgressTask progressTask)
 	{
 		_stream = stream;
-		_pack = new Pack(_stream);
+		_pack = new Pack(_stream, progressTask);
 
 		_stream.Position = (long)_pack.Locate(_pack.RootPage);
 		_header = new ArchiveHeader(_stream);
 
 		_stream.Position = (long)FilesOffset;
 
+		progressTask.Total = _header.Files;
+		progressTask.Completed = 0;
+		progressTask.UpdateDefault();
+
 		for (var i = 0U; i < _header.Files; i++)
 		{
 			var entry = new ArchiveEntry(_stream, () => FilesOffset, i);
 
 			_entries.Add(entry.Page == 0 ? null : entry);
+
+			progressTask.Completed++;
+			progressTask.UpdateDefault();
 		}
 	}
 
-	public static Archive Create(Stream stream)
+	public static Archive Create(Stream stream, ProgressTask progressTask)
 	{
-		var pack = Pack.Create(stream);
+		var pack = Pack.Create(stream, progressTask);
 		pack.Update(pack.RootPage, ArchiveHeader.Stride);
 
 		stream.Position = (long)pack.Locate(pack.RootPage);
@@ -44,7 +52,7 @@ public class Archive : IDisposable
 
 		stream.Position = 0;
 
-		return new Archive(stream);
+		return new Archive(stream, progressTask);
 	}
 
 	public void Store(byte[] data)

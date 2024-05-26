@@ -26,7 +26,9 @@ public partial class FileMenu : Menu
 			FileMode = FileDialog.FileModeEnum.OpenDir,
 			Title = "New project",
 			Size = new Vector2I(640, 360),
-			Unresizable = true
+			Unresizable = true,
+			Visible = true,
+			InitialPosition = WindowInitialPosition.CenterMainWindowScreen
 		};
 
 		dialog.DirSelected += path =>
@@ -40,9 +42,6 @@ public partial class FileMenu : Menu
 		dialog.Canceled += () => dialog.Free();
 
 		MainMenu.Main.AddChild(dialog);
-
-		dialog.Show();
-		dialog.MoveToCenter();
 	}
 
 	private void OpenProject()
@@ -54,7 +53,9 @@ public partial class FileMenu : Menu
 			Filters = ["Nexus project files (*.nexus)", "*.nexus"],
 			Title = "Open project",
 			Size = new Vector2I(640, 360),
-			Unresizable = true
+			Unresizable = true,
+			Visible = true,
+			InitialPosition = WindowInitialPosition.CenterMainWindowScreen
 		};
 
 		dialog.FileSelected += path =>
@@ -68,9 +69,6 @@ public partial class FileMenu : Menu
 		dialog.Canceled += () => dialog.Free();
 
 		MainMenu.Main.AddChild(dialog);
-
-		dialog.Show();
-		dialog.MoveToCenter();
 	}
 
 	private void CloseProject()

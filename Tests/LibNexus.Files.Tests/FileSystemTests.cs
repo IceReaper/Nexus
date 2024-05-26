@@ -1,5 +1,5 @@
+using LibNexus.Core;
 using NUnit.Framework;
-using System.Diagnostics;
 
 namespace LibNexus.Files.Tests;
 
@@ -7,56 +7,6 @@ public class FileSystemTests
 {
 	private static readonly string[] ExpectedFiles = ["Test1.txt"];
 	private static readonly string[] ExpectedDirectories = ["Test1", "Test3"];
-
-	private static readonly string[] Endings = [".tex", ".m3", ".wem", ".area", ".lua", ".xml"];
-
-	[Test]
-	public void TestReadWildStar()
-	{
-		const string baseDir = "C:/Users/Andre/RiderProjects/WildStar/Assets/";
-
-		Validate($"{baseDir}Bootstrap/Bootstrap", $"{baseDir}Bootstrap"); // References below. Is some kind of master file.
-		Validate($"{baseDir}Bootstrap/Launcher", $"{baseDir}Launcher");
-		Validate($"{baseDir}Bootstrap/LauncherData");
-
-		Validate($"{baseDir}Patch/Patch", $"{baseDir}Patch"); // References below. Is some kind of master file.
-		Validate($"{baseDir}Patch/Client", $"{baseDir}Client");
-		Validate($"{baseDir}Patch/Client64", $"{baseDir}Client64");
-		Validate($"{baseDir}Patch/ClientData");
-		Validate($"{baseDir}Patch/ClientDataDE");
-		Validate($"{baseDir}Patch/ClientDataEN");
-		Validate($"{baseDir}Patch/ClientDataFR");
-
-		Trace.WriteLine("########################");
-	}
-
-	private static void Validate(string path, string? directory = null)
-	{
-		using var fileSystem = new FileSystem(path, directory);
-		Trace.WriteLine(path);
-		Trace.WriteLine("########################");
-		Validate(fileSystem, string.Empty, true);
-	}
-
-	private static void Validate(FileSystem fileSystem, string path, bool recursive)
-	{
-		if (!string.IsNullOrEmpty(path))
-			path += "/";
-
-		if (recursive)
-		{
-			foreach (var directory in fileSystem.ListDirectories(path))
-				Validate(fileSystem, $"{path}{directory}", recursive);
-		}
-
-		foreach (var file in fileSystem.ListFiles(path))
-		{
-			var extension = Path.GetExtension(file);
-
-			if (!Endings.Contains(extension))
-				Trace.WriteLine($"{path}{file}");
-		}
-	}
 
 	[Test]
 	public void TestCreatePacked()
@@ -68,7 +18,7 @@ public class FileSystemTests
 			static () =>
 			{
 				FileSystem? fileSystem = null;
-				Assert.That(() => fileSystem = new FileSystem("packed"), Throws.Nothing);
+				Assert.That(() => fileSystem = new FileSystem(new ProgressTask(), "packed"), Throws.Nothing);
 
 				if (fileSystem == null)
 					return;
@@ -91,7 +41,7 @@ public class FileSystemTests
 			static () =>
 			{
 				FileSystem? fileSystem = null;
-				Assert.That(() => fileSystem = new FileSystem("unpacked", "unpacked"), Throws.Nothing);
+				Assert.That(() => fileSystem = new FileSystem(new ProgressTask(), "unpacked", "unpacked"), Throws.Nothing);
 
 				if (fileSystem == null)
 					return;

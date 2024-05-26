@@ -1,6 +1,4 @@
 using Godot;
-using LibNexus.Editor;
-using LibNexus.Editor.Executables;
 using Nexus.Editor.Controls.MainControl;
 using System.Diagnostics;
 
@@ -55,17 +53,7 @@ public partial class PlayStop : Control
 		if (Main.Project == null)
 			return;
 
-		var clientExecutablePath = Path.Combine(Main.Project.RootPath, Project.DistDirectory, Project.ClientPath);
-
-		var clientExecutable = new ClientExecutable(clientExecutablePath);
-		clientExecutable.EnableBypassLauncher();
-		////clientExecutable.EnableLoadUnpackedFiles();
-
-		_process = ExecutableRunner.Run(
-			clientExecutable.Bytes,
-			clientExecutablePath,
-			"/auth localhost /authNc localhost /lang de /patcher localhost /SettingsKey WildStar /RealmDataCenterId 9"
-		);
+		_process = Main.Project.Run();
 
 		PlayButton.Hide();
 		StopButton.Show();

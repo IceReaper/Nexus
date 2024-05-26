@@ -30,35 +30,14 @@ public class OpenProjectProcess
 			return;
 		}
 
-		Project? project = null;
+		var project = new Project(_projectFilePath);
 
 		var dialog = (ProgressDialog)GD.Load<PackedScene>("res://Controls/ProgressDialogControl/ProgressDialog.tscn").Instantiate();
-
 		dialog.Window.Title = "Opening project";
-
-		// TODO it would be nice if we could show a real progress bar here...
-		dialog.ProgressFunction = static () => 0;
-		dialog.ProgressText = static () => "Please wait...";
-
-		dialog.Complete = () => project != null;
-
-		dialog.OnComplete += () =>
-		{
-			dialog.Free();
-
-			_main.Project = project;
-		};
+		dialog.ProgressTask = project.Load();
+		dialog.OnComplete += () => _main.Project = project;
 
 		_main.AddChild(dialog);
-
-		dialog.ShowAndMoveToCenter();
-
-		Task.Run(
-			() =>
-			{
-				project = new Project(_projectFilePath);
-			}
-		);
 	}
 
 	private void ShowClientInvalidMessage()
@@ -75,9 +54,6 @@ public class OpenProjectProcess
 		dialog.Canceled += () => dialog.Free();
 
 		_main.AddChild(dialog);
-
-		dialog.Show();
-		dialog.MoveToCenter();
 	}
 
 	private void LocateClient()
@@ -89,7 +65,9 @@ public class OpenProjectProcess
 			Filters = ["WildStar launcher", "WildStar.exe"],
 			Title = "Locate WildStar launcher",
 			Size = new Vector2I(640, 360),
-			Unresizable = true
+			Unresizable = true,
+			Visible = true,
+			InitialPosition = Window.WindowInitialPosition.CenterMainWindowScreen
 		};
 
 		dialog.FileSelected += path =>
@@ -107,43 +85,18 @@ public class OpenProjectProcess
 		dialog.Canceled += () => dialog.Free();
 
 		_main.AddChild(dialog);
-
-		dialog.Show();
-		dialog.MoveToCenter();
 	}
 
 	private void CopyClient(string sourceDirectory)
 	{
-		var copier = new DirectoryCopier();
-		copier.Add(sourceDirectory, _targetLocation);
+		var directoryCopier = new DirectoryCopier();
+		directoryCopier.Add(sourceDirectory, _targetLocation);
 
 		var dialog = (ProgressDialog)GD.Load<PackedScene>("res://Controls/ProgressDialogControl/ProgressDialog.tscn").Instantiate();
-
 		dialog.Window.Title = "Copying client";
-
-		dialog.ProgressFunction = () => copier.CopiedBytes / (float)copier.TotalBytes;
-
-		dialog.ProgressText = () => string.Join(
-			" / ",
-			[
-				$"{Math.Ceiling(copier.CopiedBytes / (double)DirectoryCopier.MegaByte)} MB",
-				$"{Math.Ceiling(copier.TotalBytes / (double)DirectoryCopier.MegaByte)} MB"
-			]
-		);
-
-		dialog.Complete = () => copier.Complete;
-
-		dialog.OnComplete += () =>
-		{
-			dialog.Free();
-
-			TryOpen();
-		};
+		dialog.ProgressTask = directoryCopier.Run();
+		dialog.OnComplete += TryOpen;
 
 		_main.AddChild(dialog);
-
-		dialog.ShowAndMoveToCenter();
-
-		copier.Run();
 	}
 }

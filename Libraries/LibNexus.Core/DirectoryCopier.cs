@@ -4,12 +4,9 @@ namespace LibNexus.Core;
 
 public class DirectoryCopier
 {
-	public const int MegaByte = 1024 * 1024;
+	private const int MegaByte = 1024 * 1024;
 
-	public ulong TotalBytes { get; private set; }
-	public ulong CopiedBytes { get; private set; }
-	public bool Complete { get; private set; }
-
+	private readonly ProgressTask _progressTask = new() { Title = "Copying files" };
 	private readonly Dictionary<string, string> _tasks = [];
 
 	public void Add(string source, string target)
@@ -17,6 +14,8 @@ public class DirectoryCopier
 		Measure(source);
 
 		_tasks.Add(source, target);
+
+		UpdateStatus();
 	}
 
 	private void Measure(string path)
@@ -25,20 +24,21 @@ public class DirectoryCopier
 			Measure(directory);
 
 		foreach (var file in Directory.GetFiles(path))
-			TotalBytes += (ulong)new FileInfo(file).Length;
+			_progressTask.Total += (ulong)new FileInfo(file).Length;
 	}
 
-	public void Run()
+	public ProgressTask Run()
 	{
-		Task.Run(RunInternal);
+		if (!_progressTask.Complete)
+			_progressTask.Run(RunInternal);
+
+		return _progressTask;
 	}
 
-	private void RunInternal()
+	private void RunInternal(ProgressTask progressTask)
 	{
 		foreach (var (source, target) in _tasks)
 			Copy(source, target);
-
-		Complete = true;
 	}
 
 	private void Copy(string source, string target)
@@ -64,11 +64,20 @@ public class DirectoryCopier
 
 				output.WriteBytes(input.ReadBytes(amount));
 
-				CopiedBytes += amount;
+				_progressTask.Completed += amount;
+				UpdateStatus();
 			}
 
 			File.SetCreationTimeUtc(targetFile, File.GetCreationTimeUtc(sourceFile));
 			File.SetLastWriteTimeUtc(targetFile, File.GetLastWriteTimeUtc(sourceFile));
 		}
+	}
+
+	private void UpdateStatus()
+	{
+		_progressTask.Status = string.Join(
+			" / ",
+			[$"{Math.Ceiling(_progressTask.Completed / (double)MegaByte)} MB", $"{Math.Ceiling(_progressTask.Total / (double)MegaByte)} MB"]
+		);
 	}
 }

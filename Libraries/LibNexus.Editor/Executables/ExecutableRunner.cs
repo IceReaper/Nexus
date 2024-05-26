@@ -4,6 +4,7 @@ namespace LibNexus.Editor.Executables;
 
 public static class ExecutableRunner
 {
+	// TODO refactor to start from memory
 	public static Process? Run(byte[] exeBuffer, string targetPath, string arguments = "")
 	{
 		var tempFile = targetPath[..^4] + ".tmp.exe";
