@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqdiej33v1lld"]
+
+[ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_cnidv"]
+[ext_resource type="Script" path="res://Controls/AssetViewerControl/FileEntry.cs" id="1_wgmek"]
+[ext_resource type="Texture2D" uid="uid://coau1e1bjh0hw" path="res://Assets/Icons/Draft.png" id="2_g2wve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v3l8q"]
+
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("Label")]
+offset_right = 96.0
+offset_bottom = 123.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_v3l8q")
+script = ExtResource("1_wgmek")
+Label = NodePath("ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Label")
+
+[node name="ThemeBase" parent="." instance=ExtResource("1_cnidv")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"All"
+
+[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"Border"
+
+[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_type_variation = &"Surface"
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer"]
+layout_mode = 2
+theme_type_variation = &"All"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_g2wve")
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Top"
+
+[node name="Label" type="Label" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 1
+autowrap_mode = 3

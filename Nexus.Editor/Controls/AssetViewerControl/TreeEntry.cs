@@ -5,7 +5,7 @@ namespace Nexus.Editor.Controls.AssetViewerControl;
 public partial class TreeEntry : Control
 {
 	[Export]
-	public required Label Label { get; set; }
+	public required Button Button { get; set; }
 
 	[Export]
 	public required TextureRect IconCollapsed { get; set; }
@@ -22,11 +22,21 @@ public partial class TreeEntry : Control
 	[Export]
 	public required Control Children { get; set; }
 
+	public required AssetViewer AssetViewer { get; set; }
+	public required string FileSystem { get; set; }
+	public required string Path { get; set; }
+
 	public override void _Ready()
 	{
-		Label.GuiInput += ExpandOrCollapse;
+		Button.Pressed += Select;
+		Button.GuiInput += ExpandOrCollapse;
 		IconCollapsed.GuiInput += Expand;
 		IconExpanded.GuiInput += Collapse;
+	}
+
+	private void Select()
+	{
+		AssetViewer.SelectedDirectory = this;
 	}
 
 	// TODO this function does not trigger?!

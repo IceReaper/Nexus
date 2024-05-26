@@ -119,19 +119,26 @@ public partial class AppTheme : Theme
 		SetStylebox("disabled", nameof(Button), GetEmpty(new Sides(Padding, Padding * 2)));
 		SetStylebox("focus", nameof(Button), GetBackground(BackgroundLight, new Sides(Padding, Padding * 2)));
 
-		SetColor("font_color", "Info", TextPrimary);
-		SetColor("font_pressed_color", "Info", TextActive);
-		SetColor("font_hover_color", "Info", TextActive);
-		SetColor("font_focus_color", "Info", TextActive);
-		SetColor("font_hover_pressed_color", "Info", TextActive);
-		SetColor("font_disabled_color", "Info", TextDisabled);
+		SetColor("font_color", nameof(Button), TextPrimary);
+		SetColor("font_pressed_color", nameof(Button), TextActive);
+		SetColor("font_hover_color", nameof(Button), TextActive);
+		SetColor("font_focus_color", nameof(Button), TextActive);
+		SetColor("font_hover_pressed_color", nameof(Button), TextActive);
+		SetColor("font_disabled_color", nameof(Button), TextDisabled);
 
-		SetColor("icon_normal_color", "Info", TextPrimary);
-		SetColor("icon_pressed_color", "Info", TextActive);
-		SetColor("icon_hover_color", "Info", TextActive);
-		SetColor("icon_focus_color", "Info", TextActive);
-		SetColor("icon_hover_pressed_color", "Info", TextActive);
-		SetColor("icon_disabled_color", "Info", TextDisabled);
+		SetColor("icon_normal_color", nameof(Button), TextPrimary);
+		SetColor("icon_pressed_color", nameof(Button), TextActive);
+		SetColor("icon_hover_color", nameof(Button), TextActive);
+		SetColor("icon_focus_color", nameof(Button), TextActive);
+		SetColor("icon_hover_pressed_color", nameof(Button), TextActive);
+		SetColor("icon_disabled_color", nameof(Button), TextDisabled);
+
+		SetTypeVariation("Text", nameof(Button));
+		SetStylebox("normal", "Text", GetEmpty());
+		SetStylebox("hover", "Text", GetBackground(BackgroundLight));
+		SetStylebox("pressed", "Text", GetBackground(BackgroundLight));
+		SetStylebox("disabled", "Text", GetEmpty());
+		SetStylebox("focus", "Text", GetBackground(BackgroundLight));
 
 		SetTypeVariation("Info", nameof(Button));
 		SetColor("font_color", "Info", Info);

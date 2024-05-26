@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7mox10n25h8i"]
+[gd_scene load_steps=7 format=3 uid="uid://b7mox10n25h8i"]
 
 [ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_4mbbv"]
 [ext_resource type="Texture2D" uid="uid://fdq6lieo0wda" path="res://Assets/Icons/ArrowDown.png" id="1_q370u"]
@@ -6,9 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bypf52hxei3l4" path="res://Assets/Icons/ArrowRight.png" id="2_7k4xe"]
 [ext_resource type="Texture2D" uid="uid://botf2c3flo2w6" path="res://Assets/Icons/Default.png" id="3_1b4ey"]
 
-[node name="TreeEntry" type="PanelContainer" node_paths=PackedStringArray("Label", "IconCollapsed", "IconExpanded", "IconNoChildren", "ChildrenRoot", "Children")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ot6ha"]
+
+[node name="TreeEntry" type="PanelContainer" node_paths=PackedStringArray("Button", "IconCollapsed", "IconExpanded", "IconNoChildren", "ChildrenRoot", "Children")]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ot6ha")
 script = ExtResource("1_tawce")
-Label = NodePath("ThemeBase/VBoxContainer/HBoxContainer/Label")
+Button = NodePath("ThemeBase/VBoxContainer/HBoxContainer/Button")
 IconCollapsed = NodePath("ThemeBase/VBoxContainer/HBoxContainer/MarginContainer/Collapsed")
 IconExpanded = NodePath("ThemeBase/VBoxContainer/HBoxContainer/MarginContainer/Expanded")
 IconNoChildren = NodePath("ThemeBase/VBoxContainer/HBoxContainer/MarginContainer/NoChildren")
@@ -45,8 +48,9 @@ layout_mode = 2
 texture = ExtResource("3_1b4ey")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="ThemeBase/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="ThemeBase/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"Text"
 text = "Expanded directory"
 
 [node name="ChildrenRoot" type="MarginContainer" parent="ThemeBase/VBoxContainer"]

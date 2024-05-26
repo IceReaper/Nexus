@@ -46,12 +46,12 @@ public class FileSystem : IDisposable
 
 	public string[] ListDirectories(string path)
 	{
-		return _index.ListDirectories(path);
+		return [.. _index.ListDirectories(path).Order()];
 	}
 
 	public string[] ListFiles(string path)
 	{
-		return _index.ListFiles(path);
+		return [.. _index.ListFiles(path).Order()];
 	}
 
 	public void Rename(string oldPath, string newPath)
