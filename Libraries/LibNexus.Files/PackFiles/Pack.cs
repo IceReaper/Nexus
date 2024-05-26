@@ -9,6 +9,7 @@ public class Pack : IDisposable
 {
 	private const string Magic = "PACK";
 	private const uint Version = 1;
+	private const ulong MegaByte = 1024 * 1024;
 
 	private readonly Stream _stream;
 
@@ -39,8 +40,8 @@ public class Pack : IDisposable
 
 		_header = new PackHeader(_stream);
 
-		progressTask.Total = _header.VirtualPages;
-		progressTask.Completed = 0;
+		progressTask.Total = _header.Length / MegaByte;
+		progressTask.Completed = (ulong)_stream.Position / MegaByte;
 		progressTask.UpdateDefault();
 
 		while (_stream.Position < (long)_header.Length)
@@ -51,7 +52,14 @@ public class Pack : IDisposable
 				physicalPage.Last.Next = physicalPage;
 
 			_physicalPages.Add(physicalPage);
+
+			progressTask.Completed = (ulong)_stream.Position / MegaByte;
+			progressTask.UpdateDefault();
 		}
+
+		progressTask.Total = _header.VirtualPages;
+		progressTask.Completed = 0;
+		progressTask.UpdateDefault();
 
 		_stream.Position = (long)VirtualPagesPhysicalPage.Offset;
 

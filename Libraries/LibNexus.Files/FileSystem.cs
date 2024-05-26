@@ -24,8 +24,8 @@ public class FileSystem : IDisposable
 			Directory.CreateDirectory(baseDirectory);
 
 		_index = !File.Exists(indexPath)
-			? Index.Create(File.Open(indexPath, FileMode.Create, FileAccess.ReadWrite, FileShare.Read), progressTask)
-			: new Index(File.Open(indexPath, FileMode.Open, FileAccess.ReadWrite, FileShare.Read), progressTask);
+			? Index.Create(File.Open(indexPath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite), progressTask)
+			: new Index(File.Open(indexPath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite), progressTask);
 
 		if (directory != null)
 			_directory = directory;
@@ -34,8 +34,8 @@ public class FileSystem : IDisposable
 			var archivePath = $"{path}.archive";
 
 			_archive = !File.Exists(archivePath)
-				? Archive.Create(File.Open(archivePath, FileMode.Create, FileAccess.ReadWrite, FileShare.Read), progressTask)
-				: new Archive(File.Open(archivePath, FileMode.Open, FileAccess.ReadWrite, FileShare.Read), progressTask);
+				? Archive.Create(File.Open(archivePath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite), progressTask)
+				: new Archive(File.Open(archivePath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite), progressTask);
 		}
 	}
 

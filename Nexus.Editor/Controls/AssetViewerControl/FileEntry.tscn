@@ -1,17 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqdiej33v1lld"]
+[gd_scene load_steps=19 format=3 uid="uid://bqdiej33v1lld"]
 
 [ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_cnidv"]
 [ext_resource type="Script" path="res://Controls/AssetViewerControl/FileEntry.cs" id="1_wgmek"]
 [ext_resource type="Texture2D" uid="uid://coau1e1bjh0hw" path="res://Assets/Icons/Draft.png" id="2_g2wve"]
+[ext_resource type="Texture2D" uid="uid://dm1btmm62s5ub" path="res://Assets/Icons/Accessibility.png" id="3_u4tuq"]
+[ext_resource type="Texture2D" uid="uid://dyqhrjwokoxc1" path="res://Assets/Icons/DeployedCode.png" id="4_xrfuk"]
+[ext_resource type="Texture2D" uid="uid://c8xi8udhswtf1" path="res://Assets/Icons/Image.png" id="5_mdcq1"]
+[ext_resource type="Texture2D" uid="uid://bc1htaygadaf0" path="res://Assets/Icons/Castle.png" id="6_tguog"]
+[ext_resource type="Texture2D" uid="uid://dbb72jklwno7p" path="res://Assets/Icons/MusicCast.png" id="7_vdmi7"]
+[ext_resource type="Texture2D" uid="uid://bok2y788dir4g" path="res://Assets/Icons/WebAsset.png" id="8_8o6oe"]
+[ext_resource type="Texture2D" uid="uid://bus42xye2m08o" path="res://Assets/Icons/Database.png" id="9_ox6lw"]
+[ext_resource type="Texture2D" uid="uid://8rr44fi5idn2" path="res://Assets/Icons/Map.png" id="10_xwnwh"]
+[ext_resource type="Texture2D" uid="uid://dfqe5kulfvk28" path="res://Assets/Icons/Public.png" id="11_1hq1w"]
+[ext_resource type="Texture2D" uid="uid://d2xdcttpub2rx" path="res://Assets/Icons/Gradient.png" id="12_fp0aq"]
+[ext_resource type="Texture2D" uid="uid://b3wwogaynf310" path="res://Assets/Icons/LightMode.png" id="13_r05wg"]
+[ext_resource type="Texture2D" uid="uid://xlgmkaf2mook" path="res://Assets/Icons/Code.png" id="14_0gy4k"]
+[ext_resource type="Texture2D" uid="uid://b68u4qvdj3asd" path="res://Assets/Icons/Translate.png" id="15_3tegc"]
+[ext_resource type="Texture2D" uid="uid://dorl3s5x1ck1w" path="res://Assets/Icons/Movie.png" id="16_pcmvn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v3l8q"]
 
-[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("Label")]
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("Icon", "Label")]
 offset_right = 96.0
 offset_bottom = 123.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_v3l8q")
 script = ExtResource("1_wgmek")
+Icon = NodePath("ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/TextureRect")
 Label = NodePath("ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Label")
+IconDefault = ExtResource("2_g2wve")
+IconComplexModel = ExtResource("3_u4tuq")
+IconSimpleModel = ExtResource("4_xrfuk")
+IconTexture = ExtResource("5_mdcq1")
+IconDungeon = ExtResource("6_tguog")
+IconSound = ExtResource("7_vdmi7")
+IconUi = ExtResource("8_8o6oe")
+IconTable = ExtResource("9_ox6lw")
+IconArea = ExtResource("10_xwnwh")
+IconMap = ExtResource("11_1hq1w")
+IconShader = ExtResource("12_fp0aq")
+IconSky = ExtResource("13_r05wg")
+IconScript = ExtResource("14_0gy4k")
+IconTranslations = ExtResource("15_3tegc")
+IconVideo = ExtResource("16_pcmvn")
 
 [node name="ThemeBase" parent="." instance=ExtResource("1_cnidv")]
 layout_mode = 2

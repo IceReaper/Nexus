@@ -1,4 +1,5 @@
 using Godot;
+using LibNexus.Files;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
@@ -22,9 +23,13 @@ public partial class TreeEntry : Control
 	[Export]
 	public required Control Children { get; set; }
 
-	public required AssetViewer AssetViewer { get; set; }
-	public required string FileSystem { get; set; }
-	public required string Path { get; set; }
+	public AssetViewer? AssetViewer { get; set; }
+
+	public FileSystem? FileSystem { get; set; }
+	public string Path { get; set; } = string.Empty;
+	public Action<TreeEntry>? PopulateChildren { get; set; }
+
+	private bool _populated;
 
 	public override void _Ready()
 	{
@@ -32,17 +37,32 @@ public partial class TreeEntry : Control
 		Button.GuiInput += ExpandOrCollapse;
 		IconCollapsed.GuiInput += Expand;
 		IconExpanded.GuiInput += Collapse;
+
+		if (FileSystem?.ListDirectories(Path).Length == 0)
+			return;
+
+		IconCollapsed.Visible = true;
+		IconNoChildren.Visible = false;
 	}
 
 	private void Select()
 	{
-		AssetViewer.SelectedDirectory = this;
+		if (AssetViewer != null)
+			AssetViewer.SelectedDirectory = this;
 	}
 
-	// TODO this function does not trigger?!
 	private void ExpandOrCollapse(InputEvent @event)
 	{
 		if (@event is not InputEventMouseButton { ButtonIndex: MouseButton.Left, DoubleClick: true })
+			return;
+
+		if (!_populated)
+		{
+			PopulateChildren?.Invoke(this);
+			_populated = true;
+		}
+
+		if (IconNoChildren.Visible)
 			return;
 
 		var collapse = ChildrenRoot.Visible;
@@ -57,6 +77,12 @@ public partial class TreeEntry : Control
 		if (@event is not InputEventMouseButton { ButtonIndex: MouseButton.Left })
 			return;
 
+		if (!_populated)
+		{
+			PopulateChildren?.Invoke(this);
+			_populated = true;
+		}
+
 		IconCollapsed.Visible = false;
 		IconExpanded.Visible = true;
 		ChildrenRoot.Visible = true;
@@ -70,16 +96,5 @@ public partial class TreeEntry : Control
 		IconCollapsed.Visible = true;
 		IconExpanded.Visible = false;
 		ChildrenRoot.Visible = false;
-	}
-
-	public void Add(TreeEntry child)
-	{
-		Children.AddChild(child);
-
-		if (!IconNoChildren.Visible)
-			return;
-
-		IconNoChildren.Visible = false;
-		IconCollapsed.Visible = true;
 	}
 }

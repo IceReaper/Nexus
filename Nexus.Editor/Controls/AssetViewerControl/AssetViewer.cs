@@ -1,5 +1,4 @@
 using Godot;
-using LibNexus.Files;
 using Nexus.Editor.Controls.MainControl;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
@@ -32,22 +31,8 @@ public partial class AssetViewer : Control
 			if (_selectedDirectory != null)
 				_selectedDirectory.Button.ButtonPressed = false;
 
-			foreach (var child in FilesRoot.GetChildren())
-				child.Free();
-
 			_selectedDirectory = value;
-
-			if (_selectedDirectory == null || Main.Project == null)
-				return;
-
-			_selectedDirectory.Button.ButtonPressed = true;
-
-			foreach (var file in Main.Project.FileSystems[_selectedDirectory.FileSystem].ListFiles(_selectedDirectory.Path))
-			{
-				var fileEntry = (FileEntry)FileEntry.Instantiate();
-				fileEntry.Label.Text = file;
-				FilesRoot.AddChild(fileEntry);
-			}
+			UpdateFiles();
 		}
 	}
 
@@ -68,28 +53,49 @@ public partial class AssetViewer : Control
 		{
 			var treeEntry = (TreeEntry)TreeEntry.Instantiate();
 			treeEntry.AssetViewer = this;
-			treeEntry.FileSystem = name;
+			treeEntry.FileSystem = fileSystem;
 			treeEntry.Path = string.Empty;
 			treeEntry.Button.Text = name;
+			treeEntry.PopulateChildren = PopulateTreeEntry;
 			TreeRoot.AddChild(treeEntry);
-
-			PopulateTreeEntry(treeEntry, fileSystem, name, string.Empty);
 		}
 	}
 
-	private void PopulateTreeEntry(TreeEntry parent, FileSystem fileSystem, string name, string path)
+	private void PopulateTreeEntry(TreeEntry parent)
 	{
-		foreach (var directory in fileSystem.ListDirectories(path))
+		if (parent.FileSystem == null)
+			return;
+
+		foreach (var directory in parent.FileSystem.ListDirectories(parent.Path))
 		{
 			var treeEntry = (TreeEntry)TreeEntry.Instantiate();
 			treeEntry.AssetViewer = this;
-			treeEntry.AssetViewer = this;
-			treeEntry.FileSystem = name;
+			treeEntry.FileSystem = parent.FileSystem;
 			treeEntry.Path = $"{parent.Path}/{directory}";
 			treeEntry.Button.Text = directory;
-			parent.Add(treeEntry);
+			treeEntry.PopulateChildren = PopulateTreeEntry;
+			parent.Children.AddChild(treeEntry);
+		}
+	}
 
-			PopulateTreeEntry(treeEntry, fileSystem, name, $"{path}/{directory}");
+	private void UpdateFiles()
+	{
+		foreach (var child in FilesRoot.GetChildren())
+			child.Free();
+
+		if (_selectedDirectory == null || Main.Project == null)
+			return;
+
+		_selectedDirectory.Button.ButtonPressed = true;
+
+		if (_selectedDirectory.FileSystem == null)
+			return;
+
+		foreach (var file in _selectedDirectory.FileSystem.ListFiles(_selectedDirectory.Path))
+		{
+			var fileEntry = (FileEntry)FileEntry.Instantiate();
+			fileEntry.File = file;
+			FilesRoot.AddChild(fileEntry);
 		}
 	}
 

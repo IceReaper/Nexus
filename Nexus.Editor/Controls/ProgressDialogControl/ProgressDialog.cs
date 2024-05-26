@@ -17,17 +17,17 @@ public partial class ProgressDialog : Control
 	[Export]
 	public required Label Progress { get; set; }
 
-	public required ProgressTask ProgressTask { get; set; }
+	public ProgressTask? ProgressTask { get; set; }
 
 	public event Action? OnComplete;
 
 	public override void _Process(double delta)
 	{
-		Title.Text = ProgressTask.Title;
-		ProgressBar.Value = ProgressTask.Progress;
-		Progress.Text = ProgressTask.Status;
+		Title.Text = ProgressTask?.Title;
+		ProgressBar.Value = ProgressTask?.Progress ?? 0;
+		Progress.Text = ProgressTask?.Status;
 
-		if (!ProgressTask.Complete)
+		if (ProgressTask is { Complete: false })
 			return;
 
 		Free();
