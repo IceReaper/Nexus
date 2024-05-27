@@ -38,16 +38,11 @@ public partial class About : Control
 		Repository.MetaClicked += static link => OS.ShellOpen(link.AsString());
 
 		Window.ResetSize();
-		Window.CloseRequested += Close;
+		Window.CloseRequested += Free;
 	}
 
 	public override void _Process(double delta)
 	{
 		Window.Jail();
-	}
-
-	private void Close()
-	{
-		QueueFree();
 	}
 }

@@ -4,6 +4,9 @@ namespace Nexus.Editor.Controls.MainMenuControl;
 
 public partial class HelpMenu : Menu
 {
+	[Export]
+	public required PackedScene About { get; set; }
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -13,6 +16,6 @@ public partial class HelpMenu : Menu
 
 	private void OpenAbout()
 	{
-		MainMenu.Main.AddChild(GD.Load<PackedScene>("res://Controls/AboutControl/About.tscn").Instantiate());
+		MainMenu.Main.AddChild(About.Instantiate());
 	}
 }

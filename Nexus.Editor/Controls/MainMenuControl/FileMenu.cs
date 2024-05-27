@@ -5,6 +5,9 @@ namespace Nexus.Editor.Controls.MainMenuControl;
 
 public partial class FileMenu : Menu
 {
+	[Export]
+	public required PackedScene ProgressDialog { get; set; }
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -33,13 +36,9 @@ public partial class FileMenu : Menu
 
 		dialog.DirSelected += path =>
 		{
-			dialog.Free();
-
-			var openProjectProcess = new OpenProjectProcess(MainMenu.Main, Project.Create(path));
+			var openProjectProcess = new OpenProjectProcess(MainMenu.Main, Project.Create(path), ProgressDialog);
 			openProjectProcess.TryOpen();
 		};
-
-		dialog.Canceled += () => dialog.Free();
 
 		MainMenu.Main.AddChild(dialog);
 	}
@@ -60,13 +59,9 @@ public partial class FileMenu : Menu
 
 		dialog.FileSelected += path =>
 		{
-			dialog.Free();
-
-			var openProjectProcess = new OpenProjectProcess(MainMenu.Main, path);
+			var openProjectProcess = new OpenProjectProcess(MainMenu.Main, path, ProgressDialog);
 			openProjectProcess.TryOpen();
 		};
-
-		dialog.Canceled += () => dialog.Free();
 
 		MainMenu.Main.AddChild(dialog);
 	}

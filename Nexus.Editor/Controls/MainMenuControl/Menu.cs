@@ -46,6 +46,7 @@ public partial class Menu : PopupMenu
 	{
 		base.Dispose(disposing);
 
-		MainMenu.Main.OnProjectChanged -= ProjectChanged;
+		if (disposing)
+			MainMenu.Main.OnProjectChanged -= ProjectChanged;
 	}
 }

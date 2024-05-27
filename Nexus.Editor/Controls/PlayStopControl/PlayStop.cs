@@ -37,6 +37,12 @@ public partial class PlayStop : Control
 		_process.Dispose();
 		_process = null;
 
+		if (Main.Project != null)
+		{
+			foreach (var fileSystem in Main.Project.FileSystems.Values)
+				fileSystem.Open();
+		}
+
 		PlayButton.Show();
 		StopButton.Hide();
 	}
@@ -53,6 +59,9 @@ public partial class PlayStop : Control
 		if (Main.Project == null)
 			return;
 
+		foreach (var fileSystem in Main.Project.FileSystems.Values)
+			fileSystem.Close();
+
 		_process = Main.Project.Run();
 
 		PlayButton.Hide();
@@ -68,6 +77,7 @@ public partial class PlayStop : Control
 	{
 		base.Dispose(disposing);
 
-		_process?.Dispose();
+		if (disposing)
+			_process?.Dispose();
 	}
 }

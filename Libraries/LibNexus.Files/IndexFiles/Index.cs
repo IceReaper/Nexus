@@ -12,24 +12,18 @@ public class Index : IDisposable
 	private readonly Dictionary<uint, IndexDirectory> _directories = [];
 	private readonly Dictionary<Hash, uint> _fileReferences = [];
 
-	public Index(Stream stream, ProgressTask progressTask)
+	private Index(Stream stream, Pack pack)
 	{
 		_stream = stream;
-		_pack = new Pack(_stream, progressTask);
+		_pack = pack;
 
 		_stream.Position = (long)_pack.Locate(_pack.RootPage);
 		_header = new IndexHeader(_stream);
-
-		progressTask.Total = _pack.VirtualPages;
-		progressTask.Completed = 1;
-		progressTask.UpdateDefault();
-
-		ReadDirectory(_header.Page, progressTask);
 	}
 
-	public static Index Create(Stream stream, ProgressTask progressTask)
+	public static async Task<Index> Create(Stream stream)
 	{
-		var pack = Pack.Create(stream, progressTask);
+		var pack = await Pack.Create(stream);
 		pack.Update(pack.RootPage, IndexHeader.Stride);
 
 		stream.Position = (long)pack.Locate(pack.RootPage);
@@ -43,7 +37,39 @@ public class Index : IDisposable
 
 		stream.Position = 0;
 
-		return new Index(stream, progressTask);
+		return await Read(stream, new Progress(), CancellationToken.None);
+	}
+
+	public static async Task<Index> Read(Stream stream, Progress progress, CancellationToken cancellationToken)
+	{
+		progress.Title = "Reading index";
+		progress.Total = 2;
+
+		var packProgress = new Progress();
+		progress.Children.Add(packProgress);
+		var pack = await Pack.Read(stream, packProgress, cancellationToken);
+		progress.Children.Remove(packProgress);
+
+		progress.Completed++;
+
+		var index = new Index(stream, pack);
+
+		var directoriesProgress = new Progress();
+		progress.Children.Add(directoriesProgress);
+		await index.ReadDirectories(directoriesProgress, cancellationToken);
+		progress.Children.Remove(directoriesProgress);
+
+		progress.Completed++;
+
+		return index;
+	}
+
+	private async Task ReadDirectories(Progress progress, CancellationToken cancellationToken)
+	{
+		progress.Title = "Reading directories";
+		progress.Total = _pack.VirtualPages;
+
+		await ReadDirectory(_header.Page, progress, cancellationToken);
 	}
 
 	public void CreateDirectory(string path)
@@ -53,14 +79,14 @@ public class Index : IDisposable
 		_ = remaining.Aggregate(currentPage, CreateDirectory);
 	}
 
-	public string[] ListDirectories(string path)
+	public IEnumerable<string> ListDirectories(string path)
 	{
 		var page = FindDirectory(path, out var remaining);
 
 		return remaining.Length > 0 ? [] : _directories[page].Directories.Keys.ToArray();
 	}
 
-	public string[] ListFiles(string path)
+	public IEnumerable<string> ListFiles(string path)
 	{
 		var page = FindDirectory(path, out var remaining);
 
@@ -214,7 +240,7 @@ public class Index : IDisposable
 		return true;
 	}
 
-	private void ReadDirectory(uint page, ProgressTask progressTask)
+	private async Task ReadDirectory(uint page, Progress progress, CancellationToken cancellationToken)
 	{
 		_stream.Position = (long)_pack.Locate(page);
 		var directory = new IndexDirectory(_stream);
@@ -226,11 +252,12 @@ public class Index : IDisposable
 			_fileReferences[file.Hash]++;
 		}
 
-		progressTask.Completed++;
-		progressTask.UpdateDefault();
+		progress.Completed++;
+
+		cancellationToken.ThrowIfCancellationRequested();
 
 		foreach (var childPage in directory.Directories.Values)
-			ReadDirectory(childPage, progressTask);
+			await ReadDirectory(childPage, progress, cancellationToken);
 	}
 
 	private void WriteDirectory(uint page)

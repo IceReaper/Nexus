@@ -24,6 +24,7 @@ public partial class ThemeBase : PanelContainer
 	{
 		base.Dispose(disposing);
 
-		_appTheme.Dispose();
+		if (disposing)
+			_appTheme.Dispose();
 	}
 }

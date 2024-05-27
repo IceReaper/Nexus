@@ -1,5 +1,6 @@
 ﻿using LibNexus.Core;
 using LibNexus.Core.Extensions;
+using LibNexus.Core.Streams;
 using LibNexus.Files.ArchiveFiles;
 using LibNexus.Files.IndexFiles;
 using SharpCompress.Compressors.LZMA;
@@ -9,34 +10,99 @@ namespace LibNexus.Files;
 
 public class FileSystem : IDisposable
 {
+	private readonly DynamicFileStream _indexStream;
 	private readonly Index _index;
+
+	private readonly DynamicFileStream? _archiveStream;
 	private readonly Archive? _archive;
-	private readonly string _directory = string.Empty;
 
-	public FileSystem(ProgressTask progressTask, string path, string? directory = null)
+	private readonly string? _directory;
+
+	private FileSystem(DynamicFileStream indexStream, Index index, DynamicFileStream? archiveStream, Archive? archive, string? directory)
 	{
-		var indexPath = $"{path}.index";
-		var baseDirectory = Path.GetDirectoryName(path);
+		_indexStream = indexStream;
+		_index = index;
+		_archiveStream = archiveStream;
+		_archive = archive;
+		_directory = directory;
+	}
 
-		progressTask.Title = $"Loading {Path.GetFileName(path)}";
+	public static async Task<FileSystem> Create(Progress progress, string path, bool hasArchive, string? directory, CancellationToken cancellationToken)
+	{
+		progress.Title = "Loading FileSystem";
+		progress.Total = 2;
+
+		var indexPath = $"{path}.index";
+		var archivePath = $"{path}.archive";
+
+		var baseDirectory = Path.GetDirectoryName(path);
 
 		if (!string.IsNullOrEmpty(baseDirectory) && !Directory.Exists(baseDirectory))
 			Directory.CreateDirectory(baseDirectory);
 
-		_index = !File.Exists(indexPath)
-			? Index.Create(File.Open(indexPath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite), progressTask)
-			: new Index(File.Open(indexPath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite), progressTask);
+		var indexStream = new DynamicFileStream(indexPath);
+		Index index;
 
-		if (directory != null)
-			_directory = directory;
+		if (!File.Exists(indexPath))
+		{
+			indexStream.Open(FileMode.Create, FileAccess.ReadWrite);
+			index = await Index.Create(indexStream);
+		}
 		else
 		{
-			var archivePath = $"{path}.archive";
+			indexStream.Open(FileMode.Open, FileAccess.ReadWrite);
 
-			_archive = !File.Exists(archivePath)
-				? Archive.Create(File.Open(archivePath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite), progressTask)
-				: new Archive(File.Open(archivePath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite), progressTask);
+			var indexProgress = new Progress();
+			progress.Children.Add(indexProgress);
+			index = await Index.Read(indexStream, indexProgress, cancellationToken);
+			progress.Children.Remove(indexProgress);
 		}
+
+		cancellationToken.ThrowIfCancellationRequested();
+
+		progress.Completed++;
+
+		DynamicFileStream? archiveStream = null;
+		Archive? archive = null;
+
+		if (hasArchive)
+		{
+			archiveStream = new DynamicFileStream(archivePath);
+
+			if (!File.Exists(archivePath))
+			{
+				archiveStream.Open(FileMode.Create, FileAccess.ReadWrite);
+				archive = await Archive.Create(archiveStream);
+			}
+			else
+			{
+				archiveStream.Open(FileMode.Open, FileAccess.ReadWrite);
+
+				var archiveProgress = new Progress();
+				progress.Children.Add(archiveProgress);
+				archive = await Archive.Read(archiveStream, archiveProgress, cancellationToken);
+				progress.Children.Remove(archiveProgress);
+			}
+		}
+
+		progress.Completed++;
+
+		if (directory != null && !hasArchive && !Directory.Exists(directory))
+			Directory.CreateDirectory(directory);
+
+		return new FileSystem(indexStream, index, archiveStream, archive, directory);
+	}
+
+	public void Open()
+	{
+		_indexStream.Open(FileMode.Open, FileAccess.ReadWrite);
+		_archiveStream?.Open(FileMode.Open, FileAccess.ReadWrite);
+	}
+
+	public void Close()
+	{
+		_indexStream.Close();
+		_archiveStream?.Close();
 	}
 
 	public void CreateDirectory(string path)
@@ -58,7 +124,7 @@ public class FileSystem : IDisposable
 	{
 		_index.Rename(oldPath, newPath);
 
-		if (_archive != null)
+		if (_directory == null)
 			return;
 
 		oldPath = Path.Combine(_directory, oldPath);
@@ -85,12 +151,16 @@ public class FileSystem : IDisposable
 		if (!file.Flags.HasFlag(IndexFileFlags.Complete))
 			return null;
 
-		if (_archive == null)
+		if (_directory != null)
 		{
-			path = Path.Combine(_directory, path);
+			var localPath = Path.Combine(_directory, path);
 
-			return File.Exists(path) ? File.ReadAllBytes(path) : null;
+			if (File.Exists(localPath))
+				return File.ReadAllBytes(localPath);
 		}
+
+		if (_archive == null)
+			throw new Exception("No archive available.");
 
 		var data = _archive.Read(file.Hash);
 
@@ -122,18 +192,18 @@ public class FileSystem : IDisposable
 		if (!file.Flags.HasFlag(IndexFileFlags.Complete))
 			return false;
 
-		byte[]? data;
+		if (_directory != null)
+		{
+			var localPath = Path.Combine(_directory, path);
+
+			if (File.Exists(localPath))
+				return file.Hash.Validate(File.ReadAllBytes(localPath));
+		}
 
 		if (_archive == null)
-		{
-			path = Path.Combine(_directory, path);
+			throw new Exception("No archive available.");
 
-			data = File.Exists(path) ? File.ReadAllBytes(path) : null;
-		}
-		else
-			data = _archive.Read(file.Hash);
-
-		return data != null && file.Hash.Validate(data);
+		return _archive.Validate(file.Hash);
 	}
 
 	public void Write(string path, byte[] data, DateTime dateTime)
@@ -145,19 +215,23 @@ public class FileSystem : IDisposable
 			Flags = IndexFileFlags.Complete, CompressedSize = (ulong)data.Length, DecompressedSize = (ulong)data.Length, DateTime = dateTime
 		};
 
-		if (_archive == null)
+		if (_directory != null)
 		{
-			path = Path.Combine(_directory, path);
+			file.Hash = Hash.Create(data);
 
-			var baseDir = Path.GetDirectoryName(path) ?? string.Empty;
+			var localPath = Path.Combine(_directory, path);
+			var baseDir = Path.GetDirectoryName(localPath) ?? string.Empty;
 
 			if (!Directory.Exists(baseDir))
 				Directory.CreateDirectory(baseDir);
 
-			File.WriteAllBytes(path, data);
+			File.WriteAllBytes(localPath, data);
 		}
 		else
 		{
+			if (_archive == null)
+				throw new Exception("No archive available.");
+
 			using var compressedStream = new MemoryStream();
 			using var lzmaStream = new LzmaStream(LzmaEncoderProperties.Default, false, compressedStream);
 			lzmaStream.WriteBytes(data);
@@ -168,14 +242,17 @@ public class FileSystem : IDisposable
 			{
 				file.Flags |= IndexFileFlags.Compressed;
 				file.CompressedSize = (ulong)compressedData.Length;
+				file.Hash = Hash.Create(compressedData);
 
-				data = compressedData;
+				_archive.Store(compressedData);
 			}
+			else
+			{
+				file.Hash = Hash.Create(data);
 
-			_archive.Store(data);
+				_archive.Store(data);
+			}
 		}
-
-		file.Hash = Hash.Create(data);
 
 		_index.WriteFile(path, file);
 	}
@@ -187,14 +264,15 @@ public class FileSystem : IDisposable
 			if (!_index.DeleteFile(path, out var hash))
 				return;
 
-			if (_archive != null)
-				_archive.Delete(hash);
-			else
+			if (_directory != null)
 			{
-				path = Path.Combine(_directory, path);
+				var localPath = Path.Combine(_directory, path);
 
-				File.Delete(path);
+				if (File.Exists(localPath))
+					File.Delete(localPath);
 			}
+
+			_archive?.Delete(hash);
 		}
 		else
 		{
@@ -206,13 +284,13 @@ public class FileSystem : IDisposable
 
 			_index.DeleteDirectory(path);
 
-			if (_archive != null)
+			if (_directory == null)
 				return;
 
-			path = Path.Combine(_directory, path);
+			var localPath = Path.Combine(_directory, path);
 
-			if (Directory.GetFileSystemEntries(path).Length == 0)
-				Directory.Delete(path);
+			if (Directory.Exists(localPath) && Directory.GetFileSystemEntries(localPath).Length == 0)
+				Directory.Delete(localPath);
 		}
 	}
 
@@ -221,6 +299,8 @@ public class FileSystem : IDisposable
 		GC.SuppressFinalize(this);
 
 		_index.Dispose();
+		_indexStream.Dispose();
+		_archive?.Dispose();
 		_archive?.Dispose();
 	}
 }

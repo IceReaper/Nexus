@@ -11,14 +11,11 @@ public class FileSystemTests
 	[Test]
 	public void TestCreatePacked()
 	{
-		File.Delete("packed.index");
-		File.Delete("packed.archive");
-
 		Assert.Multiple(
 			static () =>
 			{
 				FileSystem? fileSystem = null;
-				Assert.That(() => fileSystem = new FileSystem(new ProgressTask(), "packed"), Throws.Nothing);
+				Assert.That(async () => fileSystem = await FileSystem.Create(new Progress(), "packed", true, null, CancellationToken.None), Throws.Nothing);
 
 				if (fileSystem == null)
 					return;
@@ -27,6 +24,11 @@ public class FileSystemTests
 				Assert.That(File.Exists("packed.archive"), Is.True);
 
 				TestFileSystem(fileSystem);
+
+				fileSystem.Dispose();
+
+				File.Delete("packed.index");
+				File.Delete("packed.archive");
 			}
 		);
 	}
@@ -34,14 +36,15 @@ public class FileSystemTests
 	[Test]
 	public void TestCreateUnpacked()
 	{
-		File.Delete("unpacked.index");
-		Directory.Delete("unpacked", true);
-
 		Assert.Multiple(
 			static () =>
 			{
 				FileSystem? fileSystem = null;
-				Assert.That(() => fileSystem = new FileSystem(new ProgressTask(), "unpacked", "unpacked"), Throws.Nothing);
+
+				Assert.That(
+					async () => fileSystem = await FileSystem.Create(new Progress(), "unpacked", false, "unpacked", CancellationToken.None),
+					Throws.Nothing
+				);
 
 				if (fileSystem == null)
 					return;
@@ -50,6 +53,11 @@ public class FileSystemTests
 				Assert.That(Directory.Exists("unpacked"), Is.True);
 
 				TestFileSystem(fileSystem);
+
+				fileSystem.Dispose();
+
+				File.Delete("unpacked.index");
+				Directory.Delete("unpacked", true);
 			}
 		);
 	}

@@ -9,47 +9,19 @@ public class PackPhysicalPage
 
 	private readonly Stream _stream;
 
+	private ulong _position;
 	private ulong _length;
-	private ulong _offset;
 
-	public ulong Length
+	public ulong Position
 	{
-		get => _length;
+		get => _position;
 
 		set
 		{
-			if (_length == value)
+			if (_position == value)
 				return;
 
-			if (_length > value)
-			{
-				_stream.Position = (long)(_offset + value);
-				_stream.WriteBytes(new byte[_length - value]);
-			}
-
-			_stream.Position = (long)(_offset - Stride / 2);
-			_stream.WriteUInt64(value);
-
-			_stream.Position = (long)(_offset + _length);
-			_stream.WriteUInt64(0);
-
-			_stream.Position = (long)(_offset + value);
-			_stream.WriteUInt64(value);
-
-			_length = value;
-		}
-	}
-
-	public ulong Offset
-	{
-		get => _offset;
-
-		set
-		{
-			if (_offset == value)
-				return;
-
-			_stream.Position = (long)(_offset - Stride / 2);
+			_stream.Position = (long)(_position - Stride / 2);
 			_stream.WriteUInt64(0);
 			var data = _stream.ReadBytes(_length);
 			_stream.WriteUInt64(0);
@@ -62,7 +34,35 @@ public class PackPhysicalPage
 			foreach (var virtualPage in VirtualPages)
 				virtualPage.Offset = value;
 
-			_offset = value;
+			_position = value;
+		}
+	}
+
+	public ulong Length
+	{
+		get => _length;
+
+		set
+		{
+			if (_length == value)
+				return;
+
+			if (_length > value)
+			{
+				_stream.Position = (long)(_position + value);
+				_stream.WriteBytes(new byte[_length - value]);
+			}
+
+			_stream.Position = (long)(_position - Stride / 2);
+			_stream.WriteUInt64(value);
+
+			_stream.Position = (long)(_position + _length);
+			_stream.WriteUInt64(0);
+
+			_stream.Position = (long)(_position + value);
+			_stream.WriteUInt64(value);
+
+			_length = value;
 		}
 	}
 
@@ -73,19 +73,11 @@ public class PackPhysicalPage
 	public PackPhysicalPage(Stream stream)
 	{
 		_stream = stream;
+		_position = (ulong)_stream.Position + 8;
 
-		// TODO length can be negative... If, what does it mean? Deleted ones?
-		_length = _stream.ReadUInt64();
-
-		if ((long)_length < 0)
-			_length = (ulong)((long)_length * -1);
-
-		_offset = (ulong)_stream.Position;
+		_length = (ulong)Math.Abs((long)_stream.ReadUInt64()); // TODO length can be negative... If, what does it mean? Deleted ones?
 		_stream.Position += (long)_length;
-		var length2 = _stream.ReadUInt64();
-
-		if ((long)length2 < 0)
-			length2 = (ulong)((long)length2 * -1);
+		var length2 = (ulong)Math.Abs((long)_stream.ReadUInt64()); // TODO length can be negative... If, what does it mean? Deleted ones?
 
 		if (_length != length2)
 			throw new Exception("PackPhysicalPage: Invalid length");

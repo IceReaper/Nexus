@@ -18,7 +18,7 @@ public class Project
 
 	public Dictionary<string, FileSystem> FileSystems { get; } = [];
 
-	public Project(string projectFilePath)
+	private Project(string projectFilePath)
 	{
 		_rootPath = Path.GetDirectoryName(projectFilePath) ?? string.Empty;
 	}
@@ -37,24 +37,64 @@ public class Project
 		return projectFilePath;
 	}
 
-	public ProgressTask Load()
+	public static async Task<Project> Load(string projectFilePath, Progress progress, CancellationToken cancellationToken)
 	{
-		var progressTask = new ProgressTask();
-		progressTask.Run(LoadInternal);
+		var project = new Project(projectFilePath);
 
-		return progressTask;
-	}
+		var distPath = Path.Combine(project._rootPath, DistDirectory);
+		var bootstrapPath = Path.Combine(distPath, "Bootstrap");
+		var patchPath = Path.Combine(distPath, "Patch");
 
-	private void LoadInternal(ProgressTask progressTask)
-	{
-		FileSystems.Add("LauncherData", new FileSystem(progressTask, Path.Combine(_rootPath, DistDirectory, "Bootstrap", "LauncherData")));
-		FileSystems.Add("ClientData", new FileSystem(progressTask, Path.Combine(_rootPath, DistDirectory, "Patch", "ClientData")));
-		FileSystems.Add("ClientDataEN", new FileSystem(progressTask, Path.Combine(_rootPath, DistDirectory, "Patch", "ClientDataEN")));
-		FileSystems.Add("ClientDataDE", new FileSystem(progressTask, Path.Combine(_rootPath, DistDirectory, "Patch", "ClientDataDE")));
-		FileSystems.Add("ClientDataFR", new FileSystem(progressTask, Path.Combine(_rootPath, DistDirectory, "Patch", "ClientDataFR")));
+		var languages = Directory.GetFiles(patchPath, "ClientData*.index")
+			.Select(Path.GetFileNameWithoutExtension)
+			.OfType<string>()
+			.Where(static file => file.Length == 12)
+			.Select(static file => file[^2..])
+			.ToArray();
 
-		// TODO do stuff
+		progress.Total = (ulong)(2 + languages.Length);
+
+		progress.Title = "Loading project: LauncherData";
+		var launcherProgress = new Progress();
+		progress.Children.Add(launcherProgress);
+
+		project.FileSystems.Add(
+			"LauncherData",
+			await FileSystem.Create(launcherProgress, Path.Combine(bootstrapPath, "LauncherData"), true, null, cancellationToken)
+		);
+
+		progress.Children.Remove(launcherProgress);
+		progress.Completed++;
+
+		var clientProgress = new Progress();
+		progress.Children.Add(clientProgress);
+		progress.Title = "Loading project: ClientData";
+
+		project.FileSystems.Add("ClientData", await FileSystem.Create(clientProgress, Path.Combine(patchPath, "ClientData"), true, "Data", cancellationToken));
+
+		progress.Children.Remove(clientProgress);
+		progress.Completed++;
+
+		foreach (var language in languages)
+		{
+			progress.Title = $"Loading project: ClientData{language}";
+			var languageProgress = new Progress();
+			progress.Children.Add(languageProgress);
+
+			// TODO set the right folder!
+			project.FileSystems.Add(
+				$"ClientData{language}",
+				await FileSystem.Create(languageProgress, Path.Combine(patchPath, $"ClientData{language}"), true, null, cancellationToken)
+			);
+
+			progress.Children.Remove(languageProgress);
+			progress.Completed++;
+		}
+
+		// TODO start a background task to scan the src dir and update the dist files if required.
 		Console.WriteLine(SrcDirectory);
+
+		return project;
 	}
 
 	public static bool ValidateInstallation(string rootPath)

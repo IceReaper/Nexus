@@ -103,6 +103,9 @@ public partial class AssetViewer : Control
 	{
 		base.Dispose(disposing);
 
+		if (!disposing)
+			return;
+
 		Main.OnProjectChanged -= ProjectChanged;
 
 		_selectedDirectory?.Dispose();

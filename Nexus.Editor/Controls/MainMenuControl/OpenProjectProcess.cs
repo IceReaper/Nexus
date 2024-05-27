@@ -8,15 +8,19 @@ namespace Nexus.Editor.Controls.MainMenuControl;
 
 public class OpenProjectProcess
 {
+	private const string DefaultPath = @"C:\Program Files (x86)\NCSOFT\WildStar";
+
 	private readonly Main _main;
 	private readonly string _projectFilePath;
+	private readonly PackedScene _progressDialogScene;
 
 	private readonly string _targetLocation;
 
-	public OpenProjectProcess(Main main, string projectFilePath)
+	public OpenProjectProcess(Main main, string projectFilePath, PackedScene progressDialogScene)
 	{
 		_main = main;
 		_projectFilePath = projectFilePath;
+		_progressDialogScene = progressDialogScene;
 
 		_targetLocation = Path.Combine(Path.GetDirectoryName(projectFilePath) ?? string.Empty, Project.DistDirectory);
 	}
@@ -30,19 +34,26 @@ public class OpenProjectProcess
 			return;
 		}
 
-		var project = new Project(_projectFilePath);
-
-		var dialog = (ProgressDialog)GD.Load<PackedScene>("res://Controls/ProgressDialogControl/ProgressDialog.tscn").Instantiate();
+		var dialog = (ProgressDialog)_progressDialogScene.Instantiate();
 		dialog.Window.Title = "Opening project";
-		dialog.ProgressTask = project.Load();
-		dialog.OnComplete += () => _main.Project = project;
+
+		dialog.Run(
+			(progress, cancellationToken) => Project.Load(_projectFilePath, progress, cancellationToken),
+			result => _main.Project = result
+		);
 
 		_main.AddChild(dialog);
 	}
 
 	private void ShowClientInvalidMessage()
 	{
-		var dialog = new ConfirmationDialog { Title = "Client not found", DialogText = "No valid client found, please locate WildStar client." };
+		var dialog = new ConfirmationDialog
+		{
+			Title = "Client not found",
+			DialogText = "No valid client found, please locate WildStar client.",
+			Visible = true,
+			InitialPosition = Window.WindowInitialPosition.CenterMainWindowScreen
+		};
 
 		dialog.Confirmed += () =>
 		{
@@ -64,6 +75,7 @@ public class OpenProjectProcess
 			FileMode = FileDialog.FileModeEnum.OpenFile,
 			Filters = ["WildStar launcher", "WildStar.exe"],
 			Title = "Locate WildStar launcher",
+			CurrentDir = DefaultPath,
 			Size = new Vector2I(640, 360),
 			Unresizable = true,
 			Visible = true,
@@ -72,8 +84,6 @@ public class OpenProjectProcess
 
 		dialog.FileSelected += path =>
 		{
-			dialog.Free();
-
 			var directory = Path.GetDirectoryName(path) ?? string.Empty;
 
 			if (Project.ValidateInstallation(directory))
@@ -81,8 +91,6 @@ public class OpenProjectProcess
 			else
 				ShowClientInvalidMessage();
 		};
-
-		dialog.Canceled += () => dialog.Free();
 
 		_main.AddChild(dialog);
 	}
@@ -92,11 +100,9 @@ public class OpenProjectProcess
 		var directoryCopier = new DirectoryCopier();
 		directoryCopier.Add(sourceDirectory, _targetLocation);
 
-		var dialog = (ProgressDialog)GD.Load<PackedScene>("res://Controls/ProgressDialogControl/ProgressDialog.tscn").Instantiate();
+		var dialog = (ProgressDialog)_progressDialogScene.Instantiate();
 		dialog.Window.Title = "Copying client";
-		dialog.ProgressTask = directoryCopier.Run();
-		dialog.OnComplete += TryOpen;
-
+		dialog.Run((progress, cancellationToken) => directoryCopier.Run(progress, cancellationToken), TryOpen);
 		_main.AddChild(dialog);
 	}
 }

@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://h580nkkc01hb"]
+[gd_scene load_steps=8 format=3 uid="uid://h580nkkc01hb"]
 
 [ext_resource type="Script" path="res://Controls/MainMenuControl/MainMenu.cs" id="1_2onkb"]
 [ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_df2gs"]
 [ext_resource type="Script" path="res://Controls/MainMenuControl/FileMenu.cs" id="2_hu7hr"]
 [ext_resource type="Script" path="res://Controls/MainMenuControl/ToolsMenu.cs" id="3_evicu"]
+[ext_resource type="PackedScene" uid="uid://qvdc74gjcjmu" path="res://Controls/ProgressDialogControl/ProgressDialog.tscn" id="4_ecvfj"]
 [ext_resource type="Script" path="res://Controls/MainMenuControl/HelpMenu.cs" id="4_icurl"]
+[ext_resource type="PackedScene" uid="uid://rcv5vifsfq3f" path="res://Controls/AboutControl/About.tscn" id="6_feb2t"]
 
 [node name="MainMenu" type="PanelContainer"]
 offset_right = 125.0
@@ -19,6 +21,7 @@ layout_mode = 2
 
 [node name="File" type="PopupMenu" parent="ThemeBase/MenuBar" node_paths=PackedStringArray("MainMenu")]
 script = ExtResource("2_hu7hr")
+ProgressDialog = ExtResource("4_ecvfj")
 MainMenu = NodePath("../../..")
 
 [node name="Tools" type="PopupMenu" parent="ThemeBase/MenuBar" node_paths=PackedStringArray("MainMenu")]
@@ -27,4 +30,5 @@ MainMenu = NodePath("../../..")
 
 [node name="Help" type="PopupMenu" parent="ThemeBase/MenuBar" node_paths=PackedStringArray("MainMenu")]
 script = ExtResource("4_icurl")
+About = ExtResource("6_feb2t")
 MainMenu = NodePath("../../..")

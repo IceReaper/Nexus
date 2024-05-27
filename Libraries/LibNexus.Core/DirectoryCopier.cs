@@ -6,16 +6,14 @@ public class DirectoryCopier
 {
 	private const int MegaByte = 1024 * 1024;
 
-	private readonly ProgressTask _progressTask = new() { Title = "Copying files" };
 	private readonly Dictionary<string, string> _tasks = [];
+
+	private ulong _totalSize;
 
 	public void Add(string source, string target)
 	{
 		Measure(source);
-
 		_tasks.Add(source, target);
-
-		UpdateStatus();
 	}
 
 	private void Measure(string path)
@@ -24,60 +22,67 @@ public class DirectoryCopier
 			Measure(directory);
 
 		foreach (var file in Directory.GetFiles(path))
-			_progressTask.Total += (ulong)new FileInfo(file).Length;
+			_totalSize += (ulong)new FileInfo(file).Length;
 	}
 
-	public ProgressTask Run()
+	public async Task Run(Progress progress, CancellationToken cancellationToken)
 	{
-		if (!_progressTask.Complete)
-			_progressTask.Run(RunInternal);
+		progress.Total = _totalSize;
 
-		return _progressTask;
-	}
+		progress.GetProgressLabel = static progress => string.Join(
+			" / ",
+			new float[] { progress.Completed, progress.Total }.Select(static value => $"{Math.Ceiling(value / MegaByte)} MB")
+		);
 
-	private void RunInternal(ProgressTask progressTask)
-	{
 		foreach (var (source, target) in _tasks)
-			Copy(source, target);
+		{
+			progress.Title = $"Copying: {Path.GetFileName(source)}";
+			await Copy(source, target, progress, cancellationToken);
+		}
+
+		progress.Title = "Copying";
 	}
 
-	private void Copy(string source, string target)
+	private static async Task Copy(string source, string target, Progress progress, CancellationToken cancellationToken)
 	{
 		foreach (var sourceDirectory in Directory.GetDirectories(source))
 		{
+			cancellationToken.ThrowIfCancellationRequested();
+
 			var targetDirectory = Path.Combine(target, Path.GetFileName(sourceDirectory));
 
 			Directory.CreateDirectory(targetDirectory);
-			Copy(sourceDirectory, targetDirectory);
+			await Copy(sourceDirectory, targetDirectory, progress, cancellationToken);
 		}
 
 		foreach (var sourceFile in Directory.GetFiles(source))
 		{
+			cancellationToken.ThrowIfCancellationRequested();
+
+			progress.Title = $"Copying: {Path.GetFileName(sourceFile)}";
+
 			var targetFile = Path.Combine(target, Path.GetFileName(sourceFile));
 
-			using var input = File.Open(sourceFile, FileMode.Open, FileAccess.Read);
-			using var output = File.Open(targetFile, FileMode.Create, FileAccess.Write);
+			await using var input = File.Open(sourceFile, FileMode.Open, FileAccess.Read);
+			await using var output = File.Open(targetFile, FileMode.Create, FileAccess.Write);
 
 			while (input.Position < input.Length)
 			{
+				if (cancellationToken.IsCancellationRequested)
+				{
+					output.Close();
+					File.Delete(targetFile);
+
+					cancellationToken.ThrowIfCancellationRequested();
+				}
+
 				var amount = (ulong)Math.Min(MegaByte, input.Length - input.Position);
-
 				output.WriteBytes(input.ReadBytes(amount));
-
-				_progressTask.Completed += amount;
-				UpdateStatus();
+				progress.Completed += amount;
 			}
 
 			File.SetCreationTimeUtc(targetFile, File.GetCreationTimeUtc(sourceFile));
 			File.SetLastWriteTimeUtc(targetFile, File.GetLastWriteTimeUtc(sourceFile));
 		}
-	}
-
-	private void UpdateStatus()
-	{
-		_progressTask.Status = string.Join(
-			" / ",
-			[$"{Math.Ceiling(_progressTask.Completed / (double)MegaByte)} MB", $"{Math.Ceiling(_progressTask.Total / (double)MegaByte)} MB"]
-		);
 	}
 }
