@@ -14,10 +14,10 @@ public class Pack : IDisposable
 	private readonly Stream _stream;
 
 	private readonly PackHeader _header;
-	private readonly Collection<PackPhysicalPage> _physicalPages = [];
+	private readonly Dictionary<ulong, PackPhysicalPage> _physicalPages = [];
 	private readonly Collection<PackVirtualPage> _virtualPages = [];
 
-	private PackPhysicalPage VirtualPagesPhysicalPage => _physicalPages.First(physicalPage => physicalPage.Position == _header.VirtualPagesOffset);
+	private PackPhysicalPage VirtualPagesPhysicalPage => _physicalPages[_header.VirtualPagesOffset];
 	public ulong RootPage => _header.RootPage;
 
 	public ulong VirtualPages => (ulong)_virtualPages.LongCount(static virtualPage => virtualPage.PhysicalPage != null);
@@ -107,16 +107,20 @@ public class Pack : IDisposable
 		progress.Title = "Reading physical pages";
 		progress.Total = _header.Length / MegaByte;
 
+		PackPhysicalPage? lastPage = null;
+
 		while (_stream.Position < (long)_header.Length)
 		{
 			cancellationToken.ThrowIfCancellationRequested();
 
-			var physicalPage = new PackPhysicalPage(_stream) { Last = _physicalPages.LastOrDefault() };
+			var physicalPage = new PackPhysicalPage(_stream) { Last = lastPage };
 
 			if (physicalPage.Last != null)
 				physicalPage.Last.Next = physicalPage;
 
-			_physicalPages.Add(physicalPage);
+			_physicalPages.Add(physicalPage.Position, physicalPage);
+
+			lastPage = physicalPage;
 
 			progress.Completed = (ulong)_stream.Position / MegaByte;
 		}
@@ -144,7 +148,7 @@ public class Pack : IDisposable
 			cancellationToken.ThrowIfCancellationRequested();
 
 			var virtualPage = new PackVirtualPage(_stream, _header, i);
-			var physicalPage = _physicalPages.FirstOrDefault(physicalPage => physicalPage.Position == virtualPage.Offset);
+			var physicalPage = _physicalPages.GetValueOrDefault(virtualPage.Offset);
 
 			if (physicalPage != null)
 			{
@@ -260,7 +264,7 @@ public class Pack : IDisposable
 
 	private PackPhysicalPage AllocatePhysicalPage(ulong length)
 	{
-		foreach (var physicalPage in _physicalPages)
+		foreach (var physicalPage in _physicalPages.Values)
 		{
 			if (physicalPage == VirtualPagesPhysicalPage || physicalPage.VirtualPages.Count != 0)
 				continue;
@@ -273,12 +277,12 @@ public class Pack : IDisposable
 
 		var newPhysicalPage = PackPhysicalPage.Create(_stream, length);
 
-		newPhysicalPage.Last = _physicalPages.LastOrDefault();
+		newPhysicalPage.Last = _physicalPages[_physicalPages.Keys.Max()];
 
 		if (newPhysicalPage.Last != null)
 			newPhysicalPage.Last.Next = newPhysicalPage;
 
-		_physicalPages.Add(newPhysicalPage);
+		_physicalPages.Add(newPhysicalPage.Position, newPhysicalPage);
 
 		_header.Length += length + PackPhysicalPage.Stride;
 
@@ -307,7 +311,7 @@ public class Pack : IDisposable
 
 			physicalPage.Next = remainingPhysicalPage;
 
-			_physicalPages.Insert(_physicalPages.IndexOf(physicalPage) + 1, remainingPhysicalPage);
+			_physicalPages.Add(remainingPhysicalPage.Position, remainingPhysicalPage);
 
 			return physicalPage;
 		}
@@ -359,7 +363,7 @@ public class Pack : IDisposable
 		if (physicalPage.Next != null)
 			return;
 
-		_physicalPages.Remove(physicalPage);
+		_physicalPages.Remove(physicalPage.Position);
 		_header.Length = physicalPage.Position - PackPhysicalPage.Stride / 2;
 	}
 
@@ -372,15 +376,19 @@ public class Pack : IDisposable
 		var grow = remove.Length;
 
 		remove.Length = 0;
-		_physicalPages.Remove(remove);
+		_physicalPages.Remove(remove.Position);
 
 		physicalPage.Last = remove.Last;
 
 		if (remove.Last != null)
 			remove.Last.Next = physicalPage;
 
+		_physicalPages.Remove(physicalPage.Position);
+
 		physicalPage.Position -= grow + PackPhysicalPage.Stride;
 		physicalPage.Length += grow + PackPhysicalPage.Stride;
+
+		_physicalPages.Add(physicalPage.Position, physicalPage);
 	}
 
 	private void MergeNext(PackPhysicalPage physicalPage)
@@ -392,7 +400,7 @@ public class Pack : IDisposable
 		var grow = remove.Length;
 
 		remove.Length = 0;
-		_physicalPages.Remove(remove);
+		_physicalPages.Remove(remove.Position);
 
 		physicalPage.Next = remove.Next;
 
