@@ -20,13 +20,14 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v3l8q"]
 
-[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("Icon", "Label")]
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("Icon", "Label", "MainHandle")]
 offset_right = 96.0
 offset_bottom = 123.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_v3l8q")
 script = ExtResource("1_wgmek")
 Icon = NodePath("ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/TextureRect")
 Label = NodePath("ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Label")
+MainHandle = NodePath("ThemeBase/MarginContainer/PanelContainer")
 IconDefault = ExtResource("2_g2wve")
 IconComplexModel = ExtResource("3_u4tuq")
 IconSimpleModel = ExtResource("4_xrfuk")
@@ -58,6 +59,7 @@ theme_type_variation = &"Border"
 
 [node name="PanelContainer" type="PanelContainer" parent="ThemeBase/MarginContainer/PanelContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"Surface"
 
 [node name="MarginContainer" type="MarginContainer" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer"]

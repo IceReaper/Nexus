@@ -294,6 +294,25 @@ public class FileSystem : IDisposable
 		}
 	}
 
+	public void Unpack(string path)
+	{
+		if (_directory == null)
+			return;
+
+		var file = Read(path);
+
+		if (file == null)
+			return;
+
+		var targetPath = Path.Combine(_directory, path);
+		var basePath = Path.GetDirectoryName(targetPath) ?? string.Empty;
+
+		if (!Directory.Exists(basePath))
+			Directory.CreateDirectory(basePath);
+
+		File.WriteAllBytes(targetPath, file);
+	}
+
 	public void Dispose()
 	{
 		GC.SuppressFinalize(this);

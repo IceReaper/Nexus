@@ -46,6 +46,9 @@ public partial class AssetViewer : Control
 		foreach (var child in TreeRoot.GetChildren())
 			child.Free();
 
+		foreach (var child in FilesRoot.GetChildren())
+			child.Free();
+
 		if (Main.Project == null)
 			return;
 
@@ -71,7 +74,7 @@ public partial class AssetViewer : Control
 			var treeEntry = (TreeEntry)TreeEntry.Instantiate();
 			treeEntry.AssetViewer = this;
 			treeEntry.FileSystem = parent.FileSystem;
-			treeEntry.Path = $"{parent.Path}/{directory}";
+			treeEntry.Path = string.IsNullOrEmpty(parent.Path) ? directory : $"{parent.Path}/{directory}";
 			treeEntry.Button.Text = directory;
 			treeEntry.PopulateChildren = PopulateTreeEntry;
 			parent.Children.AddChild(treeEntry);
@@ -94,7 +97,8 @@ public partial class AssetViewer : Control
 		foreach (var file in _selectedDirectory.FileSystem.ListFiles(_selectedDirectory.Path))
 		{
 			var fileEntry = (FileEntry)FileEntry.Instantiate();
-			fileEntry.File = file;
+			fileEntry.FileSystem = _selectedDirectory.FileSystem;
+			fileEntry.Path = string.IsNullOrEmpty(_selectedDirectory.Path) ? file : $"{_selectedDirectory.Path}/{file}";
 			FilesRoot.AddChild(fileEntry);
 		}
 	}

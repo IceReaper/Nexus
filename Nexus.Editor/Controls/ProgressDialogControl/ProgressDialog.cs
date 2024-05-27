@@ -37,6 +37,7 @@ public partial class ProgressDialog : Control
 
 	public override void _Process(double delta)
 	{
+		Window.ResetSize();
 		Window.Jail();
 
 		if (_task == null)

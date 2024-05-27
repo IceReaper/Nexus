@@ -1,4 +1,6 @@
 using Godot;
+using LibNexus.Files;
+using Nexus.Editor.Extensions;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
@@ -9,6 +11,9 @@ public partial class FileEntry : Control
 
 	[Export]
 	public required Label Label { get; set; }
+
+	[Export]
+	public required Control MainHandle { get; set; }
 
 	[Export]
 	public required Texture2D IconDefault { get; set; }
@@ -55,11 +60,12 @@ public partial class FileEntry : Control
 	[Export]
 	public required Texture2D IconVideo { get; set; }
 
-	public string File { get; set; } = string.Empty;
+	public FileSystem? FileSystem { get; set; }
+	public string Path { get; set; } = string.Empty;
 
 	public override void _Ready()
 	{
-		var extension = Path.GetExtension(File);
+		var extension = System.IO.Path.GetExtension(Path);
 
 		Icon.Texture = extension switch
 		{
@@ -80,6 +86,34 @@ public partial class FileEntry : Control
 			_ => IconDefault
 		};
 
-		Label.Text = Icon.Texture == IconDefault ? File : Path.GetFileNameWithoutExtension(File);
+		Label.Text = Icon.Texture == IconDefault ? System.IO.Path.GetFileName(Path) : System.IO.Path.GetFileNameWithoutExtension(Path);
+
+		MainHandle.GuiInput += OnGuiInput;
+	}
+
+	private void OnGuiInput(InputEvent @event)
+	{
+		if (@event is not InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Right } eventMouseButton)
+			return;
+
+		var popupMenu = new PopupMenu
+		{
+			Position = new Vector2I((int)eventMouseButton.GlobalPosition.X, (int)eventMouseButton.GlobalPosition.Y), Visible = true
+		};
+
+		popupMenu.AddItem("Extract", 1);
+
+		popupMenu.IdPressed += id =>
+		{
+			if (id == 1)
+				FileSystem?.Unpack(Path);
+		};
+
+		popupMenu.CloseRequested += () => popupMenu.Free();
+
+		AddChild(popupMenu);
+
+		popupMenu.ResetSize();
+		popupMenu.Jail();
 	}
 }
