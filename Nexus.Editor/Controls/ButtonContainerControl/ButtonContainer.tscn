@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccb2hty6tethd"]
+
+[ext_resource type="Script" path="res://Controls/ButtonContainerControl/ButtonContainer.cs" id="1_o0bx7"]
+
+[node name="ButtonContainer" type="Container"]
+script = ExtResource("1_o0bx7")

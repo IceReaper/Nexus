@@ -63,7 +63,6 @@ public partial class FileEntry : Control
 	public required Texture2D IconVideo { get; set; }
 
 	public AssetViewer? AssetViewer { get; set; }
-	public PackedScene? ContextMenu { get; set; }
 
 	public FileSystem? FileSystem { get; set; }
 	public string Path { get; set; } = string.Empty;
@@ -101,15 +100,14 @@ public partial class FileEntry : Control
 		if (@event is not InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Right } eventMouseButton)
 			return;
 
-		if (ContextMenu == null)
-			return;
-
-		var contextMenu = (ContextMenu)ContextMenu.Instantiate();
-		contextMenu.Position = eventMouseButton.GlobalPosition;
-		contextMenu.FileSystem = FileSystem;
-		contextMenu.Path = Path;
-		contextMenu.FileType = FileType;
-
-		AddChild(contextMenu);
+		AddChild(
+			new ContextMenu
+			{
+				Position = new Vector2I((int)eventMouseButton.GlobalPosition.X, (int)eventMouseButton.GlobalPosition.Y),
+				FileSystem = FileSystem,
+				Path = Path,
+				FileType = FileType
+			}
+		);
 	}
 }

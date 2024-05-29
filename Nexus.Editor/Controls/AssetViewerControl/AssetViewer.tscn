@@ -1,350 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://b1lkcr1gfo0gf"]
+[gd_scene load_steps=5 format=3 uid="uid://b1lkcr1gfo0gf"]
 
-[ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_ailg0"]
 [ext_resource type="Script" path="res://Controls/AssetViewerControl/AssetViewer.cs" id="1_xbvxt"]
 [ext_resource type="Texture2D" uid="uid://bgu7c1vt0smmc" path="res://Assets/Icons/AccountTree.png" id="2_8b7v0"]
 [ext_resource type="PackedScene" uid="uid://b7mox10n25h8i" path="res://Controls/AssetViewerControl/TreeEntry.tscn" id="4_71vls"]
-[ext_resource type="PackedScene" uid="uid://dcl4r13y4hnnl" path="res://Controls/AssetViewerControl/ContextMenu.tscn" id="4_hymnw"]
 [ext_resource type="PackedScene" uid="uid://bqdiej33v1lld" path="res://Controls/AssetViewerControl/FileEntry.tscn" id="6_5mk3a"]
-[ext_resource type="FontFile" uid="uid://kcre6tii42eo" path="res://Assets/Fonts/Roboto-Regular.ttf" id="6_5y6wa"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k85uj"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.196078, 0.2, 0.239216, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2qh2"]
-content_margin_left = 1.0
-content_margin_top = 1.0
-content_margin_right = 1.0
-content_margin_bottom = 1.0
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.298039, 0.294118, 0.32549, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0k7po"]
-content_margin_left = 8.0
-content_margin_top = 4.0
-content_margin_right = 8.0
-content_margin_bottom = 4.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_neuyu"]
-content_margin_left = 8.0
-content_margin_top = 4.0
-content_margin_right = 8.0
-content_margin_bottom = 4.0
-bg_color = Color(0.215686, 0.215686, 0.25098, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij8py"]
-content_margin_left = 8.0
-content_margin_top = 4.0
-content_margin_right = 8.0
-content_margin_bottom = 4.0
-bg_color = Color(0.176471, 0.184314, 0.227451, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctpc7"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.964706, 0.305882, 0.384314, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_he6ay"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.215686, 0.215686, 0.25098, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_276og"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.298039, 0.294118, 0.32549, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5vvd"]
-content_margin_left = 0.0
-content_margin_top = 4.0
-content_margin_right = 0.0
-content_margin_bottom = 4.0
-bg_color = Color(0.176471, 0.184314, 0.227451, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_swyi7"]
-color = Color(0.298039, 0.294118, 0.32549, 1)
-
-[sub_resource type="ImageTexture" id="ImageTexture_u4wsi"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu8b7"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.196078, 0.6, 1, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3hwl"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ho4w6"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.176471, 0.184314, 0.227451, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tal4f"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2pyd"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_pfsk0"]
-color = Color(0.4, 0.4, 0.4, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vob1w"]
-content_margin_left = 1.0
-content_margin_top = 1.0
-content_margin_right = 1.0
-content_margin_bottom = 1.0
-bg_color = Color(0.196078, 0.2, 0.239216, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.298039, 0.294118, 0.32549, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_soiid"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.0431373, 0.729412, 0.513726, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87y60"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnu1v"]
-content_margin_left = 4.0
-content_margin_top = 0.0
-content_margin_right = 4.0
-content_margin_bottom = 0.0
-bg_color = Color(0.176471, 0.184314, 0.227451, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhpoo"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(1, 0.666667, 0, 1)
-anti_aliasing = false
-
-[sub_resource type="Image" id="Image_jpgnp"]
-data = {
-"data": PackedByteArray(246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255, 246, 78, 98, 255),
-"format": "RGBA8",
-"height": 14,
-"mipmaps": false,
-"width": 14
-}
-
-[sub_resource type="ImageTexture" id="ImageTexture_3kmao"]
-image = SubResource("Image_jpgnp")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6shgu"]
-content_margin_left = 1.0
-content_margin_top = 1.0
-content_margin_right = 1.0
-content_margin_bottom = 1.0
-bg_color = Color(0.176471, 0.184314, 0.227451, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.298039, 0.294118, 0.32549, 1)
-expand_margin_left = 1.0
-expand_margin_top = 21.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwpsj"]
-content_margin_left = 1.0
-content_margin_top = 1.0
-content_margin_right = 1.0
-content_margin_bottom = 1.0
-bg_color = Color(0.215686, 0.215686, 0.25098, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.298039, 0.294118, 0.32549, 1)
-expand_margin_left = 1.0
-expand_margin_top = 21.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
-anti_aliasing = false
-
-[sub_resource type="Theme" id="Theme_xorqw"]
-All/base_type = &"MarginContainer"
-All/constants/margin_bottom = 4
-All/constants/margin_left = 4
-All/constants/margin_right = 4
-All/constants/margin_top = 4
-Background/base_type = &"PanelContainer"
-Background/styles/panel = SubResource("StyleBoxFlat_k85uj")
-Border/base_type = &"PanelContainer"
-Border/styles/panel = SubResource("StyleBoxFlat_o2qh2")
-Button/colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
-Button/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 1)
-Button/colors/font_focus_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/font_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_disabled_color = Color(0.4, 0.4, 0.4, 1)
-Button/colors/icon_focus_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_normal_color = Color(0.698039, 0.698039, 0.698039, 1)
-Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
-Button/font_sizes/font_size = 14
-Button/fonts/font = ExtResource("6_5y6wa")
-Button/styles/disabled = SubResource("StyleBoxEmpty_0k7po")
-Button/styles/focus = SubResource("StyleBoxFlat_neuyu")
-Button/styles/hover = SubResource("StyleBoxFlat_neuyu")
-Button/styles/normal = SubResource("StyleBoxFlat_ij8py")
-Button/styles/pressed = SubResource("StyleBoxFlat_neuyu")
-Error/base_type = &"Button"
-Error/colors/font_color = Color(0.964706, 0.305882, 0.384314, 1)
-Error/colors/icon_normal_color = Color(0.964706, 0.305882, 0.384314, 1)
-Error/styles/focus = SubResource("StyleBoxFlat_ctpc7")
-Error/styles/hover = SubResource("StyleBoxFlat_ctpc7")
-Error/styles/pressed = SubResource("StyleBoxFlat_ctpc7")
-HBoxContainer/constants/separation = 0
-HScrollBar/styles/grabber = SubResource("StyleBoxFlat_he6ay")
-HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_276og")
-HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_276og")
-HScrollBar/styles/scroll = SubResource("StyleBoxFlat_y5vvd")
-HSeparator/constants/separation = 1
-HSeparator/styles/separator = SubResource("StyleBoxLine_swyi7")
-HSplitContainer/constants/separation = 0
-HSplitContainer/icons/grabber = SubResource("ImageTexture_u4wsi")
-Horizontal/base_type = &"MarginContainer"
-Horizontal/constants/margin_left = 4
-Horizontal/constants/margin_right = 4
-Info/base_type = &"Button"
-Info/colors/font_color = Color(0.196078, 0.6, 1, 1)
-Info/colors/icon_normal_color = Color(0.196078, 0.6, 1, 1)
-Info/styles/focus = SubResource("StyleBoxFlat_bu8b7")
-Info/styles/hover = SubResource("StyleBoxFlat_bu8b7")
-Info/styles/pressed = SubResource("StyleBoxFlat_bu8b7")
-Label/font_sizes/font_size = 14
-Label/fonts/font = ExtResource("6_5y6wa")
-Left/base_type = &"MarginContainer"
-Left/constants/margin_left = 4
-MenuBar/colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
-MenuBar/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 1)
-MenuBar/colors/font_focus_color = Color(1, 1, 1, 1)
-MenuBar/colors/font_hover_color = Color(1, 1, 1, 1)
-MenuBar/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-MenuBar/colors/font_pressed_color = Color(1, 1, 1, 1)
-MenuBar/constants/h_separation = 0
-MenuBar/font_sizes/font_size = 14
-MenuBar/fonts/font = ExtResource("6_5y6wa")
-MenuBar/styles/disabled = SubResource("StyleBoxEmpty_n3hwl")
-MenuBar/styles/hover = SubResource("StyleBoxFlat_ho4w6")
-MenuBar/styles/normal = SubResource("StyleBoxEmpty_n3hwl")
-MenuBar/styles/pressed = SubResource("StyleBoxFlat_ho4w6")
-Panel/styles/panel = SubResource("StyleBoxEmpty_tal4f")
-PanelContainer/styles/panel = SubResource("StyleBoxEmpty_m2pyd")
-PopupMenu/colors/font_accelerator_color = Color(0.4, 0.4, 0.4, 1)
-PopupMenu/colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
-PopupMenu/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 1)
-PopupMenu/colors/font_hover_color = Color(1, 1, 1, 1)
-PopupMenu/colors/font_separator_color = Color(0.4, 0.4, 0.4, 1)
-PopupMenu/constants/item_end_padding = 4
-PopupMenu/constants/item_start_padding = 4
-PopupMenu/font_sizes/font_separator_size = 12
-PopupMenu/font_sizes/font_size = 14
-PopupMenu/fonts/font = ExtResource("6_5y6wa")
-PopupMenu/fonts/font_separator = ExtResource("6_5y6wa")
-PopupMenu/styles/hover = SubResource("StyleBoxFlat_ho4w6")
-PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxLine_pfsk0")
-PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxLine_pfsk0")
-PopupMenu/styles/panel = SubResource("StyleBoxFlat_vob1w")
-PopupMenu/styles/separator = SubResource("StyleBoxLine_pfsk0")
-ProgressBar/colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
-ProgressBar/font_sizes/font_size = 14
-ProgressBar/fonts/font = ExtResource("6_5y6wa")
-ProgressBar/styles/background = SubResource("StyleBoxFlat_y5vvd")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_276og")
-RichTextLabel/colors/default_color = Color(0.698039, 0.698039, 0.698039, 1)
-RichTextLabel/font_sizes/normal_font_size = 14
-RichTextLabel/fonts/normal_font = ExtResource("6_5y6wa")
-Right/base_type = &"MarginContainer"
-Right/constants/margin_right = 4
-Success/base_type = &"Button"
-Success/colors/font_color = Color(0.0431373, 0.729412, 0.513726, 1)
-Success/colors/icon_normal_color = Color(0.0431373, 0.729412, 0.513726, 1)
-Success/styles/focus = SubResource("StyleBoxFlat_soiid")
-Success/styles/hover = SubResource("StyleBoxFlat_soiid")
-Success/styles/pressed = SubResource("StyleBoxFlat_soiid")
-Surface/base_type = &"PanelContainer"
-Surface/styles/panel = SubResource("StyleBoxFlat_he6ay")
-Text/base_type = &"Button"
-Text/styles/disabled = SubResource("StyleBoxEmpty_87y60")
-Text/styles/focus = SubResource("StyleBoxFlat_he6ay")
-Text/styles/hover = SubResource("StyleBoxFlat_he6ay")
-Text/styles/normal = SubResource("StyleBoxEmpty_87y60")
-Text/styles/pressed = SubResource("StyleBoxFlat_he6ay")
-Top/base_type = &"MarginContainer"
-Top/constants/margin_top = 4
-VBoxContainer/constants/separation = 0
-VScrollBar/styles/grabber = SubResource("StyleBoxFlat_he6ay")
-VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_276og")
-VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_276og")
-VScrollBar/styles/scroll = SubResource("StyleBoxFlat_rnu1v")
-VSeparator/constants/separation = 1
-VSeparator/styles/separator = SubResource("StyleBoxLine_swyi7")
-VSplitContainer/constants/separation = 0
-VSplitContainer/icons/grabber = SubResource("ImageTexture_u4wsi")
-Warning/base_type = &"Button"
-Warning/colors/font_color = Color(1, 0.666667, 0, 1)
-Warning/colors/icon_normal_color = Color(1, 0.666667, 0, 1)
-Warning/styles/focus = SubResource("StyleBoxFlat_yhpoo")
-Warning/styles/hover = SubResource("StyleBoxFlat_yhpoo")
-Warning/styles/pressed = SubResource("StyleBoxFlat_yhpoo")
-Window/colors/title_color = Color(0.698039, 0.698039, 0.698039, 1)
-Window/constants/close_h_offset = 17
-Window/constants/close_v_offset = 17
-Window/constants/title_height = 21
-Window/font_sizes/title_font_size = 14
-Window/fonts/title_font = ExtResource("6_5y6wa")
-Window/icons/close = SubResource("ImageTexture_3kmao")
-Window/icons/close_pressed = SubResource("ImageTexture_3kmao")
-Window/styles/embedded_border = SubResource("StyleBoxFlat_6shgu")
-Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_kwpsj")
 
 [node name="AssetViewer" type="PanelContainer" node_paths=PackedStringArray("TreeRoot", "FilesRoot")]
 custom_minimum_size = Vector2(0, 200)
@@ -354,81 +13,75 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xbvxt")
-TreeRoot = NodePath("ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/Root")
+TreeRoot = NodePath("VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/Root")
 TreeEntry = ExtResource("4_71vls")
-FilesRoot = NodePath("ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/Root")
+FilesRoot = NodePath("VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/Root")
 FileEntry = ExtResource("6_5mk3a")
-ContextMenu = ExtResource("4_hymnw")
 
-[node name="ThemeBase" parent="." instance=ExtResource("1_ailg0")]
-layout_mode = 2
-theme = SubResource("Theme_xorqw")
-script = null
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"Surface"
 
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_type_variation = &"All"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"Right"
 
-[node name="TextureRect" type="TextureRect" parent="ThemeBase/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("2_8b7v0")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="ThemeBase/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Assets"
 
-[node name="HSeparator" type="HSeparator" parent="ThemeBase/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="ThemeBase/VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"Background"
 
-[node name="HSplitContainer" type="HSplitContainer" parent="ThemeBase/VBoxContainer/PanelContainer2"]
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/PanelContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_constants/autohide = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer2/HSplitContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 vertical_scroll_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"All"
 
-[node name="Root" type="VBoxContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer"]
+[node name="Root" type="VBoxContainer" parent="VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="VBoxContainer/PanelContainer2/HSplitContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 vertical_scroll_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"All"
 
-[node name="Root" type="HFlowContainer" parent="ThemeBase/VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer"]
+[node name="Root" type="HFlowContainer" parent="VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer"]
 layout_mode = 2

@@ -1,6 +1,6 @@
 using Godot;
 using LibNexus.Editor;
-using Nexus.Editor.Controls.ThemeBaseControl;
+using ThemeBase = Nexus.Editor.Theme.ThemeBase;
 
 namespace Nexus.Editor.Controls.MainControl;
 

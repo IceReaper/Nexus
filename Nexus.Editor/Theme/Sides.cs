@@ -1,4 +1,4 @@
-namespace Nexus.Editor.Controls.ThemeBaseControl;
+namespace Nexus.Editor.Theme;
 
 public readonly struct Sides : IEquatable<Sides>
 {

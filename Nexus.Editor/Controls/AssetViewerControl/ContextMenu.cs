@@ -4,31 +4,26 @@ using Nexus.Editor.Extensions;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
-public partial class ContextMenu : Control
+public partial class ContextMenu : PopupMenu
 {
-	[Export]
-	public required PopupMenu PopupMenu { get; set; }
-
 	public FileSystem? FileSystem { get; set; }
 	public string Path { get; set; } = string.Empty;
 	public FileType FileType { get; set; }
 
 	public override void _Ready()
 	{
-		PopupMenu.Position = new Vector2I((int)Position.X, (int)Position.Y);
+		AddItem("Extract", 1, Key.E);
 
-		PopupMenu.AddItem("Extract", 1, Key.E);
-
-		PopupMenu.IdPressed += id =>
+		IdPressed += id =>
 		{
 			if (id == 1)
 				Extract();
 		};
 
-		PopupMenu.CloseRequested += Free;
+		CloseRequested += Free;
 
-		PopupMenu.ResetSize();
-		PopupMenu.Jail();
+		ResetSize();
+		this.Jail();
 	}
 
 	private void Extract()

@@ -4,11 +4,8 @@ using Nexus.Editor.Extensions;
 
 namespace Nexus.Editor.Controls.ProgressDialogControl;
 
-public partial class ProgressDialog : Control
+public partial class ProgressDialog : Window
 {
-	[Export]
-	public required Window Window { get; set; }
-
 	[Export]
 	public required Control Root { get; set; }
 
@@ -28,7 +25,7 @@ public partial class ProgressDialog : Control
 		progressEntry.Template = ProgressEntry;
 		Root.AddChild(progressEntry);
 
-		Window.CloseRequested += () =>
+		CloseRequested += () =>
 		{
 			_cancellationTokenSource.Cancel();
 			Free();
@@ -37,8 +34,8 @@ public partial class ProgressDialog : Control
 
 	public override void _Process(double delta)
 	{
-		Window.ResetSize();
-		Window.Jail();
+		ResetSize();
+		this.Jail();
 
 		if (_task == null)
 			return;

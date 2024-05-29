@@ -35,7 +35,7 @@ public class OpenProjectProcess
 		}
 
 		var dialog = (ProgressDialog)_progressDialogScene.Instantiate();
-		dialog.Window.Title = "Opening project";
+		dialog.Title = "Opening project";
 
 		dialog.Run((progress, cancellationToken) => Project.Load(_projectFilePath, progress, cancellationToken), result => _main.Project = result);
 
@@ -98,7 +98,7 @@ public class OpenProjectProcess
 		directoryCopier.Add(sourceDirectory, _targetLocation);
 
 		var dialog = (ProgressDialog)_progressDialogScene.Instantiate();
-		dialog.Window.Title = "Copying client";
+		dialog.Title = "Copying client";
 		dialog.Run((progress, cancellationToken) => directoryCopier.Run(progress, cancellationToken), TryOpen);
 		_main.AddChild(dialog);
 	}

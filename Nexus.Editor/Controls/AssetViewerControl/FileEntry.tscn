@@ -1,6 +1,5 @@
-[gd_scene load_steps=20 format=3 uid="uid://bqdiej33v1lld"]
+[gd_scene load_steps=19 format=3 uid="uid://bqdiej33v1lld"]
 
-[ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_cnidv"]
 [ext_resource type="Script" path="res://Controls/AssetViewerControl/FileEntry.cs" id="1_wgmek"]
 [ext_resource type="Texture2D" uid="uid://coau1e1bjh0hw" path="res://Assets/Icons/Draft.png" id="2_g2wve"]
 [ext_resource type="Texture2D" uid="uid://brnt0iu2uv4qw" path="res://Assets/Icons/Folder.png" id="3_6ajuu"]
@@ -18,17 +17,16 @@
 [ext_resource type="Texture2D" uid="uid://xlgmkaf2mook" path="res://Assets/Icons/Code.png" id="14_0gy4k"]
 [ext_resource type="Texture2D" uid="uid://b68u4qvdj3asd" path="res://Assets/Icons/Translate.png" id="15_3tegc"]
 [ext_resource type="Texture2D" uid="uid://dorl3s5x1ck1w" path="res://Assets/Icons/Movie.png" id="16_pcmvn"]
+[ext_resource type="PackedScene" uid="uid://ccb2hty6tethd" path="res://Controls/ButtonContainerControl/ButtonContainer.tscn" id="18_snn3e"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v3l8q"]
-
-[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("Icon", "Label", "MainHandle")]
+[node name="FileEntry" type="MarginContainer" node_paths=PackedStringArray("Icon", "Label", "MainHandle")]
 offset_right = 96.0
 offset_bottom = 123.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_v3l8q")
+theme_type_variation = &"All"
 script = ExtResource("1_wgmek")
-Icon = NodePath("ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/TextureRect")
-Label = NodePath("ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Label")
-MainHandle = NodePath("ThemeBase/MarginContainer/PanelContainer")
+Icon = NodePath("PanelContainer/ButtonContainer/MarginContainer/VBoxContainer/TextureRect")
+Label = NodePath("PanelContainer/ButtonContainer/MarginContainer/VBoxContainer/MarginContainer/Label")
+MainHandle = NodePath("PanelContainer")
 IconDefault = ExtResource("2_g2wve")
 IconDirectory = ExtResource("3_6ajuu")
 IconComplexModel = ExtResource("3_u4tuq")
@@ -46,40 +44,29 @@ IconScript = ExtResource("14_0gy4k")
 IconTranslations = ExtResource("15_3tegc")
 IconVideo = ExtResource("16_pcmvn")
 
-[node name="ThemeBase" parent="." instance=ExtResource("1_cnidv")]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_type_variation = &"All"
-
-[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 theme_type_variation = &"Border"
 
-[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/MarginContainer/PanelContainer"]
+[node name="ButtonContainer" parent="PanelContainer" instance=ExtResource("18_snn3e")]
 layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"Surface"
 
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ButtonContainer"]
 layout_mode = 2
 theme_type_variation = &"All"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ButtonContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/ButtonContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_g2wve")
 
-[node name="MarginContainer" type="MarginContainer" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ButtonContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"Top"
 
-[node name="Label" type="Label" parent="ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="PanelContainer/ButtonContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 text = "Name"
 horizontal_alignment = 1

@@ -1,16 +1,13 @@
 using Godot;
-using Nexus.Editor.Controls.ThemeBaseControl;
 using Nexus.Editor.Extensions;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using AppTheme = Nexus.Editor.Theme.AppTheme;
 
 namespace Nexus.Editor.Controls.AboutControl;
 
-public partial class About : Control
+public partial class About : Window
 {
-	[Export]
-	public required Window Window { get; set; }
-
 	[Export]
 	public required Label Version { get; set; }
 
@@ -37,12 +34,12 @@ public partial class About : Control
 
 		Repository.MetaClicked += static link => OS.ShellOpen(link.AsString());
 
-		Window.ResetSize();
-		Window.CloseRequested += Free;
+		ResetSize();
+		CloseRequested += Free;
 	}
 
 	public override void _Process(double delta)
 	{
-		Window.Jail();
+		this.Jail();
 	}
 }

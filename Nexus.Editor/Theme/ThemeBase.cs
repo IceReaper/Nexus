@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Nexus.Editor.Controls.ThemeBaseControl;
+namespace Nexus.Editor.Theme;
 
 [Tool]
 public partial class ThemeBase : PanelContainer

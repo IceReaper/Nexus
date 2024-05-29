@@ -24,7 +24,6 @@ public partial class TreeEntry : Control
 	public required Control Children { get; set; }
 
 	public AssetViewer? AssetViewer { get; set; }
-	public PackedScene? ContextMenu { get; set; }
 
 	public FileSystem? FileSystem { get; set; }
 	public string Path { get; set; } = string.Empty;
@@ -81,16 +80,15 @@ public partial class TreeEntry : Control
 
 			case { ButtonIndex: MouseButton.Right }:
 			{
-				if (ContextMenu == null)
-					return;
-
-				var contextMenu = (ContextMenu)ContextMenu.Instantiate();
-				contextMenu.Position = eventMouseButton.GlobalPosition;
-				contextMenu.FileSystem = FileSystem;
-				contextMenu.Path = Path;
-				contextMenu.FileType = FileType.Directory;
-
-				AddChild(contextMenu);
+				AddChild(
+					new ContextMenu
+					{
+						Position = new Vector2I((int)eventMouseButton.GlobalPosition.X, (int)eventMouseButton.GlobalPosition.Y),
+						FileSystem = FileSystem,
+						Path = Path,
+						FileType = FileType.Directory
+					}
+				);
 
 				break;
 			}

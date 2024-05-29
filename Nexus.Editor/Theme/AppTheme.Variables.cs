@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Nexus.Editor.Controls.ThemeBaseControl;
+namespace Nexus.Editor.Theme;
 
 public partial class AppTheme
 {

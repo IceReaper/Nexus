@@ -1,9 +1,9 @@
 using Godot;
 using Nexus.Editor.Controls.ButtonContainerControl;
 
-namespace Nexus.Editor.Controls.ThemeBaseControl;
+namespace Nexus.Editor.Theme;
 
-public partial class AppTheme : Theme
+public partial class AppTheme : Godot.Theme
 {
 	public AppTheme()
 	{

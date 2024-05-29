@@ -1,5 +1,5 @@
 using Godot;
-using Nexus.Editor.Controls.ThemeBaseControl;
+using AppTheme = Nexus.Editor.Theme.AppTheme;
 
 namespace Nexus.Editor.Extensions;
 

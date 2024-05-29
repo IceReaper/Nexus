@@ -21,9 +21,6 @@ public partial class AssetViewer : Control
 	[Export]
 	public required PackedScene FileEntry { get; set; }
 
-	[Export]
-	public required PackedScene ContextMenu { get; set; }
-
 	private TreeEntry? _selectedDirectory;
 
 	public TreeEntry? SelectedDirectory
@@ -60,7 +57,6 @@ public partial class AssetViewer : Control
 		{
 			var treeEntry = (TreeEntry)TreeEntry.Instantiate();
 			treeEntry.AssetViewer = this;
-			treeEntry.ContextMenu = ContextMenu;
 			treeEntry.FileSystem = fileSystem;
 			treeEntry.Path = string.Empty;
 			treeEntry.Button.Text = name;
@@ -78,7 +74,6 @@ public partial class AssetViewer : Control
 		{
 			var treeEntry = (TreeEntry)TreeEntry.Instantiate();
 			treeEntry.AssetViewer = this;
-			treeEntry.ContextMenu = ContextMenu;
 			treeEntry.FileSystem = parent.FileSystem;
 			treeEntry.Path = string.IsNullOrEmpty(parent.Path) ? directory : $"{parent.Path}/{directory}";
 			treeEntry.Button.Text = directory;
@@ -104,7 +99,6 @@ public partial class AssetViewer : Control
 		{
 			var fileEntry = (FileEntry)FileEntry.Instantiate();
 			fileEntry.AssetViewer = this;
-			fileEntry.ContextMenu = ContextMenu;
 			fileEntry.FileSystem = _selectedDirectory.FileSystem;
 			fileEntry.Path = string.IsNullOrEmpty(_selectedDirectory.Path) ? directory : $"{_selectedDirectory.Path}/{directory}";
 			fileEntry.FileType = FileType.Directory;
@@ -134,7 +128,6 @@ public partial class AssetViewer : Control
 
 			var fileEntry = (FileEntry)FileEntry.Instantiate();
 			fileEntry.AssetViewer = this;
-			fileEntry.ContextMenu = ContextMenu;
 			fileEntry.FileSystem = _selectedDirectory.FileSystem;
 			fileEntry.Path = string.IsNullOrEmpty(_selectedDirectory.Path) ? file : $"{_selectedDirectory.Path}/{file}";
 			fileEntry.FileType = fileType;

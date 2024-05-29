@@ -19,6 +19,10 @@ config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 project/assembly_name="Nexus.Editor"
 project/solution_directory="../"
 
+[gui]
+
+theme/custom="res://Theme/AppTheme.tres"
+
 [rendering]
 
 renderer/rendering_method.web="forward_plus"

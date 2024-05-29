@@ -1,41 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://qvdc74gjcjmu"]
+[gd_scene load_steps=3 format=3 uid="uid://qvdc74gjcjmu"]
 
 [ext_resource type="Script" path="res://Controls/ProgressDialogControl/ProgressDialog.cs" id="1_2f3cg"]
-[ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_3br1a"]
 [ext_resource type="PackedScene" uid="uid://c6d1257vq647q" path="res://Controls/ProgressDialogControl/ProgressEntry.tscn" id="3_xo31a"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_eje77"]
-
-[node name="ProgressDialog" type="Control" node_paths=PackedStringArray("Window", "Root")]
-layout_mode = 3
-anchors_preset = 0
+[node name="ProgressDialog" type="Window" node_paths=PackedStringArray("Root")]
 script = ExtResource("1_2f3cg")
-Window = NodePath("ThemeBase/Window")
-Root = NodePath("ThemeBase/Window/PanelContainer/Root")
+Root = NodePath("PanelContainer/Root")
 ProgressEntry = ExtResource("3_xo31a")
 
-[node name="ThemeBase" parent="." instance=ExtResource("1_3br1a")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="Window" type="Window" parent="ThemeBase"]
-title = "Progress"
-initial_position = 2
-size = Vector2i(300, 8)
-wrap_controls = true
-transient = true
-unresizable = true
-always_on_top = true
-popup_window = true
-min_size = Vector2i(200, 0)
-theme_override_icons/close = SubResource("ImageTexture_eje77")
-theme_override_icons/close_pressed = SubResource("ImageTexture_eje77")
-
-[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/Window"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,6 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"Background"
 
-[node name="Root" type="MarginContainer" parent="ThemeBase/Window/PanelContainer"]
+[node name="Root" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
 theme_type_variation = &"All"

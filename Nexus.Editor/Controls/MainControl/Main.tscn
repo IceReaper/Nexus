@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://btagk0wabd5q8"]
+[gd_scene load_steps=5 format=3 uid="uid://btagk0wabd5q8"]
 
 [ext_resource type="Script" path="res://Controls/MainControl/Main.cs" id="2_8f473"]
 [ext_resource type="PackedScene" uid="uid://b1lkcr1gfo0gf" path="res://Controls/AssetViewerControl/AssetViewer.tscn" id="2_gp81g"]
-[ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="3_o4xbj"]
 [ext_resource type="PackedScene" uid="uid://h580nkkc01hb" path="res://Controls/MainMenuControl/MainMenu.tscn" id="3_w1cau"]
 [ext_resource type="PackedScene" uid="uid://dq8cqbdh6eph3" path="res://Controls/PlayStopControl/PlayStop.tscn" id="4_2enek"]
 
@@ -12,61 +11,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_8f473")
-WindowJail = NodePath("ThemeBase/PanelContainer/VBoxContainer/PanelContainer2")
-ThemeBase = NodePath("ThemeBase")
-
-[node name="ThemeBase" parent="." instance=ExtResource("3_o4xbj")]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="ThemeBase"]
-layout_mode = 2
 theme_type_variation = &"Background"
+script = ExtResource("2_8f473")
+WindowJail = NodePath("VBoxContainer/PanelContainer2")
+ThemeBase = NodePath("")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ThemeBase/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/PanelContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"Surface"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="MenuBar" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" node_paths=PackedStringArray("Main") instance=ExtResource("3_w1cau")]
+[node name="MenuBar" parent="VBoxContainer/PanelContainer/HBoxContainer" node_paths=PackedStringArray("Main") instance=ExtResource("3_w1cau")]
 layout_mode = 2
-Main = NodePath("../../../../../..")
+Main = NodePath("../../../..")
 
-[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PlayStop" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" node_paths=PackedStringArray("Main") instance=ExtResource("4_2enek")]
+[node name="PlayStop" parent="VBoxContainer/PanelContainer/HBoxContainer" node_paths=PackedStringArray("Main") instance=ExtResource("4_2enek")]
 layout_mode = 2
-Main = NodePath("../../../../../..")
+Main = NodePath("../../../..")
 
-[node name="HSeparator" type="HSeparator" parent="ThemeBase/PanelContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="ThemeBase/PanelContainer/VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VSplitContainer" type="VSplitContainer" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer2"]
+[node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer/PanelContainer2"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer2/VSplitContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer2/VSplitContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer2" type="VBoxContainer" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer2/VSplitContainer"]
+[node name="PanelContainer2" type="VBoxContainer" parent="VBoxContainer/PanelContainer2/VSplitContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HSeparator" type="HSeparator" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer2/VSplitContainer/PanelContainer2"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer2/VSplitContainer/PanelContainer2"]
 layout_mode = 2
 
-[node name="AssetViewer" parent="ThemeBase/PanelContainer/VBoxContainer/PanelContainer2/VSplitContainer/PanelContainer2" node_paths=PackedStringArray("Main") instance=ExtResource("2_gp81g")]
+[node name="AssetViewer" parent="VBoxContainer/PanelContainer2/VSplitContainer/PanelContainer2" node_paths=PackedStringArray("Main") instance=ExtResource("2_gp81g")]
 layout_mode = 2
 size_flags_vertical = 3
-Main = NodePath("../../../../../../..")
+Main = NodePath("../../../../..")
