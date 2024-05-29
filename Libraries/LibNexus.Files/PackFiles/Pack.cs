@@ -26,11 +26,8 @@ public class Pack : IDisposable
 	{
 		_stream = stream;
 
-		if (_stream.Position != 0)
-			throw new ConstraintException("Pack: Invalid stream position");
-
-		var pack = stream.ReadWord();
-		var version = stream.ReadUInt32();
+		var pack = _stream.ReadWord();
+		var version = _stream.ReadUInt32();
 
 		if (pack != Magic)
 			throw new Exception("Pack: Invalid magic");
@@ -264,14 +261,13 @@ public class Pack : IDisposable
 
 	private PackPhysicalPage AllocatePhysicalPage(ulong length)
 	{
-		foreach (var physicalPage in _physicalPages.Values)
-		{
-			if (physicalPage == VirtualPagesPhysicalPage || physicalPage.VirtualPages.Count != 0)
-				continue;
+		var physicalPage = _physicalPages.Values.FirstOrDefault(
+			physicalPage => physicalPage != VirtualPagesPhysicalPage && physicalPage.VirtualPages.Count == 0
+				&& (physicalPage.Length >= length || physicalPage.Next == null)
+		);
 
-			if (physicalPage.Length >= length || physicalPage.Next == null)
-				return ResizePhysicalPage(physicalPage, length);
-		}
+		if (physicalPage != null)
+			return ResizePhysicalPage(physicalPage, length);
 
 		_stream.Position = (long)_header.Length;
 

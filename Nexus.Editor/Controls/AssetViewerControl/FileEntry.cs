@@ -91,6 +91,7 @@ public partial class FileEntry : Control
 		MainHandle.GuiInput += OnGuiInput;
 	}
 
+	// TODO this copy / paste is ugly. Make this whole context menu thing somehow more elegant.
 	private void OnGuiInput(InputEvent @event)
 	{
 		if (@event is not InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Right } eventMouseButton)

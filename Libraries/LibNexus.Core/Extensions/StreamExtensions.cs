@@ -14,6 +14,11 @@ public static class StreamExtensions
 		return BitConverter.ToUInt64(stream.ReadBytes(sizeof(ulong)));
 	}
 
+	public static float ReadSingle(this Stream stream)
+	{
+		return BitConverter.ToSingle(stream.ReadBytes(sizeof(float)));
+	}
+
 	public static string ReadWord(this Stream stream)
 	{
 		return Encoding.ASCII.GetString(ReadBytes(stream, sizeof(uint)).Reverse().ToArray());
@@ -26,6 +31,23 @@ public static class StreamExtensions
 		while (true)
 		{
 			var character = stream.ReadBytes(sizeof(byte))[0];
+
+			if (character == 0x00)
+				break;
+
+			value += (char)character;
+		}
+
+		return value;
+	}
+
+	public static string ReadWideString(this Stream stream)
+	{
+		var value = string.Empty;
+
+		while (true)
+		{
+			var character = BitConverter.ToUInt16(stream.ReadBytes(sizeof(ushort)));
 
 			if (character == 0x00)
 				break;

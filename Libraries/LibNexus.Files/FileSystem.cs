@@ -294,6 +294,7 @@ public class FileSystem : IDisposable
 		}
 	}
 
+	// TODO just for debugging...
 	public void Unpack(string path)
 	{
 		if (_directory == null)
@@ -301,16 +302,24 @@ public class FileSystem : IDisposable
 
 		var file = Read(path);
 
-		if (file == null)
-			return;
+		if (file != null)
+		{
+			var targetPath = Path.Combine(_directory, path);
+			var basePath = Path.GetDirectoryName(targetPath) ?? string.Empty;
 
-		var targetPath = Path.Combine(_directory, path);
-		var basePath = Path.GetDirectoryName(targetPath) ?? string.Empty;
+			if (!Directory.Exists(basePath))
+				Directory.CreateDirectory(basePath);
 
-		if (!Directory.Exists(basePath))
-			Directory.CreateDirectory(basePath);
+			File.WriteAllBytes(targetPath, file);
+		}
+		else
+		{
+			foreach (var subDirectory in ListDirectories(path))
+				Unpack($"{path}/{subDirectory}");
 
-		File.WriteAllBytes(targetPath, file);
+			foreach (var subFile in ListFiles(path))
+				Unpack($"{path}/{subFile}");
+		}
 	}
 
 	public void Dispose()

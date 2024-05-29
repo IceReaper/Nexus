@@ -86,14 +86,14 @@ public class PackHeader
 		var unk1 = new ulong[64]; // TODO value on translation archives, LauncherData.archive! these are also PhysicalPage offsets!
 
 		for (var i = 0; i < unk1.Length; i++)
-			unk1[i] = stream.ReadUInt64();
+			unk1[i] = _stream.ReadUInt64();
 
-		_length = stream.ReadUInt64();
-		stream.ReadUInt64(); // TODO value on translation archives, LauncherData.archive! no idea yet what it is...
-		_virtualPagesOffset = stream.ReadUInt64();
-		_virtualPages = stream.ReadUInt64();
-		_rootPage = stream.ReadUInt64();
-		var unk3 = stream.ReadUInt64(); // TODO
+		_length = _stream.ReadUInt64();
+		_stream.ReadUInt64(); // TODO value on translation archives, LauncherData.archive! no idea yet what it is...
+		_virtualPagesOffset = _stream.ReadUInt64();
+		_virtualPages = _stream.ReadUInt64();
+		_rootPage = _stream.ReadUInt64();
+		var unk3 = _stream.ReadUInt64(); // TODO padding?
 
 		if (_length != (ulong)_stream.Length)
 			throw new Exception("PackHeader: Invalid size");

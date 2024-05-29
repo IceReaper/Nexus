@@ -3,6 +3,7 @@ using Nexus.Editor.Controls.MainControl;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
+// TODO Files view needs also folders. We should rename it into IconView. Also we need a filter function here as some folders are huge!
 public partial class AssetViewer : Control
 {
 	[Export]

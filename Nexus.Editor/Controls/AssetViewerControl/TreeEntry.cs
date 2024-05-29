@@ -1,5 +1,6 @@
 using Godot;
 using LibNexus.Files;
+using Nexus.Editor.Extensions;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
@@ -34,7 +35,7 @@ public partial class TreeEntry : Control
 	public override void _Ready()
 	{
 		Button.Pressed += Select;
-		Button.GuiInput += ExpandOrCollapse;
+		Button.GuiInput += OnGuiInput;
 		IconCollapsed.GuiInput += Expand;
 		IconExpanded.GuiInput += Collapse;
 
@@ -51,25 +52,56 @@ public partial class TreeEntry : Control
 			AssetViewer.SelectedDirectory = this;
 	}
 
-	private void ExpandOrCollapse(InputEvent @event)
+	private void OnGuiInput(InputEvent @event)
 	{
-		if (@event is not InputEventMouseButton { ButtonIndex: MouseButton.Left, DoubleClick: true })
-			return;
-
-		if (!_populated)
+		switch (@event)
 		{
-			PopulateChildren?.Invoke(this);
-			_populated = true;
+			case InputEventMouseButton { ButtonIndex: MouseButton.Left, DoubleClick: true }:
+			{
+				if (!_populated)
+				{
+					PopulateChildren?.Invoke(this);
+					_populated = true;
+				}
+
+				if (IconNoChildren.Visible)
+					return;
+
+				var collapse = ChildrenRoot.Visible;
+
+				IconCollapsed.Visible = collapse;
+				IconExpanded.Visible = !collapse;
+				ChildrenRoot.Visible = !collapse;
+
+				break;
+			}
+
+			// TODO this copy / paste is ugly. Make this whole context menu thing somehow more elegant.
+			case InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Right } eventMouseButton:
+			{
+				var popupMenu = new PopupMenu
+				{
+					Position = new Vector2I((int)eventMouseButton.GlobalPosition.X, (int)eventMouseButton.GlobalPosition.Y), Visible = true
+				};
+
+				popupMenu.AddItem("Extract", 1);
+
+				popupMenu.IdPressed += id =>
+				{
+					if (id == 1)
+						FileSystem?.Unpack(Path);
+				};
+
+				popupMenu.CloseRequested += () => popupMenu.Free();
+
+				AddChild(popupMenu);
+
+				popupMenu.ResetSize();
+				popupMenu.Jail();
+
+				break;
+			}
 		}
-
-		if (IconNoChildren.Visible)
-			return;
-
-		var collapse = ChildrenRoot.Visible;
-
-		IconCollapsed.Visible = collapse;
-		IconExpanded.Visible = !collapse;
-		ChildrenRoot.Visible = !collapse;
 	}
 
 	private void Expand(InputEvent @event)
