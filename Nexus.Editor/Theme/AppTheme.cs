@@ -17,6 +17,7 @@ public partial class AppTheme : Godot.Theme
 		ScrollBars();
 		Buttons();
 		ContainerButtons();
+		LineEdits();
 		MenuBars();
 		PopupMenus();
 		Windows();
@@ -176,6 +177,24 @@ public partial class AppTheme : Godot.Theme
 		SetTypeVariation(nameof(ButtonContainer), nameof(Container));
 		SetStylebox("normal", nameof(ButtonContainer), GetBackground(BackgroundDark, new Sides(Padding, Padding * 2)));
 		SetStylebox("hover", nameof(ButtonContainer), GetBackground(BackgroundLight, new Sides(Padding, Padding * 2)));
+	}
+
+	private void LineEdits()
+	{
+		SetStylebox("normal", nameof(LineEdit), GetBackground(BackgroundDark, new Sides(Padding, Padding * 2)));
+		SetStylebox("focus", nameof(LineEdit), GetBackground(BackgroundDark, new Sides(Padding, Padding * 2)));
+		SetStylebox("readonly", nameof(LineEdit), GetBackground(BackgroundDark, new Sides(Padding, Padding * 2)));
+
+		SetFont("font", nameof(LineEdit), Font);
+		SetFontSize("font_size", nameof(LineEdit), FontSize);
+
+		SetColor("font_color", nameof(LineEdit), TextPrimary);
+		SetColor("font_selected_color", nameof(LineEdit), TextActive);
+		SetColor("font_uneditable_color", nameof(LineEdit), TextDisabled);
+		SetColor("font_placeholder_color", nameof(LineEdit), TextDisabled);
+
+		SetColor("caret_color", nameof(LineEdit), TextPrimary);
+		SetColor("selection_color", nameof(LineEdit), BackgroundLight);
 	}
 
 	private void MenuBars()

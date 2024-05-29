@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqdiej33v1lld"]
+[gd_scene load_steps=20 format=3 uid="uid://bqdiej33v1lld"]
 
-[ext_resource type="Script" path="res://Controls/AssetViewerControl/FileEntry.cs" id="1_wgmek"]
+[ext_resource type="Script" path="res://Controls/AssetViewerControl/IconEntry.cs" id="1_7ipav"]
 [ext_resource type="Texture2D" uid="uid://coau1e1bjh0hw" path="res://Assets/Icons/Draft.png" id="2_g2wve"]
 [ext_resource type="Texture2D" uid="uid://brnt0iu2uv4qw" path="res://Assets/Icons/Folder.png" id="3_6ajuu"]
 [ext_resource type="Texture2D" uid="uid://dm1btmm62s5ub" path="res://Assets/Icons/Accessibility.png" id="3_u4tuq"]
+[ext_resource type="Texture2D" uid="uid://btqqj7jp7co5n" path="res://Assets/Icons/Reply.png" id="4_taj0v"]
 [ext_resource type="Texture2D" uid="uid://dyqhrjwokoxc1" path="res://Assets/Icons/DeployedCode.png" id="4_xrfuk"]
 [ext_resource type="Texture2D" uid="uid://c8xi8udhswtf1" path="res://Assets/Icons/Image.png" id="5_mdcq1"]
 [ext_resource type="Texture2D" uid="uid://bc1htaygadaf0" path="res://Assets/Icons/Castle.png" id="6_tguog"]
@@ -23,12 +24,13 @@
 offset_right = 96.0
 offset_bottom = 123.0
 theme_type_variation = &"All"
-script = ExtResource("1_wgmek")
+script = ExtResource("1_7ipav")
 Icon = NodePath("PanelContainer/ButtonContainer/MarginContainer/VBoxContainer/TextureRect")
 Label = NodePath("PanelContainer/ButtonContainer/MarginContainer/VBoxContainer/MarginContainer/Label")
 MainHandle = NodePath("PanelContainer")
 IconDefault = ExtResource("2_g2wve")
 IconDirectory = ExtResource("3_6ajuu")
+IconParentDirectory = ExtResource("4_taj0v")
 IconComplexModel = ExtResource("3_u4tuq")
 IconSimpleModel = ExtResource("4_xrfuk")
 IconTexture = ExtResource("5_mdcq1")

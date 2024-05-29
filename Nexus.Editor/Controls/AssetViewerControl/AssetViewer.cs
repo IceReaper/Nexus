@@ -3,7 +3,6 @@ using Nexus.Editor.Controls.MainControl;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
-// TODO Files view needs also folders. We should rename it into IconView. Also we need a filter function here as some folders are huge!
 public partial class AssetViewer : Control
 {
 	[Export]
@@ -16,39 +15,60 @@ public partial class AssetViewer : Control
 	public required PackedScene TreeEntry { get; set; }
 
 	[Export]
-	public required Control FilesRoot { get; set; }
+	public required Control IconsRoot { get; set; }
 
 	[Export]
-	public required PackedScene FileEntry { get; set; }
+	public required PackedScene IconEntry { get; set; }
 
-	private TreeEntry? _selectedDirectory;
+	[Export]
+	public required LineEdit FilterInput { get; set; }
 
-	public TreeEntry? SelectedDirectory
+	private FileSystemPath? _currentPath;
+
+	public FileSystemPath? CurrentPath
 	{
-		get => _selectedDirectory;
+		get => _currentPath;
 
 		set
 		{
-			if (_selectedDirectory != null)
-				_selectedDirectory.Button.ButtonPressed = false;
+			_currentPath = value;
+			UpdateTree();
+			RebuildIcons();
+		}
+	}
 
-			_selectedDirectory = value;
-			UpdateFiles();
+	private string _filter = string.Empty;
+
+	public string Filter
+	{
+		get => _filter;
+
+		set
+		{
+			_filter = value;
+			UpdateIcons();
 		}
 	}
 
 	public override void _Ready()
 	{
 		Main.OnProjectChanged += ProjectChanged;
+		FilterInput.TextChanged += filter => Filter = filter;
 	}
 
 	private void ProjectChanged()
 	{
-		foreach (var child in TreeRoot.GetChildren())
-			child.Free();
+		_currentPath = null;
+		_filter = string.Empty;
 
-		foreach (var child in FilesRoot.GetChildren())
-			child.Free();
+		RebuildTree();
+		RebuildIcons();
+	}
+
+	private void RebuildTree()
+	{
+		foreach (var child in TreeRoot.GetChildren())
+			child.QueueFree();
 
 		if (Main.Project == null)
 			return;
@@ -57,81 +77,150 @@ public partial class AssetViewer : Control
 		{
 			var treeEntry = (TreeEntry)TreeEntry.Instantiate();
 			treeEntry.AssetViewer = this;
-			treeEntry.FileSystem = fileSystem;
-			treeEntry.Path = string.Empty;
+			treeEntry.FileSystemPath = new FileSystemPath(fileSystem, string.Empty);
 			treeEntry.Button.Text = name;
-			treeEntry.PopulateChildren = PopulateTreeEntry;
+
+			RebuildTreeEntry(treeEntry);
 			TreeRoot.AddChild(treeEntry);
 		}
 	}
 
-	private void PopulateTreeEntry(TreeEntry parent)
+	private void RebuildTreeEntry(TreeEntry parent)
 	{
-		if (parent.FileSystem == null)
+		if (parent.FileSystemPath == null)
 			return;
 
-		foreach (var directory in parent.FileSystem.ListDirectories(parent.Path))
+		foreach (var directory in parent.FileSystemPath.FileSystem.ListDirectories(parent.FileSystemPath.Path))
 		{
 			var treeEntry = (TreeEntry)TreeEntry.Instantiate();
 			treeEntry.AssetViewer = this;
-			treeEntry.FileSystem = parent.FileSystem;
-			treeEntry.Path = string.IsNullOrEmpty(parent.Path) ? directory : $"{parent.Path}/{directory}";
+
+			treeEntry.FileSystemPath = parent.FileSystemPath with
+			{
+				Path = string.IsNullOrEmpty(parent.FileSystemPath.Path) ? directory : $"{parent.FileSystemPath.Path}/{directory}"
+			};
+
 			treeEntry.Button.Text = directory;
-			treeEntry.PopulateChildren = PopulateTreeEntry;
+
+			RebuildTreeEntry(treeEntry);
 			parent.Children.AddChild(treeEntry);
 		}
 	}
 
-	private void UpdateFiles()
+	private void UpdateTree()
 	{
-		foreach (var child in FilesRoot.GetChildren())
-			child.Free();
+		foreach (var child in TreeRoot.GetChildren().OfType<TreeEntry>())
+			UpdateTreeEntry(child);
+	}
 
-		if (_selectedDirectory == null || Main.Project == null)
-			return;
+	private void UpdateTreeEntry(TreeEntry treeEntry)
+	{
+		var buttonPressed = treeEntry.Button.ButtonPressed;
 
-		_selectedDirectory.Button.ButtonPressed = true;
-
-		if (_selectedDirectory.FileSystem == null)
-			return;
-
-		foreach (var directory in _selectedDirectory.FileSystem.ListDirectories(_selectedDirectory.Path))
+		if (CurrentPath == null)
+			buttonPressed = false;
+		else if (treeEntry.FileSystemPath != null)
 		{
-			var fileEntry = (FileEntry)FileEntry.Instantiate();
-			fileEntry.AssetViewer = this;
-			fileEntry.FileSystem = _selectedDirectory.FileSystem;
-			fileEntry.Path = string.IsNullOrEmpty(_selectedDirectory.Path) ? directory : $"{_selectedDirectory.Path}/{directory}";
-			fileEntry.FileType = FileType.Directory;
-			FilesRoot.AddChild(fileEntry);
+			if (treeEntry.FileSystemPath.FileSystem != CurrentPath.FileSystem)
+				buttonPressed = false;
+			else if (!CurrentPath.Path.StartsWith(treeEntry.FileSystemPath.Path, StringComparison.OrdinalIgnoreCase))
+				buttonPressed = false;
+			else
+				buttonPressed = true;
 		}
 
-		foreach (var file in _selectedDirectory.FileSystem.ListFiles(_selectedDirectory.Path))
-		{
-			var fileType = Path.GetExtension(file) switch
-			{
-				".m3" => FileType.ComplexModel,
-				".i3" => FileType.SimpleModel,
-				".tex" => FileType.Texture,
-				".dgn" => FileType.Dungeon,
-				".wem" => FileType.Sound,
-				".xml" => FileType.Ui,
-				".tbl" => FileType.Table,
-				".area" => FileType.Area,
-				".map" => FileType.Map,
-				".sho" => FileType.Shader,
-				".sky" => FileType.Sky,
-				".lua" => FileType.Script,
-				".bin" => FileType.Translations,
-				".bnk" or ".bk2" => FileType.Video,
-				_ => FileType.Unknown
-			};
+		if (!buttonPressed && !treeEntry.Button.ButtonPressed)
+			return;
 
-			var fileEntry = (FileEntry)FileEntry.Instantiate();
-			fileEntry.AssetViewer = this;
-			fileEntry.FileSystem = _selectedDirectory.FileSystem;
-			fileEntry.Path = string.IsNullOrEmpty(_selectedDirectory.Path) ? file : $"{_selectedDirectory.Path}/{file}";
-			fileEntry.FileType = fileType;
-			FilesRoot.AddChild(fileEntry);
+		treeEntry.Button.ButtonPressed = buttonPressed;
+
+		foreach (var child in treeEntry.Children.GetChildren().OfType<TreeEntry>())
+			UpdateTreeEntry(child);
+	}
+
+	private void RebuildIcons()
+	{
+		foreach (var child in IconsRoot.GetChildren())
+			child.QueueFree();
+
+		if (Main.Project == null)
+			return;
+
+		if (CurrentPath == null)
+		{
+			foreach (var (name, fileSystem) in Main.Project.FileSystems)
+			{
+				var iconEntry = (IconEntry)IconEntry.Instantiate();
+				iconEntry.AssetViewer = this;
+				iconEntry.FileSystemPath = new FileSystemPath(fileSystem, string.Empty);
+				iconEntry.FileType = FileType.Directory;
+				iconEntry.Label.Text = name;
+				IconsRoot.AddChild(iconEntry);
+			}
+		}
+		else
+		{
+			var iconEntry = (IconEntry)IconEntry.Instantiate();
+			iconEntry.AssetViewer = this;
+
+			iconEntry.FileSystemPath = string.IsNullOrEmpty(CurrentPath.Path)
+				? null
+				: CurrentPath with { Path = Path.GetDirectoryName(CurrentPath.Path) ?? string.Empty };
+
+			iconEntry.FileType = FileType.ParentDirectory;
+			iconEntry.Label.Text = "..";
+			IconsRoot.AddChild(iconEntry);
+
+			foreach (var directory in CurrentPath.FileSystem.ListDirectories(CurrentPath.Path))
+			{
+				iconEntry = (IconEntry)IconEntry.Instantiate();
+				iconEntry.AssetViewer = this;
+				iconEntry.FileSystemPath = CurrentPath with { Path = string.IsNullOrEmpty(CurrentPath.Path) ? directory : $"{CurrentPath.Path}/{directory}" };
+				iconEntry.FileType = FileType.Directory;
+				iconEntry.Label.Text = directory;
+				IconsRoot.AddChild(iconEntry);
+			}
+
+			foreach (var file in CurrentPath.FileSystem.ListFiles(CurrentPath.Path))
+			{
+				var fileType = Path.GetExtension(file) switch
+				{
+					".m3" => FileType.ComplexModel,
+					".i3" => FileType.SimpleModel,
+					".tex" => FileType.Texture,
+					".dgn" => FileType.Dungeon,
+					".wem" => FileType.Sound,
+					".xml" => FileType.Ui,
+					".tbl" => FileType.Table,
+					".area" => FileType.Area,
+					".map" => FileType.Map,
+					".sho" => FileType.Shader,
+					".sky" => FileType.Sky,
+					".lua" => FileType.Script,
+					".bin" => FileType.Translations,
+					".bnk" or ".bk2" => FileType.Video,
+					_ => FileType.Unknown
+				};
+
+				iconEntry = (IconEntry)IconEntry.Instantiate();
+				iconEntry.AssetViewer = this;
+				iconEntry.FileSystemPath = CurrentPath with { Path = string.IsNullOrEmpty(CurrentPath.Path) ? file : $"{CurrentPath.Path}/{file}" };
+				iconEntry.FileType = fileType;
+				iconEntry.Label.Text = file;
+				IconsRoot.AddChild(iconEntry);
+			}
+		}
+	}
+
+	private void UpdateIcons()
+	{
+		foreach (var child in IconsRoot.GetChildren().OfType<IconEntry>())
+		{
+			if (child.FileType is FileType.Directory or FileType.ParentDirectory)
+				continue;
+
+			if (child.FileSystemPath != null)
+				child.Visible = Path.GetFileName(child.FileSystemPath.Path).Contains(Filter, StringComparison.Ordinal);
 		}
 	}
 
@@ -139,11 +228,7 @@ public partial class AssetViewer : Control
 	{
 		base.Dispose(disposing);
 
-		if (!disposing)
-			return;
-
-		Main.OnProjectChanged -= ProjectChanged;
-
-		_selectedDirectory?.Dispose();
+		if (disposing)
+			Main.OnProjectChanged -= ProjectChanged;
 	}
 }

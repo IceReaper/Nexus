@@ -1,5 +1,4 @@
 using Godot;
-using LibNexus.Files;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
@@ -25,11 +24,7 @@ public partial class TreeEntry : Control
 
 	public AssetViewer? AssetViewer { get; set; }
 
-	public FileSystem? FileSystem { get; set; }
-	public string Path { get; set; } = string.Empty;
-	public Action<TreeEntry>? PopulateChildren { get; set; }
-
-	private bool _populated;
+	public FileSystemPath? FileSystemPath { get; set; }
 
 	public override void _Ready()
 	{
@@ -38,7 +33,7 @@ public partial class TreeEntry : Control
 		IconCollapsed.GuiInput += Expand;
 		IconExpanded.GuiInput += Collapse;
 
-		if (FileSystem?.ListDirectories(Path).Length == 0)
+		if (FileSystemPath?.FileSystem.ListDirectories(FileSystemPath.Path).Length == 0)
 			return;
 
 		IconCollapsed.Visible = true;
@@ -48,7 +43,7 @@ public partial class TreeEntry : Control
 	private void Select()
 	{
 		if (AssetViewer != null)
-			AssetViewer.SelectedDirectory = this;
+			AssetViewer.CurrentPath = FileSystemPath;
 	}
 
 	private void OnGuiInput(InputEvent @event)
@@ -60,12 +55,6 @@ public partial class TreeEntry : Control
 		{
 			case { ButtonIndex: MouseButton.Left, DoubleClick: true }:
 			{
-				if (!_populated)
-				{
-					PopulateChildren?.Invoke(this);
-					_populated = true;
-				}
-
 				if (IconNoChildren.Visible)
 					return;
 
@@ -84,8 +73,7 @@ public partial class TreeEntry : Control
 					new ContextMenu
 					{
 						Position = new Vector2I((int)eventMouseButton.GlobalPosition.X, (int)eventMouseButton.GlobalPosition.Y),
-						FileSystem = FileSystem,
-						Path = Path,
+						FileSystemPath = FileSystemPath,
 						FileType = FileType.Directory
 					}
 				);
@@ -99,12 +87,6 @@ public partial class TreeEntry : Control
 	{
 		if (@event is not InputEventMouseButton { ButtonIndex: MouseButton.Left })
 			return;
-
-		if (!_populated)
-		{
-			PopulateChildren?.Invoke(this);
-			_populated = true;
-		}
 
 		IconCollapsed.Visible = false;
 		IconExpanded.Visible = true;

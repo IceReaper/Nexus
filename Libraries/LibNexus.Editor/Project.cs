@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace LibNexus.Editor;
 
-public class Project
+public class Project : IDisposable
 {
 	public const string DistDirectory = "dist";
 	private const string SrcDirectory = "src";
@@ -84,11 +84,15 @@ public class Project
 			var languageProgress = new Progress();
 			progress.Children.Add(languageProgress);
 
-			// TODO set the right folder!
-			project.FileSystems.Add(
-				$"ClientData{language}",
-				await FileSystem.Create(languageProgress, Path.Combine(patchPath, $"ClientData{language}"), true, Path.Combine(distPath, "Data"), cancellationToken)
+			var fileSystem = await FileSystem.Create(
+				languageProgress,
+				Path.Combine(patchPath, $"ClientData{language}"),
+				true,
+				Path.Combine(distPath, "Data"),
+				cancellationToken
 			);
+
+			project.FileSystems.Add($"ClientData{language}", fileSystem);
 
 			progress.Children.Remove(languageProgress);
 			progress.Completed++;
@@ -130,5 +134,13 @@ public class Project
 			clientExecutablePath,
 			"/auth localhost /authNc localhost /lang de /patcher localhost /SettingsKey WildStar /RealmDataCenterId 9"
 		) ?? throw new Exception("Failed to start client");
+	}
+
+	public void Dispose()
+	{
+		GC.SuppressFinalize(this);
+
+		foreach (var fileSystem in FileSystems.Values)
+			fileSystem.Dispose();
 	}
 }

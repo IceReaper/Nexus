@@ -1,13 +1,11 @@
 using Godot;
-using LibNexus.Files;
 using Nexus.Editor.Extensions;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
 public partial class ContextMenu : PopupMenu
 {
-	public FileSystem? FileSystem { get; set; }
-	public string Path { get; set; } = string.Empty;
+	public FileSystemPath? FileSystemPath { get; set; }
 	public FileType FileType { get; set; }
 
 	public override void _Ready()
@@ -20,7 +18,7 @@ public partial class ContextMenu : PopupMenu
 				Extract();
 		};
 
-		CloseRequested += Free;
+		CloseRequested += QueueFree;
 
 		ResetSize();
 		this.Jail();
@@ -28,6 +26,6 @@ public partial class ContextMenu : PopupMenu
 
 	private void Extract()
 	{
-		FileSystem?.Unpack(Path);
+		FileSystemPath?.FileSystem.Unpack(FileSystemPath.Path);
 	}
 }

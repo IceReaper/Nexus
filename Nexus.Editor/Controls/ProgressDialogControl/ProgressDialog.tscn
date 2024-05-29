@@ -4,6 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://c6d1257vq647q" path="res://Controls/ProgressDialogControl/ProgressEntry.tscn" id="3_xo31a"]
 
 [node name="ProgressDialog" type="Window" node_paths=PackedStringArray("Root")]
+initial_position = 2
+wrap_controls = true
+transient = true
+unresizable = true
+always_on_top = true
+popup_window = true
 script = ExtResource("1_2f3cg")
 Root = NodePath("PanelContainer/Root")
 ProgressEntry = ExtResource("3_xo31a")

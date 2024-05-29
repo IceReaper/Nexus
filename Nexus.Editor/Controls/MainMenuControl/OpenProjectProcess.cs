@@ -54,12 +54,12 @@ public class OpenProjectProcess
 
 		dialog.Confirmed += () =>
 		{
-			dialog.Free();
+			dialog.QueueFree();
 
 			LocateClient();
 		};
 
-		dialog.Canceled += () => dialog.Free();
+		dialog.Canceled += () => dialog.QueueFree();
 
 		_main.AddChild(dialog);
 	}

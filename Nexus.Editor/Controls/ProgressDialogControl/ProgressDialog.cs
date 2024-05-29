@@ -28,7 +28,7 @@ public partial class ProgressDialog : Window
 		CloseRequested += () =>
 		{
 			_cancellationTokenSource.Cancel();
-			Free();
+			QueueFree();
 		};
 	}
 
@@ -44,7 +44,7 @@ public partial class ProgressDialog : Window
 			return;
 
 		_complete?.Invoke();
-		Free();
+		QueueFree();
 	}
 
 	public void Run(Func<Progress, CancellationToken, Task> createTask, Action result)

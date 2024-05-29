@@ -4,6 +4,7 @@ public enum FileType
 {
 	Unknown,
 	Directory,
+	ParentDirectory,
 	ComplexModel,
 	SimpleModel,
 	Texture,

@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Controls/AssetViewerControl/AssetViewer.cs" id="1_xbvxt"]
 [ext_resource type="Texture2D" uid="uid://bgu7c1vt0smmc" path="res://Assets/Icons/AccountTree.png" id="2_8b7v0"]
 [ext_resource type="PackedScene" uid="uid://b7mox10n25h8i" path="res://Controls/AssetViewerControl/TreeEntry.tscn" id="4_71vls"]
-[ext_resource type="PackedScene" uid="uid://bqdiej33v1lld" path="res://Controls/AssetViewerControl/FileEntry.tscn" id="6_5mk3a"]
+[ext_resource type="PackedScene" uid="uid://bqdiej33v1lld" path="res://Controls/AssetViewerControl/IconEntry.tscn" id="6_5mk3a"]
 
-[node name="AssetViewer" type="PanelContainer" node_paths=PackedStringArray("TreeRoot", "FilesRoot")]
+[node name="AssetViewer" type="PanelContainer" node_paths=PackedStringArray("TreeRoot", "IconsRoot", "FilterInput")]
 custom_minimum_size = Vector2(0, 200)
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,8 +15,9 @@ grow_vertical = 2
 script = ExtResource("1_xbvxt")
 TreeRoot = NodePath("VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer/MarginContainer/Root")
 TreeEntry = ExtResource("4_71vls")
-FilesRoot = NodePath("VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/Root")
-FileEntry = ExtResource("6_5mk3a")
+IconsRoot = NodePath("VBoxContainer/PanelContainer2/HSplitContainer/ScrollContainer2/MarginContainer/Root")
+IconEntry = ExtResource("6_5mk3a")
+FilterInput = NodePath("VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer/LineEdit")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -41,9 +42,22 @@ layout_mode = 2
 texture = ExtResource("2_8b7v0")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Right"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "Assets"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "filter"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2

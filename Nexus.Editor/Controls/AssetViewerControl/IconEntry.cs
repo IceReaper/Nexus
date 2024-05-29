@@ -1,9 +1,8 @@
 using Godot;
-using LibNexus.Files;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
-public partial class FileEntry : Control
+public partial class IconEntry : Control
 {
 	[Export]
 	public required TextureRect Icon { get; set; }
@@ -19,6 +18,9 @@ public partial class FileEntry : Control
 
 	[Export]
 	public required Texture2D IconDirectory { get; set; }
+
+	[Export]
+	public required Texture2D IconParentDirectory { get; set; }
 
 	[Export]
 	public required Texture2D IconComplexModel { get; set; }
@@ -64,8 +66,7 @@ public partial class FileEntry : Control
 
 	public AssetViewer? AssetViewer { get; set; }
 
-	public FileSystem? FileSystem { get; set; }
-	public string Path { get; set; } = string.Empty;
+	public FileSystemPath? FileSystemPath { get; set; }
 	public FileType FileType { get; set; }
 
 	public override void _Ready()
@@ -87,27 +88,40 @@ public partial class FileEntry : Control
 			FileType.Translations => IconTranslations,
 			FileType.Video => IconVideo,
 			FileType.Directory => IconDirectory,
+			FileType.ParentDirectory => IconParentDirectory,
 			_ => IconDefault
 		};
 
-		Label.Text = Icon.Texture == IconDefault ? System.IO.Path.GetFileName(Path) : System.IO.Path.GetFileNameWithoutExtension(Path);
+		if (FileType != FileType.ParentDirectory && FileType != FileType.Directory && FileType != FileType.Unknown)
+			Label.Text = Path.GetFileNameWithoutExtension(Label.Text);
 
 		MainHandle.GuiInput += OnGuiInput;
 	}
 
 	private void OnGuiInput(InputEvent @event)
 	{
-		if (@event is not InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Right } eventMouseButton)
+		if (@event is not InputEventMouseButton { Pressed: true } eventMouseButton)
 			return;
 
-		AddChild(
-			new ContextMenu
-			{
-				Position = new Vector2I((int)eventMouseButton.GlobalPosition.X, (int)eventMouseButton.GlobalPosition.Y),
-				FileSystem = FileSystem,
-				Path = Path,
-				FileType = FileType
-			}
-		);
+		switch (eventMouseButton)
+		{
+			case { ButtonIndex: MouseButton.Left, DoubleClick: true }:
+				if (AssetViewer != null && FileType is FileType.Directory or FileType.ParentDirectory)
+					AssetViewer.CurrentPath = FileSystemPath;
+
+				break;
+
+			case { ButtonIndex: MouseButton.Right }:
+				AddChild(
+					new ContextMenu
+					{
+						Position = new Vector2I((int)eventMouseButton.GlobalPosition.X, (int)eventMouseButton.GlobalPosition.Y),
+						FileSystemPath = FileSystemPath,
+						FileType = FileType
+					}
+				);
+
+				break;
+		}
 	}
 }

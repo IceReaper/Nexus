@@ -35,7 +35,8 @@ public partial class About : Window
 		Repository.MetaClicked += static link => OS.ShellOpen(link.AsString());
 
 		ResetSize();
-		CloseRequested += Free;
+
+		CloseRequested += QueueFree;
 	}
 
 	public override void _Process(double delta)

@@ -39,7 +39,7 @@ public partial class ProgressEntry : Control
 
 		foreach (var oldChild in oldChildren.Where(oldChild => !newChildren.Remove(oldChild)))
 		{
-			_children[oldChild].Free();
+			_children[oldChild].QueueFree();
 			_children.Remove(oldChild);
 		}
 
