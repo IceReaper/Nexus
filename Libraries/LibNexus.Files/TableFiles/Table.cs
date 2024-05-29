@@ -1,13 +1,11 @@
 using LibNexus.Core.Extensions;
-using System.Collections.ObjectModel;
 using System.Reflection;
 
 namespace LibNexus.Files.TableFiles;
 
 public class Table<T> : TableBase
 {
-	public Collection<T> Rows { get; } = [];
-	public Dictionary<uint, T?> IdMap { get; } = [];
+	public Dictionary<uint, T?> Rows { get; } = [];
 
 	public Table(Stream stream)
 		: base(stream)
@@ -15,23 +13,21 @@ public class Table<T> : TableBase
 		if (Header.RowsOffset == 0)
 			return;
 
-		ReadRows();
-		ReadIdMap();
-	}
+		var rowsPosition = ContentStart + Header.RowsOffset;
 
-	private void ReadRows()
-	{
-		var rowsPosition = (ulong)Stream.Position;
-		var stringsPosition = rowsPosition + Header.Rows * Header.RowLength;
-		var idMapPosition = ContentStart + Header.IdMapOffset;
+		if ((ulong)Stream.Position != rowsPosition)
+			throw new Exception("Table: Invalid rows offset");
 
-		Stream.Position = (long)stringsPosition;
+		Stream.Position += (long)(Header.Rows * Header.RowLength);
+
 		var strings = new Dictionary<ulong, string>();
 
 		while ((ulong)Stream.Position < rowsPosition + Header.RowsLength)
 			strings.Add((ulong)Stream.Position - rowsPosition, Stream.ReadWideString());
 
 		SkipPadding();
+
+		var idMapPosition = ContentStart + Header.IdMapOffset;
 
 		if ((ulong)Stream.Position != idMapPosition)
 			throw new Exception("Table: Invalid id map offset");
@@ -44,25 +40,30 @@ public class Table<T> : TableBase
 				static property => property.GetCustomAttribute<ColumnAttribute>() ?? throw new Exception("Table: Invalid property")
 			);
 
+		var rows = new List<T>();
+
 		for (var i = 0U; i < Header.Rows; i++)
 		{
-			var position = (ulong)Stream.Position;
-
-			Rows.Add(ReadRow(properties, strings));
+			rows.Add(ReadRow(properties, strings, out var rowLength));
 
 			// TODO Not empty on TradeskillTier
-			Stream.ReadBytes(position + Header.RowLength - (ulong)Stream.Position);
+			Stream.ReadBytes(Header.RowLength - rowLength);
 		}
 
-		if ((ulong)Stream.Position != stringsPosition)
-			throw new Exception("Table: Invalid row length");
-
 		Stream.Position = (long)idMapPosition;
+
+		for (var i = 0U; i < Header.AutoIncrement; i++)
+		{
+			var id = Stream.ReadUInt32();
+
+			Rows.Add(i, id == uint.MaxValue ? default : rows[(int)id]);
+		}
 	}
 
-	private T ReadRow(Dictionary<PropertyInfo, ColumnAttribute> properties, Dictionary<ulong, string> strings)
+	private T ReadRow(Dictionary<PropertyInfo, ColumnAttribute> properties, Dictionary<ulong, string> strings, out ulong rowLength)
 	{
 		var row = Activator.CreateInstance<T>();
+		rowLength = 0;
 
 		foreach (var column in Columns)
 		{
@@ -74,21 +75,25 @@ public class Table<T> : TableBase
 			{
 				case TableColumnType.Uint:
 					value = Stream.ReadUInt32();
+					rowLength += 4;
 
 					break;
 
 				case TableColumnType.Float:
 					value = Stream.ReadSingle();
+					rowLength += 4;
 
 					break;
 
 				case TableColumnType.Bool:
 					value = Stream.ReadUInt32() != 0;
+					rowLength += 4;
 
 					break;
 
 				case TableColumnType.Ulong:
 					value = Stream.ReadUInt64();
+					rowLength += 8;
 
 					break;
 
@@ -103,6 +108,8 @@ public class Table<T> : TableBase
 					if (unk1 != 0)
 						throw new Exception("Table: Invalid unk1");
 
+					rowLength += (ulong)(offsetOrZero != 0 ? 8 : 12);
+
 					break;
 				}
 
@@ -114,16 +121,5 @@ public class Table<T> : TableBase
 		}
 
 		return row;
-	}
-
-	private void ReadIdMap()
-	{
-		for (var i = 0U; i < Header.AutoIncrement; i++)
-		{
-			var id = Stream.ReadUInt32();
-
-			if (id != uint.MaxValue)
-				IdMap.Add(i, Rows[(int)id]);
-		}
 	}
 }

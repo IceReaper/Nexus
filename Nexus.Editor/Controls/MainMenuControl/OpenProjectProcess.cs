@@ -37,10 +37,7 @@ public class OpenProjectProcess
 		var dialog = (ProgressDialog)_progressDialogScene.Instantiate();
 		dialog.Window.Title = "Opening project";
 
-		dialog.Run(
-			(progress, cancellationToken) => Project.Load(_projectFilePath, progress, cancellationToken),
-			result => _main.Project = result
-		);
+		dialog.Run((progress, cancellationToken) => Project.Load(_projectFilePath, progress, cancellationToken), result => _main.Project = result);
 
 		_main.AddChild(dialog);
 	}

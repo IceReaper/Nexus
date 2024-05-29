@@ -70,7 +70,10 @@ public class Project
 		progress.Children.Add(clientProgress);
 		progress.Title = "Loading project: ClientData";
 
-		project.FileSystems.Add("ClientData", await FileSystem.Create(clientProgress, Path.Combine(patchPath, "ClientData"), true, Path.Combine(distPath, "Data"), cancellationToken));
+		project.FileSystems.Add(
+			"ClientData",
+			await FileSystem.Create(clientProgress, Path.Combine(patchPath, "ClientData"), true, Path.Combine(distPath, "Data"), cancellationToken)
+		);
 
 		progress.Children.Remove(clientProgress);
 		progress.Completed++;
@@ -84,7 +87,7 @@ public class Project
 			// TODO set the right folder!
 			project.FileSystems.Add(
 				$"ClientData{language}",
-				await FileSystem.Create(languageProgress, Path.Combine(patchPath, $"ClientData{language}"), true, null, cancellationToken)
+				await FileSystem.Create(languageProgress, Path.Combine(patchPath, $"ClientData{language}"), true, Path.Combine(distPath, "Data"), cancellationToken)
 			);
 
 			progress.Children.Remove(languageProgress);
