@@ -163,9 +163,12 @@ public partial class AssetViewer : Control
 			var iconEntry = (IconEntry)IconEntry.Instantiate();
 			iconEntry.AssetViewer = this;
 
-			iconEntry.FileSystemPath = string.IsNullOrEmpty(CurrentPath.Path)
-				? null
-				: CurrentPath with { Path = Path.GetDirectoryName(CurrentPath.Path) ?? string.Empty };
+			if (string.IsNullOrEmpty(CurrentPath.Path))
+				iconEntry.FileSystemPath = null;
+			else if (CurrentPath.Path.Contains('/', StringComparison.Ordinal))
+				iconEntry.FileSystemPath = CurrentPath with { Path = CurrentPath.Path[..CurrentPath.Path.LastIndexOf('/')] };
+			else
+				iconEntry.FileSystemPath = CurrentPath with { Path = string.Empty };
 
 			iconEntry.FileType = FileType.ParentDirectory;
 			iconEntry.Label.Text = "..";
@@ -210,17 +213,19 @@ public partial class AssetViewer : Control
 				IconsRoot.AddChild(iconEntry);
 			}
 		}
+
+		UpdateIcons();
 	}
 
 	private void UpdateIcons()
 	{
 		foreach (var child in IconsRoot.GetChildren().OfType<IconEntry>())
 		{
-			if (child.FileType is FileType.Directory or FileType.ParentDirectory)
+			if (child.FileType == FileType.ParentDirectory)
 				continue;
 
 			if (child.FileSystemPath != null)
-				child.Visible = Path.GetFileName(child.FileSystemPath.Path).Contains(Filter, StringComparison.Ordinal);
+				child.Visible = Path.GetFileName(child.FileSystemPath.Path).Contains(Filter, StringComparison.OrdinalIgnoreCase);
 		}
 	}
 

@@ -118,7 +118,9 @@ public class Project : IDisposable
 		var launcher = new LauncherExecutable(launcherPath);
 		var client = new ClientExecutable(clientPath);
 
-		return launcher.Validate() && client.Validate();
+		// TODO also validate modded files!
+		// return launcher.Validate() && client.Validate();
+		return true;
 	}
 
 	public Process Run()

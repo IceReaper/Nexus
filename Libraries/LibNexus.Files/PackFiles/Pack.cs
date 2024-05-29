@@ -26,10 +26,10 @@ public class Pack : IDisposable
 	{
 		_stream = stream;
 
-		var pack = _stream.ReadWord();
+		var magic = _stream.ReadWord();
 		var version = _stream.ReadUInt32();
 
-		if (pack != Magic)
+		if (magic != Magic)
 			throw new Exception("Pack: Invalid magic");
 
 		if (version != Version)

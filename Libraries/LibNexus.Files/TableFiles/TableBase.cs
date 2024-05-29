@@ -20,10 +20,10 @@ public class TableBase
 	{
 		Stream = stream;
 
-		var pack = Stream.ReadWord();
+		var magic = Stream.ReadWord();
 		var version = Stream.ReadUInt32();
 
-		if (pack != Magic)
+		if (magic != Magic)
 			throw new Exception("Table: Invalid magic");
 
 		if (version != Version)

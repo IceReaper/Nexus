@@ -4,6 +4,11 @@ namespace LibNexus.Core.Extensions;
 
 public static class StreamExtensions
 {
+	public static byte ReadUInt8(this Stream stream)
+	{
+		return stream.ReadBytes(1)[0];
+	}
+
 	public static uint ReadUInt32(this Stream stream)
 	{
 		return BitConverter.ToUInt32(stream.ReadBytes(sizeof(uint)));

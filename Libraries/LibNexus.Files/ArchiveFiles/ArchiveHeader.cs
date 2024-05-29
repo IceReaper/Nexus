@@ -51,10 +51,10 @@ public class ArchiveHeader
 		_stream = stream;
 		_position = _stream.Position;
 
-		var aidx = _stream.ReadWord();
+		var magic = _stream.ReadWord();
 		var version = _stream.ReadUInt32();
 
-		if (aidx != Magic)
+		if (magic != Magic)
 			throw new Exception("ArchiveHeader: Invalid magic");
 
 		if (version != Version)

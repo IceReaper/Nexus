@@ -112,12 +112,12 @@ public class FileSystem : IDisposable
 
 	public string[] ListDirectories(string path)
 	{
-		return [.. _index.ListDirectories(path).Order()];
+		return [.. _index.ListDirectories(path).Order(StringComparer.OrdinalIgnoreCase)];
 	}
 
 	public string[] ListFiles(string path)
 	{
-		return [.. _index.ListFiles(path).Order()];
+		return [.. _index.ListFiles(path).Order(StringComparer.OrdinalIgnoreCase)];
 	}
 
 	public void Rename(string oldPath, string newPath)

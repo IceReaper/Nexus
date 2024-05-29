@@ -10,6 +10,8 @@ public partial class ContextMenu : PopupMenu
 
 	public override void _Ready()
 	{
+		Visible = true;
+
 		AddItem("Extract", 1, Key.E);
 
 		IdPressed += id =>

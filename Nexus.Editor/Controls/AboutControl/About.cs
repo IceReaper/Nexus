@@ -34,8 +34,6 @@ public partial class About : Window
 
 		Repository.MetaClicked += static link => OS.ShellOpen(link.AsString());
 
-		ResetSize();
-
 		CloseRequested += QueueFree;
 	}
 

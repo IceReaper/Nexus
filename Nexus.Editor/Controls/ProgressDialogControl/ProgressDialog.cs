@@ -34,7 +34,7 @@ public partial class ProgressDialog : Window
 
 	public override void _Process(double delta)
 	{
-		ResetSize();
+		Size = Size with { Y = 0 };
 		this.Jail();
 
 		if (_task == null)
