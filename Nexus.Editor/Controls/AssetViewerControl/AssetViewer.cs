@@ -21,6 +21,9 @@ public partial class AssetViewer : Control
 	[Export]
 	public required PackedScene FileEntry { get; set; }
 
+	[Export]
+	public required PackedScene ContextMenu { get; set; }
+
 	private TreeEntry? _selectedDirectory;
 
 	public TreeEntry? SelectedDirectory
@@ -57,6 +60,7 @@ public partial class AssetViewer : Control
 		{
 			var treeEntry = (TreeEntry)TreeEntry.Instantiate();
 			treeEntry.AssetViewer = this;
+			treeEntry.ContextMenu = ContextMenu;
 			treeEntry.FileSystem = fileSystem;
 			treeEntry.Path = string.Empty;
 			treeEntry.Button.Text = name;
@@ -74,6 +78,7 @@ public partial class AssetViewer : Control
 		{
 			var treeEntry = (TreeEntry)TreeEntry.Instantiate();
 			treeEntry.AssetViewer = this;
+			treeEntry.ContextMenu = ContextMenu;
 			treeEntry.FileSystem = parent.FileSystem;
 			treeEntry.Path = string.IsNullOrEmpty(parent.Path) ? directory : $"{parent.Path}/{directory}";
 			treeEntry.Button.Text = directory;
@@ -95,11 +100,44 @@ public partial class AssetViewer : Control
 		if (_selectedDirectory.FileSystem == null)
 			return;
 
-		foreach (var file in _selectedDirectory.FileSystem.ListFiles(_selectedDirectory.Path))
+		foreach (var directory in _selectedDirectory.FileSystem.ListDirectories(_selectedDirectory.Path))
 		{
 			var fileEntry = (FileEntry)FileEntry.Instantiate();
+			fileEntry.AssetViewer = this;
+			fileEntry.ContextMenu = ContextMenu;
+			fileEntry.FileSystem = _selectedDirectory.FileSystem;
+			fileEntry.Path = string.IsNullOrEmpty(_selectedDirectory.Path) ? directory : $"{_selectedDirectory.Path}/{directory}";
+			fileEntry.FileType = FileType.Directory;
+			FilesRoot.AddChild(fileEntry);
+		}
+
+		foreach (var file in _selectedDirectory.FileSystem.ListFiles(_selectedDirectory.Path))
+		{
+			var fileType = Path.GetExtension(file) switch
+			{
+				".m3" => FileType.ComplexModel,
+				".i3" => FileType.SimpleModel,
+				".tex" => FileType.Texture,
+				".dgn" => FileType.Dungeon,
+				".wem" => FileType.Sound,
+				".xml" => FileType.Ui,
+				".tbl" => FileType.Table,
+				".area" => FileType.Area,
+				".map" => FileType.Map,
+				".sho" => FileType.Shader,
+				".sky" => FileType.Sky,
+				".lua" => FileType.Script,
+				".bin" => FileType.Translations,
+				".bnk" or ".bk2" => FileType.Video,
+				_ => FileType.Unknown
+			};
+
+			var fileEntry = (FileEntry)FileEntry.Instantiate();
+			fileEntry.AssetViewer = this;
+			fileEntry.ContextMenu = ContextMenu;
 			fileEntry.FileSystem = _selectedDirectory.FileSystem;
 			fileEntry.Path = string.IsNullOrEmpty(_selectedDirectory.Path) ? file : $"{_selectedDirectory.Path}/{file}";
+			fileEntry.FileType = fileType;
 			FilesRoot.AddChild(fileEntry);
 		}
 	}

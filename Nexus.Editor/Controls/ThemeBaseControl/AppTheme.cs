@@ -1,4 +1,5 @@
 using Godot;
+using Nexus.Editor.Controls.ButtonContainerControl;
 
 namespace Nexus.Editor.Controls.ThemeBaseControl;
 
@@ -15,6 +16,7 @@ public partial class AppTheme : Theme
 		RichTexts();
 		ScrollBars();
 		Buttons();
+		ContainerButtons();
 		MenuBars();
 		PopupMenus();
 		Windows();
@@ -167,6 +169,13 @@ public partial class AppTheme : Theme
 		SetStylebox("hover", "Error", GetBackground(Error));
 		SetStylebox("pressed", "Error", GetBackground(Error));
 		SetStylebox("focus", "Error", GetBackground(Error));
+	}
+
+	private void ContainerButtons()
+	{
+		SetTypeVariation(nameof(ButtonContainer), nameof(Container));
+		SetStylebox("normal", nameof(ButtonContainer), GetBackground(BackgroundDark, new Sides(Padding, Padding * 2)));
+		SetStylebox("hover", nameof(ButtonContainer), GetBackground(BackgroundLight, new Sides(Padding, Padding * 2)));
 	}
 
 	private void MenuBars()

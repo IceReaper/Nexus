@@ -1,6 +1,5 @@
 using Godot;
 using LibNexus.Files;
-using Nexus.Editor.Extensions;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
@@ -25,6 +24,7 @@ public partial class TreeEntry : Control
 	public required Control Children { get; set; }
 
 	public AssetViewer? AssetViewer { get; set; }
+	public PackedScene? ContextMenu { get; set; }
 
 	public FileSystem? FileSystem { get; set; }
 	public string Path { get; set; } = string.Empty;
@@ -54,9 +54,12 @@ public partial class TreeEntry : Control
 
 	private void OnGuiInput(InputEvent @event)
 	{
-		switch (@event)
+		if (@event is not InputEventMouseButton { Pressed: true } eventMouseButton)
+			return;
+
+		switch (eventMouseButton)
 		{
-			case InputEventMouseButton { ButtonIndex: MouseButton.Left, DoubleClick: true }:
+			case { ButtonIndex: MouseButton.Left, DoubleClick: true }:
 			{
 				if (!_populated)
 				{
@@ -76,28 +79,18 @@ public partial class TreeEntry : Control
 				break;
 			}
 
-			// TODO this copy / paste is ugly. Make this whole context menu thing somehow more elegant.
-			case InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Right } eventMouseButton:
+			case { ButtonIndex: MouseButton.Right }:
 			{
-				var popupMenu = new PopupMenu
-				{
-					Position = new Vector2I((int)eventMouseButton.GlobalPosition.X, (int)eventMouseButton.GlobalPosition.Y), Visible = true
-				};
+				if (ContextMenu == null)
+					return;
 
-				popupMenu.AddItem("Extract", 1);
+				var contextMenu = (ContextMenu)ContextMenu.Instantiate();
+				contextMenu.Position = eventMouseButton.GlobalPosition;
+				contextMenu.FileSystem = FileSystem;
+				contextMenu.Path = Path;
+				contextMenu.FileType = FileType.Directory;
 
-				popupMenu.IdPressed += id =>
-				{
-					if (id == 1)
-						FileSystem?.Unpack(Path);
-				};
-
-				popupMenu.CloseRequested += () => popupMenu.Free();
-
-				AddChild(popupMenu);
-
-				popupMenu.ResetSize();
-				popupMenu.Jail();
+				AddChild(contextMenu);
 
 				break;
 			}

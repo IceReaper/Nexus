@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqdiej33v1lld"]
+[gd_scene load_steps=20 format=3 uid="uid://bqdiej33v1lld"]
 
 [ext_resource type="PackedScene" uid="uid://dsb4mmlotcmh8" path="res://Controls/ThemeBaseControl/ThemeBase.tscn" id="1_cnidv"]
 [ext_resource type="Script" path="res://Controls/AssetViewerControl/FileEntry.cs" id="1_wgmek"]
 [ext_resource type="Texture2D" uid="uid://coau1e1bjh0hw" path="res://Assets/Icons/Draft.png" id="2_g2wve"]
+[ext_resource type="Texture2D" uid="uid://brnt0iu2uv4qw" path="res://Assets/Icons/Folder.png" id="3_6ajuu"]
 [ext_resource type="Texture2D" uid="uid://dm1btmm62s5ub" path="res://Assets/Icons/Accessibility.png" id="3_u4tuq"]
 [ext_resource type="Texture2D" uid="uid://dyqhrjwokoxc1" path="res://Assets/Icons/DeployedCode.png" id="4_xrfuk"]
 [ext_resource type="Texture2D" uid="uid://c8xi8udhswtf1" path="res://Assets/Icons/Image.png" id="5_mdcq1"]
@@ -29,6 +30,7 @@ Icon = NodePath("ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginC
 Label = NodePath("ThemeBase/MarginContainer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Label")
 MainHandle = NodePath("ThemeBase/MarginContainer/PanelContainer")
 IconDefault = ExtResource("2_g2wve")
+IconDirectory = ExtResource("3_6ajuu")
 IconComplexModel = ExtResource("3_u4tuq")
 IconSimpleModel = ExtResource("4_xrfuk")
 IconTexture = ExtResource("5_mdcq1")
