@@ -3,8 +3,6 @@
 [ext_resource type="Script" path="res://Controls/ProgressDialogControl/ProgressEntry.cs" id="1_adeeg"]
 
 [node name="ProgressEntry" type="VBoxContainer" node_paths=PackedStringArray("ProgressBar", "Label", "ProgressLabel", "Children")]
-offset_right = 107.0
-offset_bottom = 25.0
 script = ExtResource("1_adeeg")
 ProgressBar = NodePath("PanelContainer/ProgressBar")
 Label = NodePath("PanelContainer/MarginContainer/HBoxContainer/Label")

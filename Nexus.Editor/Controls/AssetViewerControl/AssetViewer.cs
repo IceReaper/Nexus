@@ -67,7 +67,6 @@ public partial class AssetViewer : Control
 
 	private void RebuildTree()
 	{
-		// TODO background task
 		foreach (var child in TreeRoot.GetChildren())
 			child.QueueFree();
 
@@ -80,8 +79,7 @@ public partial class AssetViewer : Control
 			treeEntry.AssetViewer = this;
 			treeEntry.FileSystemPath = new FileSystemPath(fileSystem, string.Empty);
 			treeEntry.Button.Text = name;
-
-			RebuildTreeEntry(treeEntry);
+			treeEntry.GenerateChildren = RebuildTreeEntry;
 			TreeRoot.AddChild(treeEntry);
 		}
 	}
@@ -102,9 +100,10 @@ public partial class AssetViewer : Control
 			};
 
 			treeEntry.Button.Text = directory;
-
-			RebuildTreeEntry(treeEntry);
+			treeEntry.GenerateChildren = RebuildTreeEntry;
 			parent.Children.AddChild(treeEntry);
+
+			UpdateTreeEntry(treeEntry);
 		}
 	}
 

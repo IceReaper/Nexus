@@ -16,8 +16,8 @@ public class TextureHeader
 	{
 		Width = stream.ReadUInt32();
 		Height = stream.ReadUInt32();
-		Depth = stream.ReadUInt32();
-		Sides = stream.ReadUInt32();
+		Depth = stream.ReadUInt32(); // TODO what is this used for?
+		Sides = stream.ReadUInt32(); // TODO what is this used for?
 		MipMaps = stream.ReadUInt32();
 		Format = stream.ReadUInt32();
 		IsJpg = stream.ReadUInt32() != 0;

@@ -33,7 +33,6 @@ public partial class About : Window
 		Repository.Text = $"[color=#{AppTheme.TextActive.ToHtml()}][url=https://github.com/{repositoryName}]{repositoryName}[/url][/color]";
 
 		Repository.MetaClicked += static link => OS.ShellOpen(link.AsString());
-
 		CloseRequested += QueueFree;
 	}
 

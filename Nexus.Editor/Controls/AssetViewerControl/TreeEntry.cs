@@ -23,8 +23,10 @@ public partial class TreeEntry : Control
 	public required Control Children { get; set; }
 
 	public AssetViewer? AssetViewer { get; set; }
-
 	public FileSystemPath? FileSystemPath { get; set; }
+	public Action<TreeEntry>? GenerateChildren { get; set; }
+
+	private bool _populated;
 
 	public override void _Ready()
 	{
@@ -58,11 +60,10 @@ public partial class TreeEntry : Control
 				if (IconNoChildren.Visible)
 					return;
 
-				var collapse = ChildrenRoot.Visible;
-
-				IconCollapsed.Visible = collapse;
-				IconExpanded.Visible = !collapse;
-				ChildrenRoot.Visible = !collapse;
+				if (!ChildrenRoot.Visible)
+					Expand();
+				else
+					Collapse();
 
 				break;
 			}
@@ -85,8 +86,17 @@ public partial class TreeEntry : Control
 
 	private void Expand(InputEvent @event)
 	{
-		if (@event is not InputEventMouseButton { ButtonIndex: MouseButton.Left })
-			return;
+		if (@event is InputEventMouseButton { ButtonIndex: MouseButton.Left })
+			Expand();
+	}
+
+	private void Expand()
+	{
+		if (!_populated)
+		{
+			_populated = true;
+			GenerateChildren?.Invoke(this);
+		}
 
 		IconCollapsed.Visible = false;
 		IconExpanded.Visible = true;
@@ -95,9 +105,12 @@ public partial class TreeEntry : Control
 
 	private void Collapse(InputEvent @event)
 	{
-		if (@event is not InputEventMouseButton { ButtonIndex: MouseButton.Left })
-			return;
+		if (@event is InputEventMouseButton { ButtonIndex: MouseButton.Left })
+			Collapse();
+	}
 
+	private void Collapse()
+	{
 		IconCollapsed.Visible = true;
 		IconExpanded.Visible = false;
 		ChildrenRoot.Visible = false;

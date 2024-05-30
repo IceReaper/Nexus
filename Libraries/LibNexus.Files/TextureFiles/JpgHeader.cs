@@ -5,16 +5,16 @@ namespace LibNexus.Files.TextureFiles;
 public sealed class JpgHeader
 {
 	public uint Format { get; init; }
-	public JpgChannel[] Channels { get; init; }
+	public JpgLayer[] Layers { get; init; }
 	public uint[] Sizes { get; init; }
 
 	public JpgHeader(Stream stream)
 	{
 		Format = stream.ReadUInt32();
-		Channels = new JpgChannel[4];
+		Layers = new JpgLayer[4];
 
-		for (var i = 0; i < Channels.Length; i++)
-			Channels[i] = new JpgChannel(stream.ReadUInt8(), stream.ReadUInt8(), stream.ReadUInt8());
+		for (var i = 0; i < Layers.Length; i++)
+			Layers[i] = new JpgLayer(stream.ReadUInt8(), stream.ReadUInt8(), stream.ReadUInt8());
 
 		Sizes = new uint[stream.ReadUInt32()];
 

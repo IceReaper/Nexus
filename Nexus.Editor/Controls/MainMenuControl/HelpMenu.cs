@@ -1,4 +1,5 @@
 using Godot;
+using Nexus.Editor.Controls.AboutControl;
 
 namespace Nexus.Editor.Controls.MainMenuControl;
 
@@ -16,6 +17,7 @@ public partial class HelpMenu : Menu
 
 	private void OpenAbout()
 	{
-		MainMenu.Main.AddChild(About.Instantiate());
+		var dialog = (About)About.Instantiate();
+		MainMenu.Main.AddChild(dialog);
 	}
 }

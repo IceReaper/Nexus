@@ -21,8 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://ccb2hty6tethd" path="res://Controls/ButtonContainerControl/ButtonContainer.tscn" id="18_snn3e"]
 
 [node name="FileEntry" type="MarginContainer" node_paths=PackedStringArray("ButtonContainer", "Icon", "Label", "MainHandle")]
-offset_right = 96.0
-offset_bottom = 123.0
 theme_type_variation = &"All"
 script = ExtResource("1_7ipav")
 ButtonContainer = NodePath("PanelContainer/ButtonContainer")

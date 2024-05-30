@@ -1,5 +1,6 @@
 using Godot;
 using LibNexus.Editor;
+using Nexus.Editor.Caching;
 
 namespace Nexus.Editor.Controls.MainControl;
 
@@ -25,5 +26,15 @@ public partial class Main : Control
 		}
 	}
 
+	public AssetCache AssetCache { get; } = new();
+
 	public event Action? OnProjectChanged;
+
+	protected override void Dispose(bool disposing)
+	{
+		base.Dispose(disposing);
+
+		if (disposing)
+			AssetCache.Dispose();
+	}
 }

@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://rcv5vifsfq3f" path="res://Controls/AboutControl/About.tscn" id="6_feb2t"]
 
 [node name="MainMenu" type="MenuBar"]
-offset_right = 125.0
-offset_bottom = 27.0
 script = ExtResource("1_2onkb")
 
 [node name="File" type="PopupMenu" parent="." node_paths=PackedStringArray("MainMenu")]

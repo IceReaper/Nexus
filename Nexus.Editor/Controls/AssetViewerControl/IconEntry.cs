@@ -1,7 +1,7 @@
 using Godot;
+using Nexus.Editor.Caching;
 using Nexus.Editor.Controls.ButtonContainerControl;
 using Nexus.Editor.Controls.TextureViewerControl;
-using Nexus.Editor.Converter;
 using Texture = LibNexus.Files.TextureFiles.Texture;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
@@ -107,14 +107,35 @@ public partial class IconEntry : Control
 		if (FileType != FileType.Texture || FileSystemPath == null)
 			return;
 
-		// TODO background task
-		var data = FileSystemPath.FileSystem.Read(FileSystemPath.Path);
+		AssetViewer?.Main.AssetCache.Add(
+			this,
+			FileSystemPath.Path,
+			() =>
+			{
+				var data = FileSystemPath.FileSystem.Read(FileSystemPath.Path);
 
-		if (data == null)
-			return;
+				if (data == null)
+					return null;
 
-		using var stream = new MemoryStream(data);
-		Icon.Texture = TextureConverter.Convert(new Texture(stream), (uint)Math.Max(Icon.Size.X, Icon.Size.Y));
+				using var stream = new MemoryStream(data);
+
+				return new Texture(stream);
+			},
+			texture =>
+			{
+				AssetViewer.Main.AssetCache.Add(
+					this,
+					$"{FileSystemPath.Path}:{0}",
+					() => TextureLoader.Convert(texture, 0),
+					texture2D => CallDeferred(nameof(SetTexture), texture2D)
+				);
+			}
+		);
+	}
+
+	private void SetTexture(Texture2D texture)
+	{
+		Icon.Texture = texture;
 	}
 
 	private void OnGuiInput(InputEvent @event)
@@ -141,9 +162,9 @@ public partial class IconEntry : Control
 							return;
 
 						var textureViewer = (TextureViewer)AssetViewer.Main.TextureViewer.Instantiate();
-						textureViewer.Load(FileSystemPath);
+						textureViewer.Main = AssetViewer.Main;
+						textureViewer.FileSystemPath = FileSystemPath;
 						textureViewer.Title = Label.Text;
-						textureViewer.Jail = AssetViewer.Main.WindowJail;
 						AssetViewer.Main.AddChild(textureViewer);
 
 						break;
@@ -164,5 +185,13 @@ public partial class IconEntry : Control
 
 				break;
 		}
+	}
+
+	protected override void Dispose(bool disposing)
+	{
+		base.Dispose(disposing);
+
+		if (disposing)
+			AssetViewer?.Main.AssetCache.Remove(this);
 	}
 }
