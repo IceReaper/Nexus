@@ -9,6 +9,11 @@ public static class StreamExtensions
 		return stream.ReadBytes(1)[0];
 	}
 
+	public static ushort ReadUInt16(this Stream stream)
+	{
+		return BitConverter.ToUInt16(stream.ReadBytes(sizeof(ushort)));
+	}
+
 	public static uint ReadUInt32(this Stream stream)
 	{
 		return BitConverter.ToUInt32(stream.ReadBytes(sizeof(uint)));
@@ -68,7 +73,7 @@ public static class StreamExtensions
 		var result = new byte[length];
 		var read = 0UL;
 
-		while (read < length)
+		while (read < length && stream.Position < stream.Length)
 			read += (ulong)stream.Read(result, (int)read, (int)(length - read));
 
 		return result;

@@ -20,11 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://dorl3s5x1ck1w" path="res://Assets/Icons/Movie.png" id="16_pcmvn"]
 [ext_resource type="PackedScene" uid="uid://ccb2hty6tethd" path="res://Controls/ButtonContainerControl/ButtonContainer.tscn" id="18_snn3e"]
 
-[node name="FileEntry" type="MarginContainer" node_paths=PackedStringArray("Icon", "Label", "MainHandle")]
+[node name="FileEntry" type="MarginContainer" node_paths=PackedStringArray("ButtonContainer", "Icon", "Label", "MainHandle")]
 offset_right = 96.0
 offset_bottom = 123.0
 theme_type_variation = &"All"
 script = ExtResource("1_7ipav")
+ButtonContainer = NodePath("PanelContainer/ButtonContainer")
 Icon = NodePath("PanelContainer/ButtonContainer/MarginContainer/VBoxContainer/TextureRect")
 Label = NodePath("PanelContainer/ButtonContainer/MarginContainer/VBoxContainer/MarginContainer/Label")
 MainHandle = NodePath("PanelContainer")
@@ -61,8 +62,11 @@ theme_type_variation = &"All"
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/ButtonContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 texture = ExtResource("2_g2wve")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ButtonContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

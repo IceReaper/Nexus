@@ -67,6 +67,7 @@ public partial class AssetViewer : Control
 
 	private void RebuildTree()
 	{
+		// TODO background task
 		foreach (var child in TreeRoot.GetChildren())
 			child.QueueFree();
 
@@ -140,6 +141,7 @@ public partial class AssetViewer : Control
 
 	private void RebuildIcons()
 	{
+		// TODO background task
 		foreach (var child in IconsRoot.GetChildren())
 			child.QueueFree();
 

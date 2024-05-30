@@ -8,6 +8,9 @@ public partial class Main : Control
 	[Export]
 	public required Control WindowJail { get; set; }
 
+	[Export]
+	public required PackedScene TextureViewer { get; set; }
+
 	private Project? _project;
 
 	public Project? Project

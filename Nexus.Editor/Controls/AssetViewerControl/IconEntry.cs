@@ -1,9 +1,16 @@
 using Godot;
+using Nexus.Editor.Controls.ButtonContainerControl;
+using Nexus.Editor.Controls.TextureViewerControl;
+using Nexus.Editor.Converter;
+using Texture = LibNexus.Files.TextureFiles.Texture;
 
 namespace Nexus.Editor.Controls.AssetViewerControl;
 
 public partial class IconEntry : Control
 {
+	[Export]
+	public required ButtonContainer ButtonContainer { get; set; }
+
 	[Export]
 	public required TextureRect Icon { get; set; }
 
@@ -95,7 +102,19 @@ public partial class IconEntry : Control
 		if (FileType != FileType.ParentDirectory && FileType != FileType.Directory && FileType != FileType.Unknown)
 			Label.Text = Path.GetFileNameWithoutExtension(Label.Text);
 
-		MainHandle.GuiInput += OnGuiInput;
+		ButtonContainer.GuiInput += OnGuiInput;
+
+		if (FileType != FileType.Texture || FileSystemPath == null)
+			return;
+
+		// TODO background task
+		var data = FileSystemPath.FileSystem.Read(FileSystemPath.Path);
+
+		if (data == null)
+			return;
+
+		using var stream = new MemoryStream(data);
+		Icon.Texture = TextureConverter.Convert(new Texture(stream), (uint)Math.Max(Icon.Size.X, Icon.Size.Y));
 	}
 
 	private void OnGuiInput(InputEvent @event)
@@ -106,8 +125,30 @@ public partial class IconEntry : Control
 		switch (eventMouseButton)
 		{
 			case { ButtonIndex: MouseButton.Left, DoubleClick: true }:
-				if (AssetViewer != null && FileType is FileType.Directory or FileType.ParentDirectory)
-					AssetViewer.CurrentPath = FileSystemPath;
+				if (AssetViewer == null)
+					return;
+
+				switch (FileType)
+				{
+					case FileType.Directory or FileType.ParentDirectory:
+						AssetViewer.CurrentPath = FileSystemPath;
+
+						break;
+
+					case FileType.Texture:
+					{
+						if (FileSystemPath == null)
+							return;
+
+						var textureViewer = (TextureViewer)AssetViewer.Main.TextureViewer.Instantiate();
+						textureViewer.Load(FileSystemPath);
+						textureViewer.Title = Label.Text;
+						textureViewer.Jail = AssetViewer.Main.WindowJail;
+						AssetViewer.Main.AddChild(textureViewer);
+
+						break;
+					}
+				}
 
 				break;
 
