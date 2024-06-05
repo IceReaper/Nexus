@@ -4,33 +4,33 @@ namespace LibNexus.Editor.Tables;
 
 public class LootSpellRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("lootSpellTypeEnum")]
+	[TableColumn("lootSpellTypeEnum")]
 	public uint LootSpellTypeEnum { get; set; }
 
-	[Column("lootSpellPickupEnumFlags")]
+	[TableColumn("lootSpellPickupEnumFlags")]
 	public uint LootSpellPickupEnumFlags { get; set; }
 
-	[Column("creature2Id")]
+	[TableColumn("creature2Id")]
 	public uint Creature2Id { get; set; }
 
-	[Column("buttonIcon")]
+	[TableColumn("buttonIcon")]
 	public string ButtonIcon { get; set; } = string.Empty;
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("visualEffectId")]
+	[TableColumn("visualEffectId")]
 	public uint VisualEffectId { get; set; }
 
-	[Column("data")]
+	[TableColumn("data")]
 	public uint Data { get; set; }
 
-	[Column("dataValue")]
+	[TableColumn("dataValue")]
 	public uint DataValue { get; set; }
 }

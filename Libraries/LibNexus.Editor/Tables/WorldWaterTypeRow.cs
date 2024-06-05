@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class WorldWaterTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("worldWaterFogId")]
+	[TableColumn("worldWaterFogId")]
 	public uint WorldWaterFogId { get; set; }
 
-	[Column("SurfaceType")]
+	[TableColumn("SurfaceType")]
 	public uint SurfaceType { get; set; }
 
-	[Column("particleFile")]
+	[TableColumn("particleFile")]
 	public string ParticleFile { get; set; } = string.Empty;
 
-	[Column("soundDirectionalAmbienceId")]
+	[TableColumn("soundDirectionalAmbienceId")]
 	public uint SoundDirectionalAmbienceId { get; set; }
 }

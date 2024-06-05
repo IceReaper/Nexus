@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventTeamRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 }

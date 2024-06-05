@@ -4,522 +4,522 @@ namespace LibNexus.Editor.Tables;
 
 public class Creature2Row
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("CreationTypeEnum")]
+	[TableColumn("CreationTypeEnum")]
 	public uint CreationTypeEnum { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("creature2AoiSizeEnum")]
+	[TableColumn("creature2AoiSizeEnum")]
 	public uint Creature2AoiSizeEnum { get; set; }
 
-	[Column("unitRaceId")]
+	[TableColumn("unitRaceId")]
 	public uint UnitRaceId { get; set; }
 
-	[Column("creature2DifficultyId")]
+	[TableColumn("creature2DifficultyId")]
 	public uint Creature2DifficultyId { get; set; }
 
-	[Column("creature2ArcheTypeId")]
+	[TableColumn("creature2ArcheTypeId")]
 	public uint Creature2ArcheTypeId { get; set; }
 
-	[Column("creature2TierId")]
+	[TableColumn("creature2TierId")]
 	public uint Creature2TierId { get; set; }
 
-	[Column("creature2ModelInfoId")]
+	[TableColumn("creature2ModelInfoId")]
 	public uint Creature2ModelInfoId { get; set; }
 
-	[Column("creature2DisplayGroupId")]
+	[TableColumn("creature2DisplayGroupId")]
 	public uint Creature2DisplayGroupId { get; set; }
 
-	[Column("creature2OutfitGroupId")]
+	[TableColumn("creature2OutfitGroupId")]
 	public uint Creature2OutfitGroupId { get; set; }
 
-	[Column("prerequisiteIdVisibility")]
+	[TableColumn("prerequisiteIdVisibility")]
 	public uint PrerequisiteIdVisibility { get; set; }
 
-	[Column("modelScale")]
+	[TableColumn("modelScale")]
 	public float ModelScale { get; set; }
 
-	[Column("spell4IdActivate00")]
+	[TableColumn("spell4IdActivate00")]
 	public uint Spell4IdActivate00 { get; set; }
 
-	[Column("spell4IdActivate01")]
+	[TableColumn("spell4IdActivate01")]
 	public uint Spell4IdActivate01 { get; set; }
 
-	[Column("spell4IdActivate02")]
+	[TableColumn("spell4IdActivate02")]
 	public uint Spell4IdActivate02 { get; set; }
 
-	[Column("spell4IdActivate03")]
+	[TableColumn("spell4IdActivate03")]
 	public uint Spell4IdActivate03 { get; set; }
 
-	[Column("prerequisiteIdActivateSpell00")]
+	[TableColumn("prerequisiteIdActivateSpell00")]
 	public uint PrerequisiteIdActivateSpell00 { get; set; }
 
-	[Column("prerequisiteIdActivateSpell01")]
+	[TableColumn("prerequisiteIdActivateSpell01")]
 	public uint PrerequisiteIdActivateSpell01 { get; set; }
 
-	[Column("prerequisiteIdActivateSpell02")]
+	[TableColumn("prerequisiteIdActivateSpell02")]
 	public uint PrerequisiteIdActivateSpell02 { get; set; }
 
-	[Column("prerequisiteIdActivateSpell03")]
+	[TableColumn("prerequisiteIdActivateSpell03")]
 	public uint PrerequisiteIdActivateSpell03 { get; set; }
 
-	[Column("activateSpellCastTime")]
+	[TableColumn("activateSpellCastTime")]
 	public uint ActivateSpellCastTime { get; set; }
 
-	[Column("activateSpellMinRange")]
+	[TableColumn("activateSpellMinRange")]
 	public float ActivateSpellMinRange { get; set; }
 
-	[Column("activateSpellMaxRange")]
+	[TableColumn("activateSpellMaxRange")]
 	public float ActivateSpellMaxRange { get; set; }
 
-	[Column("localizedTextIdActivateSpellText")]
+	[TableColumn("localizedTextIdActivateSpellText")]
 	public uint LocalizedTextIdActivateSpellText { get; set; }
 
-	[Column("spell4VisualGroupIdActivateSpell")]
+	[TableColumn("spell4VisualGroupIdActivateSpell")]
 	public uint Spell4VisualGroupIdActivateSpell { get; set; }
 
-	[Column("trainerClassIdMask")]
+	[TableColumn("trainerClassIdMask")]
 	public uint TrainerClassIdMask { get; set; }
 
-	[Column("tradeSkillIdTrainer")]
+	[TableColumn("tradeSkillIdTrainer")]
 	public uint TradeSkillIdTrainer { get; set; }
 
-	[Column("tradeSkillIdStation")]
+	[TableColumn("tradeSkillIdStation")]
 	public uint TradeSkillIdStation { get; set; }
 
-	[Column("questIdGiven00")]
+	[TableColumn("questIdGiven00")]
 	public uint QuestIdGiven00 { get; set; }
 
-	[Column("questIdGiven01")]
+	[TableColumn("questIdGiven01")]
 	public uint QuestIdGiven01 { get; set; }
 
-	[Column("questIdGiven02")]
+	[TableColumn("questIdGiven02")]
 	public uint QuestIdGiven02 { get; set; }
 
-	[Column("questIdGiven03")]
+	[TableColumn("questIdGiven03")]
 	public uint QuestIdGiven03 { get; set; }
 
-	[Column("questIdGiven04")]
+	[TableColumn("questIdGiven04")]
 	public uint QuestIdGiven04 { get; set; }
 
-	[Column("questIdGiven05")]
+	[TableColumn("questIdGiven05")]
 	public uint QuestIdGiven05 { get; set; }
 
-	[Column("questIdGiven06")]
+	[TableColumn("questIdGiven06")]
 	public uint QuestIdGiven06 { get; set; }
 
-	[Column("questIdGiven07")]
+	[TableColumn("questIdGiven07")]
 	public uint QuestIdGiven07 { get; set; }
 
-	[Column("questIdGiven08")]
+	[TableColumn("questIdGiven08")]
 	public uint QuestIdGiven08 { get; set; }
 
-	[Column("questIdGiven09")]
+	[TableColumn("questIdGiven09")]
 	public uint QuestIdGiven09 { get; set; }
 
-	[Column("questIdGiven10")]
+	[TableColumn("questIdGiven10")]
 	public uint QuestIdGiven10 { get; set; }
 
-	[Column("questIdGiven11")]
+	[TableColumn("questIdGiven11")]
 	public uint QuestIdGiven11 { get; set; }
 
-	[Column("questIdGiven12")]
+	[TableColumn("questIdGiven12")]
 	public uint QuestIdGiven12 { get; set; }
 
-	[Column("questIdGiven13")]
+	[TableColumn("questIdGiven13")]
 	public uint QuestIdGiven13 { get; set; }
 
-	[Column("questIdGiven14")]
+	[TableColumn("questIdGiven14")]
 	public uint QuestIdGiven14 { get; set; }
 
-	[Column("questIdGiven15")]
+	[TableColumn("questIdGiven15")]
 	public uint QuestIdGiven15 { get; set; }
 
-	[Column("questIdGiven16")]
+	[TableColumn("questIdGiven16")]
 	public uint QuestIdGiven16 { get; set; }
 
-	[Column("questIdGiven17")]
+	[TableColumn("questIdGiven17")]
 	public uint QuestIdGiven17 { get; set; }
 
-	[Column("questIdGiven18")]
+	[TableColumn("questIdGiven18")]
 	public uint QuestIdGiven18 { get; set; }
 
-	[Column("questIdGiven19")]
+	[TableColumn("questIdGiven19")]
 	public uint QuestIdGiven19 { get; set; }
 
-	[Column("questIdGiven20")]
+	[TableColumn("questIdGiven20")]
 	public uint QuestIdGiven20 { get; set; }
 
-	[Column("questIdGiven21")]
+	[TableColumn("questIdGiven21")]
 	public uint QuestIdGiven21 { get; set; }
 
-	[Column("questIdGiven22")]
+	[TableColumn("questIdGiven22")]
 	public uint QuestIdGiven22 { get; set; }
 
-	[Column("questIdGiven23")]
+	[TableColumn("questIdGiven23")]
 	public uint QuestIdGiven23 { get; set; }
 
-	[Column("questIdGiven24")]
+	[TableColumn("questIdGiven24")]
 	public uint QuestIdGiven24 { get; set; }
 
-	[Column("questIdReceive00")]
+	[TableColumn("questIdReceive00")]
 	public uint QuestIdReceive00 { get; set; }
 
-	[Column("questIdReceive01")]
+	[TableColumn("questIdReceive01")]
 	public uint QuestIdReceive01 { get; set; }
 
-	[Column("questIdReceive02")]
+	[TableColumn("questIdReceive02")]
 	public uint QuestIdReceive02 { get; set; }
 
-	[Column("questIdReceive03")]
+	[TableColumn("questIdReceive03")]
 	public uint QuestIdReceive03 { get; set; }
 
-	[Column("questIdReceive04")]
+	[TableColumn("questIdReceive04")]
 	public uint QuestIdReceive04 { get; set; }
 
-	[Column("questIdReceive05")]
+	[TableColumn("questIdReceive05")]
 	public uint QuestIdReceive05 { get; set; }
 
-	[Column("questIdReceive06")]
+	[TableColumn("questIdReceive06")]
 	public uint QuestIdReceive06 { get; set; }
 
-	[Column("questIdReceive07")]
+	[TableColumn("questIdReceive07")]
 	public uint QuestIdReceive07 { get; set; }
 
-	[Column("questIdReceive08")]
+	[TableColumn("questIdReceive08")]
 	public uint QuestIdReceive08 { get; set; }
 
-	[Column("questIdReceive09")]
+	[TableColumn("questIdReceive09")]
 	public uint QuestIdReceive09 { get; set; }
 
-	[Column("questIdReceive10")]
+	[TableColumn("questIdReceive10")]
 	public uint QuestIdReceive10 { get; set; }
 
-	[Column("questIdReceive11")]
+	[TableColumn("questIdReceive11")]
 	public uint QuestIdReceive11 { get; set; }
 
-	[Column("questIdReceive12")]
+	[TableColumn("questIdReceive12")]
 	public uint QuestIdReceive12 { get; set; }
 
-	[Column("questIdReceive13")]
+	[TableColumn("questIdReceive13")]
 	public uint QuestIdReceive13 { get; set; }
 
-	[Column("questIdReceive14")]
+	[TableColumn("questIdReceive14")]
 	public uint QuestIdReceive14 { get; set; }
 
-	[Column("questIdReceive15")]
+	[TableColumn("questIdReceive15")]
 	public uint QuestIdReceive15 { get; set; }
 
-	[Column("questIdReceive16")]
+	[TableColumn("questIdReceive16")]
 	public uint QuestIdReceive16 { get; set; }
 
-	[Column("questIdReceive17")]
+	[TableColumn("questIdReceive17")]
 	public uint QuestIdReceive17 { get; set; }
 
-	[Column("questIdReceive18")]
+	[TableColumn("questIdReceive18")]
 	public uint QuestIdReceive18 { get; set; }
 
-	[Column("questIdReceive19")]
+	[TableColumn("questIdReceive19")]
 	public uint QuestIdReceive19 { get; set; }
 
-	[Column("questIdReceive20")]
+	[TableColumn("questIdReceive20")]
 	public uint QuestIdReceive20 { get; set; }
 
-	[Column("questIdReceive21")]
+	[TableColumn("questIdReceive21")]
 	public uint QuestIdReceive21 { get; set; }
 
-	[Column("questIdReceive22")]
+	[TableColumn("questIdReceive22")]
 	public uint QuestIdReceive22 { get; set; }
 
-	[Column("questIdReceive23")]
+	[TableColumn("questIdReceive23")]
 	public uint QuestIdReceive23 { get; set; }
 
-	[Column("questIdReceive24")]
+	[TableColumn("questIdReceive24")]
 	public uint QuestIdReceive24 { get; set; }
 
-	[Column("questAnimStateId")]
+	[TableColumn("questAnimStateId")]
 	public uint QuestAnimStateId { get; set; }
 
-	[Column("prerequisiteIdAnimState")]
+	[TableColumn("prerequisiteIdAnimState")]
 	public uint PrerequisiteIdAnimState { get; set; }
 
-	[Column("questAnimObjectiveIndex")]
+	[TableColumn("questAnimObjectiveIndex")]
 	public uint QuestAnimObjectiveIndex { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("uiFlags")]
+	[TableColumn("uiFlags")]
 	public uint UiFlags { get; set; }
 
-	[Column("activationFlags")]
+	[TableColumn("activationFlags")]
 	public uint ActivationFlags { get; set; }
 
-	[Column("aimYawConstraint")]
+	[TableColumn("aimYawConstraint")]
 	public float AimYawConstraint { get; set; }
 
-	[Column("aimPitchUpConstraint")]
+	[TableColumn("aimPitchUpConstraint")]
 	public float AimPitchUpConstraint { get; set; }
 
-	[Column("aimPitchDownConstraint")]
+	[TableColumn("aimPitchDownConstraint")]
 	public float AimPitchDownConstraint { get; set; }
 
-	[Column("item2IdMTXKey00")]
+	[TableColumn("item2IdMTXKey00")]
 	public uint Item2IdMtxKey00 { get; set; }
 
-	[Column("item2IdMTXKey01")]
+	[TableColumn("item2IdMTXKey01")]
 	public uint Item2IdMtxKey01 { get; set; }
 
-	[Column("creature2FamilyId")]
+	[TableColumn("creature2FamilyId")]
 	public uint Creature2FamilyId { get; set; }
 
-	[Column("creature2TractId")]
+	[TableColumn("creature2TractId")]
 	public uint Creature2TractId { get; set; }
 
-	[Column("bindPointId")]
+	[TableColumn("bindPointId")]
 	public uint BindPointId { get; set; }
 
-	[Column("resourceConversionGroupId")]
+	[TableColumn("resourceConversionGroupId")]
 	public uint ResourceConversionGroupId { get; set; }
 
-	[Column("taxiNodeId")]
+	[TableColumn("taxiNodeId")]
 	public uint TaxiNodeId { get; set; }
 
-	[Column("pathScientistExperimentationId")]
+	[TableColumn("pathScientistExperimentationId")]
 	public uint PathScientistExperimentationId { get; set; }
 
-	[Column("datacubeId")]
+	[TableColumn("datacubeId")]
 	public uint DatacubeId { get; set; }
 
-	[Column("datacubeVolumeId")]
+	[TableColumn("datacubeVolumeId")]
 	public uint DatacubeVolumeId { get; set; }
 
-	[Column("factionId")]
+	[TableColumn("factionId")]
 	public uint FactionId { get; set; }
 
-	[Column("minLevel")]
+	[TableColumn("minLevel")]
 	public uint MinLevel { get; set; }
 
-	[Column("maxLevel")]
+	[TableColumn("maxLevel")]
 	public uint MaxLevel { get; set; }
 
-	[Column("rescanCooldownTypeEnum")]
+	[TableColumn("rescanCooldownTypeEnum")]
 	public uint RescanCooldownTypeEnum { get; set; }
 
-	[Column("rescanCooldown")]
+	[TableColumn("rescanCooldown")]
 	public uint RescanCooldown { get; set; }
 
-	[Column("creature2AffiliationId")]
+	[TableColumn("creature2AffiliationId")]
 	public uint Creature2AffiliationId { get; set; }
 
-	[Column("itemIdDisplayItemRight")]
+	[TableColumn("itemIdDisplayItemRight")]
 	public uint ItemIdDisplayItemRight { get; set; }
 
-	[Column("soundEventIdAggro")]
+	[TableColumn("soundEventIdAggro")]
 	public uint SoundEventIdAggro { get; set; }
 
-	[Column("soundEventIdAware")]
+	[TableColumn("soundEventIdAware")]
 	public uint SoundEventIdAware { get; set; }
 
-	[Column("soundImpactDescriptionIdOrigin")]
+	[TableColumn("soundImpactDescriptionIdOrigin")]
 	public uint SoundImpactDescriptionIdOrigin { get; set; }
 
-	[Column("soundImpactDescriptionIdTarget")]
+	[TableColumn("soundImpactDescriptionIdTarget")]
 	public uint SoundImpactDescriptionIdTarget { get; set; }
 
-	[Column("soundSwitchIdModel")]
+	[TableColumn("soundSwitchIdModel")]
 	public uint SoundSwitchIdModel { get; set; }
 
-	[Column("soundCombatLoopId")]
+	[TableColumn("soundCombatLoopId")]
 	public uint SoundCombatLoopId { get; set; }
 
-	[Column("randomTextLineIdGoodbye00")]
+	[TableColumn("randomTextLineIdGoodbye00")]
 	public uint RandomTextLineIdGoodbye00 { get; set; }
 
-	[Column("randomTextLineIdGoodbye01")]
+	[TableColumn("randomTextLineIdGoodbye01")]
 	public uint RandomTextLineIdGoodbye01 { get; set; }
 
-	[Column("randomTextLineIdGoodbye02")]
+	[TableColumn("randomTextLineIdGoodbye02")]
 	public uint RandomTextLineIdGoodbye02 { get; set; }
 
-	[Column("randomTextLineIdGoodbye03")]
+	[TableColumn("randomTextLineIdGoodbye03")]
 	public uint RandomTextLineIdGoodbye03 { get; set; }
 
-	[Column("randomTextLineIdGoodbye04")]
+	[TableColumn("randomTextLineIdGoodbye04")]
 	public uint RandomTextLineIdGoodbye04 { get; set; }
 
-	[Column("randomTextLineIdGoodbye05")]
+	[TableColumn("randomTextLineIdGoodbye05")]
 	public uint RandomTextLineIdGoodbye05 { get; set; }
 
-	[Column("randomTextLineIdGoodbye06")]
+	[TableColumn("randomTextLineIdGoodbye06")]
 	public uint RandomTextLineIdGoodbye06 { get; set; }
 
-	[Column("randomTextLineIdGoodbye07")]
+	[TableColumn("randomTextLineIdGoodbye07")]
 	public uint RandomTextLineIdGoodbye07 { get; set; }
 
-	[Column("randomTextLineIdGoodbye08")]
+	[TableColumn("randomTextLineIdGoodbye08")]
 	public uint RandomTextLineIdGoodbye08 { get; set; }
 
-	[Column("randomTextLineIdGoodbye09")]
+	[TableColumn("randomTextLineIdGoodbye09")]
 	public uint RandomTextLineIdGoodbye09 { get; set; }
 
-	[Column("randomTextLineIdHello00")]
+	[TableColumn("randomTextLineIdHello00")]
 	public uint RandomTextLineIdHello00 { get; set; }
 
-	[Column("randomTextLineIdHello01")]
+	[TableColumn("randomTextLineIdHello01")]
 	public uint RandomTextLineIdHello01 { get; set; }
 
-	[Column("randomTextLineIdHello02")]
+	[TableColumn("randomTextLineIdHello02")]
 	public uint RandomTextLineIdHello02 { get; set; }
 
-	[Column("randomTextLineIdHello03")]
+	[TableColumn("randomTextLineIdHello03")]
 	public uint RandomTextLineIdHello03 { get; set; }
 
-	[Column("randomTextLineIdHello04")]
+	[TableColumn("randomTextLineIdHello04")]
 	public uint RandomTextLineIdHello04 { get; set; }
 
-	[Column("randomTextLineIdHello05")]
+	[TableColumn("randomTextLineIdHello05")]
 	public uint RandomTextLineIdHello05 { get; set; }
 
-	[Column("randomTextLineIdHello06")]
+	[TableColumn("randomTextLineIdHello06")]
 	public uint RandomTextLineIdHello06 { get; set; }
 
-	[Column("randomTextLineIdHello07")]
+	[TableColumn("randomTextLineIdHello07")]
 	public uint RandomTextLineIdHello07 { get; set; }
 
-	[Column("randomTextLineIdHello08")]
+	[TableColumn("randomTextLineIdHello08")]
 	public uint RandomTextLineIdHello08 { get; set; }
 
-	[Column("randomTextLineIdHello09")]
+	[TableColumn("randomTextLineIdHello09")]
 	public uint RandomTextLineIdHello09 { get; set; }
 
-	[Column("randomTextLineIdIntro")]
+	[TableColumn("randomTextLineIdIntro")]
 	public uint RandomTextLineIdIntro { get; set; }
 
-	[Column("localizedTextIdDefaultGreeting")]
+	[TableColumn("localizedTextIdDefaultGreeting")]
 	public uint LocalizedTextIdDefaultGreeting { get; set; }
 
-	[Column("randomTextLineIdReturn00")]
+	[TableColumn("randomTextLineIdReturn00")]
 	public uint RandomTextLineIdReturn00 { get; set; }
 
-	[Column("randomTextLineIdReturn01")]
+	[TableColumn("randomTextLineIdReturn01")]
 	public uint RandomTextLineIdReturn01 { get; set; }
 
-	[Column("randomTextLineIdReturn02")]
+	[TableColumn("randomTextLineIdReturn02")]
 	public uint RandomTextLineIdReturn02 { get; set; }
 
-	[Column("randomTextLineIdReturn03")]
+	[TableColumn("randomTextLineIdReturn03")]
 	public uint RandomTextLineIdReturn03 { get; set; }
 
-	[Column("randomTextLineIdReturn04")]
+	[TableColumn("randomTextLineIdReturn04")]
 	public uint RandomTextLineIdReturn04 { get; set; }
 
-	[Column("randomTextLineIdReturn05")]
+	[TableColumn("randomTextLineIdReturn05")]
 	public uint RandomTextLineIdReturn05 { get; set; }
 
-	[Column("randomTextLineIdReturn06")]
+	[TableColumn("randomTextLineIdReturn06")]
 	public uint RandomTextLineIdReturn06 { get; set; }
 
-	[Column("randomTextLineIdReturn07")]
+	[TableColumn("randomTextLineIdReturn07")]
 	public uint RandomTextLineIdReturn07 { get; set; }
 
-	[Column("randomTextLineIdReturn08")]
+	[TableColumn("randomTextLineIdReturn08")]
 	public uint RandomTextLineIdReturn08 { get; set; }
 
-	[Column("randomTextLineIdReturn09")]
+	[TableColumn("randomTextLineIdReturn09")]
 	public uint RandomTextLineIdReturn09 { get; set; }
 
-	[Column("localizedTextIdReturnGreeting")]
+	[TableColumn("localizedTextIdReturnGreeting")]
 	public uint LocalizedTextIdReturnGreeting { get; set; }
 
-	[Column("randomTextLineIdCompleted")]
+	[TableColumn("randomTextLineIdCompleted")]
 	public uint RandomTextLineIdCompleted { get; set; }
 
-	[Column("localizedTextIdCompletedGreeting")]
+	[TableColumn("localizedTextIdCompletedGreeting")]
 	public uint LocalizedTextIdCompletedGreeting { get; set; }
 
-	[Column("unitVoiceTypeId")]
+	[TableColumn("unitVoiceTypeId")]
 	public uint UnitVoiceTypeId { get; set; }
 
-	[Column("gossipSetId")]
+	[TableColumn("gossipSetId")]
 	public uint GossipSetId { get; set; }
 
-	[Column("unitVisualTypeId")]
+	[TableColumn("unitVisualTypeId")]
 	public uint UnitVisualTypeId { get; set; }
 
-	[Column("spell4VisualGroupIdAttached")]
+	[TableColumn("spell4VisualGroupIdAttached")]
 	public uint Spell4VisualGroupIdAttached { get; set; }
 
-	[Column("genericStringGroupsIdInteractContext")]
+	[TableColumn("genericStringGroupsIdInteractContext")]
 	public uint GenericStringGroupsIdInteractContext { get; set; }
 
-	[Column("creature2ActionSetId")]
+	[TableColumn("creature2ActionSetId")]
 	public uint Creature2ActionSetId { get; set; }
 
-	[Column("creature2ActionTextId")]
+	[TableColumn("creature2ActionTextId")]
 	public uint Creature2ActionTextId { get; set; }
 
-	[Column("pathMissionIdSoldier")]
+	[TableColumn("pathMissionIdSoldier")]
 	public uint PathMissionIdSoldier { get; set; }
 
-	[Column("instancePortalId")]
+	[TableColumn("instancePortalId")]
 	public uint InstancePortalId { get; set; }
 
-	[Column("modelSequenceIdAnimationPriority00")]
+	[TableColumn("modelSequenceIdAnimationPriority00")]
 	public uint ModelSequenceIdAnimationPriority00 { get; set; }
 
-	[Column("modelSequenceIdAnimationPriority01")]
+	[TableColumn("modelSequenceIdAnimationPriority01")]
 	public uint ModelSequenceIdAnimationPriority01 { get; set; }
 
-	[Column("modelSequenceIdAnimationPriority02")]
+	[TableColumn("modelSequenceIdAnimationPriority02")]
 	public uint ModelSequenceIdAnimationPriority02 { get; set; }
 
-	[Column("modelSequenceIdAnimationPriority03")]
+	[TableColumn("modelSequenceIdAnimationPriority03")]
 	public uint ModelSequenceIdAnimationPriority03 { get; set; }
 
-	[Column("modelSequenceIdAnimationPriority04")]
+	[TableColumn("modelSequenceIdAnimationPriority04")]
 	public uint ModelSequenceIdAnimationPriority04 { get; set; }
 
-	[Column("prerequisiteIdPriority00")]
+	[TableColumn("prerequisiteIdPriority00")]
 	public uint PrerequisiteIdPriority00 { get; set; }
 
-	[Column("prerequisiteIdPriority01")]
+	[TableColumn("prerequisiteIdPriority01")]
 	public uint PrerequisiteIdPriority01 { get; set; }
 
-	[Column("prerequisiteIdPriority02")]
+	[TableColumn("prerequisiteIdPriority02")]
 	public uint PrerequisiteIdPriority02 { get; set; }
 
-	[Column("prerequisiteIdPriority03")]
+	[TableColumn("prerequisiteIdPriority03")]
 	public uint PrerequisiteIdPriority03 { get; set; }
 
-	[Column("prerequisiteIdPriority04")]
+	[TableColumn("prerequisiteIdPriority04")]
 	public uint PrerequisiteIdPriority04 { get; set; }
 
-	[Column("donutDrawDistance")]
+	[TableColumn("donutDrawDistance")]
 	public float DonutDrawDistance { get; set; }
 
-	[Column("archiveArticleIdInteractUnlock")]
+	[TableColumn("archiveArticleIdInteractUnlock")]
 	public uint ArchiveArticleIdInteractUnlock { get; set; }
 
-	[Column("tradeskillHarvestingInfoId")]
+	[TableColumn("tradeskillHarvestingInfoId")]
 	public uint TradeskillHarvestingInfoId { get; set; }
 
-	[Column("ccStateImmunitiesFlags")]
+	[TableColumn("ccStateImmunitiesFlags")]
 	public uint CcStateImmunitiesFlags { get; set; }
 
-	[Column("creature2ResistId")]
+	[TableColumn("creature2ResistId")]
 	public uint Creature2ResistId { get; set; }
 
-	[Column("unitVehicleId")]
+	[TableColumn("unitVehicleId")]
 	public uint UnitVehicleId { get; set; }
 
-	[Column("creature2DisplayInfoIdPortraitOverride")]
+	[TableColumn("creature2DisplayInfoIdPortraitOverride")]
 	public uint Creature2DisplayInfoIdPortraitOverride { get; set; }
 }

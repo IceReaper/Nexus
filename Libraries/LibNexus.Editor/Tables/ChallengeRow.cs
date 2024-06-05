@@ -4,69 +4,69 @@ namespace LibNexus.Editor.Tables;
 
 public class ChallengeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("challengeTypeEnum")]
+	[TableColumn("challengeTypeEnum")]
 	public uint ChallengeTypeEnum { get; set; }
 
-	[Column("target")]
+	[TableColumn("target")]
 	public uint Target { get; set; }
 
-	[Column("challengeFlags")]
+	[TableColumn("challengeFlags")]
 	public uint ChallengeFlags { get; set; }
 
-	[Column("worldZoneIdRestriction")]
+	[TableColumn("worldZoneIdRestriction")]
 	public uint WorldZoneIdRestriction { get; set; }
 
-	[Column("triggerVolume2IdRestriction")]
+	[TableColumn("triggerVolume2IdRestriction")]
 	public uint TriggerVolume2IdRestriction { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("worldLocation2IdIndicator")]
+	[TableColumn("worldLocation2IdIndicator")]
 	public uint WorldLocation2IdIndicator { get; set; }
 
-	[Column("worldLocation2IdStartLocation")]
+	[TableColumn("worldLocation2IdStartLocation")]
 	public uint WorldLocation2IdStartLocation { get; set; }
 
-	[Column("completionCount")]
+	[TableColumn("completionCount")]
 	public uint CompletionCount { get; set; }
 
-	[Column("challengeTierId00")]
+	[TableColumn("challengeTierId00")]
 	public uint ChallengeTierId00 { get; set; }
 
-	[Column("challengeTierId01")]
+	[TableColumn("challengeTierId01")]
 	public uint ChallengeTierId01 { get; set; }
 
-	[Column("challengeTierId02")]
+	[TableColumn("challengeTierId02")]
 	public uint ChallengeTierId02 { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdProgress")]
+	[TableColumn("localizedTextIdProgress")]
 	public uint LocalizedTextIdProgress { get; set; }
 
-	[Column("localizedTextIdAreaRestriction")]
+	[TableColumn("localizedTextIdAreaRestriction")]
 	public uint LocalizedTextIdAreaRestriction { get; set; }
 
-	[Column("localizedTextIdLocation")]
+	[TableColumn("localizedTextIdLocation")]
 	public uint LocalizedTextIdLocation { get; set; }
 
-	[Column("virtualItemIdDisplay")]
+	[TableColumn("virtualItemIdDisplay")]
 	public uint VirtualItemIdDisplay { get; set; }
 
-	[Column("targetGroupIdRewardPane")]
+	[TableColumn("targetGroupIdRewardPane")]
 	public uint TargetGroupIdRewardPane { get; set; }
 
-	[Column("questDirectionIdActive")]
+	[TableColumn("questDirectionIdActive")]
 	public uint QuestDirectionIdActive { get; set; }
 
-	[Column("questDirectionIdInactive")]
+	[TableColumn("questDirectionIdInactive")]
 	public uint QuestDirectionIdInactive { get; set; }
 
-	[Column("rewardTrackId")]
+	[TableColumn("rewardTrackId")]
 	public uint RewardTrackId { get; set; }
 }

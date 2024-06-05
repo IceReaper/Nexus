@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemRuneSlotRandomizationRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("microchipTypeEnum")]
+	[TableColumn("microchipTypeEnum")]
 	public uint MicrochipTypeEnum { get; set; }
 
-	[Column("itemRoleFlagBitMask")]
+	[TableColumn("itemRoleFlagBitMask")]
 	public uint ItemRoleFlagBitMask { get; set; }
 
-	[Column("randomWeight")]
+	[TableColumn("randomWeight")]
 	public float RandomWeight { get; set; }
 }

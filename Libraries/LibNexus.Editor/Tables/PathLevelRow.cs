@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class PathLevelRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("pathTypeEnum")]
+	[TableColumn("pathTypeEnum")]
 	public uint PathTypeEnum { get; set; }
 
-	[Column("pathLevel")]
+	[TableColumn("pathLevel")]
 	public uint PathLevel { get; set; }
 
-	[Column("pathXP")]
+	[TableColumn("pathXP")]
 	public uint PathXp { get; set; }
 }

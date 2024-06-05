@@ -4,36 +4,36 @@ namespace LibNexus.Editor.Tables;
 
 public class UnitProperty2Row
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("enumName")]
+	[TableColumn("enumName")]
 	public string EnumName { get; set; } = string.Empty;
 
-	[Column("defaultValue")]
+	[TableColumn("defaultValue")]
 	public float DefaultValue { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("valuePerPoint")]
+	[TableColumn("valuePerPoint")]
 	public float ValuePerPoint { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("tooltipDisplayOrder")]
+	[TableColumn("tooltipDisplayOrder")]
 	public uint TooltipDisplayOrder { get; set; }
 
-	[Column("profiencyFlagEnum")]
+	[TableColumn("profiencyFlagEnum")]
 	public uint ProfiencyFlagEnum { get; set; }
 
-	[Column("itemCraftingGroupFlagBitMask")]
+	[TableColumn("itemCraftingGroupFlagBitMask")]
 	public uint ItemCraftingGroupFlagBitMask { get; set; }
 
-	[Column("equippedSlotFlags")]
+	[TableColumn("equippedSlotFlags")]
 	public uint EquippedSlotFlags { get; set; }
 }

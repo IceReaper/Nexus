@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class Item2FamilyRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("soundEventIdEquip")]
+	[TableColumn("soundEventIdEquip")]
 	public uint SoundEventIdEquip { get; set; }
 
-	[Column("vendorMultiplier")]
+	[TableColumn("vendorMultiplier")]
 	public float VendorMultiplier { get; set; }
 
-	[Column("turninMultiplier")]
+	[TableColumn("turninMultiplier")]
 	public float TurninMultiplier { get; set; }
 }

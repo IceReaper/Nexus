@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class BinkMovieSubtitleRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("binkMovieId")]
+	[TableColumn("binkMovieId")]
 	public uint BinkMovieId { get; set; }
 
-	[Column("delayMs")]
+	[TableColumn("delayMs")]
 	public uint DelayMs { get; set; }
 
-	[Column("localizedTextIdDisplayText")]
+	[TableColumn("localizedTextIdDisplayText")]
 	public uint LocalizedTextIdDisplayText { get; set; }
 }

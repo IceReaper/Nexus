@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class CostumeSpeciesRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("componentLayoutId")]
+	[TableColumn("componentLayoutId")]
 	public uint ComponentLayoutId { get; set; }
 
-	[Column("enumName")]
+	[TableColumn("enumName")]
 	public string EnumName { get; set; } = string.Empty;
 }

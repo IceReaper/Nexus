@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingNeighborhoodInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("baseCost")]
+	[TableColumn("baseCost")]
 	public uint BaseCost { get; set; }
 
-	[Column("maxPopulation")]
+	[TableColumn("maxPopulation")]
 	public uint MaxPopulation { get; set; }
 
-	[Column("populationThreshold")]
+	[TableColumn("populationThreshold")]
 	public uint PopulationThreshold { get; set; }
 
-	[Column("housingFactionEnum")]
+	[TableColumn("housingFactionEnum")]
 	public uint HousingFactionEnum { get; set; }
 
-	[Column("housingFeatureTypeEnum")]
+	[TableColumn("housingFeatureTypeEnum")]
 	public uint HousingFeatureTypeEnum { get; set; }
 
-	[Column("housingPlaystyleTypeEnum")]
+	[TableColumn("housingPlaystyleTypeEnum")]
 	public uint HousingPlaystyleTypeEnum { get; set; }
 
-	[Column("housingMapInfoIdPrimary")]
+	[TableColumn("housingMapInfoIdPrimary")]
 	public uint HousingMapInfoIdPrimary { get; set; }
 
-	[Column("housingMapInfoIdSecondary")]
+	[TableColumn("housingMapInfoIdSecondary")]
 	public uint HousingMapInfoIdSecondary { get; set; }
 }

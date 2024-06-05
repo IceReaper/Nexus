@@ -4,45 +4,45 @@ namespace LibNexus.Editor.Tables;
 
 public class MatchingGameTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("matchTypeEnum")]
+	[TableColumn("matchTypeEnum")]
 	public uint MatchTypeEnum { get; set; }
 
-	[Column("matchingGameTypeEnumFlags")]
+	[TableColumn("matchingGameTypeEnumFlags")]
 	public uint MatchingGameTypeEnumFlags { get; set; }
 
-	[Column("teamSize")]
+	[TableColumn("teamSize")]
 	public uint TeamSize { get; set; }
 
-	[Column("minLevel")]
+	[TableColumn("minLevel")]
 	public uint MinLevel { get; set; }
 
-	[Column("maxLevel")]
+	[TableColumn("maxLevel")]
 	public uint MaxLevel { get; set; }
 
-	[Column("preparationTimeMS")]
+	[TableColumn("preparationTimeMS")]
 	public uint PreparationTimeMs { get; set; }
 
-	[Column("matchTimeMS")]
+	[TableColumn("matchTimeMS")]
 	public uint MatchTimeMs { get; set; }
 
-	[Column("matchingRulesEnum")]
+	[TableColumn("matchingRulesEnum")]
 	public uint MatchingRulesEnum { get; set; }
 
-	[Column("matchingRulesData00")]
+	[TableColumn("matchingRulesData00")]
 	public uint MatchingRulesData00 { get; set; }
 
-	[Column("matchingRulesData01")]
+	[TableColumn("matchingRulesData01")]
 	public uint MatchingRulesData01 { get; set; }
 
-	[Column("targetItemLevel")]
+	[TableColumn("targetItemLevel")]
 	public uint TargetItemLevel { get; set; }
 }

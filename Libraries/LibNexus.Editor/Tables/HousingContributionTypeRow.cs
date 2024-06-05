@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingContributionTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("enumName")]
+	[TableColumn("enumName")]
 	public string EnumName { get; set; } = string.Empty;
 }

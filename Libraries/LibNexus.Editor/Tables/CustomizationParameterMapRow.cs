@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class CustomizationParameterMapRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("raceId")]
+	[TableColumn("raceId")]
 	public uint RaceId { get; set; }
 
-	[Column("genderEnum")]
+	[TableColumn("genderEnum")]
 	public uint GenderEnum { get; set; }
 
-	[Column("modelBoneId")]
+	[TableColumn("modelBoneId")]
 	public uint ModelBoneId { get; set; }
 
-	[Column("customizationParameterId")]
+	[TableColumn("customizationParameterId")]
 	public uint CustomizationParameterId { get; set; }
 
-	[Column("dataOrder")]
+	[TableColumn("dataOrder")]
 	public uint DataOrder { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

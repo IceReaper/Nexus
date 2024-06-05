@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4CastResultRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("enumName")]
+	[TableColumn("enumName")]
 	public string EnumName { get; set; } = string.Empty;
 
-	[Column("combatMessageTypeEnum")]
+	[TableColumn("combatMessageTypeEnum")]
 	public uint CombatMessageTypeEnum { get; set; }
 
-	[Column("localizedTextIdDisplayText")]
+	[TableColumn("localizedTextIdDisplayText")]
 	public uint LocalizedTextIdDisplayText { get; set; }
 
-	[Column("soundEventId")]
+	[TableColumn("soundEventId")]
 	public uint SoundEventId { get; set; }
 }

@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4ValidTargetsRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("targetBitmask")]
+	[TableColumn("targetBitmask")]
 	public uint TargetBitmask { get; set; }
 }

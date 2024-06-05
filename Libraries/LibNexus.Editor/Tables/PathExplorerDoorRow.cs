@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class PathExplorerDoorRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("worldZoneIdInsideMicro")]
+	[TableColumn("worldZoneIdInsideMicro")]
 	public uint WorldZoneIdInsideMicro { get; set; }
 
-	[Column("targetGroupIdActivate")]
+	[TableColumn("targetGroupIdActivate")]
 	public uint TargetGroupIdActivate { get; set; }
 
-	[Column("targetGroupIdKill")]
+	[TableColumn("targetGroupIdKill")]
 	public uint TargetGroupIdKill { get; set; }
 }

@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class QuestCategoryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("localizedTextIdTitle")]
+	[TableColumn("localizedTextIdTitle")]
 	public uint LocalizedTextIdTitle { get; set; }
 
-	[Column("questCategoryTypeEnum")]
+	[TableColumn("questCategoryTypeEnum")]
 	public uint QuestCategoryTypeEnum { get; set; }
 }

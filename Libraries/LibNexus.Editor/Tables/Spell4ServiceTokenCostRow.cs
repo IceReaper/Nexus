@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4ServiceTokenCostRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("spell4Id")]
+	[TableColumn("spell4Id")]
 	public uint Spell4Id { get; set; }
 
-	[Column("serviceTokenCost")]
+	[TableColumn("serviceTokenCost")]
 	public uint ServiceTokenCost { get; set; }
 }

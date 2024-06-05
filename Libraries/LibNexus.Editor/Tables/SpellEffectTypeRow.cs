@@ -4,39 +4,39 @@ namespace LibNexus.Editor.Tables;
 
 public class SpellEffectTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("dataType00")]
+	[TableColumn("dataType00")]
 	public uint DataType00 { get; set; }
 
-	[Column("dataType01")]
+	[TableColumn("dataType01")]
 	public uint DataType01 { get; set; }
 
-	[Column("dataType02")]
+	[TableColumn("dataType02")]
 	public uint DataType02 { get; set; }
 
-	[Column("dataType03")]
+	[TableColumn("dataType03")]
 	public uint DataType03 { get; set; }
 
-	[Column("dataType04")]
+	[TableColumn("dataType04")]
 	public uint DataType04 { get; set; }
 
-	[Column("dataType05")]
+	[TableColumn("dataType05")]
 	public uint DataType05 { get; set; }
 
-	[Column("dataType06")]
+	[TableColumn("dataType06")]
 	public uint DataType06 { get; set; }
 
-	[Column("dataType07")]
+	[TableColumn("dataType07")]
 	public uint DataType07 { get; set; }
 
-	[Column("dataType08")]
+	[TableColumn("dataType08")]
 	public uint DataType08 { get; set; }
 
-	[Column("dataType09")]
+	[TableColumn("dataType09")]
 	public uint DataType09 { get; set; }
 }

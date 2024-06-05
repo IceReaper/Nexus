@@ -4,33 +4,33 @@ namespace LibNexus.Editor.Tables;
 
 public class WorldZoneRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("parentZoneId")]
+	[TableColumn("parentZoneId")]
 	public uint ParentZoneId { get; set; }
 
-	[Column("allowAccess")]
+	[TableColumn("allowAccess")]
 	public bool AllowAccess { get; set; }
 
-	[Column("color")]
+	[TableColumn("color")]
 	public uint Color { get; set; }
 
-	[Column("soundZoneKitId")]
+	[TableColumn("soundZoneKitId")]
 	public uint SoundZoneKitId { get; set; }
 
-	[Column("worldLocation2IdExit")]
+	[TableColumn("worldLocation2IdExit")]
 	public uint WorldLocation2IdExit { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("zonePvpRulesEnum")]
+	[TableColumn("zonePvpRulesEnum")]
 	public uint ZonePvpRulesEnum { get; set; }
 
-	[Column("rewardRotationContentId")]
+	[TableColumn("rewardRotationContentId")]
 	public uint RewardRotationContentId { get; set; }
 }

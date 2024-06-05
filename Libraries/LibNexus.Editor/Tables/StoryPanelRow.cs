@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class StoryPanelRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdBody")]
+	[TableColumn("localizedTextIdBody")]
 	public uint LocalizedTextIdBody { get; set; }
 
-	[Column("soundEventId")]
+	[TableColumn("soundEventId")]
 	public uint SoundEventId { get; set; }
 
-	[Column("windowTypeId")]
+	[TableColumn("windowTypeId")]
 	public uint WindowTypeId { get; set; }
 
-	[Column("durationMS")]
+	[TableColumn("durationMS")]
 	public uint DurationMs { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("storyPanelStyleEnum")]
+	[TableColumn("storyPanelStyleEnum")]
 	public uint StoryPanelStyleEnum { get; set; }
 }

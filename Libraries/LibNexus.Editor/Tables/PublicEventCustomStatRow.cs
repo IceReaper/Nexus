@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventCustomStatRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("publicEventTypeEnum")]
+	[TableColumn("publicEventTypeEnum")]
 	public uint PublicEventTypeEnum { get; set; }
 
-	[Column("publicEventId")]
+	[TableColumn("publicEventId")]
 	public uint PublicEventId { get; set; }
 
-	[Column("statIndex")]
+	[TableColumn("statIndex")]
 	public uint StatIndex { get; set; }
 
-	[Column("localizedTextIdStatName")]
+	[TableColumn("localizedTextIdStatName")]
 	public uint LocalizedTextIdStatName { get; set; }
 
-	[Column("iconPath")]
+	[TableColumn("iconPath")]
 	public string IconPath { get; set; } = string.Empty;
 }

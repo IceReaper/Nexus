@@ -4,39 +4,39 @@ namespace LibNexus.Editor.Tables;
 
 public class Item2TypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("itemSlotId")]
+	[TableColumn("itemSlotId")]
 	public uint ItemSlotId { get; set; }
 
-	[Column("soundEventIdLoot")]
+	[TableColumn("soundEventIdLoot")]
 	public uint SoundEventIdLoot { get; set; }
 
-	[Column("soundEventIdEquip")]
+	[TableColumn("soundEventIdEquip")]
 	public uint SoundEventIdEquip { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("vendorMultiplier")]
+	[TableColumn("vendorMultiplier")]
 	public float VendorMultiplier { get; set; }
 
-	[Column("turninMultiplier")]
+	[TableColumn("turninMultiplier")]
 	public float TurninMultiplier { get; set; }
 
-	[Column("Item2CategoryId")]
+	[TableColumn("Item2CategoryId")]
 	public uint Item2CategoryId { get; set; }
 
-	[Column("referenceMuzzleX")]
+	[TableColumn("referenceMuzzleX")]
 	public float ReferenceMuzzleX { get; set; }
 
-	[Column("referenceMuzzleY")]
+	[TableColumn("referenceMuzzleY")]
 	public float ReferenceMuzzleY { get; set; }
 
-	[Column("referenceMuzzleZ")]
+	[TableColumn("referenceMuzzleZ")]
 	public float ReferenceMuzzleZ { get; set; }
 }

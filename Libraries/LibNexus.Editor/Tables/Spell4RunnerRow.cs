@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4RunnerRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("spriteName")]
+	[TableColumn("spriteName")]
 	public string SpriteName { get; set; } = string.Empty;
 
-	[Column("redTint")]
+	[TableColumn("redTint")]
 	public float RedTint { get; set; }
 
-	[Column("greenTint")]
+	[TableColumn("greenTint")]
 	public float GreenTint { get; set; }
 
-	[Column("blueTint")]
+	[TableColumn("blueTint")]
 	public float BlueTint { get; set; }
 
-	[Column("alphaTint")]
+	[TableColumn("alphaTint")]
 	public float AlphaTint { get; set; }
 
-	[Column("rate")]
+	[TableColumn("rate")]
 	public float Rate { get; set; }
 }

@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class GuildStandardPartRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("guildStandardPartTypeEnum")]
+	[TableColumn("guildStandardPartTypeEnum")]
 	public uint GuildStandardPartTypeEnum { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("itemDisplayIdStandard")]
+	[TableColumn("itemDisplayIdStandard")]
 	public uint ItemDisplayIdStandard { get; set; }
 }

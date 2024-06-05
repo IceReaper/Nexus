@@ -4,39 +4,39 @@ namespace LibNexus.Editor.Tables;
 
 public class FinishingMoveDeathVisualRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("priority")]
+	[TableColumn("priority")]
 	public uint Priority { get; set; }
 
-	[Column("damageTypeFlags")]
+	[TableColumn("damageTypeFlags")]
 	public uint DamageTypeFlags { get; set; }
 
-	[Column("creature2MinSize")]
+	[TableColumn("creature2MinSize")]
 	public uint Creature2MinSize { get; set; }
 
-	[Column("creature2MaxSize")]
+	[TableColumn("creature2MaxSize")]
 	public uint Creature2MaxSize { get; set; }
 
-	[Column("creatureMaterialEnum")]
+	[TableColumn("creatureMaterialEnum")]
 	public uint CreatureMaterialEnum { get; set; }
 
-	[Column("movementStateFlags")]
+	[TableColumn("movementStateFlags")]
 	public uint MovementStateFlags { get; set; }
 
-	[Column("deathModelAsset")]
+	[TableColumn("deathModelAsset")]
 	public string DeathModelAsset { get; set; } = string.Empty;
 
-	[Column("modelSequenceIdDeath")]
+	[TableColumn("modelSequenceIdDeath")]
 	public uint ModelSequenceIdDeath { get; set; }
 
-	[Column("visualEffectIdDeath00")]
+	[TableColumn("visualEffectIdDeath00")]
 	public uint VisualEffectIdDeath00 { get; set; }
 
-	[Column("visualEffectIdDeath01")]
+	[TableColumn("visualEffectIdDeath01")]
 	public uint VisualEffectIdDeath01 { get; set; }
 
-	[Column("visualEffectIdDeath02")]
+	[TableColumn("visualEffectIdDeath02")]
 	public uint VisualEffectIdDeath02 { get; set; }
 }

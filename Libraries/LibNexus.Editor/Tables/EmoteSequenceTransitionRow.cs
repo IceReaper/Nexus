@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class EmoteSequenceTransitionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("emotesIdTo")]
+	[TableColumn("emotesIdTo")]
 	public uint EmotesIdTo { get; set; }
 
-	[Column("standStateFrom")]
+	[TableColumn("standStateFrom")]
 	public uint StandStateFrom { get; set; }
 
-	[Column("emotesIdFrom")]
+	[TableColumn("emotesIdFrom")]
 	public uint EmotesIdFrom { get; set; }
 
-	[Column("modelSequenceId")]
+	[TableColumn("modelSequenceId")]
 	public uint ModelSequenceId { get; set; }
 }

@@ -4,51 +4,51 @@ namespace LibNexus.Editor.Tables;
 
 public class Creature2ActionTextRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdOnEnterCombat00")]
+	[TableColumn("localizedTextIdOnEnterCombat00")]
 	public uint LocalizedTextIdOnEnterCombat00 { get; set; }
 
-	[Column("localizedTextIdOnEnterCombat01")]
+	[TableColumn("localizedTextIdOnEnterCombat01")]
 	public uint LocalizedTextIdOnEnterCombat01 { get; set; }
 
-	[Column("localizedTextIdOnEnterCombat02")]
+	[TableColumn("localizedTextIdOnEnterCombat02")]
 	public uint LocalizedTextIdOnEnterCombat02 { get; set; }
 
-	[Column("localizedTextIdOnEnterCombat03")]
+	[TableColumn("localizedTextIdOnEnterCombat03")]
 	public uint LocalizedTextIdOnEnterCombat03 { get; set; }
 
-	[Column("chanceToSayOnEnterCombat")]
+	[TableColumn("chanceToSayOnEnterCombat")]
 	public float ChanceToSayOnEnterCombat { get; set; }
 
-	[Column("localizedTextIdOnDeath00")]
+	[TableColumn("localizedTextIdOnDeath00")]
 	public uint LocalizedTextIdOnDeath00 { get; set; }
 
-	[Column("localizedTextIdOnDeath01")]
+	[TableColumn("localizedTextIdOnDeath01")]
 	public uint LocalizedTextIdOnDeath01 { get; set; }
 
-	[Column("localizedTextIdOnDeath02")]
+	[TableColumn("localizedTextIdOnDeath02")]
 	public uint LocalizedTextIdOnDeath02 { get; set; }
 
-	[Column("localizedTextIdOnDeath03")]
+	[TableColumn("localizedTextIdOnDeath03")]
 	public uint LocalizedTextIdOnDeath03 { get; set; }
 
-	[Column("chanceToSayOnDeath")]
+	[TableColumn("chanceToSayOnDeath")]
 	public float ChanceToSayOnDeath { get; set; }
 
-	[Column("localizedTextIdOnKill00")]
+	[TableColumn("localizedTextIdOnKill00")]
 	public uint LocalizedTextIdOnKill00 { get; set; }
 
-	[Column("localizedTextIdOnKill01")]
+	[TableColumn("localizedTextIdOnKill01")]
 	public uint LocalizedTextIdOnKill01 { get; set; }
 
-	[Column("localizedTextIdOnKill02")]
+	[TableColumn("localizedTextIdOnKill02")]
 	public uint LocalizedTextIdOnKill02 { get; set; }
 
-	[Column("localizedTextIdOnKill03")]
+	[TableColumn("localizedTextIdOnKill03")]
 	public uint LocalizedTextIdOnKill03 { get; set; }
 
-	[Column("chanceToSayOnKill")]
+	[TableColumn("chanceToSayOnKill")]
 	public float ChanceToSayOnKill { get; set; }
 }

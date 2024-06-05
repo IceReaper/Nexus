@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class TaxiRouteRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("taxiNodeIdSource")]
+	[TableColumn("taxiNodeIdSource")]
 	public uint TaxiNodeIdSource { get; set; }
 
-	[Column("taxiNodeIdDestination")]
+	[TableColumn("taxiNodeIdDestination")]
 	public uint TaxiNodeIdDestination { get; set; }
 
-	[Column("price")]
+	[TableColumn("price")]
 	public uint Price { get; set; }
 }

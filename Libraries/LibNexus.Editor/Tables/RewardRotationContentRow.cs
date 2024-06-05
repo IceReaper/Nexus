@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class RewardRotationContentRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("contentTypeEnum")]
+	[TableColumn("contentTypeEnum")]
 	public uint ContentTypeEnum { get; set; }
 }

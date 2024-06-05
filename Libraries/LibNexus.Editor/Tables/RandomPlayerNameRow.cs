@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class RandomPlayerNameRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("nameFragment")]
+	[TableColumn("nameFragment")]
 	public string NameFragment { get; set; } = string.Empty;
 
-	[Column("nameFragmentTypeEnum")]
+	[TableColumn("nameFragmentTypeEnum")]
 	public uint NameFragmentTypeEnum { get; set; }
 
-	[Column("raceId")]
+	[TableColumn("raceId")]
 	public uint RaceId { get; set; }
 
-	[Column("gender")]
+	[TableColumn("gender")]
 	public uint Gender { get; set; }
 
-	[Column("faction2Id")]
+	[TableColumn("faction2Id")]
 	public uint Faction2Id { get; set; }
 
-	[Column("languageFlags")]
+	[TableColumn("languageFlags")]
 	public uint LanguageFlags { get; set; }
 }

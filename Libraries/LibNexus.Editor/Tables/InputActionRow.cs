@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class InputActionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("enumName")]
+	[TableColumn("enumName")]
 	public string EnumName { get; set; } = string.Empty;
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("inputActionCategoryId")]
+	[TableColumn("inputActionCategoryId")]
 	public uint InputActionCategoryId { get; set; }
 
-	[Column("canHaveUpDownState")]
+	[TableColumn("canHaveUpDownState")]
 	public bool CanHaveUpDownState { get; set; }
 
-	[Column("displayIndex")]
+	[TableColumn("displayIndex")]
 	public uint DisplayIndex { get; set; }
 }

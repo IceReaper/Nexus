@@ -4,54 +4,54 @@ namespace LibNexus.Editor.Tables;
 
 public class PrimalMatrixRewardRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("primalMatrixRewardTypeEnum0")]
+	[TableColumn("primalMatrixRewardTypeEnum0")]
 	public uint PrimalMatrixRewardTypeEnum0 { get; set; }
 
-	[Column("primalMatrixRewardTypeEnum1")]
+	[TableColumn("primalMatrixRewardTypeEnum1")]
 	public uint PrimalMatrixRewardTypeEnum1 { get; set; }
 
-	[Column("primalMatrixRewardTypeEnum2")]
+	[TableColumn("primalMatrixRewardTypeEnum2")]
 	public uint PrimalMatrixRewardTypeEnum2 { get; set; }
 
-	[Column("primalMatrixRewardTypeEnum3")]
+	[TableColumn("primalMatrixRewardTypeEnum3")]
 	public uint PrimalMatrixRewardTypeEnum3 { get; set; }
 
-	[Column("objectId0")]
+	[TableColumn("objectId0")]
 	public uint ObjectId0 { get; set; }
 
-	[Column("objectId1")]
+	[TableColumn("objectId1")]
 	public uint ObjectId1 { get; set; }
 
-	[Column("objectId2")]
+	[TableColumn("objectId2")]
 	public uint ObjectId2 { get; set; }
 
-	[Column("objectId3")]
+	[TableColumn("objectId3")]
 	public uint ObjectId3 { get; set; }
 
-	[Column("subObjectId0")]
+	[TableColumn("subObjectId0")]
 	public uint SubObjectId0 { get; set; }
 
-	[Column("subObjectId1")]
+	[TableColumn("subObjectId1")]
 	public uint SubObjectId1 { get; set; }
 
-	[Column("subObjectId2")]
+	[TableColumn("subObjectId2")]
 	public uint SubObjectId2 { get; set; }
 
-	[Column("subObjectId3")]
+	[TableColumn("subObjectId3")]
 	public uint SubObjectId3 { get; set; }
 
-	[Column("value0")]
+	[TableColumn("value0")]
 	public float Value0 { get; set; }
 
-	[Column("value1")]
+	[TableColumn("value1")]
 	public float Value1 { get; set; }
 
-	[Column("value2")]
+	[TableColumn("value2")]
 	public float Value2 { get; set; }
 
-	[Column("value3")]
+	[TableColumn("value3")]
 	public float Value3 { get; set; }
 }

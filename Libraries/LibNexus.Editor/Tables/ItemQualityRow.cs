@@ -4,42 +4,42 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemQualityRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("salvageCritChance")]
+	[TableColumn("salvageCritChance")]
 	public float SalvageCritChance { get; set; }
 
-	[Column("turninMultiplier")]
+	[TableColumn("turninMultiplier")]
 	public float TurninMultiplier { get; set; }
 
-	[Column("runeCostMultiplier")]
+	[TableColumn("runeCostMultiplier")]
 	public float RuneCostMultiplier { get; set; }
 
-	[Column("dyeCostMultiplier")]
+	[TableColumn("dyeCostMultiplier")]
 	public float DyeCostMultiplier { get; set; }
 
-	[Column("visualEffectIdLoot")]
+	[TableColumn("visualEffectIdLoot")]
 	public uint VisualEffectIdLoot { get; set; }
 
-	[Column("iconColorR")]
+	[TableColumn("iconColorR")]
 	public float IconColorR { get; set; }
 
-	[Column("iconColorG")]
+	[TableColumn("iconColorG")]
 	public float IconColorG { get; set; }
 
-	[Column("iconColorB")]
+	[TableColumn("iconColorB")]
 	public float IconColorB { get; set; }
 
-	[Column("defaultRunes")]
+	[TableColumn("defaultRunes")]
 	public uint DefaultRunes { get; set; }
 
-	[Column("maxRunes")]
+	[TableColumn("maxRunes")]
 	public uint MaxRunes { get; set; }
 
-	[Column("assetPathDieModel")]
+	[TableColumn("assetPathDieModel")]
 	public string AssetPathDieModel { get; set; } = string.Empty;
 
-	[Column("soundEventIdFortuneCardFanfare")]
+	[TableColumn("soundEventIdFortuneCardFanfare")]
 	public uint SoundEventIdFortuneCardFanfare { get; set; }
 }

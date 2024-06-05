@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class LevelUpUnlockRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("levelUpUnlockSystemEnum")]
+	[TableColumn("levelUpUnlockSystemEnum")]
 	public uint LevelUpUnlockSystemEnum { get; set; }
 
-	[Column("level")]
+	[TableColumn("level")]
 	public uint Level { get; set; }
 
-	[Column("levelUpUnlockTypeId")]
+	[TableColumn("levelUpUnlockTypeId")]
 	public uint LevelUpUnlockTypeId { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("displayIcon")]
+	[TableColumn("displayIcon")]
 	public string DisplayIcon { get; set; } = string.Empty;
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("levelUpUnlockValue")]
+	[TableColumn("levelUpUnlockValue")]
 	public uint LevelUpUnlockValue { get; set; }
 }

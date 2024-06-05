@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class Creature2ResistRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("resistPhysicalMultiplier")]
+	[TableColumn("resistPhysicalMultiplier")]
 	public float ResistPhysicalMultiplier { get; set; }
 
-	[Column("resistTechMultiplier")]
+	[TableColumn("resistTechMultiplier")]
 	public float ResistTechMultiplier { get; set; }
 
-	[Column("resistMagicMultiplier")]
+	[TableColumn("resistMagicMultiplier")]
 	public float ResistMagicMultiplier { get; set; }
 }

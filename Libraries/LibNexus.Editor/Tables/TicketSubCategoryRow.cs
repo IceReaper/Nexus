@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class TicketSubCategoryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("ticketCategoryId")]
+	[TableColumn("ticketCategoryId")]
 	public uint TicketCategoryId { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 }

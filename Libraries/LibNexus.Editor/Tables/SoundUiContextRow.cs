@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundUiContextRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("luaVariableName")]
+	[TableColumn("luaVariableName")]
 	public string LuaVariableName { get; set; } = string.Empty;
 
-	[Column("soundEventId")]
+	[TableColumn("soundEventId")]
 	public uint SoundEventId { get; set; }
 }

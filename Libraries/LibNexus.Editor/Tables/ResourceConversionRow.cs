@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class ResourceConversionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("resourceConversionTypeEnum")]
+	[TableColumn("resourceConversionTypeEnum")]
 	public uint ResourceConversionTypeEnum { get; set; }
 
-	[Column("sourceId")]
+	[TableColumn("sourceId")]
 	public uint SourceId { get; set; }
 
-	[Column("sourceCount")]
+	[TableColumn("sourceCount")]
 	public uint SourceCount { get; set; }
 
-	[Column("targetId")]
+	[TableColumn("targetId")]
 	public uint TargetId { get; set; }
 
-	[Column("targetCount")]
+	[TableColumn("targetCount")]
 	public uint TargetCount { get; set; }
 
-	[Column("surchargeId")]
+	[TableColumn("surchargeId")]
 	public uint SurchargeId { get; set; }
 
-	[Column("surchargeCount")]
+	[TableColumn("surchargeCount")]
 	public uint SurchargeCount { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

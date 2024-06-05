@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class MatchTypeRewardRotationContentRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("matchTypeEnum")]
+	[TableColumn("matchTypeEnum")]
 	public uint MatchTypeEnum { get; set; }
 
-	[Column("rewardRotationContentIdRandomNormal")]
+	[TableColumn("rewardRotationContentIdRandomNormal")]
 	public uint RewardRotationContentIdRandomNormal { get; set; }
 
-	[Column("rewardRotationContentIdRandomVeteran")]
+	[TableColumn("rewardRotationContentIdRandomVeteran")]
 	public uint RewardRotationContentIdRandomVeteran { get; set; }
 }

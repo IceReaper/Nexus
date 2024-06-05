@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingDecorTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("luaString")]
+	[TableColumn("luaString")]
 	public string LuaString { get; set; } = string.Empty;
 }

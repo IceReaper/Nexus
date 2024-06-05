@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class MtxCategoryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("idString")]
+	[TableColumn("idString")]
 	public string IdString { get; set; } = string.Empty;
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("mtxCategoryIdParent")]
+	[TableColumn("mtxCategoryIdParent")]
 	public uint MtxCategoryIdParent { get; set; }
 }

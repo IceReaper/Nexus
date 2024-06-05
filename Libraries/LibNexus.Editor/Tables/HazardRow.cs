@@ -4,48 +4,48 @@ namespace LibNexus.Editor.Tables;
 
 public class HazardRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdTooltip")]
+	[TableColumn("localizedTextIdTooltip")]
 	public uint LocalizedTextIdTooltip { get; set; }
 
-	[Column("meterChangeRate")]
+	[TableColumn("meterChangeRate")]
 	public float MeterChangeRate { get; set; }
 
-	[Column("meterMaxValue")]
+	[TableColumn("meterMaxValue")]
 	public uint MeterMaxValue { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("hazardTypeEnum")]
+	[TableColumn("hazardTypeEnum")]
 	public uint HazardTypeEnum { get; set; }
 
-	[Column("spell4IdDamage")]
+	[TableColumn("spell4IdDamage")]
 	public uint Spell4IdDamage { get; set; }
 
-	[Column("minDistanceToUnit")]
+	[TableColumn("minDistanceToUnit")]
 	public float MinDistanceToUnit { get; set; }
 
-	[Column("meterThreshold00")]
+	[TableColumn("meterThreshold00")]
 	public float MeterThreshold00 { get; set; }
 
-	[Column("meterThreshold01")]
+	[TableColumn("meterThreshold01")]
 	public float MeterThreshold01 { get; set; }
 
-	[Column("meterThreshold02")]
+	[TableColumn("meterThreshold02")]
 	public float MeterThreshold02 { get; set; }
 
-	[Column("spell4IdThresholdProc00")]
+	[TableColumn("spell4IdThresholdProc00")]
 	public uint Spell4IdThresholdProc00 { get; set; }
 
-	[Column("spell4IdThresholdProc01")]
+	[TableColumn("spell4IdThresholdProc01")]
 	public uint Spell4IdThresholdProc01 { get; set; }
 
-	[Column("spell4IdThresholdProc02")]
+	[TableColumn("spell4IdThresholdProc02")]
 	public uint Spell4IdThresholdProc02 { get; set; }
 }

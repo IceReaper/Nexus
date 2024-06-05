@@ -4,60 +4,60 @@ namespace LibNexus.Editor.Tables;
 
 public class WorldRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("assetPath")]
+	[TableColumn("assetPath")]
 	public string AssetPath { get; set; } = string.Empty;
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("type")]
+	[TableColumn("type")]
 	public uint Type { get; set; }
 
-	[Column("screenPath")]
+	[TableColumn("screenPath")]
 	public string ScreenPath { get; set; } = string.Empty;
 
-	[Column("screenModelPath")]
+	[TableColumn("screenModelPath")]
 	public string ScreenModelPath { get; set; } = string.Empty;
 
-	[Column("chunkBounds00")]
+	[TableColumn("chunkBounds00")]
 	public uint ChunkBounds00 { get; set; }
 
-	[Column("chunkBounds01")]
+	[TableColumn("chunkBounds01")]
 	public uint ChunkBounds01 { get; set; }
 
-	[Column("chunkBounds02")]
+	[TableColumn("chunkBounds02")]
 	public uint ChunkBounds02 { get; set; }
 
-	[Column("chunkBounds03")]
+	[TableColumn("chunkBounds03")]
 	public uint ChunkBounds03 { get; set; }
 
-	[Column("plugAverageHeight")]
+	[TableColumn("plugAverageHeight")]
 	public uint PlugAverageHeight { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("minItemLevel")]
+	[TableColumn("minItemLevel")]
 	public uint MinItemLevel { get; set; }
 
-	[Column("maxItemLevel")]
+	[TableColumn("maxItemLevel")]
 	public uint MaxItemLevel { get; set; }
 
-	[Column("primeLevelOffset")]
+	[TableColumn("primeLevelOffset")]
 	public uint PrimeLevelOffset { get; set; }
 
-	[Column("primeLevelMax")]
+	[TableColumn("primeLevelMax")]
 	public uint PrimeLevelMax { get; set; }
 
-	[Column("veteranTierScalingType")]
+	[TableColumn("veteranTierScalingType")]
 	public uint VeteranTierScalingType { get; set; }
 
-	[Column("heroismMenaceLevel")]
+	[TableColumn("heroismMenaceLevel")]
 	public uint HeroismMenaceLevel { get; set; }
 
-	[Column("rewardRotationContentId")]
+	[TableColumn("rewardRotationContentId")]
 	public uint RewardRotationContentId { get; set; }
 }

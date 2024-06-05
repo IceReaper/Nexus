@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class WorldWaterEnvironmentRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("LandMapPath")]
+	[TableColumn("LandMapPath")]
 	public string LandMapPath { get; set; } = string.Empty;
 }

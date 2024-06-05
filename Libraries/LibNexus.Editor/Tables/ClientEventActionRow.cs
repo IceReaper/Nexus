@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class ClientEventActionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("actionTypeEnum")]
+	[TableColumn("actionTypeEnum")]
 	public uint ActionTypeEnum { get; set; }
 
-	[Column("actionData00")]
+	[TableColumn("actionData00")]
 	public uint ActionData00 { get; set; }
 
-	[Column("actionData01")]
+	[TableColumn("actionData01")]
 	public uint ActionData01 { get; set; }
 
-	[Column("localizedTextIdSubZoneName")]
+	[TableColumn("localizedTextIdSubZoneName")]
 	public uint LocalizedTextIdSubZoneName { get; set; }
 }

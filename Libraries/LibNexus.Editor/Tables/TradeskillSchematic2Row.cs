@@ -4,99 +4,99 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillSchematic2Row
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("tradeSkillId")]
+	[TableColumn("tradeSkillId")]
 	public uint TradeSkillId { get; set; }
 
-	[Column("item2IdOutput")]
+	[TableColumn("item2IdOutput")]
 	public uint Item2IdOutput { get; set; }
 
-	[Column("item2IdOutputFail")]
+	[TableColumn("item2IdOutputFail")]
 	public uint Item2IdOutputFail { get; set; }
 
-	[Column("outputCount")]
+	[TableColumn("outputCount")]
 	public uint OutputCount { get; set; }
 
-	[Column("lootId")]
+	[TableColumn("lootId")]
 	public uint LootId { get; set; }
 
-	[Column("tier")]
+	[TableColumn("tier")]
 	public uint Tier { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("item2IdMaterial00")]
+	[TableColumn("item2IdMaterial00")]
 	public uint Item2IdMaterial00 { get; set; }
 
-	[Column("item2IdMaterial01")]
+	[TableColumn("item2IdMaterial01")]
 	public uint Item2IdMaterial01 { get; set; }
 
-	[Column("item2IdMaterial02")]
+	[TableColumn("item2IdMaterial02")]
 	public uint Item2IdMaterial02 { get; set; }
 
-	[Column("item2IdMaterial03")]
+	[TableColumn("item2IdMaterial03")]
 	public uint Item2IdMaterial03 { get; set; }
 
-	[Column("item2IdMaterial04")]
+	[TableColumn("item2IdMaterial04")]
 	public uint Item2IdMaterial04 { get; set; }
 
-	[Column("materialCost00")]
+	[TableColumn("materialCost00")]
 	public uint MaterialCost00 { get; set; }
 
-	[Column("materialCost01")]
+	[TableColumn("materialCost01")]
 	public uint MaterialCost01 { get; set; }
 
-	[Column("materialCost02")]
+	[TableColumn("materialCost02")]
 	public uint MaterialCost02 { get; set; }
 
-	[Column("materialCost03")]
+	[TableColumn("materialCost03")]
 	public uint MaterialCost03 { get; set; }
 
-	[Column("materialCost04")]
+	[TableColumn("materialCost04")]
 	public uint MaterialCost04 { get; set; }
 
-	[Column("tradeskillSchematic2IdParent")]
+	[TableColumn("tradeskillSchematic2IdParent")]
 	public uint TradeskillSchematic2IdParent { get; set; }
 
-	[Column("vectorX")]
+	[TableColumn("vectorX")]
 	public float VectorX { get; set; }
 
-	[Column("vectorY")]
+	[TableColumn("vectorY")]
 	public float VectorY { get; set; }
 
-	[Column("radius")]
+	[TableColumn("radius")]
 	public float Radius { get; set; }
 
-	[Column("critRadius")]
+	[TableColumn("critRadius")]
 	public float CritRadius { get; set; }
 
-	[Column("item2IdOutputCrit")]
+	[TableColumn("item2IdOutputCrit")]
 	public uint Item2IdOutputCrit { get; set; }
 
-	[Column("outputCountCritBonus")]
+	[TableColumn("outputCountCritBonus")]
 	public uint OutputCountCritBonus { get; set; }
 
-	[Column("priority")]
+	[TableColumn("priority")]
 	public uint Priority { get; set; }
 
-	[Column("maxAdditives")]
+	[TableColumn("maxAdditives")]
 	public uint MaxAdditives { get; set; }
 
-	[Column("discoverableQuadrant")]
+	[TableColumn("discoverableQuadrant")]
 	public uint DiscoverableQuadrant { get; set; }
 
-	[Column("discoverableRadius")]
+	[TableColumn("discoverableRadius")]
 	public float DiscoverableRadius { get; set; }
 
-	[Column("discoverableAngle")]
+	[TableColumn("discoverableAngle")]
 	public float DiscoverableAngle { get; set; }
 
-	[Column("tradeskillCatalystOrderingId")]
+	[TableColumn("tradeskillCatalystOrderingId")]
 	public uint TradeskillCatalystOrderingId { get; set; }
 }

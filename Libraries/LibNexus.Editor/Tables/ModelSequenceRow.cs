@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelSequenceRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("FallBackID")]
+	[TableColumn("FallBackID")]
 	public uint FallBackId { get; set; }
 
-	[Column("flag")]
+	[TableColumn("flag")]
 	public uint Flag { get; set; }
 }

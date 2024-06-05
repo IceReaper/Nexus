@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class Creature2ActionSetRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 }

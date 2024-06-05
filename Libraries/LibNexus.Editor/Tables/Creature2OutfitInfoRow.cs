@@ -4,42 +4,42 @@ namespace LibNexus.Editor.Tables;
 
 public class Creature2OutfitInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("itemDisplayId00")]
+	[TableColumn("itemDisplayId00")]
 	public uint ItemDisplayId00 { get; set; }
 
-	[Column("itemDisplayId01")]
+	[TableColumn("itemDisplayId01")]
 	public uint ItemDisplayId01 { get; set; }
 
-	[Column("itemDisplayId02")]
+	[TableColumn("itemDisplayId02")]
 	public uint ItemDisplayId02 { get; set; }
 
-	[Column("itemDisplayId03")]
+	[TableColumn("itemDisplayId03")]
 	public uint ItemDisplayId03 { get; set; }
 
-	[Column("itemDisplayId04")]
+	[TableColumn("itemDisplayId04")]
 	public uint ItemDisplayId04 { get; set; }
 
-	[Column("itemDisplayId05")]
+	[TableColumn("itemDisplayId05")]
 	public uint ItemDisplayId05 { get; set; }
 
-	[Column("itemColorSetId00")]
+	[TableColumn("itemColorSetId00")]
 	public uint ItemColorSetId00 { get; set; }
 
-	[Column("itemColorSetId01")]
+	[TableColumn("itemColorSetId01")]
 	public uint ItemColorSetId01 { get; set; }
 
-	[Column("itemColorSetId02")]
+	[TableColumn("itemColorSetId02")]
 	public uint ItemColorSetId02 { get; set; }
 
-	[Column("itemColorSetId03")]
+	[TableColumn("itemColorSetId03")]
 	public uint ItemColorSetId03 { get; set; }
 
-	[Column("itemColorSetId04")]
+	[TableColumn("itemColorSetId04")]
 	public uint ItemColorSetId04 { get; set; }
 
-	[Column("itemColorSetId05")]
+	[TableColumn("itemColorSetId05")]
 	public uint ItemColorSetId05 { get; set; }
 }

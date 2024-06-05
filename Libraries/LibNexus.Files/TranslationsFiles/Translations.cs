@@ -1,13 +1,11 @@
 using LibNexus.Core.Extensions;
+using LibNexus.Core.Streams;
 
 namespace LibNexus.Files.TranslationsFiles;
 
 public class Translations
 {
-	private const string Magic = "LTEX";
-	private const uint Version = 4;
-
-	private readonly Stream _stream;
+	private static readonly Identifier Identifier = new("LTEX", 4);
 
 	public string Name { get; }
 	public string Code { get; }
@@ -17,75 +15,39 @@ public class Translations
 
 	public Translations(Stream stream)
 	{
-		_stream = stream;
-
-		var magic = _stream.ReadWord();
-		var version = _stream.ReadUInt32();
-
-		if (magic != Magic)
-			throw new Exception("Translation: Invalid magic");
-
-		if (version != Version)
-			throw new Exception("Translation: Invalid version");
-
+		FileFormatException.ThrowIf<Translations>(nameof(Identifier), new Identifier(stream) != Identifier);
 		var header = new TranslationsHeader(stream);
+		using var data = new SegmentStream(stream, Identifier.Size + TranslationsHeader.Size, stream.Length - Identifier.Size - TranslationsHeader.Size, true);
 
-		var headerSize = (ulong)stream.Position;
+		FileFormatException.ThrowIf<Translations>(nameof(header.NameOffset), (ulong)data.Position != header.NameOffset);
+		Name = data.ReadWideString(header.NameLength);
+		data.SkipPadding(16);
 
-		if ((ulong)stream.Position != headerSize + header.NameOffset)
-			throw new Exception("Translation: Invalid name offset");
+		FileFormatException.ThrowIf<Translations>(nameof(header.CodeOffset), (ulong)data.Position != header.CodeOffset);
+		Code = data.ReadWideString(header.CodeLength);
+		data.SkipPadding(16);
 
-		Name = stream.ReadWideString();
-		SkipPadding();
+		FileFormatException.ThrowIf<Translations>(nameof(header.DescriptionOffset), (ulong)data.Position != header.DescriptionOffset);
+		Description = data.ReadWideString(header.DescriptionLength);
+		data.SkipPadding(16);
 
-		if ((ulong)Name.Length != header.NameLength - 1)
-			throw new Exception("Translation: Invalid name length");
+		FileFormatException.ThrowIf<Translations>(nameof(header.TranslationsOffset), (ulong)data.Position != header.TranslationsOffset);
+		data.Position += (long)(header.TranslationsAmount * 8);
+		data.SkipPadding(16);
 
-		if ((ulong)stream.Position != headerSize + header.CodeOffset)
-			throw new Exception("Translation: Invalid code offset");
-
-		Code = stream.ReadWideString();
-		SkipPadding();
-
-		if ((ulong)Code.Length != header.CodeLength - 1)
-			throw new Exception("Translation: Invalid code length");
-
-		if ((ulong)stream.Position != headerSize + header.DescriptionOffset)
-			throw new Exception("Translation: Invalid description offset");
-
-		Description = stream.ReadWideString();
-		SkipPadding();
-
-		if ((ulong)Description.Length != header.DescriptionLength - 1)
-			throw new Exception("Translation: Invalid description length");
-
-		var translationsPosition = headerSize + header.TranslationsOffset;
-
-		if ((ulong)stream.Position != translationsPosition)
-			throw new Exception("Translation: Invalid translations offset");
-
-		stream.Position += (long)(header.TranslationsAmount * 8);
-		SkipPadding();
-
-		var stringsPosition = headerSize + header.StringsOffset;
-
-		if ((ulong)stream.Position != stringsPosition)
-			throw new Exception("Translation: Invalid strings offset");
-
+		FileFormatException.ThrowIf<Translations>(nameof(header.CharactersOffset), (ulong)data.Position != header.CharactersOffset);
 		var strings = new Dictionary<ulong, string>();
 
-		while ((ulong)_stream.Position < stringsPosition + header.StringsWideCharacter * 2)
-			strings.Add((ulong)_stream.Position - stringsPosition, _stream.ReadWideString());
+		while ((ulong)data.Position < header.CharactersOffset + header.CharactersAmount * 2)
+			strings.Add((ulong)((data.Position - (long)header.CharactersOffset) / 2), data.ReadWideString());
 
-		_stream.Position = (long)translationsPosition;
+		data.SkipPadding(16);
+
+		FileFormatException.ThrowIf<Translations>(nameof(data), data.Position != data.Length);
+
+		data.Position = (long)header.TranslationsOffset;
 
 		for (var i = 0UL; i < header.TranslationsAmount; i++)
-			Strings.Add(_stream.ReadUInt32(), strings[_stream.ReadUInt32() * 2]);
-	}
-
-	private void SkipPadding()
-	{
-		if (_stream.Position % 16 != 0)
-			_stream.Position += 16 - _stream.Position % 16;
+			Strings.Add(data.ReadUInt32(), strings[data.ReadUInt32()]);
 	}
 }

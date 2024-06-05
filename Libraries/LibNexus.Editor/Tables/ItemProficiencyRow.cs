@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemProficiencyRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("bitMask")]
+	[TableColumn("bitMask")]
 	public uint BitMask { get; set; }
 
-	[Column("localizedTextIdString")]
+	[TableColumn("localizedTextIdString")]
 	public uint LocalizedTextIdString { get; set; }
 }

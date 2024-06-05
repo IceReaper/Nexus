@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelBonePriorityRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("BoneID")]
+	[TableColumn("BoneID")]
 	public uint BoneId { get; set; }
 
-	[Column("BoneSetID")]
+	[TableColumn("BoneSetID")]
 	public uint BoneSetId { get; set; }
 
-	[Column("Priority")]
+	[TableColumn("Priority")]
 	public uint Priority { get; set; }
 }

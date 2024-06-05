@@ -4,33 +4,33 @@ namespace LibNexus.Editor.Tables;
 
 public class ChatChannelRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("enumName")]
+	[TableColumn("enumName")]
 	public string EnumName { get; set; } = string.Empty;
 
-	[Column("universalCommand00")]
+	[TableColumn("universalCommand00")]
 	public string UniversalCommand00 { get; set; } = string.Empty;
 
-	[Column("universalCommand01")]
+	[TableColumn("universalCommand01")]
 	public string UniversalCommand01 { get; set; } = string.Empty;
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdCommand")]
+	[TableColumn("localizedTextIdCommand")]
 	public uint LocalizedTextIdCommand { get; set; }
 
-	[Column("localizedTextIdAbbreviation")]
+	[TableColumn("localizedTextIdAbbreviation")]
 	public uint LocalizedTextIdAbbreviation { get; set; }
 
-	[Column("localizedTextIdAlternate00")]
+	[TableColumn("localizedTextIdAlternate00")]
 	public uint LocalizedTextIdAlternate00 { get; set; }
 
-	[Column("localizedTextIdAlternate01")]
+	[TableColumn("localizedTextIdAlternate01")]
 	public uint LocalizedTextIdAlternate01 { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

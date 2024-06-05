@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelSequenceByModeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("modelSequenceId")]
+	[TableColumn("modelSequenceId")]
 	public uint ModelSequenceId { get; set; }
 
-	[Column("modelSequenceIdSwim")]
+	[TableColumn("modelSequenceIdSwim")]
 	public uint ModelSequenceIdSwim { get; set; }
 
-	[Column("modelSequenceIdHover")]
+	[TableColumn("modelSequenceIdHover")]
 	public uint ModelSequenceIdHover { get; set; }
 
-	[Column("modelSequenceIdFly")]
+	[TableColumn("modelSequenceIdFly")]
 	public uint ModelSequenceIdFly { get; set; }
 }

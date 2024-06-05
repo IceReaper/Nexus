@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class PathScientistExperimentationPatternRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("pathMissionId")]
+	[TableColumn("pathMissionId")]
 	public uint PathMissionId { get; set; }
 
-	[Column("pathScientistExperimentationId")]
+	[TableColumn("pathScientistExperimentationId")]
 	public uint PathScientistExperimentationId { get; set; }
 
-	[Column("iconAssetPath")]
+	[TableColumn("iconAssetPath")]
 	public string IconAssetPath { get; set; } = string.Empty;
 }

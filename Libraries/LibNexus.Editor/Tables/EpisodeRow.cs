@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class EpisodeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdBriefing")]
+	[TableColumn("localizedTextIdBriefing")]
 	public uint LocalizedTextIdBriefing { get; set; }
 
-	[Column("localizedTextIdEndSummary")]
+	[TableColumn("localizedTextIdEndSummary")]
 	public uint LocalizedTextIdEndSummary { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("percentToDisplay")]
+	[TableColumn("percentToDisplay")]
 	public uint PercentToDisplay { get; set; }
 
-	[Column("questHubIdExile")]
+	[TableColumn("questHubIdExile")]
 	public uint QuestHubIdExile { get; set; }
 
-	[Column("questHubIdDominion")]
+	[TableColumn("questHubIdDominion")]
 	public uint QuestHubIdDominion { get; set; }
 }

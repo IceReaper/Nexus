@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillAdditiveRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("tradeSkillId")]
+	[TableColumn("tradeSkillId")]
 	public uint TradeSkillId { get; set; }
 
-	[Column("tier")]
+	[TableColumn("tier")]
 	public uint Tier { get; set; }
 
-	[Column("vectorX")]
+	[TableColumn("vectorX")]
 	public float VectorX { get; set; }
 
-	[Column("vectorY")]
+	[TableColumn("vectorY")]
 	public float VectorY { get; set; }
 
-	[Column("radius")]
+	[TableColumn("radius")]
 	public float Radius { get; set; }
 }

@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class PathScientistExperimentationRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("numAttempts")]
+	[TableColumn("numAttempts")]
 	public uint NumAttempts { get; set; }
 }

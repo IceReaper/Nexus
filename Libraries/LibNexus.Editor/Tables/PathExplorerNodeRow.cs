@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class PathExplorerNodeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("pathExplorerAreaId")]
+	[TableColumn("pathExplorerAreaId")]
 	public uint PathExplorerAreaId { get; set; }
 
-	[Column("worldLocation2Id")]
+	[TableColumn("worldLocation2Id")]
 	public uint WorldLocation2Id { get; set; }
 
-	[Column("spline2Id")]
+	[TableColumn("spline2Id")]
 	public uint Spline2Id { get; set; }
 
-	[Column("localizedTextIdSettlerButton")]
+	[TableColumn("localizedTextIdSettlerButton")]
 	public uint LocalizedTextIdSettlerButton { get; set; }
 
-	[Column("questDirectionId")]
+	[TableColumn("questDirectionId")]
 	public uint QuestDirectionId { get; set; }
 
-	[Column("visualEffectId")]
+	[TableColumn("visualEffectId")]
 	public uint VisualEffectId { get; set; }
 }

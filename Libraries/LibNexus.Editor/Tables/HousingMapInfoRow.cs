@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingMapInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("worldId")]
+	[TableColumn("worldId")]
 	public uint WorldId { get; set; }
 
-	[Column("privatePropertyCount")]
+	[TableColumn("privatePropertyCount")]
 	public uint PrivatePropertyCount { get; set; }
 
-	[Column("publicPropertyCount")]
+	[TableColumn("publicPropertyCount")]
 	public uint PublicPropertyCount { get; set; }
 }

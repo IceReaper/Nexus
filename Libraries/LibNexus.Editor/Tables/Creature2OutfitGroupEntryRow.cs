@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class Creature2OutfitGroupEntryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("creature2OutfitGroupId")]
+	[TableColumn("creature2OutfitGroupId")]
 	public uint Creature2OutfitGroupId { get; set; }
 
-	[Column("creature2OutfitInfoId")]
+	[TableColumn("creature2OutfitInfoId")]
 	public uint Creature2OutfitInfoId { get; set; }
 
-	[Column("weight")]
+	[TableColumn("weight")]
 	public uint Weight { get; set; }
 }

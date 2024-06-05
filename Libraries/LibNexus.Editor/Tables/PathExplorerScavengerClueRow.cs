@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class PathExplorerScavengerClueRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdClue")]
+	[TableColumn("localizedTextIdClue")]
 	public uint LocalizedTextIdClue { get; set; }
 
-	[Column("explorerScavengerClueTypeEnum")]
+	[TableColumn("explorerScavengerClueTypeEnum")]
 	public uint ExplorerScavengerClueTypeEnum { get; set; }
 
-	[Column("creature2Id")]
+	[TableColumn("creature2Id")]
 	public uint Creature2Id { get; set; }
 
-	[Column("targetGroupId")]
+	[TableColumn("targetGroupId")]
 	public uint TargetGroupId { get; set; }
 
-	[Column("activeRadius")]
+	[TableColumn("activeRadius")]
 	public float ActiveRadius { get; set; }
 
-	[Column("worldLocation2IdMiniMap")]
+	[TableColumn("worldLocation2IdMiniMap")]
 	public uint WorldLocation2IdMiniMap { get; set; }
 }

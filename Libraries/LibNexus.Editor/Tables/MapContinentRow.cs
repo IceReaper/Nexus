@@ -4,42 +4,42 @@ namespace LibNexus.Editor.Tables;
 
 public class MapContinentRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("assetPath")]
+	[TableColumn("assetPath")]
 	public string AssetPath { get; set; } = string.Empty;
 
-	[Column("imagePath")]
+	[TableColumn("imagePath")]
 	public string ImagePath { get; set; } = string.Empty;
 
-	[Column("imageWidth")]
+	[TableColumn("imageWidth")]
 	public uint ImageWidth { get; set; }
 
-	[Column("imageHeight")]
+	[TableColumn("imageHeight")]
 	public uint ImageHeight { get; set; }
 
-	[Column("imageOffsetX")]
+	[TableColumn("imageOffsetX")]
 	public uint ImageOffsetX { get; set; }
 
-	[Column("imageOffsetY")]
+	[TableColumn("imageOffsetY")]
 	public uint ImageOffsetY { get; set; }
 
-	[Column("hexMinX")]
+	[TableColumn("hexMinX")]
 	public uint HexMinX { get; set; }
 
-	[Column("hexMinY")]
+	[TableColumn("hexMinY")]
 	public uint HexMinY { get; set; }
 
-	[Column("hexLimX")]
+	[TableColumn("hexLimX")]
 	public uint HexLimX { get; set; }
 
-	[Column("hexLimY")]
+	[TableColumn("hexLimY")]
 	public uint HexLimY { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

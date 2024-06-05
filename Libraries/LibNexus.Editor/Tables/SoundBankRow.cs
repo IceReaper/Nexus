@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundBankRow
 {
-	[Column("id")]
+	[TableColumn("id")]
 	public uint Id { get; set; }
 
-	[Column("name")]
+	[TableColumn("name")]
 	public string Name { get; set; } = string.Empty;
 }

@@ -4,96 +4,96 @@ namespace LibNexus.Editor.Tables;
 
 public class RaceRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("enumName")]
+	[TableColumn("enumName")]
 	public string EnumName { get; set; } = string.Empty;
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("localizedTextIdNameFemale")]
+	[TableColumn("localizedTextIdNameFemale")]
 	public uint LocalizedTextIdNameFemale { get; set; }
 
-	[Column("maleAssetPath")]
+	[TableColumn("maleAssetPath")]
 	public string MaleAssetPath { get; set; } = string.Empty;
 
-	[Column("femaleAssetPath")]
+	[TableColumn("femaleAssetPath")]
 	public string FemaleAssetPath { get; set; } = string.Empty;
 
-	[Column("hitRadius")]
+	[TableColumn("hitRadius")]
 	public float HitRadius { get; set; }
 
-	[Column("soundImpactDescriptionIdOrigin")]
+	[TableColumn("soundImpactDescriptionIdOrigin")]
 	public uint SoundImpactDescriptionIdOrigin { get; set; }
 
-	[Column("soundImpactDescriptionIdTarget")]
+	[TableColumn("soundImpactDescriptionIdTarget")]
 	public uint SoundImpactDescriptionIdTarget { get; set; }
 
-	[Column("walkLand")]
+	[TableColumn("walkLand")]
 	public float WalkLand { get; set; }
 
-	[Column("walkAir")]
+	[TableColumn("walkAir")]
 	public float WalkAir { get; set; }
 
-	[Column("walkWater")]
+	[TableColumn("walkWater")]
 	public float WalkWater { get; set; }
 
-	[Column("walkHover")]
+	[TableColumn("walkHover")]
 	public float WalkHover { get; set; }
 
-	[Column("unitVisualTypeIdMale")]
+	[TableColumn("unitVisualTypeIdMale")]
 	public uint UnitVisualTypeIdMale { get; set; }
 
-	[Column("unitVisualTypeIdFemale")]
+	[TableColumn("unitVisualTypeIdFemale")]
 	public uint UnitVisualTypeIdFemale { get; set; }
 
-	[Column("soundEventIdMaleHealthStart")]
+	[TableColumn("soundEventIdMaleHealthStart")]
 	public uint SoundEventIdMaleHealthStart { get; set; }
 
-	[Column("soundEventIdFemaleHealthStart")]
+	[TableColumn("soundEventIdFemaleHealthStart")]
 	public uint SoundEventIdFemaleHealthStart { get; set; }
 
-	[Column("soundEventIdMaleHealthStop")]
+	[TableColumn("soundEventIdMaleHealthStop")]
 	public uint SoundEventIdMaleHealthStop { get; set; }
 
-	[Column("soundEventIdFemaleHealthStop")]
+	[TableColumn("soundEventIdFemaleHealthStop")]
 	public uint SoundEventIdFemaleHealthStop { get; set; }
 
-	[Column("swimWaterDepth")]
+	[TableColumn("swimWaterDepth")]
 	public float SwimWaterDepth { get; set; }
 
-	[Column("itemDisplayIdUnderwearLegsMale")]
+	[TableColumn("itemDisplayIdUnderwearLegsMale")]
 	public uint ItemDisplayIdUnderwearLegsMale { get; set; }
 
-	[Column("itemDisplayIdUnderwearLegsFemale")]
+	[TableColumn("itemDisplayIdUnderwearLegsFemale")]
 	public uint ItemDisplayIdUnderwearLegsFemale { get; set; }
 
-	[Column("itemDisplayIdUnderwearChestFemale")]
+	[TableColumn("itemDisplayIdUnderwearChestFemale")]
 	public uint ItemDisplayIdUnderwearChestFemale { get; set; }
 
-	[Column("itemDisplayIdArmCannon")]
+	[TableColumn("itemDisplayIdArmCannon")]
 	public uint ItemDisplayIdArmCannon { get; set; }
 
-	[Column("mountScaleMale")]
+	[TableColumn("mountScaleMale")]
 	public float MountScaleMale { get; set; }
 
-	[Column("mountScaleFemale")]
+	[TableColumn("mountScaleFemale")]
 	public float MountScaleFemale { get; set; }
 
-	[Column("soundSwitchId")]
+	[TableColumn("soundSwitchId")]
 	public uint SoundSwitchId { get; set; }
 
-	[Column("componentLayoutIdMale")]
+	[TableColumn("componentLayoutIdMale")]
 	public uint ComponentLayoutIdMale { get; set; }
 
-	[Column("componentLayoutIdFemale")]
+	[TableColumn("componentLayoutIdFemale")]
 	public uint ComponentLayoutIdFemale { get; set; }
 
-	[Column("modelMeshIdMountItemMale")]
+	[TableColumn("modelMeshIdMountItemMale")]
 	public uint ModelMeshIdMountItemMale { get; set; }
 
-	[Column("modelMeshIdMountItemFemale")]
+	[TableColumn("modelMeshIdMountItemFemale")]
 	public uint ModelMeshIdMountItemFemale { get; set; }
 }

@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class VeteranTierRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("primeLevel")]
+	[TableColumn("primeLevel")]
 	public uint PrimeLevel { get; set; }
 
-	[Column("veteranTierScalingType")]
+	[TableColumn("veteranTierScalingType")]
 	public uint VeteranTierScalingType { get; set; }
 
-	[Column("unitPropertyOverrideMenace")]
+	[TableColumn("unitPropertyOverrideMenace")]
 	public uint UnitPropertyOverrideMenace { get; set; }
 }

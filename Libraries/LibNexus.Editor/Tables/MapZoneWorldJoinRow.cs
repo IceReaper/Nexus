@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class MapZoneWorldJoinRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("mapZoneId")]
+	[TableColumn("mapZoneId")]
 	public uint MapZoneId { get; set; }
 
-	[Column("worldId")]
+	[TableColumn("worldId")]
 	public uint WorldId { get; set; }
 }

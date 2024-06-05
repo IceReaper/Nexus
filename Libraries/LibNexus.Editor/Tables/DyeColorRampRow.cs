@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class DyeColorRampRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("rampIndex")]
+	[TableColumn("rampIndex")]
 	public uint RampIndex { get; set; }
 
-	[Column("costMultiplier")]
+	[TableColumn("costMultiplier")]
 	public float CostMultiplier { get; set; }
 
-	[Column("componentMapEnum")]
+	[TableColumn("componentMapEnum")]
 	public uint ComponentMapEnum { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 }

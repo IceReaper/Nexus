@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class PeriodicQuestGroupRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("periodicQuestSetId")]
+	[TableColumn("periodicQuestSetId")]
 	public uint PeriodicQuestSetId { get; set; }
 
-	[Column("periodicQuestsOffered")]
+	[TableColumn("periodicQuestsOffered")]
 	public uint PeriodicQuestsOffered { get; set; }
 
-	[Column("maxPeriodicQuestsAllowed")]
+	[TableColumn("maxPeriodicQuestsAllowed")]
 	public uint MaxPeriodicQuestsAllowed { get; set; }
 
-	[Column("weight")]
+	[TableColumn("weight")]
 	public uint Weight { get; set; }
 
-	[Column("contractTypeEnum")]
+	[TableColumn("contractTypeEnum")]
 	public uint ContractTypeEnum { get; set; }
 
-	[Column("contractQualityEnum")]
+	[TableColumn("contractQualityEnum")]
 	public uint ContractQualityEnum { get; set; }
 }

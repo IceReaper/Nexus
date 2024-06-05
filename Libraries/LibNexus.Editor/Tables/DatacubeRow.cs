@@ -4,51 +4,51 @@ namespace LibNexus.Editor.Tables;
 
 public class DatacubeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("datacubeTypeEnum")]
+	[TableColumn("datacubeTypeEnum")]
 	public uint DatacubeTypeEnum { get; set; }
 
-	[Column("localizedTextIdTitle")]
+	[TableColumn("localizedTextIdTitle")]
 	public uint LocalizedTextIdTitle { get; set; }
 
-	[Column("localizedTextIdText00")]
+	[TableColumn("localizedTextIdText00")]
 	public uint LocalizedTextIdText00 { get; set; }
 
-	[Column("localizedTextIdText01")]
+	[TableColumn("localizedTextIdText01")]
 	public uint LocalizedTextIdText01 { get; set; }
 
-	[Column("localizedTextIdText02")]
+	[TableColumn("localizedTextIdText02")]
 	public uint LocalizedTextIdText02 { get; set; }
 
-	[Column("localizedTextIdText03")]
+	[TableColumn("localizedTextIdText03")]
 	public uint LocalizedTextIdText03 { get; set; }
 
-	[Column("localizedTextIdText04")]
+	[TableColumn("localizedTextIdText04")]
 	public uint LocalizedTextIdText04 { get; set; }
 
-	[Column("localizedTextIdText05")]
+	[TableColumn("localizedTextIdText05")]
 	public uint LocalizedTextIdText05 { get; set; }
 
-	[Column("soundEventId")]
+	[TableColumn("soundEventId")]
 	public uint SoundEventId { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("unlockCount")]
+	[TableColumn("unlockCount")]
 	public uint UnlockCount { get; set; }
 
-	[Column("assetPathImage")]
+	[TableColumn("assetPathImage")]
 	public string AssetPathImage { get; set; } = string.Empty;
 
-	[Column("datacubeFactionEnum")]
+	[TableColumn("datacubeFactionEnum")]
 	public uint DatacubeFactionEnum { get; set; }
 
-	[Column("worldLocation2Id")]
+	[TableColumn("worldLocation2Id")]
 	public uint WorldLocation2Id { get; set; }
 
-	[Column("questDirectionId")]
+	[TableColumn("questDirectionId")]
 	public uint QuestDirectionId { get; set; }
 }

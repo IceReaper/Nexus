@@ -4,105 +4,105 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4VisualRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("targetTypeFlags")]
+	[TableColumn("targetTypeFlags")]
 	public uint TargetTypeFlags { get; set; }
 
-	[Column("stageType")]
+	[TableColumn("stageType")]
 	public uint StageType { get; set; }
 
-	[Column("stageFlags")]
+	[TableColumn("stageFlags")]
 	public uint StageFlags { get; set; }
 
-	[Column("visualEffectId")]
+	[TableColumn("visualEffectId")]
 	public uint VisualEffectId { get; set; }
 
-	[Column("visualEffectIdSound")]
+	[TableColumn("visualEffectIdSound")]
 	public uint VisualEffectIdSound { get; set; }
 
-	[Column("modelEventIdDelay")]
+	[TableColumn("modelEventIdDelay")]
 	public uint ModelEventIdDelay { get; set; }
 
-	[Column("soundEventType00")]
+	[TableColumn("soundEventType00")]
 	public uint SoundEventType00 { get; set; }
 
-	[Column("soundEventType01")]
+	[TableColumn("soundEventType01")]
 	public uint SoundEventType01 { get; set; }
 
-	[Column("soundEventType02")]
+	[TableColumn("soundEventType02")]
 	public uint SoundEventType02 { get; set; }
 
-	[Column("soundEventType03")]
+	[TableColumn("soundEventType03")]
 	public uint SoundEventType03 { get; set; }
 
-	[Column("soundEventType04")]
+	[TableColumn("soundEventType04")]
 	public uint SoundEventType04 { get; set; }
 
-	[Column("soundEventType05")]
+	[TableColumn("soundEventType05")]
 	public uint SoundEventType05 { get; set; }
 
-	[Column("soundImpactDescriptionIdTarget00")]
+	[TableColumn("soundImpactDescriptionIdTarget00")]
 	public uint SoundImpactDescriptionIdTarget00 { get; set; }
 
-	[Column("soundImpactDescriptionIdTarget01")]
+	[TableColumn("soundImpactDescriptionIdTarget01")]
 	public uint SoundImpactDescriptionIdTarget01 { get; set; }
 
-	[Column("soundImpactDescriptionIdTarget02")]
+	[TableColumn("soundImpactDescriptionIdTarget02")]
 	public uint SoundImpactDescriptionIdTarget02 { get; set; }
 
-	[Column("soundImpactDescriptionIdTarget03")]
+	[TableColumn("soundImpactDescriptionIdTarget03")]
 	public uint SoundImpactDescriptionIdTarget03 { get; set; }
 
-	[Column("soundImpactDescriptionIdTarget04")]
+	[TableColumn("soundImpactDescriptionIdTarget04")]
 	public uint SoundImpactDescriptionIdTarget04 { get; set; }
 
-	[Column("soundImpactDescriptionIdTarget05")]
+	[TableColumn("soundImpactDescriptionIdTarget05")]
 	public uint SoundImpactDescriptionIdTarget05 { get; set; }
 
-	[Column("soundImpactDescriptionIdOrigin00")]
+	[TableColumn("soundImpactDescriptionIdOrigin00")]
 	public uint SoundImpactDescriptionIdOrigin00 { get; set; }
 
-	[Column("soundImpactDescriptionIdOrigin01")]
+	[TableColumn("soundImpactDescriptionIdOrigin01")]
 	public uint SoundImpactDescriptionIdOrigin01 { get; set; }
 
-	[Column("soundImpactDescriptionIdOrigin02")]
+	[TableColumn("soundImpactDescriptionIdOrigin02")]
 	public uint SoundImpactDescriptionIdOrigin02 { get; set; }
 
-	[Column("soundImpactDescriptionIdOrigin03")]
+	[TableColumn("soundImpactDescriptionIdOrigin03")]
 	public uint SoundImpactDescriptionIdOrigin03 { get; set; }
 
-	[Column("soundImpactDescriptionIdOrigin04")]
+	[TableColumn("soundImpactDescriptionIdOrigin04")]
 	public uint SoundImpactDescriptionIdOrigin04 { get; set; }
 
-	[Column("soundImpactDescriptionIdOrigin05")]
+	[TableColumn("soundImpactDescriptionIdOrigin05")]
 	public uint SoundImpactDescriptionIdOrigin05 { get; set; }
 
-	[Column("modelAttachmentIdCaster")]
+	[TableColumn("modelAttachmentIdCaster")]
 	public uint ModelAttachmentIdCaster { get; set; }
 
-	[Column("phaseFlags")]
+	[TableColumn("phaseFlags")]
 	public uint PhaseFlags { get; set; }
 
-	[Column("modelOffsetX")]
+	[TableColumn("modelOffsetX")]
 	public float ModelOffsetX { get; set; }
 
-	[Column("modelOffsetY")]
+	[TableColumn("modelOffsetY")]
 	public float ModelOffsetY { get; set; }
 
-	[Column("modelOffsetZ")]
+	[TableColumn("modelOffsetZ")]
 	public float ModelOffsetZ { get; set; }
 
-	[Column("modelScale")]
+	[TableColumn("modelScale")]
 	public float ModelScale { get; set; }
 
-	[Column("preDelayTimeMs")]
+	[TableColumn("preDelayTimeMs")]
 	public uint PreDelayTimeMs { get; set; }
 
-	[Column("telegraphDamageIdAttach")]
+	[TableColumn("telegraphDamageIdAttach")]
 	public uint TelegraphDamageIdAttach { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 }

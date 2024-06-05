@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class RewardRotationModifierRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("rewardPropertyId")]
+	[TableColumn("rewardPropertyId")]
 	public uint RewardPropertyId { get; set; }
 
-	[Column("rewardPropertyData")]
+	[TableColumn("rewardPropertyData")]
 	public uint RewardPropertyData { get; set; }
 
-	[Column("value")]
+	[TableColumn("value")]
 	public float Value { get; set; }
 
-	[Column("minPlayerLevel")]
+	[TableColumn("minPlayerLevel")]
 	public uint MinPlayerLevel { get; set; }
 
-	[Column("worldDifficultyFlags")]
+	[TableColumn("worldDifficultyFlags")]
 	public uint WorldDifficultyFlags { get; set; }
 }

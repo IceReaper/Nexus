@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class AchievementSubGroupRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("tier")]
+	[TableColumn("tier")]
 	public uint Tier { get; set; }
 }

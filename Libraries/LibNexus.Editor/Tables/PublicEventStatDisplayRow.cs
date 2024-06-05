@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventStatDisplayRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("publicEventTypeEnum")]
+	[TableColumn("publicEventTypeEnum")]
 	public uint PublicEventTypeEnum { get; set; }
 
-	[Column("publicEventId")]
+	[TableColumn("publicEventId")]
 	public uint PublicEventId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundReplaceRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("soundReplaceDescriptionId")]
+	[TableColumn("soundReplaceDescriptionId")]
 	public uint SoundReplaceDescriptionId { get; set; }
 
-	[Column("soundEventIdOld")]
+	[TableColumn("soundEventIdOld")]
 	public uint SoundEventIdOld { get; set; }
 
-	[Column("soundEventIdNew")]
+	[TableColumn("soundEventIdNew")]
 	public uint SoundEventIdNew { get; set; }
 }

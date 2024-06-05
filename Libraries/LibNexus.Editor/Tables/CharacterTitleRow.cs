@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class CharacterTitleRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("characterTitleCategoryId")]
+	[TableColumn("characterTitleCategoryId")]
 	public uint CharacterTitleCategoryId { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdTitle")]
+	[TableColumn("localizedTextIdTitle")]
 	public uint LocalizedTextIdTitle { get; set; }
 
-	[Column("spell4IdActivate")]
+	[TableColumn("spell4IdActivate")]
 	public uint Spell4IdActivate { get; set; }
 
-	[Column("lifeTimeSeconds")]
+	[TableColumn("lifeTimeSeconds")]
 	public uint LifeTimeSeconds { get; set; }
 
-	[Column("playerTitleFlagsEnum")]
+	[TableColumn("playerTitleFlagsEnum")]
 	public uint PlayerTitleFlagsEnum { get; set; }
 
-	[Column("scheduleId")]
+	[TableColumn("scheduleId")]
 	public uint ScheduleId { get; set; }
 }

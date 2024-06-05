@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4TierRequirementsRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("tierIndex")]
+	[TableColumn("tierIndex")]
 	public uint TierIndex { get; set; }
 
-	[Column("levelRequirement")]
+	[TableColumn("levelRequirement")]
 	public uint LevelRequirement { get; set; }
 }

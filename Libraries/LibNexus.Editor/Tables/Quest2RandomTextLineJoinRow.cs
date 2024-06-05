@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class Quest2RandomTextLineJoinRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("quest2Id")]
+	[TableColumn("quest2Id")]
 	public uint Quest2Id { get; set; }
 
-	[Column("questVOTextType")]
+	[TableColumn("questVOTextType")]
 	public uint QuestVoTextType { get; set; }
 
-	[Column("randomTextLineId")]
+	[TableColumn("randomTextLineId")]
 	public uint RandomTextLineId { get; set; }
 }

@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelBoneRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("XSIName")]
+	[TableColumn("XSIName")]
 	public string XsiName { get; set; } = string.Empty;
 }

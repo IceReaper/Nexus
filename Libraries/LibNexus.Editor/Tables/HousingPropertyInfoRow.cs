@@ -4,42 +4,42 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingPropertyInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("worldId")]
+	[TableColumn("worldId")]
 	public uint WorldId { get; set; }
 
-	[Column("housingMapInfoId")]
+	[TableColumn("housingMapInfoId")]
 	public uint HousingMapInfoId { get; set; }
 
-	[Column("cost")]
+	[TableColumn("cost")]
 	public uint Cost { get; set; }
 
-	[Column("housingFacingEnum")]
+	[TableColumn("housingFacingEnum")]
 	public uint HousingFacingEnum { get; set; }
 
-	[Column("worldLocation2Id")]
+	[TableColumn("worldLocation2Id")]
 	public uint WorldLocation2Id { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("housingPropertyTypeId")]
+	[TableColumn("housingPropertyTypeId")]
 	public uint HousingPropertyTypeId { get; set; }
 
-	[Column("worldLayerIdDefault00")]
+	[TableColumn("worldLayerIdDefault00")]
 	public uint WorldLayerIdDefault00 { get; set; }
 
-	[Column("worldLayerIdDefault01")]
+	[TableColumn("worldLayerIdDefault01")]
 	public uint WorldLayerIdDefault01 { get; set; }
 
-	[Column("worldLayerIdDefault02")]
+	[TableColumn("worldLayerIdDefault02")]
 	public uint WorldLayerIdDefault02 { get; set; }
 
-	[Column("worldLayerIdDefault03")]
+	[TableColumn("worldLayerIdDefault03")]
 	public uint WorldLayerIdDefault03 { get; set; }
 }

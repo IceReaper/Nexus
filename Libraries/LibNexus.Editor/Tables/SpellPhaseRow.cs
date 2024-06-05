@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class SpellPhaseRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("phaseDelay")]
+	[TableColumn("phaseDelay")]
 	public uint PhaseDelay { get; set; }
 
-	[Column("phaseFlags")]
+	[TableColumn("phaseFlags")]
 	public uint PhaseFlags { get; set; }
 
-	[Column("orderIndex")]
+	[TableColumn("orderIndex")]
 	public uint OrderIndex { get; set; }
 
-	[Column("spell4IdOwner")]
+	[TableColumn("spell4IdOwner")]
 	public uint Spell4IdOwner { get; set; }
 }

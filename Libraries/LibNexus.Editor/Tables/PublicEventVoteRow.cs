@@ -4,48 +4,48 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventVoteRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdTitle")]
+	[TableColumn("localizedTextIdTitle")]
 	public uint LocalizedTextIdTitle { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("localizedTextIdOption00")]
+	[TableColumn("localizedTextIdOption00")]
 	public uint LocalizedTextIdOption00 { get; set; }
 
-	[Column("localizedTextIdOption01")]
+	[TableColumn("localizedTextIdOption01")]
 	public uint LocalizedTextIdOption01 { get; set; }
 
-	[Column("localizedTextIdOption02")]
+	[TableColumn("localizedTextIdOption02")]
 	public uint LocalizedTextIdOption02 { get; set; }
 
-	[Column("localizedTextIdOption03")]
+	[TableColumn("localizedTextIdOption03")]
 	public uint LocalizedTextIdOption03 { get; set; }
 
-	[Column("localizedTextIdOption04")]
+	[TableColumn("localizedTextIdOption04")]
 	public uint LocalizedTextIdOption04 { get; set; }
 
-	[Column("localizedTextIdLabel00")]
+	[TableColumn("localizedTextIdLabel00")]
 	public uint LocalizedTextIdLabel00 { get; set; }
 
-	[Column("localizedTextIdLabel01")]
+	[TableColumn("localizedTextIdLabel01")]
 	public uint LocalizedTextIdLabel01 { get; set; }
 
-	[Column("localizedTextIdLabel02")]
+	[TableColumn("localizedTextIdLabel02")]
 	public uint LocalizedTextIdLabel02 { get; set; }
 
-	[Column("localizedTextIdLabel03")]
+	[TableColumn("localizedTextIdLabel03")]
 	public uint LocalizedTextIdLabel03 { get; set; }
 
-	[Column("localizedTextIdLabel04")]
+	[TableColumn("localizedTextIdLabel04")]
 	public uint LocalizedTextIdLabel04 { get; set; }
 
-	[Column("durationMS")]
+	[TableColumn("durationMS")]
 	public uint DurationMs { get; set; }
 
-	[Column("assetPathSprite")]
+	[TableColumn("assetPathSprite")]
 	public string AssetPathSprite { get; set; } = string.Empty;
 }

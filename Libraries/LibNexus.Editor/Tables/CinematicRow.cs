@@ -4,6 +4,6 @@ namespace LibNexus.Editor.Tables;
 
 public class CinematicRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 }

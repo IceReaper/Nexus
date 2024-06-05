@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class QuestDirectionEntryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("worldLocation2Id")]
+	[TableColumn("worldLocation2Id")]
 	public uint WorldLocation2Id { get; set; }
 
-	[Column("worldLocation2IdInactive")]
+	[TableColumn("worldLocation2IdInactive")]
 	public uint WorldLocation2IdInactive { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("questDirectionEntryFlags")]
+	[TableColumn("questDirectionEntryFlags")]
 	public uint QuestDirectionEntryFlags { get; set; }
 
-	[Column("questDirectionFactionEnum")]
+	[TableColumn("questDirectionFactionEnum")]
 	public uint QuestDirectionFactionEnum { get; set; }
 }

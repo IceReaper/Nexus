@@ -76,9 +76,9 @@ public partial class TextureViewer : Window
 
 		_current = index;
 
-		Current.Text = $"{_current + 1} / {_texture.Pixels.Length}";
+		Current.Text = $"{_current + 1} / {_texture.Images.Length}";
 		Previous.Disabled = _current == 0;
-		Next.Disabled = _current == _texture.Pixels.Length - 1;
+		Next.Disabled = _current == _texture.Images.Length - 1;
 
 		Main?.AssetCache.Add(
 			this,

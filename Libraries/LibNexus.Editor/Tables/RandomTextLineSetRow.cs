@@ -4,141 +4,141 @@ namespace LibNexus.Editor.Tables;
 
 public class RandomTextLineSetRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("generalVOSetEnumFirst00")]
+	[TableColumn("generalVOSetEnumFirst00")]
 	public uint GeneralVoSetEnumFirst00 { get; set; }
 
-	[Column("generalVOSetEnumFirst01")]
+	[TableColumn("generalVOSetEnumFirst01")]
 	public uint GeneralVoSetEnumFirst01 { get; set; }
 
-	[Column("generalVOSetEnumFirst02")]
+	[TableColumn("generalVOSetEnumFirst02")]
 	public uint GeneralVoSetEnumFirst02 { get; set; }
 
-	[Column("generalVOSetEnumFirst03")]
+	[TableColumn("generalVOSetEnumFirst03")]
 	public uint GeneralVoSetEnumFirst03 { get; set; }
 
-	[Column("generalVOSetEnumFirst04")]
+	[TableColumn("generalVOSetEnumFirst04")]
 	public uint GeneralVoSetEnumFirst04 { get; set; }
 
-	[Column("generalVOSetEnumFirst05")]
+	[TableColumn("generalVOSetEnumFirst05")]
 	public uint GeneralVoSetEnumFirst05 { get; set; }
 
-	[Column("generalVOSetEnumFirst06")]
+	[TableColumn("generalVOSetEnumFirst06")]
 	public uint GeneralVoSetEnumFirst06 { get; set; }
 
-	[Column("generalVOSetEnumFirst07")]
+	[TableColumn("generalVOSetEnumFirst07")]
 	public uint GeneralVoSetEnumFirst07 { get; set; }
 
-	[Column("generalVOSetEnumFirst08")]
+	[TableColumn("generalVOSetEnumFirst08")]
 	public uint GeneralVoSetEnumFirst08 { get; set; }
 
-	[Column("generalVOSetEnumFirst09")]
+	[TableColumn("generalVOSetEnumFirst09")]
 	public uint GeneralVoSetEnumFirst09 { get; set; }
 
-	[Column("generalVOSetEnumFirst10")]
+	[TableColumn("generalVOSetEnumFirst10")]
 	public uint GeneralVoSetEnumFirst10 { get; set; }
 
-	[Column("generalVOSetEnumFirst11")]
+	[TableColumn("generalVOSetEnumFirst11")]
 	public uint GeneralVoSetEnumFirst11 { get; set; }
 
-	[Column("generalVOSetEnumFirst12")]
+	[TableColumn("generalVOSetEnumFirst12")]
 	public uint GeneralVoSetEnumFirst12 { get; set; }
 
-	[Column("generalVOSetEnumFirst13")]
+	[TableColumn("generalVOSetEnumFirst13")]
 	public uint GeneralVoSetEnumFirst13 { get; set; }
 
-	[Column("generalVOSetEnumFirst14")]
+	[TableColumn("generalVOSetEnumFirst14")]
 	public uint GeneralVoSetEnumFirst14 { get; set; }
 
-	[Column("generalVOSetEnumSecond00")]
+	[TableColumn("generalVOSetEnumSecond00")]
 	public uint GeneralVoSetEnumSecond00 { get; set; }
 
-	[Column("generalVOSetEnumSecond01")]
+	[TableColumn("generalVOSetEnumSecond01")]
 	public uint GeneralVoSetEnumSecond01 { get; set; }
 
-	[Column("generalVOSetEnumSecond02")]
+	[TableColumn("generalVOSetEnumSecond02")]
 	public uint GeneralVoSetEnumSecond02 { get; set; }
 
-	[Column("generalVOSetEnumSecond03")]
+	[TableColumn("generalVOSetEnumSecond03")]
 	public uint GeneralVoSetEnumSecond03 { get; set; }
 
-	[Column("generalVOSetEnumSecond04")]
+	[TableColumn("generalVOSetEnumSecond04")]
 	public uint GeneralVoSetEnumSecond04 { get; set; }
 
-	[Column("generalVOSetEnumSecond05")]
+	[TableColumn("generalVOSetEnumSecond05")]
 	public uint GeneralVoSetEnumSecond05 { get; set; }
 
-	[Column("generalVOSetEnumSecond06")]
+	[TableColumn("generalVOSetEnumSecond06")]
 	public uint GeneralVoSetEnumSecond06 { get; set; }
 
-	[Column("generalVOSetEnumSecond07")]
+	[TableColumn("generalVOSetEnumSecond07")]
 	public uint GeneralVoSetEnumSecond07 { get; set; }
 
-	[Column("generalVOSetEnumSecond08")]
+	[TableColumn("generalVOSetEnumSecond08")]
 	public uint GeneralVoSetEnumSecond08 { get; set; }
 
-	[Column("generalVOSetEnumSecond09")]
+	[TableColumn("generalVOSetEnumSecond09")]
 	public uint GeneralVoSetEnumSecond09 { get; set; }
 
-	[Column("generalVOSetEnumSecond10")]
+	[TableColumn("generalVOSetEnumSecond10")]
 	public uint GeneralVoSetEnumSecond10 { get; set; }
 
-	[Column("generalVOSetEnumSecond11")]
+	[TableColumn("generalVOSetEnumSecond11")]
 	public uint GeneralVoSetEnumSecond11 { get; set; }
 
-	[Column("generalVOSetEnumSecond12")]
+	[TableColumn("generalVOSetEnumSecond12")]
 	public uint GeneralVoSetEnumSecond12 { get; set; }
 
-	[Column("generalVOSetEnumSecond13")]
+	[TableColumn("generalVOSetEnumSecond13")]
 	public uint GeneralVoSetEnumSecond13 { get; set; }
 
-	[Column("generalVOSetEnumSecond14")]
+	[TableColumn("generalVOSetEnumSecond14")]
 	public uint GeneralVoSetEnumSecond14 { get; set; }
 
-	[Column("localizedTextId00")]
+	[TableColumn("localizedTextId00")]
 	public uint LocalizedTextId00 { get; set; }
 
-	[Column("localizedTextId01")]
+	[TableColumn("localizedTextId01")]
 	public uint LocalizedTextId01 { get; set; }
 
-	[Column("localizedTextId02")]
+	[TableColumn("localizedTextId02")]
 	public uint LocalizedTextId02 { get; set; }
 
-	[Column("localizedTextId03")]
+	[TableColumn("localizedTextId03")]
 	public uint LocalizedTextId03 { get; set; }
 
-	[Column("localizedTextId04")]
+	[TableColumn("localizedTextId04")]
 	public uint LocalizedTextId04 { get; set; }
 
-	[Column("localizedTextId05")]
+	[TableColumn("localizedTextId05")]
 	public uint LocalizedTextId05 { get; set; }
 
-	[Column("localizedTextId06")]
+	[TableColumn("localizedTextId06")]
 	public uint LocalizedTextId06 { get; set; }
 
-	[Column("localizedTextId07")]
+	[TableColumn("localizedTextId07")]
 	public uint LocalizedTextId07 { get; set; }
 
-	[Column("localizedTextId08")]
+	[TableColumn("localizedTextId08")]
 	public uint LocalizedTextId08 { get; set; }
 
-	[Column("localizedTextId09")]
+	[TableColumn("localizedTextId09")]
 	public uint LocalizedTextId09 { get; set; }
 
-	[Column("localizedTextId10")]
+	[TableColumn("localizedTextId10")]
 	public uint LocalizedTextId10 { get; set; }
 
-	[Column("localizedTextId11")]
+	[TableColumn("localizedTextId11")]
 	public uint LocalizedTextId11 { get; set; }
 
-	[Column("localizedTextId12")]
+	[TableColumn("localizedTextId12")]
 	public uint LocalizedTextId12 { get; set; }
 
-	[Column("localizedTextId13")]
+	[TableColumn("localizedTextId13")]
 	public uint LocalizedTextId13 { get; set; }
 
-	[Column("localizedTextId14")]
+	[TableColumn("localizedTextId14")]
 	public uint LocalizedTextId14 { get; set; }
 }

@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class LiveEventDisplayItemRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("liveEventId")]
+	[TableColumn("liveEventId")]
 	public uint LiveEventId { get; set; }
 
-	[Column("item2Id")]
+	[TableColumn("item2Id")]
 	public uint Item2Id { get; set; }
 
-	[Column("storeLinkId")]
+	[TableColumn("storeLinkId")]
 	public uint StoreLinkId { get; set; }
 }

@@ -4,162 +4,162 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4ClientMissileRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("missileType")]
+	[TableColumn("missileType")]
 	public uint MissileType { get; set; }
 
-	[Column("castStage")]
+	[TableColumn("castStage")]
 	public uint CastStage { get; set; }
 
-	[Column("originUnitEnum")]
+	[TableColumn("originUnitEnum")]
 	public uint OriginUnitEnum { get; set; }
 
-	[Column("targetFlags")]
+	[TableColumn("targetFlags")]
 	public uint TargetFlags { get; set; }
 
-	[Column("modelPath")]
+	[TableColumn("modelPath")]
 	public string ModelPath { get; set; } = string.Empty;
 
-	[Column("fxPath")]
+	[TableColumn("fxPath")]
 	public string FxPath { get; set; } = string.Empty;
 
-	[Column("beamPath")]
+	[TableColumn("beamPath")]
 	public string BeamPath { get; set; } = string.Empty;
 
-	[Column("beamSource")]
+	[TableColumn("beamSource")]
 	public uint BeamSource { get; set; }
 
-	[Column("beamTarget")]
+	[TableColumn("beamTarget")]
 	public uint BeamTarget { get; set; }
 
-	[Column("itemSlot")]
+	[TableColumn("itemSlot")]
 	public uint ItemSlot { get; set; }
 
-	[Column("costumeSide")]
+	[TableColumn("costumeSide")]
 	public uint CostumeSide { get; set; }
 
-	[Column("modelAttachmentIdCaster")]
+	[TableColumn("modelAttachmentIdCaster")]
 	public uint ModelAttachmentIdCaster { get; set; }
 
-	[Column("modelAttachmentIdTarget")]
+	[TableColumn("modelAttachmentIdTarget")]
 	public uint ModelAttachmentIdTarget { get; set; }
 
-	[Column("clientDelay")]
+	[TableColumn("clientDelay")]
 	public uint ClientDelay { get; set; }
 
-	[Column("modelEventIdDelayedBy")]
+	[TableColumn("modelEventIdDelayedBy")]
 	public uint ModelEventIdDelayedBy { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("duration")]
+	[TableColumn("duration")]
 	public uint Duration { get; set; }
 
-	[Column("frequency")]
+	[TableColumn("frequency")]
 	public uint Frequency { get; set; }
 
-	[Column("speedMps")]
+	[TableColumn("speedMps")]
 	public uint SpeedMps { get; set; }
 
-	[Column("accMpss")]
+	[TableColumn("accMpss")]
 	public float AccMpss { get; set; }
 
-	[Column("revolverNestedMissileInitDelay")]
+	[TableColumn("revolverNestedMissileInitDelay")]
 	public uint RevolverNestedMissileInitDelay { get; set; }
 
-	[Column("revolverNestedMissileSubDelay")]
+	[TableColumn("revolverNestedMissileSubDelay")]
 	public uint RevolverNestedMissileSubDelay { get; set; }
 
-	[Column("spell4ClientMissileIdNested")]
+	[TableColumn("spell4ClientMissileIdNested")]
 	public uint Spell4ClientMissileIdNested { get; set; }
 
-	[Column("revolverMissileImpactAssetPath")]
+	[TableColumn("revolverMissileImpactAssetPath")]
 	public string RevolverMissileImpactAssetPath { get; set; } = string.Empty;
 
-	[Column("missileRevolverTrackId")]
+	[TableColumn("missileRevolverTrackId")]
 	public uint MissileRevolverTrackId { get; set; }
 
-	[Column("birthAnchorPath")]
+	[TableColumn("birthAnchorPath")]
 	public string BirthAnchorPath { get; set; } = string.Empty;
 
-	[Column("deathAnchorPath")]
+	[TableColumn("deathAnchorPath")]
 	public string DeathAnchorPath { get; set; } = string.Empty;
 
-	[Column("trajAnchorPath")]
+	[TableColumn("trajAnchorPath")]
 	public string TrajAnchorPath { get; set; } = string.Empty;
 
-	[Column("birthDuration")]
+	[TableColumn("birthDuration")]
 	public float BirthDuration { get; set; }
 
-	[Column("birthAnchorAngleMin")]
+	[TableColumn("birthAnchorAngleMin")]
 	public float BirthAnchorAngleMin { get; set; }
 
-	[Column("birthAnchorAngleMax")]
+	[TableColumn("birthAnchorAngleMax")]
 	public float BirthAnchorAngleMax { get; set; }
 
-	[Column("deathAnchorAngleMin")]
+	[TableColumn("deathAnchorAngleMin")]
 	public float DeathAnchorAngleMin { get; set; }
 
-	[Column("deathAnchorAngleMax")]
+	[TableColumn("deathAnchorAngleMax")]
 	public float DeathAnchorAngleMax { get; set; }
 
-	[Column("deathAnchorSpace")]
+	[TableColumn("deathAnchorSpace")]
 	public uint DeathAnchorSpace { get; set; }
 
-	[Column("itemSlotIdObj")]
+	[TableColumn("itemSlotIdObj")]
 	public uint ItemSlotIdObj { get; set; }
 
-	[Column("objCostumeSide")]
+	[TableColumn("objCostumeSide")]
 	public uint ObjCostumeSide { get; set; }
 
-	[Column("trajPoseFullBlendDistance")]
+	[TableColumn("trajPoseFullBlendDistance")]
 	public float TrajPoseFullBlendDistance { get; set; }
 
-	[Column("trajAnchorPlaySpeed")]
+	[TableColumn("trajAnchorPlaySpeed")]
 	public float TrajAnchorPlaySpeed { get; set; }
 
-	[Column("parabolaHeightScale")]
+	[TableColumn("parabolaHeightScale")]
 	public float ParabolaHeightScale { get; set; }
 
-	[Column("rotateX")]
+	[TableColumn("rotateX")]
 	public float RotateX { get; set; }
 
-	[Column("rotateY")]
+	[TableColumn("rotateY")]
 	public float RotateY { get; set; }
 
-	[Column("rotateZ")]
+	[TableColumn("rotateZ")]
 	public float RotateZ { get; set; }
 
-	[Column("scale")]
+	[TableColumn("scale")]
 	public float Scale { get; set; }
 
-	[Column("endScale")]
+	[TableColumn("endScale")]
 	public float EndScale { get; set; }
 
-	[Column("phaseFlags")]
+	[TableColumn("phaseFlags")]
 	public uint PhaseFlags { get; set; }
 
-	[Column("telegraphDamageIdAttach")]
+	[TableColumn("telegraphDamageIdAttach")]
 	public uint TelegraphDamageIdAttach { get; set; }
 
-	[Column("soundEventIdBirth")]
+	[TableColumn("soundEventIdBirth")]
 	public uint SoundEventIdBirth { get; set; }
 
-	[Column("soundEventIdLoopStart")]
+	[TableColumn("soundEventIdLoopStart")]
 	public uint SoundEventIdLoopStart { get; set; }
 
-	[Column("soundEventIdLoopStop")]
+	[TableColumn("soundEventIdLoopStop")]
 	public uint SoundEventIdLoopStop { get; set; }
 
-	[Column("soundEventIdDeath")]
+	[TableColumn("soundEventIdDeath")]
 	public uint SoundEventIdDeath { get; set; }
 
-	[Column("beamDiffuseColor")]
+	[TableColumn("beamDiffuseColor")]
 	public uint BeamDiffuseColor { get; set; }
 
-	[Column("missileDiffuseColor")]
+	[TableColumn("missileDiffuseColor")]
 	public uint MissileDiffuseColor { get; set; }
 }

@@ -4,33 +4,33 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4EffectModificationRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("spell4EffectsId")]
+	[TableColumn("spell4EffectsId")]
 	public uint Spell4EffectsId { get; set; }
 
-	[Column("effectTypeEnum")]
+	[TableColumn("effectTypeEnum")]
 	public uint EffectTypeEnum { get; set; }
 
-	[Column("modificationParameterEnum")]
+	[TableColumn("modificationParameterEnum")]
 	public uint ModificationParameterEnum { get; set; }
 
-	[Column("priority")]
+	[TableColumn("priority")]
 	public uint Priority { get; set; }
 
-	[Column("modificationTypeEnum")]
+	[TableColumn("modificationTypeEnum")]
 	public uint ModificationTypeEnum { get; set; }
 
-	[Column("data00")]
+	[TableColumn("data00")]
 	public float Data00 { get; set; }
 
-	[Column("data01")]
+	[TableColumn("data01")]
 	public float Data01 { get; set; }
 
-	[Column("data02")]
+	[TableColumn("data02")]
 	public float Data02 { get; set; }
 
-	[Column("data03")]
+	[TableColumn("data03")]
 	public float Data03 { get; set; }
 }

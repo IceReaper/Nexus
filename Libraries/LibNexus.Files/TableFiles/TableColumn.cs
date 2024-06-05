@@ -8,7 +8,7 @@ public class TableColumn
 
 	public string Name { get; }
 	public TableColumnType Type { get; }
-	public TableColumnFlags Flags { get; set; }
+	public TableColumnFlags Flags { get; }
 
 	public TableColumn(Stream stream, IReadOnlyDictionary<ulong, string> names)
 	{
@@ -17,14 +17,11 @@ public class TableColumn
 		var type = stream.ReadUInt32();
 		var flags = stream.ReadUInt32();
 
-		if (!names.TryGetValue(nameOffset, out var name))
-			throw new Exception("TableColumn: Invalid name offset");
-
-		if ((ulong)name.Length != nameLength - 1)
-			throw new Exception("TableColumn: Invalid name length");
-
-		Name = name;
-		Type = Enum.IsDefined(typeof(TableColumnType), type) ? (TableColumnType)type : throw new Exception("TableColumn: Invalid type");
+		Name = names[nameOffset];
+		Type = Enum.IsDefined(typeof(TableColumnType), type) ? (TableColumnType)type : throw new FileFormatException(typeof(Table), nameof(Type));
 		Flags = (TableColumnFlags)flags;
+
+		if ((ulong)Name.Length != nameLength - 1)
+			throw new FileFormatException(typeof(Table), nameof(nameLength));
 	}
 }

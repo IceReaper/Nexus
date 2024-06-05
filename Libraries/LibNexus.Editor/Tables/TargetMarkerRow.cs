@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class TargetMarkerRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("visualEffectId")]
+	[TableColumn("visualEffectId")]
 	public uint VisualEffectId { get; set; }
 
-	[Column("iconPath")]
+	[TableColumn("iconPath")]
 	public string IconPath { get; set; } = string.Empty;
 }

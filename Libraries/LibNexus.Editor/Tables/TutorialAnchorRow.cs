@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class TutorialAnchorRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("tutorialAnchorOrientationEnum")]
+	[TableColumn("tutorialAnchorOrientationEnum")]
 	public uint TutorialAnchorOrientationEnum { get; set; }
 
-	[Column("hOffset")]
+	[TableColumn("hOffset")]
 	public uint HOffset { get; set; }
 
-	[Column("vOffset")]
+	[TableColumn("vOffset")]
 	public uint VOffset { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

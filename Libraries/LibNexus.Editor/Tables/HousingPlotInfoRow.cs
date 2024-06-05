@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingPlotInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("worldSocketId")]
+	[TableColumn("worldSocketId")]
 	public uint WorldSocketId { get; set; }
 
-	[Column("plotType")]
+	[TableColumn("plotType")]
 	public uint PlotType { get; set; }
 
-	[Column("housingPropertyInfoId")]
+	[TableColumn("housingPropertyInfoId")]
 	public uint HousingPropertyInfoId { get; set; }
 
-	[Column("housingPropertyPlotIndex")]
+	[TableColumn("housingPropertyPlotIndex")]
 	public uint HousingPropertyPlotIndex { get; set; }
 
-	[Column("housingPlugItemIdDefault")]
+	[TableColumn("housingPlugItemIdDefault")]
 	public uint HousingPlugItemIdDefault { get; set; }
 }

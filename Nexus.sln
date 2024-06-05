@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".repo", ".repo", "{AAEFE7D9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibNexus.Files", "Libraries\LibNexus.Files\LibNexus.Files.csproj", "{E6889878-8F79-4D92-BBBA-9FE0DB6121F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibNexus.Files.Tests", "Tests\LibNexus.Files.Tests\LibNexus.Files.Tests.csproj", "{90034482-6E19-4F2D-9E66-8D8017611BDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibNexus.Editor.Tests", "Tests\LibNexus.Editor.Tests\LibNexus.Editor.Tests.csproj", "{90034482-6E19-4F2D-9E66-8D8017611BDD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexus.Editor", "Nexus.Editor\Nexus.Editor.csproj", "{710ED125-E0ED-4B19-89AF-52F05BDE543A}"
 EndProject

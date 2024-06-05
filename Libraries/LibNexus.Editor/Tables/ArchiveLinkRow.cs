@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class ArchiveLinkRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("archiveArticleIdParent")]
+	[TableColumn("archiveArticleIdParent")]
 	public uint ArchiveArticleIdParent { get; set; }
 
-	[Column("archiveArticleIdChild")]
+	[TableColumn("archiveArticleIdChild")]
 	public uint ArchiveArticleIdChild { get; set; }
 
-	[Column("archiveLinkFlags")]
+	[TableColumn("archiveLinkFlags")]
 	public uint ArchiveLinkFlags { get; set; }
 }

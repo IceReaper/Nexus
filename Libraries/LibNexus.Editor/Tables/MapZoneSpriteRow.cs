@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class MapZoneSpriteRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("spriteName")]
+	[TableColumn("spriteName")]
 	public string SpriteName { get; set; } = string.Empty;
 }

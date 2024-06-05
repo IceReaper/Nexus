@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class GenericUnlockEntryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("spriteIcon")]
+	[TableColumn("spriteIcon")]
 	public string SpriteIcon { get; set; } = string.Empty;
 
-	[Column("spritePreview")]
+	[TableColumn("spritePreview")]
 	public string SpritePreview { get; set; } = string.Empty;
 
-	[Column("genericUnlockTypeEnum")]
+	[TableColumn("genericUnlockTypeEnum")]
 	public uint GenericUnlockTypeEnum { get; set; }
 
-	[Column("unlockObject")]
+	[TableColumn("unlockObject")]
 	public uint UnlockObject { get; set; }
 }

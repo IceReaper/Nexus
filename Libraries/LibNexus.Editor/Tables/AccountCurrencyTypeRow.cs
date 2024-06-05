@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class AccountCurrencyTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("iconName")]
+	[TableColumn("iconName")]
 	public string IconName { get; set; } = string.Empty;
 
-	[Column("accountItemId")]
+	[TableColumn("accountItemId")]
 	public uint AccountItemId { get; set; }
 }

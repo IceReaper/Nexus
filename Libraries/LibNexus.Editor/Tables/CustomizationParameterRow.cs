@@ -4,36 +4,36 @@ namespace LibNexus.Editor.Tables;
 
 public class CustomizationParameterRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("sclX")]
+	[TableColumn("sclX")]
 	public uint SclX { get; set; }
 
-	[Column("sclY")]
+	[TableColumn("sclY")]
 	public uint SclY { get; set; }
 
-	[Column("sclZ")]
+	[TableColumn("sclZ")]
 	public uint SclZ { get; set; }
 
-	[Column("rotX")]
+	[TableColumn("rotX")]
 	public uint RotX { get; set; }
 
-	[Column("rotY")]
+	[TableColumn("rotY")]
 	public uint RotY { get; set; }
 
-	[Column("rotZ")]
+	[TableColumn("rotZ")]
 	public uint RotZ { get; set; }
 
-	[Column("posX")]
+	[TableColumn("posX")]
 	public uint PosX { get; set; }
 
-	[Column("posY")]
+	[TableColumn("posY")]
 	public uint PosY { get; set; }
 
-	[Column("posZ")]
+	[TableColumn("posZ")]
 	public uint PosZ { get; set; }
 }

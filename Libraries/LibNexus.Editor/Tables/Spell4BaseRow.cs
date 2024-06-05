@@ -4,129 +4,129 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4BaseRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("spell4HitResultId")]
+	[TableColumn("spell4HitResultId")]
 	public uint Spell4HitResultId { get; set; }
 
-	[Column("spell4TargetMechanicId")]
+	[TableColumn("spell4TargetMechanicId")]
 	public uint Spell4TargetMechanicId { get; set; }
 
-	[Column("spell4TargetAngleId")]
+	[TableColumn("spell4TargetAngleId")]
 	public uint Spell4TargetAngleId { get; set; }
 
-	[Column("spell4PrerequisiteId")]
+	[TableColumn("spell4PrerequisiteId")]
 	public uint Spell4PrerequisiteId { get; set; }
 
-	[Column("spell4ValidTargetId")]
+	[TableColumn("spell4ValidTargetId")]
 	public uint Spell4ValidTargetId { get; set; }
 
-	[Column("targetGroupIdCastGroup")]
+	[TableColumn("targetGroupIdCastGroup")]
 	public uint TargetGroupIdCastGroup { get; set; }
 
-	[Column("creature2IdPositionalAoe")]
+	[TableColumn("creature2IdPositionalAoe")]
 	public uint Creature2IdPositionalAoe { get; set; }
 
-	[Column("parameterAEAngle")]
+	[TableColumn("parameterAEAngle")]
 	public float ParameterAeAngle { get; set; }
 
-	[Column("parameterAEMaxAngle")]
+	[TableColumn("parameterAEMaxAngle")]
 	public float ParameterAeMaxAngle { get; set; }
 
-	[Column("parameterAEDistance")]
+	[TableColumn("parameterAEDistance")]
 	public float ParameterAeDistance { get; set; }
 
-	[Column("parameterAEMaxDistance")]
+	[TableColumn("parameterAEMaxDistance")]
 	public float ParameterAeMaxDistance { get; set; }
 
-	[Column("targetGroupIdAoeGroup")]
+	[TableColumn("targetGroupIdAoeGroup")]
 	public uint TargetGroupIdAoeGroup { get; set; }
 
-	[Column("spell4BaseIdPrerequisiteSpell")]
+	[TableColumn("spell4BaseIdPrerequisiteSpell")]
 	public uint Spell4BaseIdPrerequisiteSpell { get; set; }
 
-	[Column("worldZoneIdZoneRequired")]
+	[TableColumn("worldZoneIdZoneRequired")]
 	public uint WorldZoneIdZoneRequired { get; set; }
 
-	[Column("spell4SpellTypesIdSpellType")]
+	[TableColumn("spell4SpellTypesIdSpellType")]
 	public uint Spell4SpellTypesIdSpellType { get; set; }
 
-	[Column("icon")]
+	[TableColumn("icon")]
 	public string Icon { get; set; } = string.Empty;
 
-	[Column("castMethod")]
+	[TableColumn("castMethod")]
 	public uint CastMethod { get; set; }
 
-	[Column("school")]
+	[TableColumn("school")]
 	public uint School { get; set; }
 
-	[Column("spellClass")]
+	[TableColumn("spellClass")]
 	public uint SpellClass { get; set; }
 
-	[Column("weaponSlot")]
+	[TableColumn("weaponSlot")]
 	public uint WeaponSlot { get; set; }
 
-	[Column("castBarType")]
+	[TableColumn("castBarType")]
 	public uint CastBarType { get; set; }
 
-	[Column("mechanicAggressionMagnitude")]
+	[TableColumn("mechanicAggressionMagnitude")]
 	public float MechanicAggressionMagnitude { get; set; }
 
-	[Column("mechanicDominationMagnitude")]
+	[TableColumn("mechanicDominationMagnitude")]
 	public float MechanicDominationMagnitude { get; set; }
 
-	[Column("modelSequencePriorityCaster")]
+	[TableColumn("modelSequencePriorityCaster")]
 	public uint ModelSequencePriorityCaster { get; set; }
 
-	[Column("modelSequencePriorityTarget")]
+	[TableColumn("modelSequencePriorityTarget")]
 	public uint ModelSequencePriorityTarget { get; set; }
 
-	[Column("classIdPlayer")]
+	[TableColumn("classIdPlayer")]
 	public uint ClassIdPlayer { get; set; }
 
-	[Column("clientSideInteractionId")]
+	[TableColumn("clientSideInteractionId")]
 	public uint ClientSideInteractionId { get; set; }
 
-	[Column("targetingFlags")]
+	[TableColumn("targetingFlags")]
 	public uint TargetingFlags { get; set; }
 
-	[Column("telegraphFlagsEnum")]
+	[TableColumn("telegraphFlagsEnum")]
 	public uint TelegraphFlagsEnum { get; set; }
 
-	[Column("localizedTextIdLASTierPoint")]
+	[TableColumn("localizedTextIdLASTierPoint")]
 	public uint LocalizedTextIdLasTierPoint { get; set; }
 
-	[Column("lasTierPointTooltipData00")]
+	[TableColumn("lasTierPointTooltipData00")]
 	public float LasTierPointTooltipData00 { get; set; }
 
-	[Column("lasTierPointTooltipData01")]
+	[TableColumn("lasTierPointTooltipData01")]
 	public float LasTierPointTooltipData01 { get; set; }
 
-	[Column("lasTierPointTooltipData02")]
+	[TableColumn("lasTierPointTooltipData02")]
 	public float LasTierPointTooltipData02 { get; set; }
 
-	[Column("lasTierPointTooltipData03")]
+	[TableColumn("lasTierPointTooltipData03")]
 	public float LasTierPointTooltipData03 { get; set; }
 
-	[Column("lasTierPointTooltipData04")]
+	[TableColumn("lasTierPointTooltipData04")]
 	public float LasTierPointTooltipData04 { get; set; }
 
-	[Column("lasTierPointTooltipData05")]
+	[TableColumn("lasTierPointTooltipData05")]
 	public float LasTierPointTooltipData05 { get; set; }
 
-	[Column("lasTierPointTooltipData06")]
+	[TableColumn("lasTierPointTooltipData06")]
 	public float LasTierPointTooltipData06 { get; set; }
 
-	[Column("lasTierPointTooltipData07")]
+	[TableColumn("lasTierPointTooltipData07")]
 	public float LasTierPointTooltipData07 { get; set; }
 
-	[Column("lasTierPointTooltipData08")]
+	[TableColumn("lasTierPointTooltipData08")]
 	public float LasTierPointTooltipData08 { get; set; }
 
-	[Column("lasTierPointTooltipData09")]
+	[TableColumn("lasTierPointTooltipData09")]
 	public float LasTierPointTooltipData09 { get; set; }
 }

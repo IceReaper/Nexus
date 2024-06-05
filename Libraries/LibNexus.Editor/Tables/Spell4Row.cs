@@ -4,315 +4,315 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4Row
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("spell4BaseIdBaseSpell")]
+	[TableColumn("spell4BaseIdBaseSpell")]
 	public uint Spell4BaseIdBaseSpell { get; set; }
 
-	[Column("tierIndex")]
+	[TableColumn("tierIndex")]
 	public uint TierIndex { get; set; }
 
-	[Column("ravelInstanceId")]
+	[TableColumn("ravelInstanceId")]
 	public uint RavelInstanceId { get; set; }
 
-	[Column("castTime")]
+	[TableColumn("castTime")]
 	public uint CastTime { get; set; }
 
-	[Column("spellDuration")]
+	[TableColumn("spellDuration")]
 	public uint SpellDuration { get; set; }
 
-	[Column("spellCoolDown")]
+	[TableColumn("spellCoolDown")]
 	public uint SpellCoolDown { get; set; }
 
-	[Column("targetMinRange")]
+	[TableColumn("targetMinRange")]
 	public float TargetMinRange { get; set; }
 
-	[Column("targetMaxRange")]
+	[TableColumn("targetMaxRange")]
 	public float TargetMaxRange { get; set; }
 
-	[Column("targetVerticalRange")]
+	[TableColumn("targetVerticalRange")]
 	public float TargetVerticalRange { get; set; }
 
-	[Column("casterInnateRequirement0")]
+	[TableColumn("casterInnateRequirement0")]
 	public uint CasterInnateRequirement0 { get; set; }
 
-	[Column("casterInnateRequirement1")]
+	[TableColumn("casterInnateRequirement1")]
 	public uint CasterInnateRequirement1 { get; set; }
 
-	[Column("casterInnateRequirementValue0")]
+	[TableColumn("casterInnateRequirementValue0")]
 	public uint CasterInnateRequirementValue0 { get; set; }
 
-	[Column("casterInnateRequirementValue1")]
+	[TableColumn("casterInnateRequirementValue1")]
 	public uint CasterInnateRequirementValue1 { get; set; }
 
-	[Column("casterInnateRequirementEval0")]
+	[TableColumn("casterInnateRequirementEval0")]
 	public uint CasterInnateRequirementEval0 { get; set; }
 
-	[Column("casterInnateRequirementEval1")]
+	[TableColumn("casterInnateRequirementEval1")]
 	public uint CasterInnateRequirementEval1 { get; set; }
 
-	[Column("targetBeginInnateRequirement")]
+	[TableColumn("targetBeginInnateRequirement")]
 	public uint TargetBeginInnateRequirement { get; set; }
 
-	[Column("targetBeginInnateRequirementValue")]
+	[TableColumn("targetBeginInnateRequirementValue")]
 	public uint TargetBeginInnateRequirementValue { get; set; }
 
-	[Column("targetBeginInnateRequirementEval")]
+	[TableColumn("targetBeginInnateRequirementEval")]
 	public uint TargetBeginInnateRequirementEval { get; set; }
 
-	[Column("innateCostType0")]
+	[TableColumn("innateCostType0")]
 	public uint InnateCostType0 { get; set; }
 
-	[Column("innateCostType1")]
+	[TableColumn("innateCostType1")]
 	public uint InnateCostType1 { get; set; }
 
-	[Column("innateCost0")]
+	[TableColumn("innateCost0")]
 	public uint InnateCost0 { get; set; }
 
-	[Column("innateCost1")]
+	[TableColumn("innateCost1")]
 	public uint InnateCost1 { get; set; }
 
-	[Column("innateCostEMMId0")]
+	[TableColumn("innateCostEMMId0")]
 	public uint InnateCostEmmId0 { get; set; }
 
-	[Column("innateCostEMMId1")]
+	[TableColumn("innateCostEMMId1")]
 	public uint InnateCostEmmId1 { get; set; }
 
-	[Column("channelInitialDelay")]
+	[TableColumn("channelInitialDelay")]
 	public uint ChannelInitialDelay { get; set; }
 
-	[Column("channelMaxTime")]
+	[TableColumn("channelMaxTime")]
 	public uint ChannelMaxTime { get; set; }
 
-	[Column("channelPulseTime")]
+	[TableColumn("channelPulseTime")]
 	public uint ChannelPulseTime { get; set; }
 
-	[Column("localizedTextIdActionBarTooltip")]
+	[TableColumn("localizedTextIdActionBarTooltip")]
 	public uint LocalizedTextIdActionBarTooltip { get; set; }
 
-	[Column("stackPriority")]
+	[TableColumn("stackPriority")]
 	public uint StackPriority { get; set; }
 
-	[Column("spell4VisualGroupId")]
+	[TableColumn("spell4VisualGroupId")]
 	public uint Spell4VisualGroupId { get; set; }
 
-	[Column("spell4IdCastEvent00")]
+	[TableColumn("spell4IdCastEvent00")]
 	public uint Spell4IdCastEvent00 { get; set; }
 
-	[Column("spell4IdCastEvent01")]
+	[TableColumn("spell4IdCastEvent01")]
 	public uint Spell4IdCastEvent01 { get; set; }
 
-	[Column("spell4IdCastEvent02")]
+	[TableColumn("spell4IdCastEvent02")]
 	public uint Spell4IdCastEvent02 { get; set; }
 
-	[Column("spell4IdCastEvent03")]
+	[TableColumn("spell4IdCastEvent03")]
 	public uint Spell4IdCastEvent03 { get; set; }
 
-	[Column("spell4ReagentId00")]
+	[TableColumn("spell4ReagentId00")]
 	public uint Spell4ReagentId00 { get; set; }
 
-	[Column("spell4ReagentId01")]
+	[TableColumn("spell4ReagentId01")]
 	public uint Spell4ReagentId01 { get; set; }
 
-	[Column("spell4ReagentId02")]
+	[TableColumn("spell4ReagentId02")]
 	public uint Spell4ReagentId02 { get; set; }
 
-	[Column("spell4RunnerId00")]
+	[TableColumn("spell4RunnerId00")]
 	public uint Spell4RunnerId00 { get; set; }
 
-	[Column("spell4RunnerId01")]
+	[TableColumn("spell4RunnerId01")]
 	public uint Spell4RunnerId01 { get; set; }
 
-	[Column("runnerTargetTypeEnum00")]
+	[TableColumn("runnerTargetTypeEnum00")]
 	public uint RunnerTargetTypeEnum00 { get; set; }
 
-	[Column("runnerTargetTypeEnum01")]
+	[TableColumn("runnerTargetTypeEnum01")]
 	public uint RunnerTargetTypeEnum01 { get; set; }
 
-	[Column("prerequisiteIdRunner00")]
+	[TableColumn("prerequisiteIdRunner00")]
 	public uint PrerequisiteIdRunner00 { get; set; }
 
-	[Column("prerequisiteIdRunner01")]
+	[TableColumn("prerequisiteIdRunner01")]
 	public uint PrerequisiteIdRunner01 { get; set; }
 
-	[Column("abilityChargeCount")]
+	[TableColumn("abilityChargeCount")]
 	public uint AbilityChargeCount { get; set; }
 
-	[Column("abilityRechargeTime")]
+	[TableColumn("abilityRechargeTime")]
 	public uint AbilityRechargeTime { get; set; }
 
-	[Column("abilityRechargeCount")]
+	[TableColumn("abilityRechargeCount")]
 	public uint AbilityRechargeCount { get; set; }
 
-	[Column("thresholdTime")]
+	[TableColumn("thresholdTime")]
 	public uint ThresholdTime { get; set; }
 
-	[Column("abilityPointCost")]
+	[TableColumn("abilityPointCost")]
 	public uint AbilityPointCost { get; set; }
 
-	[Column("trainingCost")]
+	[TableColumn("trainingCost")]
 	public uint TrainingCost { get; set; }
 
-	[Column("spellChannelFlags")]
+	[TableColumn("spellChannelFlags")]
 	public uint SpellChannelFlags { get; set; }
 
-	[Column("ignoreFollowTimeMs")]
+	[TableColumn("ignoreFollowTimeMs")]
 	public uint IgnoreFollowTimeMs { get; set; }
 
-	[Column("spell4IdMechanicAlternateSpell")]
+	[TableColumn("spell4IdMechanicAlternateSpell")]
 	public uint Spell4IdMechanicAlternateSpell { get; set; }
 
-	[Column("spell4IdPetSwitch")]
+	[TableColumn("spell4IdPetSwitch")]
 	public uint Spell4IdPetSwitch { get; set; }
 
-	[Column("spell4TagId00")]
+	[TableColumn("spell4TagId00")]
 	public uint Spell4TagId00 { get; set; }
 
-	[Column("spell4TagId01")]
+	[TableColumn("spell4TagId01")]
 	public uint Spell4TagId01 { get; set; }
 
-	[Column("spell4TagId02")]
+	[TableColumn("spell4TagId02")]
 	public uint Spell4TagId02 { get; set; }
 
-	[Column("spell4TagId03")]
+	[TableColumn("spell4TagId03")]
 	public uint Spell4TagId03 { get; set; }
 
-	[Column("spell4TagId04")]
+	[TableColumn("spell4TagId04")]
 	public uint Spell4TagId04 { get; set; }
 
-	[Column("localizedTextIdCasterIconSpellText")]
+	[TableColumn("localizedTextIdCasterIconSpellText")]
 	public uint LocalizedTextIdCasterIconSpellText { get; set; }
 
-	[Column("localizedTextIdPrimaryTargetIconSpellText")]
+	[TableColumn("localizedTextIdPrimaryTargetIconSpellText")]
 	public uint LocalizedTextIdPrimaryTargetIconSpellText { get; set; }
 
-	[Column("localizedTextIdSecondaryTargetIconSpellText")]
+	[TableColumn("localizedTextIdSecondaryTargetIconSpellText")]
 	public uint LocalizedTextIdSecondaryTargetIconSpellText { get; set; }
 
-	[Column("localizedTextIdLASTier")]
+	[TableColumn("localizedTextIdLASTier")]
 	public uint LocalizedTextIdLasTier { get; set; }
 
-	[Column("localizedTextIdTooltipCastInfo")]
+	[TableColumn("localizedTextIdTooltipCastInfo")]
 	public uint LocalizedTextIdTooltipCastInfo { get; set; }
 
-	[Column("localizedTextIdTooltipCostInfo")]
+	[TableColumn("localizedTextIdTooltipCostInfo")]
 	public uint LocalizedTextIdTooltipCostInfo { get; set; }
 
-	[Column("tooltipCastTime")]
+	[TableColumn("tooltipCastTime")]
 	public uint TooltipCastTime { get; set; }
 
-	[Column("spell4AoeTargetConstraintsId")]
+	[TableColumn("spell4AoeTargetConstraintsId")]
 	public uint Spell4AoeTargetConstraintsId { get; set; }
 
-	[Column("spell4ConditionsIdCaster")]
+	[TableColumn("spell4ConditionsIdCaster")]
 	public uint Spell4ConditionsIdCaster { get; set; }
 
-	[Column("spell4ConditionsIdTarget")]
+	[TableColumn("spell4ConditionsIdTarget")]
 	public uint Spell4ConditionsIdTarget { get; set; }
 
-	[Column("spell4CCConditionsIdCaster")]
+	[TableColumn("spell4CCConditionsIdCaster")]
 	public uint Spell4CcConditionsIdCaster { get; set; }
 
-	[Column("spell4CCConditionsIdTarget")]
+	[TableColumn("spell4CCConditionsIdTarget")]
 	public uint Spell4CcConditionsIdTarget { get; set; }
 
-	[Column("spellCoolDownIdGlobal")]
+	[TableColumn("spellCoolDownIdGlobal")]
 	public uint SpellCoolDownIdGlobal { get; set; }
 
-	[Column("spellCoolDownId00")]
+	[TableColumn("spellCoolDownId00")]
 	public uint SpellCoolDownId00 { get; set; }
 
-	[Column("spellCoolDownId01")]
+	[TableColumn("spellCoolDownId01")]
 	public uint SpellCoolDownId01 { get; set; }
 
-	[Column("spellCoolDownId02")]
+	[TableColumn("spellCoolDownId02")]
 	public uint SpellCoolDownId02 { get; set; }
 
-	[Column("spell4GroupListId")]
+	[TableColumn("spell4GroupListId")]
 	public uint Spell4GroupListId { get; set; }
 
-	[Column("missileSpeed")]
+	[TableColumn("missileSpeed")]
 	public uint MissileSpeed { get; set; }
 
-	[Column("minMissileSpeed")]
+	[TableColumn("minMissileSpeed")]
 	public uint MinMissileSpeed { get; set; }
 
-	[Column("spell4ClientMissileId00")]
+	[TableColumn("spell4ClientMissileId00")]
 	public uint Spell4ClientMissileId00 { get; set; }
 
-	[Column("spell4ClientMissileId01")]
+	[TableColumn("spell4ClientMissileId01")]
 	public uint Spell4ClientMissileId01 { get; set; }
 
-	[Column("spell4ClientMissileId02")]
+	[TableColumn("spell4ClientMissileId02")]
 	public uint Spell4ClientMissileId02 { get; set; }
 
-	[Column("spell4ClientMissileId03")]
+	[TableColumn("spell4ClientMissileId03")]
 	public uint Spell4ClientMissileId03 { get; set; }
 
-	[Column("spell4ClientMissileId04")]
+	[TableColumn("spell4ClientMissileId04")]
 	public uint Spell4ClientMissileId04 { get; set; }
 
-	[Column("spell4ClientMissileId05")]
+	[TableColumn("spell4ClientMissileId05")]
 	public uint Spell4ClientMissileId05 { get; set; }
 
-	[Column("globalCooldownEnum")]
+	[TableColumn("globalCooldownEnum")]
 	public uint GlobalCooldownEnum { get; set; }
 
-	[Column("propertyFlags")]
+	[TableColumn("propertyFlags")]
 	public uint PropertyFlags { get; set; }
 
-	[Column("uiFlags")]
+	[TableColumn("uiFlags")]
 	public uint UiFlags { get; set; }
 
-	[Column("spell4StackGroupId")]
+	[TableColumn("spell4StackGroupId")]
 	public uint Spell4StackGroupId { get; set; }
 
-	[Column("prerequisiteIdCasterCast")]
+	[TableColumn("prerequisiteIdCasterCast")]
 	public uint PrerequisiteIdCasterCast { get; set; }
 
-	[Column("prerequisiteIdTargetCast")]
+	[TableColumn("prerequisiteIdTargetCast")]
 	public uint PrerequisiteIdTargetCast { get; set; }
 
-	[Column("prerequisiteIdCasterPersistence")]
+	[TableColumn("prerequisiteIdCasterPersistence")]
 	public uint PrerequisiteIdCasterPersistence { get; set; }
 
-	[Column("prerequisiteIdTargetPersistence")]
+	[TableColumn("prerequisiteIdTargetPersistence")]
 	public uint PrerequisiteIdTargetPersistence { get; set; }
 
-	[Column("castEventConditionEnum00")]
+	[TableColumn("castEventConditionEnum00")]
 	public uint CastEventConditionEnum00 { get; set; }
 
-	[Column("castEventConditionEnum01")]
+	[TableColumn("castEventConditionEnum01")]
 	public uint CastEventConditionEnum01 { get; set; }
 
-	[Column("castEventConditionEnum02")]
+	[TableColumn("castEventConditionEnum02")]
 	public uint CastEventConditionEnum02 { get; set; }
 
-	[Column("castEventConditionEnum03")]
+	[TableColumn("castEventConditionEnum03")]
 	public uint CastEventConditionEnum03 { get; set; }
 
-	[Column("castEventTargetFlags00")]
+	[TableColumn("castEventTargetFlags00")]
 	public uint CastEventTargetFlags00 { get; set; }
 
-	[Column("castEventTargetFlags01")]
+	[TableColumn("castEventTargetFlags01")]
 	public uint CastEventTargetFlags01 { get; set; }
 
-	[Column("castEventTargetFlags02")]
+	[TableColumn("castEventTargetFlags02")]
 	public uint CastEventTargetFlags02 { get; set; }
 
-	[Column("castEventTargetFlags03")]
+	[TableColumn("castEventTargetFlags03")]
 	public uint CastEventTargetFlags03 { get; set; }
 
-	[Column("spellCastStealthChange")]
+	[TableColumn("spellCastStealthChange")]
 	public uint SpellCastStealthChange { get; set; }
 
-	[Column("prerequisiteIdAoeTarget")]
+	[TableColumn("prerequisiteIdAoeTarget")]
 	public uint PrerequisiteIdAoeTarget { get; set; }
 
-	[Column("prerequisiteIdAoePreferredTarget")]
+	[TableColumn("prerequisiteIdAoePreferredTarget")]
 	public uint PrerequisiteIdAoePreferredTarget { get; set; }
 }

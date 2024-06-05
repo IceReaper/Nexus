@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class MapZonePoiRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("mapZoneId")]
+	[TableColumn("mapZoneId")]
 	public uint MapZoneId { get; set; }
 
-	[Column("pos0")]
+	[TableColumn("pos0")]
 	public uint Pos0 { get; set; }
 
-	[Column("pos1")]
+	[TableColumn("pos1")]
 	public uint Pos1 { get; set; }
 
-	[Column("pos2")]
+	[TableColumn("pos2")]
 	public uint Pos2 { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("mapZoneSpriteId")]
+	[TableColumn("mapZoneSpriteId")]
 	public uint MapZoneSpriteId { get; set; }
 }

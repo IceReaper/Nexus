@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class DailyLoginRewardRow
 {
-	[Column("id")]
+	[TableColumn("id")]
 	public uint Id { get; set; }
 
-	[Column("loginDay")]
+	[TableColumn("loginDay")]
 	public uint LoginDay { get; set; }
 
-	[Column("dailyLoginRewardTypeEnum")]
+	[TableColumn("dailyLoginRewardTypeEnum")]
 	public uint DailyLoginRewardTypeEnum { get; set; }
 
-	[Column("rewardObjectValue")]
+	[TableColumn("rewardObjectValue")]
 	public uint RewardObjectValue { get; set; }
 
-	[Column("dailyLoginRewardTierEnum")]
+	[TableColumn("dailyLoginRewardTierEnum")]
 	public uint DailyLoginRewardTierEnum { get; set; }
 }

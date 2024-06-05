@@ -4,72 +4,72 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventObjectiveRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("publicEventId")]
+	[TableColumn("publicEventId")]
 	public uint PublicEventId { get; set; }
 
-	[Column("publicEventObjectiveFlags")]
+	[TableColumn("publicEventObjectiveFlags")]
 	public uint PublicEventObjectiveFlags { get; set; }
 
-	[Column("publicEventObjectiveTypeSpecificFlags")]
+	[TableColumn("publicEventObjectiveTypeSpecificFlags")]
 	public uint PublicEventObjectiveTypeSpecificFlags { get; set; }
 
-	[Column("worldLocation2Id")]
+	[TableColumn("worldLocation2Id")]
 	public uint WorldLocation2Id { get; set; }
 
-	[Column("publicEventTeamId")]
+	[TableColumn("publicEventTeamId")]
 	public uint PublicEventTeamId { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("localizedTextIdOtherTeam")]
+	[TableColumn("localizedTextIdOtherTeam")]
 	public uint LocalizedTextIdOtherTeam { get; set; }
 
-	[Column("localizedTextIdShort")]
+	[TableColumn("localizedTextIdShort")]
 	public uint LocalizedTextIdShort { get; set; }
 
-	[Column("localizedTextIdOtherTeamShort")]
+	[TableColumn("localizedTextIdOtherTeamShort")]
 	public uint LocalizedTextIdOtherTeamShort { get; set; }
 
-	[Column("publicEventObjectiveTypeEnum")]
+	[TableColumn("publicEventObjectiveTypeEnum")]
 	public uint PublicEventObjectiveTypeEnum { get; set; }
 
-	[Column("count")]
+	[TableColumn("count")]
 	public uint Count { get; set; }
 
-	[Column("objectId")]
+	[TableColumn("objectId")]
 	public uint ObjectId { get; set; }
 
-	[Column("failureTimeMs")]
+	[TableColumn("failureTimeMs")]
 	public uint FailureTimeMs { get; set; }
 
-	[Column("targetGroupIdRewardPane")]
+	[TableColumn("targetGroupIdRewardPane")]
 	public uint TargetGroupIdRewardPane { get; set; }
 
-	[Column("publicEventObjectiveCategoryEnum")]
+	[TableColumn("publicEventObjectiveCategoryEnum")]
 	public uint PublicEventObjectiveCategoryEnum { get; set; }
 
-	[Column("liveEventIdCounter")]
+	[TableColumn("liveEventIdCounter")]
 	public uint LiveEventIdCounter { get; set; }
 
-	[Column("publicEventObjectiveIdParent")]
+	[TableColumn("publicEventObjectiveIdParent")]
 	public uint PublicEventObjectiveIdParent { get; set; }
 
-	[Column("questDirectionId")]
+	[TableColumn("questDirectionId")]
 	public uint QuestDirectionId { get; set; }
 
-	[Column("medalPointValue")]
+	[TableColumn("medalPointValue")]
 	public uint MedalPointValue { get; set; }
 
-	[Column("localizedTextIdParticipantAdd")]
+	[TableColumn("localizedTextIdParticipantAdd")]
 	public uint LocalizedTextIdParticipantAdd { get; set; }
 
-	[Column("localizedTextIdStart")]
+	[TableColumn("localizedTextIdStart")]
 	public uint LocalizedTextIdStart { get; set; }
 
-	[Column("displayOrder")]
+	[TableColumn("displayOrder")]
 	public uint DisplayOrder { get; set; }
 }

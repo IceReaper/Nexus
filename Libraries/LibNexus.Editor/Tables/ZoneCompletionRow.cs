@@ -4,33 +4,33 @@ namespace LibNexus.Editor.Tables;
 
 public class ZoneCompletionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("mapZoneId")]
+	[TableColumn("mapZoneId")]
 	public uint MapZoneId { get; set; }
 
-	[Column("zoneCompletionFactionEnum")]
+	[TableColumn("zoneCompletionFactionEnum")]
 	public uint ZoneCompletionFactionEnum { get; set; }
 
-	[Column("episodeQuestCount")]
+	[TableColumn("episodeQuestCount")]
 	public uint EpisodeQuestCount { get; set; }
 
-	[Column("taskQuestCount")]
+	[TableColumn("taskQuestCount")]
 	public uint TaskQuestCount { get; set; }
 
-	[Column("challengeCount")]
+	[TableColumn("challengeCount")]
 	public uint ChallengeCount { get; set; }
 
-	[Column("datacubeCount")]
+	[TableColumn("datacubeCount")]
 	public uint DatacubeCount { get; set; }
 
-	[Column("taleCount")]
+	[TableColumn("taleCount")]
 	public uint TaleCount { get; set; }
 
-	[Column("journalCount")]
+	[TableColumn("journalCount")]
 	public uint JournalCount { get; set; }
 
-	[Column("characterTitleIdReward")]
+	[TableColumn("characterTitleIdReward")]
 	public uint CharacterTitleIdReward { get; set; }
 }

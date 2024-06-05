@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class StoreDisplayInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("displayType")]
+	[TableColumn("displayType")]
 	public uint DisplayType { get; set; }
 
-	[Column("displayValue")]
+	[TableColumn("displayValue")]
 	public uint DisplayValue { get; set; }
 
-	[Column("modelCameraId")]
+	[TableColumn("modelCameraId")]
 	public uint ModelCameraId { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 }

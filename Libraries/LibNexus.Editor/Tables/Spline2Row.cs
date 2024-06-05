@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class Spline2Row
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("worldId")]
+	[TableColumn("worldId")]
 	public uint WorldId { get; set; }
 
-	[Column("splineType")]
+	[TableColumn("splineType")]
 	public uint SplineType { get; set; }
 }

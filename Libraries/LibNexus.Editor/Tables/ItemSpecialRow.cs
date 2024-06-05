@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemSpecialRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("prerequisiteIdGeneric00")]
+	[TableColumn("prerequisiteIdGeneric00")]
 	public uint PrerequisiteIdGeneric00 { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("spell4IdOnEquip")]
+	[TableColumn("spell4IdOnEquip")]
 	public uint Spell4IdOnEquip { get; set; }
 
-	[Column("spell4IdOnActivate")]
+	[TableColumn("spell4IdOnActivate")]
 	public uint Spell4IdOnActivate { get; set; }
 }

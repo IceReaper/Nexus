@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class UnitRaceRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("soundImpactDescriptionIdOrigin")]
+	[TableColumn("soundImpactDescriptionIdOrigin")]
 	public uint SoundImpactDescriptionIdOrigin { get; set; }
 
-	[Column("soundImpactDescriptionIdTarget")]
+	[TableColumn("soundImpactDescriptionIdTarget")]
 	public uint SoundImpactDescriptionIdTarget { get; set; }
 
-	[Column("unitVisualTypeId")]
+	[TableColumn("unitVisualTypeId")]
 	public uint UnitVisualTypeId { get; set; }
 
-	[Column("soundEventIdAggro")]
+	[TableColumn("soundEventIdAggro")]
 	public uint SoundEventIdAggro { get; set; }
 
-	[Column("soundEventIdAware")]
+	[TableColumn("soundEventIdAware")]
 	public uint SoundEventIdAware { get; set; }
 
-	[Column("soundSwitchIdModel")]
+	[TableColumn("soundSwitchIdModel")]
 	public uint SoundSwitchIdModel { get; set; }
 
-	[Column("soundCombatLoopId")]
+	[TableColumn("soundCombatLoopId")]
 	public uint SoundCombatLoopId { get; set; }
 }

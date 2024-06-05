@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class MapZoneNemesisRegionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("mapZoneHexGroupId")]
+	[TableColumn("mapZoneHexGroupId")]
 	public uint MapZoneHexGroupId { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("faction2Id")]
+	[TableColumn("faction2Id")]
 	public uint Faction2Id { get; set; }
 }

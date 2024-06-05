@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class ComponentRegionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("EnumName")]
+	[TableColumn("EnumName")]
 	public string EnumName { get; set; } = string.Empty;
 
-	[Column("componentMap")]
+	[TableColumn("componentMap")]
 	public uint ComponentMap { get; set; }
 }

@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class MapZoneHexGroupRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("mapZoneId")]
+	[TableColumn("mapZoneId")]
 	public uint MapZoneId { get; set; }
 }

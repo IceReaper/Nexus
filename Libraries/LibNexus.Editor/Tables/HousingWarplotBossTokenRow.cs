@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingWarplotBossTokenRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("spell4IdSummon")]
+	[TableColumn("spell4IdSummon")]
 	public uint Spell4IdSummon { get; set; }
 
-	[Column("minimumUpgradeTierEnum")]
+	[TableColumn("minimumUpgradeTierEnum")]
 	public uint MinimumUpgradeTierEnum { get; set; }
 
-	[Column("housingPlugItemIdLinked")]
+	[TableColumn("housingPlugItemIdLinked")]
 	public uint HousingPlugItemIdLinked { get; set; }
 }

@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemImbuementRewardRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("itemImbuementRewardTypeEnum")]
+	[TableColumn("itemImbuementRewardTypeEnum")]
 	public uint ItemImbuementRewardTypeEnum { get; set; }
 
-	[Column("rewardObjectId")]
+	[TableColumn("rewardObjectId")]
 	public uint RewardObjectId { get; set; }
 
-	[Column("rewardValue")]
+	[TableColumn("rewardValue")]
 	public uint RewardValue { get; set; }
 
-	[Column("rewardValueFloat")]
+	[TableColumn("rewardValueFloat")]
 	public float RewardValueFloat { get; set; }
 }

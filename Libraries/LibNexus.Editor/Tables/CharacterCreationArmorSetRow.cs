@@ -4,48 +4,48 @@ namespace LibNexus.Editor.Tables;
 
 public class CharacterCreationArmorSetRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("creationGearSetEnum")]
+	[TableColumn("creationGearSetEnum")]
 	public uint CreationGearSetEnum { get; set; }
 
-	[Column("classId")]
+	[TableColumn("classId")]
 	public uint ClassId { get; set; }
 
-	[Column("itemDisplayId00")]
+	[TableColumn("itemDisplayId00")]
 	public uint ItemDisplayId00 { get; set; }
 
-	[Column("itemDisplayId01")]
+	[TableColumn("itemDisplayId01")]
 	public uint ItemDisplayId01 { get; set; }
 
-	[Column("itemDisplayId02")]
+	[TableColumn("itemDisplayId02")]
 	public uint ItemDisplayId02 { get; set; }
 
-	[Column("itemDisplayId03")]
+	[TableColumn("itemDisplayId03")]
 	public uint ItemDisplayId03 { get; set; }
 
-	[Column("itemDisplayId04")]
+	[TableColumn("itemDisplayId04")]
 	public uint ItemDisplayId04 { get; set; }
 
-	[Column("itemDisplayId05")]
+	[TableColumn("itemDisplayId05")]
 	public uint ItemDisplayId05 { get; set; }
 
-	[Column("itemDisplayId06")]
+	[TableColumn("itemDisplayId06")]
 	public uint ItemDisplayId06 { get; set; }
 
-	[Column("itemDisplayId07")]
+	[TableColumn("itemDisplayId07")]
 	public uint ItemDisplayId07 { get; set; }
 
-	[Column("itemDisplayId08")]
+	[TableColumn("itemDisplayId08")]
 	public uint ItemDisplayId08 { get; set; }
 
-	[Column("itemDisplayId09")]
+	[TableColumn("itemDisplayId09")]
 	public uint ItemDisplayId09 { get; set; }
 
-	[Column("itemDisplayId10")]
+	[TableColumn("itemDisplayId10")]
 	public uint ItemDisplayId10 { get; set; }
 
-	[Column("itemDisplayId11")]
+	[TableColumn("itemDisplayId11")]
 	public uint ItemDisplayId11 { get; set; }
 }

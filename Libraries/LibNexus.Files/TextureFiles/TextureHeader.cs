@@ -4,22 +4,45 @@ namespace LibNexus.Files.TextureFiles;
 
 public class TextureHeader
 {
-	public uint Width { get; set; }
-	public uint Height { get; set; }
-	public uint Depth { get; set; }
-	public uint Sides { get; set; }
-	public uint MipMaps { get; set; }
-	public uint Format { get; set; }
-	public bool IsJpg { get; set; }
+	public const uint Size = 100;
+
+	public uint Width { get; }
+	public uint Height { get; }
+	public uint Depths { get; }
+	public uint Sides { get; }
+	public uint MipMaps { get; }
+	public uint Format { get; }
+	public bool IsJpg { get; }
+	public uint JpgFormat { get; }
+	public TextureJpgLayer[] JpgLayers { get; }
+	public uint[] JpgSizes { get; }
 
 	public TextureHeader(Stream stream)
 	{
 		Width = stream.ReadUInt32();
 		Height = stream.ReadUInt32();
-		Depth = stream.ReadUInt32(); // TODO what is this used for?
-		Sides = stream.ReadUInt32(); // TODO what is this used for?
+		Depths = stream.ReadUInt32(); // TODO is this really "Depth"? Only used on color lookup tables!
+		Sides = stream.ReadUInt32();
 		MipMaps = stream.ReadUInt32();
 		Format = stream.ReadUInt32();
 		IsJpg = stream.ReadUInt32() != 0;
+
+		JpgFormat = stream.ReadUInt32();
+		JpgLayers = new TextureJpgLayer[4];
+
+		for (var i = 0; i < JpgLayers.Length; i++)
+			JpgLayers[i] = new TextureJpgLayer(stream.ReadUInt8(), stream.ReadUInt8(), stream.ReadUInt8());
+
+		JpgSizes = new uint[stream.ReadUInt32()];
+
+		for (var i = 0; i < 13; i++)
+		{
+			var size = stream.ReadUInt32();
+
+			if (i < JpgSizes.Length)
+				JpgSizes[i] = size;
+		}
+
+		FileFormatException.ThrowIf<Texture>("unused", stream.ReadUInt32() != 0);
 	}
 }

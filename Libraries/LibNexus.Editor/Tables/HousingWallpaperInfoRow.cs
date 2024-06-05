@@ -4,51 +4,51 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingWallpaperInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("cost")]
+	[TableColumn("cost")]
 	public uint Cost { get; set; }
 
-	[Column("costCurrencyTypeId")]
+	[TableColumn("costCurrencyTypeId")]
 	public uint CostCurrencyTypeId { get; set; }
 
-	[Column("replaceableMaterialInfoId")]
+	[TableColumn("replaceableMaterialInfoId")]
 	public uint ReplaceableMaterialInfoId { get; set; }
 
-	[Column("worldSkyId")]
+	[TableColumn("worldSkyId")]
 	public uint WorldSkyId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("prerequisiteIdUnlock")]
+	[TableColumn("prerequisiteIdUnlock")]
 	public uint PrerequisiteIdUnlock { get; set; }
 
-	[Column("prerequisiteIdUse")]
+	[TableColumn("prerequisiteIdUse")]
 	public uint PrerequisiteIdUse { get; set; }
 
-	[Column("unlockIndex")]
+	[TableColumn("unlockIndex")]
 	public uint UnlockIndex { get; set; }
 
-	[Column("soundZoneKitId")]
+	[TableColumn("soundZoneKitId")]
 	public uint SoundZoneKitId { get; set; }
 
-	[Column("worldLayerId00")]
+	[TableColumn("worldLayerId00")]
 	public uint WorldLayerId00 { get; set; }
 
-	[Column("worldLayerId01")]
+	[TableColumn("worldLayerId01")]
 	public uint WorldLayerId01 { get; set; }
 
-	[Column("worldLayerId02")]
+	[TableColumn("worldLayerId02")]
 	public uint WorldLayerId02 { get; set; }
 
-	[Column("worldLayerId03")]
+	[TableColumn("worldLayerId03")]
 	public uint WorldLayerId03 { get; set; }
 
-	[Column("accountItemIdUpsell")]
+	[TableColumn("accountItemIdUpsell")]
 	public uint AccountItemIdUpsell { get; set; }
 }

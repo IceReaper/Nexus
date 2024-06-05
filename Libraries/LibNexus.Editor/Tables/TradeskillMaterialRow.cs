@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillMaterialRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("item2IdStatRevolution")]
+	[TableColumn("item2IdStatRevolution")]
 	public uint Item2IdStatRevolution { get; set; }
 
-	[Column("item2Id")]
+	[TableColumn("item2Id")]
 	public uint Item2Id { get; set; }
 
-	[Column("displayIndex")]
+	[TableColumn("displayIndex")]
 	public uint DisplayIndex { get; set; }
 
-	[Column("tradeskillMaterialCategoryId")]
+	[TableColumn("tradeskillMaterialCategoryId")]
 	public uint TradeskillMaterialCategoryId { get; set; }
 }

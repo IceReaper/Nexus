@@ -4,54 +4,54 @@ namespace LibNexus.Editor.Tables;
 
 public class PathScientistScanBotProfileRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("creature2Id")]
+	[TableColumn("creature2Id")]
 	public uint Creature2Id { get; set; }
 
-	[Column("scanTimeMS")]
+	[TableColumn("scanTimeMS")]
 	public uint ScanTimeMs { get; set; }
 
-	[Column("processingTimeMS")]
+	[TableColumn("processingTimeMS")]
 	public uint ProcessingTimeMs { get; set; }
 
-	[Column("playerRadius")]
+	[TableColumn("playerRadius")]
 	public float PlayerRadius { get; set; }
 
-	[Column("scanAOERange")]
+	[TableColumn("scanAOERange")]
 	public float ScanAoeRange { get; set; }
 
-	[Column("maxSeekDistance")]
+	[TableColumn("maxSeekDistance")]
 	public float MaxSeekDistance { get; set; }
 
-	[Column("speedMultiplier")]
+	[TableColumn("speedMultiplier")]
 	public float SpeedMultiplier { get; set; }
 
-	[Column("thoroughnessMultiplier")]
+	[TableColumn("thoroughnessMultiplier")]
 	public float ThoroughnessMultiplier { get; set; }
 
-	[Column("healthMultiplier")]
+	[TableColumn("healthMultiplier")]
 	public float HealthMultiplier { get; set; }
 
-	[Column("healthRegenMultiplier")]
+	[TableColumn("healthRegenMultiplier")]
 	public float HealthRegenMultiplier { get; set; }
 
-	[Column("minCooldownTimeMs")]
+	[TableColumn("minCooldownTimeMs")]
 	public uint MinCooldownTimeMs { get; set; }
 
-	[Column("maxCooldownTimeMs")]
+	[TableColumn("maxCooldownTimeMs")]
 	public uint MaxCooldownTimeMs { get; set; }
 
-	[Column("maxCooldownDistance")]
+	[TableColumn("maxCooldownDistance")]
 	public float MaxCooldownDistance { get; set; }
 
-	[Column("pathScientistScanBotProfileFlags")]
+	[TableColumn("pathScientistScanBotProfileFlags")]
 	public uint PathScientistScanBotProfileFlags { get; set; }
 
-	[Column("socketCount")]
+	[TableColumn("socketCount")]
 	public uint SocketCount { get; set; }
 }

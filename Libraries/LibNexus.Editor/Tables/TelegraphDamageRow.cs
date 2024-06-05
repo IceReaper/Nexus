@@ -4,78 +4,78 @@ namespace LibNexus.Editor.Tables;
 
 public class TelegraphDamageRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("telegraphSubtypeEnum")]
+	[TableColumn("telegraphSubtypeEnum")]
 	public uint TelegraphSubtypeEnum { get; set; }
 
-	[Column("damageShapeEnum")]
+	[TableColumn("damageShapeEnum")]
 	public uint DamageShapeEnum { get; set; }
 
-	[Column("param00")]
+	[TableColumn("param00")]
 	public float Param00 { get; set; }
 
-	[Column("param01")]
+	[TableColumn("param01")]
 	public float Param01 { get; set; }
 
-	[Column("param02")]
+	[TableColumn("param02")]
 	public float Param02 { get; set; }
 
-	[Column("param03")]
+	[TableColumn("param03")]
 	public float Param03 { get; set; }
 
-	[Column("param04")]
+	[TableColumn("param04")]
 	public float Param04 { get; set; }
 
-	[Column("param05")]
+	[TableColumn("param05")]
 	public float Param05 { get; set; }
 
-	[Column("telegraphTimeStartMs")]
+	[TableColumn("telegraphTimeStartMs")]
 	public uint TelegraphTimeStartMs { get; set; }
 
-	[Column("telegraphTimeEndMs")]
+	[TableColumn("telegraphTimeEndMs")]
 	public uint TelegraphTimeEndMs { get; set; }
 
-	[Column("telegraphTimeRampInMs")]
+	[TableColumn("telegraphTimeRampInMs")]
 	public uint TelegraphTimeRampInMs { get; set; }
 
-	[Column("telegraphTimeRampOutMs")]
+	[TableColumn("telegraphTimeRampOutMs")]
 	public uint TelegraphTimeRampOutMs { get; set; }
 
-	[Column("xPositionOffset")]
+	[TableColumn("xPositionOffset")]
 	public float XPositionOffset { get; set; }
 
-	[Column("yPositionOffset")]
+	[TableColumn("yPositionOffset")]
 	public float YPositionOffset { get; set; }
 
-	[Column("zPositionOffset")]
+	[TableColumn("zPositionOffset")]
 	public float ZPositionOffset { get; set; }
 
-	[Column("rotationDegrees")]
+	[TableColumn("rotationDegrees")]
 	public float RotationDegrees { get; set; }
 
-	[Column("telegraphDamageFlags")]
+	[TableColumn("telegraphDamageFlags")]
 	public uint TelegraphDamageFlags { get; set; }
 
-	[Column("targetTypeFlags")]
+	[TableColumn("targetTypeFlags")]
 	public uint TargetTypeFlags { get; set; }
 
-	[Column("phaseFlags")]
+	[TableColumn("phaseFlags")]
 	public uint PhaseFlags { get; set; }
 
-	[Column("prerequisiteIdCaster")]
+	[TableColumn("prerequisiteIdCaster")]
 	public uint PrerequisiteIdCaster { get; set; }
 
-	[Column("spellThresholdRestrictionFlags")]
+	[TableColumn("spellThresholdRestrictionFlags")]
 	public uint SpellThresholdRestrictionFlags { get; set; }
 
-	[Column("displayFlags")]
+	[TableColumn("displayFlags")]
 	public uint DisplayFlags { get; set; }
 
-	[Column("opacityModifier")]
+	[TableColumn("opacityModifier")]
 	public uint OpacityModifier { get; set; }
 
-	[Column("displayGroup")]
+	[TableColumn("displayGroup")]
 	public uint DisplayGroup { get; set; }
 }

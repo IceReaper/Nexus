@@ -4,51 +4,51 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingDecorInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("housingDecorTypeId")]
+	[TableColumn("housingDecorTypeId")]
 	public uint HousingDecorTypeId { get; set; }
 
-	[Column("hookTypeId")]
+	[TableColumn("hookTypeId")]
 	public uint HookTypeId { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("hookAssetId")]
+	[TableColumn("hookAssetId")]
 	public uint HookAssetId { get; set; }
 
-	[Column("cost")]
+	[TableColumn("cost")]
 	public uint Cost { get; set; }
 
-	[Column("costCurrencyTypeId")]
+	[TableColumn("costCurrencyTypeId")]
 	public uint CostCurrencyTypeId { get; set; }
 
-	[Column("creature2IdActiveProp")]
+	[TableColumn("creature2IdActiveProp")]
 	public uint Creature2IdActiveProp { get; set; }
 
-	[Column("prerequisiteIdUnlock")]
+	[TableColumn("prerequisiteIdUnlock")]
 	public uint PrerequisiteIdUnlock { get; set; }
 
-	[Column("spell4IdInteriorBuff")]
+	[TableColumn("spell4IdInteriorBuff")]
 	public uint Spell4IdInteriorBuff { get; set; }
 
-	[Column("housingDecorLimitCategoryId")]
+	[TableColumn("housingDecorLimitCategoryId")]
 	public uint HousingDecorLimitCategoryId { get; set; }
 
-	[Column("altPreviewAsset")]
+	[TableColumn("altPreviewAsset")]
 	public string AltPreviewAsset { get; set; } = string.Empty;
 
-	[Column("altEditAsset")]
+	[TableColumn("altEditAsset")]
 	public string AltEditAsset { get; set; } = string.Empty;
 
-	[Column("minScale")]
+	[TableColumn("minScale")]
 	public float MinScale { get; set; }
 
-	[Column("maxScale")]
+	[TableColumn("maxScale")]
 	public float MaxScale { get; set; }
 }

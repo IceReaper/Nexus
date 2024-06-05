@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemSlotRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("EnumName")]
+	[TableColumn("EnumName")]
 	public string EnumName { get; set; } = string.Empty;
 
-	[Column("equippedSlotFlags")]
+	[TableColumn("equippedSlotFlags")]
 	public uint EquippedSlotFlags { get; set; }
 
-	[Column("armorModifier")]
+	[TableColumn("armorModifier")]
 	public float ArmorModifier { get; set; }
 
-	[Column("itemLevelModifier")]
+	[TableColumn("itemLevelModifier")]
 	public float ItemLevelModifier { get; set; }
 
-	[Column("slotBonus")]
+	[TableColumn("slotBonus")]
 	public uint SlotBonus { get; set; }
 
-	[Column("glyphSlotBonus")]
+	[TableColumn("glyphSlotBonus")]
 	public uint GlyphSlotBonus { get; set; }
 
-	[Column("minLevel")]
+	[TableColumn("minLevel")]
 	public uint MinLevel { get; set; }
 }

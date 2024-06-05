@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventVirtualItemDepotRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("creature2Id")]
+	[TableColumn("creature2Id")]
 	public uint Creature2Id { get; set; }
 
-	[Column("virtualItemId00")]
+	[TableColumn("virtualItemId00")]
 	public uint VirtualItemId00 { get; set; }
 
-	[Column("virtualItemId01")]
+	[TableColumn("virtualItemId01")]
 	public uint VirtualItemId01 { get; set; }
 
-	[Column("virtualItemId02")]
+	[TableColumn("virtualItemId02")]
 	public uint VirtualItemId02 { get; set; }
 
-	[Column("virtualItemId03")]
+	[TableColumn("virtualItemId03")]
 	public uint VirtualItemId03 { get; set; }
 
-	[Column("virtualItemId04")]
+	[TableColumn("virtualItemId04")]
 	public uint VirtualItemId04 { get; set; }
 
-	[Column("virtualItemId05")]
+	[TableColumn("virtualItemId05")]
 	public uint VirtualItemId05 { get; set; }
 }

@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class PrerequisiteTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdError")]
+	[TableColumn("localizedTextIdError")]
 	public uint LocalizedTextIdError { get; set; }
 }

@@ -4,60 +4,60 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundZoneKitRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("soundZoneKitIdParent")]
+	[TableColumn("soundZoneKitIdParent")]
 	public uint SoundZoneKitIdParent { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("inheritFlags")]
+	[TableColumn("inheritFlags")]
 	public uint InheritFlags { get; set; }
 
-	[Column("propertyFlags")]
+	[TableColumn("propertyFlags")]
 	public uint PropertyFlags { get; set; }
 
-	[Column("soundMusicSetId")]
+	[TableColumn("soundMusicSetId")]
 	public uint SoundMusicSetId { get; set; }
 
-	[Column("soundEventIdIntro")]
+	[TableColumn("soundEventIdIntro")]
 	public uint SoundEventIdIntro { get; set; }
 
-	[Column("introReplayWait")]
+	[TableColumn("introReplayWait")]
 	public float IntroReplayWait { get; set; }
 
-	[Column("soundEventIdMusicMood")]
+	[TableColumn("soundEventIdMusicMood")]
 	public uint SoundEventIdMusicMood { get; set; }
 
-	[Column("soundEventIdAmbientDay")]
+	[TableColumn("soundEventIdAmbientDay")]
 	public uint SoundEventIdAmbientDay { get; set; }
 
-	[Column("soundEventIdAmbientNight")]
+	[TableColumn("soundEventIdAmbientNight")]
 	public uint SoundEventIdAmbientNight { get; set; }
 
-	[Column("soundEventIdAmbientUnderwater")]
+	[TableColumn("soundEventIdAmbientUnderwater")]
 	public uint SoundEventIdAmbientUnderwater { get; set; }
 
-	[Column("soundEventIdAmbientStop")]
+	[TableColumn("soundEventIdAmbientStop")]
 	public uint SoundEventIdAmbientStop { get; set; }
 
-	[Column("soundEventIdAmbientPreStopOverride")]
+	[TableColumn("soundEventIdAmbientPreStopOverride")]
 	public uint SoundEventIdAmbientPreStopOverride { get; set; }
 
-	[Column("soundEnvironmentId00")]
+	[TableColumn("soundEnvironmentId00")]
 	public uint SoundEnvironmentId00 { get; set; }
 
-	[Column("soundEnvironmentId01")]
+	[TableColumn("soundEnvironmentId01")]
 	public uint SoundEnvironmentId01 { get; set; }
 
-	[Column("environmentDry")]
+	[TableColumn("environmentDry")]
 	public float EnvironmentDry { get; set; }
 
-	[Column("environmentWet00")]
+	[TableColumn("environmentWet00")]
 	public float EnvironmentWet00 { get; set; }
 
-	[Column("environmentWet01")]
+	[TableColumn("environmentWet01")]
 	public float EnvironmentWet01 { get; set; }
 }

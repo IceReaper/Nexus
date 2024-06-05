@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class InstancePortalRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("minLevel")]
+	[TableColumn("minLevel")]
 	public uint MinLevel { get; set; }
 
-	[Column("maxLevel")]
+	[TableColumn("maxLevel")]
 	public uint MaxLevel { get; set; }
 
-	[Column("expectedCompletionTime")]
+	[TableColumn("expectedCompletionTime")]
 	public uint ExpectedCompletionTime { get; set; }
 
-	[Column("instancePortalTypeEnum")]
+	[TableColumn("instancePortalTypeEnum")]
 	public uint InstancePortalTypeEnum { get; set; }
 }

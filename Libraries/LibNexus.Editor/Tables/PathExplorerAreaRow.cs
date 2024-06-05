@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class PathExplorerAreaRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("pathSettlerHubId")]
+	[TableColumn("pathSettlerHubId")]
 	public uint PathSettlerHubId { get; set; }
 }

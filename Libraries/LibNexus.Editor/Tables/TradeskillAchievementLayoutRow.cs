@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillAchievementLayoutRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("achievementId")]
+	[TableColumn("achievementId")]
 	public uint AchievementId { get; set; }
 
-	[Column("achievementIdParent00")]
+	[TableColumn("achievementIdParent00")]
 	public uint AchievementIdParent00 { get; set; }
 
-	[Column("achievementIdParent01")]
+	[TableColumn("achievementIdParent01")]
 	public uint AchievementIdParent01 { get; set; }
 
-	[Column("achievementIdParent02")]
+	[TableColumn("achievementIdParent02")]
 	public uint AchievementIdParent02 { get; set; }
 
-	[Column("achievementIdParent03")]
+	[TableColumn("achievementIdParent03")]
 	public uint AchievementIdParent03 { get; set; }
 
-	[Column("achievementIdParent04")]
+	[TableColumn("achievementIdParent04")]
 	public uint AchievementIdParent04 { get; set; }
 
-	[Column("gridX")]
+	[TableColumn("gridX")]
 	public uint GridX { get; set; }
 
-	[Column("gridY")]
+	[TableColumn("gridY")]
 	public uint GridY { get; set; }
 }

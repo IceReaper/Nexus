@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class EpisodeQuestRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("episodeId")]
+	[TableColumn("episodeId")]
 	public uint EpisodeId { get; set; }
 
-	[Column("questId")]
+	[TableColumn("questId")]
 	public uint QuestId { get; set; }
 
-	[Column("orderIdx")]
+	[TableColumn("orderIdx")]
 	public uint OrderIdx { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

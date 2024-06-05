@@ -4,51 +4,51 @@ namespace LibNexus.Editor.Tables;
 
 public class PathSettlerImprovementGroupRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("pathSettlerHubId")]
+	[TableColumn("pathSettlerHubId")]
 	public uint PathSettlerHubId { get; set; }
 
-	[Column("pathSettlerImprovementGroupFlags")]
+	[TableColumn("pathSettlerImprovementGroupFlags")]
 	public uint PathSettlerImprovementGroupFlags { get; set; }
 
-	[Column("creature2IdDepot")]
+	[TableColumn("creature2IdDepot")]
 	public uint Creature2IdDepot { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("settlerAvenueTypeEnum")]
+	[TableColumn("settlerAvenueTypeEnum")]
 	public uint SettlerAvenueTypeEnum { get; set; }
 
-	[Column("contributionValue")]
+	[TableColumn("contributionValue")]
 	public uint ContributionValue { get; set; }
 
-	[Column("perTierBonusContributionValue")]
+	[TableColumn("perTierBonusContributionValue")]
 	public uint PerTierBonusContributionValue { get; set; }
 
-	[Column("durationPerBundleMs")]
+	[TableColumn("durationPerBundleMs")]
 	public uint DurationPerBundleMs { get; set; }
 
-	[Column("maxBundleCount")]
+	[TableColumn("maxBundleCount")]
 	public uint MaxBundleCount { get; set; }
 
-	[Column("pathSettlerImprovementGroupIdOutpostRequired")]
+	[TableColumn("pathSettlerImprovementGroupIdOutpostRequired")]
 	public uint PathSettlerImprovementGroupIdOutpostRequired { get; set; }
 
-	[Column("pathSettlerImprovementIdTier00")]
+	[TableColumn("pathSettlerImprovementIdTier00")]
 	public uint PathSettlerImprovementIdTier00 { get; set; }
 
-	[Column("pathSettlerImprovementIdTier01")]
+	[TableColumn("pathSettlerImprovementIdTier01")]
 	public uint PathSettlerImprovementIdTier01 { get; set; }
 
-	[Column("pathSettlerImprovementIdTier02")]
+	[TableColumn("pathSettlerImprovementIdTier02")]
 	public uint PathSettlerImprovementIdTier02 { get; set; }
 
-	[Column("pathSettlerImprovementIdTier03")]
+	[TableColumn("pathSettlerImprovementIdTier03")]
 	public uint PathSettlerImprovementIdTier03 { get; set; }
 
-	[Column("worldLocation2IdDisplayPoint")]
+	[TableColumn("worldLocation2IdDisplayPoint")]
 	public uint WorldLocation2IdDisplayPoint { get; set; }
 }

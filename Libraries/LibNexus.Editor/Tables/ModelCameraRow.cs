@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelCameraRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("EnumName")]
+	[TableColumn("EnumName")]
 	public string EnumName { get; set; } = string.Empty;
 }

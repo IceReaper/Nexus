@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundCombatLoopRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("soundEventIdStart")]
+	[TableColumn("soundEventIdStart")]
 	public uint SoundEventIdStart { get; set; }
 
-	[Column("soundEventIdStop")]
+	[TableColumn("soundEventIdStop")]
 	public uint SoundEventIdStop { get; set; }
 
-	[Column("soundParameterIdUnitsInCombat")]
+	[TableColumn("soundParameterIdUnitsInCombat")]
 	public uint SoundParameterIdUnitsInCombat { get; set; }
 }

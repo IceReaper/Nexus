@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class TrackingSlotRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdLabel")]
+	[TableColumn("localizedTextIdLabel")]
 	public uint LocalizedTextIdLabel { get; set; }
 
-	[Column("iconPath")]
+	[TableColumn("iconPath")]
 	public string IconPath { get; set; } = string.Empty;
 
-	[Column("publicEventObjectiveId")]
+	[TableColumn("publicEventObjectiveId")]
 	public uint PublicEventObjectiveId { get; set; }
 }

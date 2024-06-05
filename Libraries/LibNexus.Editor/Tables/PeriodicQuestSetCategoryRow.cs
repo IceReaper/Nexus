@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class PeriodicQuestSetCategoryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("periodicSetsOffered")]
+	[TableColumn("periodicSetsOffered")]
 	public uint PeriodicSetsOffered { get; set; }
 }

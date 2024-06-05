@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class CcStatesRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("defaultBreakProbability")]
+	[TableColumn("defaultBreakProbability")]
 	public float DefaultBreakProbability { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("spellIcon")]
+	[TableColumn("spellIcon")]
 	public string SpellIcon { get; set; } = string.Empty;
 
-	[Column("visualEffectId00")]
+	[TableColumn("visualEffectId00")]
 	public uint VisualEffectId00 { get; set; }
 
-	[Column("visualEffectId01")]
+	[TableColumn("visualEffectId01")]
 	public uint VisualEffectId01 { get; set; }
 
-	[Column("visualEffectId02")]
+	[TableColumn("visualEffectId02")]
 	public uint VisualEffectId02 { get; set; }
 
-	[Column("ccStateDiminishingReturnsId")]
+	[TableColumn("ccStateDiminishingReturnsId")]
 	public uint CcStateDiminishingReturnsId { get; set; }
 }

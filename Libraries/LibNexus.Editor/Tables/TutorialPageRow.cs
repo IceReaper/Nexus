@@ -4,39 +4,39 @@ namespace LibNexus.Editor.Tables;
 
 public class TutorialPageRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("tutorialId")]
+	[TableColumn("tutorialId")]
 	public uint TutorialId { get; set; }
 
-	[Column("page")]
+	[TableColumn("page")]
 	public uint Page { get; set; }
 
-	[Column("tutorialLayoutId")]
+	[TableColumn("tutorialLayoutId")]
 	public uint TutorialLayoutId { get; set; }
 
-	[Column("localizedTextIdTitle")]
+	[TableColumn("localizedTextIdTitle")]
 	public uint LocalizedTextIdTitle { get; set; }
 
-	[Column("localizedTextIdBody00")]
+	[TableColumn("localizedTextIdBody00")]
 	public uint LocalizedTextIdBody00 { get; set; }
 
-	[Column("localizedTextIdBody01")]
+	[TableColumn("localizedTextIdBody01")]
 	public uint LocalizedTextIdBody01 { get; set; }
 
-	[Column("localizedTextIdBody02")]
+	[TableColumn("localizedTextIdBody02")]
 	public uint LocalizedTextIdBody02 { get; set; }
 
-	[Column("sprite00")]
+	[TableColumn("sprite00")]
 	public string Sprite00 { get; set; } = string.Empty;
 
-	[Column("sprite01")]
+	[TableColumn("sprite01")]
 	public string Sprite01 { get; set; } = string.Empty;
 
-	[Column("sprite02")]
+	[TableColumn("sprite02")]
 	public string Sprite02 { get; set; } = string.Empty;
 
-	[Column("soundEventId")]
+	[TableColumn("soundEventId")]
 	public uint SoundEventId { get; set; }
 }

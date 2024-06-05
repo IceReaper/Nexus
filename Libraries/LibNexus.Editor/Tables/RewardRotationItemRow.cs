@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class RewardRotationItemRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("rewardItemTypeEnum")]
+	[TableColumn("rewardItemTypeEnum")]
 	public uint RewardItemTypeEnum { get; set; }
 
-	[Column("rewardItemObject")]
+	[TableColumn("rewardItemObject")]
 	public uint RewardItemObject { get; set; }
 
-	[Column("count")]
+	[TableColumn("count")]
 	public uint Count { get; set; }
 
-	[Column("iconPath")]
+	[TableColumn("iconPath")]
 	public string IconPath { get; set; } = string.Empty;
 
-	[Column("minPlayerLevel")]
+	[TableColumn("minPlayerLevel")]
 	public uint MinPlayerLevel { get; set; }
 
-	[Column("worldDifficultyFlags")]
+	[TableColumn("worldDifficultyFlags")]
 	public uint WorldDifficultyFlags { get; set; }
 }

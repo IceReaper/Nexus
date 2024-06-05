@@ -4,147 +4,147 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingPlugItemRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("housingPlotTypeId")]
+	[TableColumn("housingPlotTypeId")]
 	public uint HousingPlotTypeId { get; set; }
 
-	[Column("localizedTextIdTooltip")]
+	[TableColumn("localizedTextIdTooltip")]
 	public uint LocalizedTextIdTooltip { get; set; }
 
-	[Column("worldIdPlug00")]
+	[TableColumn("worldIdPlug00")]
 	public uint WorldIdPlug00 { get; set; }
 
-	[Column("worldIdPlug01")]
+	[TableColumn("worldIdPlug01")]
 	public uint WorldIdPlug01 { get; set; }
 
-	[Column("worldIdPlug02")]
+	[TableColumn("worldIdPlug02")]
 	public uint WorldIdPlug02 { get; set; }
 
-	[Column("worldIdPlug03")]
+	[TableColumn("worldIdPlug03")]
 	public uint WorldIdPlug03 { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("housingResourceIdProvided00")]
+	[TableColumn("housingResourceIdProvided00")]
 	public uint HousingResourceIdProvided00 { get; set; }
 
-	[Column("housingResourceIdProvided01")]
+	[TableColumn("housingResourceIdProvided01")]
 	public uint HousingResourceIdProvided01 { get; set; }
 
-	[Column("housingResourceIdProvided02")]
+	[TableColumn("housingResourceIdProvided02")]
 	public uint HousingResourceIdProvided02 { get; set; }
 
-	[Column("housingResourceIdProvided03")]
+	[TableColumn("housingResourceIdProvided03")]
 	public uint HousingResourceIdProvided03 { get; set; }
 
-	[Column("housingResourceIdProvided04")]
+	[TableColumn("housingResourceIdProvided04")]
 	public uint HousingResourceIdProvided04 { get; set; }
 
-	[Column("housingResourceIdPrerequisite00")]
+	[TableColumn("housingResourceIdPrerequisite00")]
 	public uint HousingResourceIdPrerequisite00 { get; set; }
 
-	[Column("housingResourceIdPrerequisite01")]
+	[TableColumn("housingResourceIdPrerequisite01")]
 	public uint HousingResourceIdPrerequisite01 { get; set; }
 
-	[Column("housingResourceIdPrerequisite02")]
+	[TableColumn("housingResourceIdPrerequisite02")]
 	public uint HousingResourceIdPrerequisite02 { get; set; }
 
-	[Column("housingFeatureTypeFlags")]
+	[TableColumn("housingFeatureTypeFlags")]
 	public uint HousingFeatureTypeFlags { get; set; }
 
-	[Column("housingContributionInfoId00")]
+	[TableColumn("housingContributionInfoId00")]
 	public uint HousingContributionInfoId00 { get; set; }
 
-	[Column("housingContributionInfoId01")]
+	[TableColumn("housingContributionInfoId01")]
 	public uint HousingContributionInfoId01 { get; set; }
 
-	[Column("housingContributionInfoId02")]
+	[TableColumn("housingContributionInfoId02")]
 	public uint HousingContributionInfoId02 { get; set; }
 
-	[Column("housingContributionInfoId03")]
+	[TableColumn("housingContributionInfoId03")]
 	public uint HousingContributionInfoId03 { get; set; }
 
-	[Column("housingContributionInfoId04")]
+	[TableColumn("housingContributionInfoId04")]
 	public uint HousingContributionInfoId04 { get; set; }
 
-	[Column("housingPlugItemIdNextUpgrade")]
+	[TableColumn("housingPlugItemIdNextUpgrade")]
 	public uint HousingPlugItemIdNextUpgrade { get; set; }
 
-	[Column("localizedTextIdPrereqTooltip00")]
+	[TableColumn("localizedTextIdPrereqTooltip00")]
 	public uint LocalizedTextIdPrereqTooltip00 { get; set; }
 
-	[Column("localizedTextIdPrereqTooltip01")]
+	[TableColumn("localizedTextIdPrereqTooltip01")]
 	public uint LocalizedTextIdPrereqTooltip01 { get; set; }
 
-	[Column("localizedTextIdPrereqTooltip02")]
+	[TableColumn("localizedTextIdPrereqTooltip02")]
 	public uint LocalizedTextIdPrereqTooltip02 { get; set; }
 
-	[Column("prerequisiteId00")]
+	[TableColumn("prerequisiteId00")]
 	public uint PrerequisiteId00 { get; set; }
 
-	[Column("prerequisiteId01")]
+	[TableColumn("prerequisiteId01")]
 	public uint PrerequisiteId01 { get; set; }
 
-	[Column("prerequisiteId02")]
+	[TableColumn("prerequisiteId02")]
 	public uint PrerequisiteId02 { get; set; }
 
-	[Column("prerequisiteIdUnlock")]
+	[TableColumn("prerequisiteIdUnlock")]
 	public uint PrerequisiteIdUnlock { get; set; }
 
-	[Column("housingBuildId")]
+	[TableColumn("housingBuildId")]
 	public uint HousingBuildId { get; set; }
 
-	[Column("housingUpkeepTypeEnum")]
+	[TableColumn("housingUpkeepTypeEnum")]
 	public uint HousingUpkeepTypeEnum { get; set; }
 
-	[Column("upkeepCharges")]
+	[TableColumn("upkeepCharges")]
 	public uint UpkeepCharges { get; set; }
 
-	[Column("upkeepTime")]
+	[TableColumn("upkeepTime")]
 	public float UpkeepTime { get; set; }
 
-	[Column("housingContributionInfoIdUpkeepCost00")]
+	[TableColumn("housingContributionInfoIdUpkeepCost00")]
 	public uint HousingContributionInfoIdUpkeepCost00 { get; set; }
 
-	[Column("housingContributionInfoIdUpkeepCost01")]
+	[TableColumn("housingContributionInfoIdUpkeepCost01")]
 	public uint HousingContributionInfoIdUpkeepCost01 { get; set; }
 
-	[Column("housingContributionInfoIdUpkeepCost02")]
+	[TableColumn("housingContributionInfoIdUpkeepCost02")]
 	public uint HousingContributionInfoIdUpkeepCost02 { get; set; }
 
-	[Column("housingContributionInfoIdUpkeepCost03")]
+	[TableColumn("housingContributionInfoIdUpkeepCost03")]
 	public uint HousingContributionInfoIdUpkeepCost03 { get; set; }
 
-	[Column("housingContributionInfoIdUpkeepCost04")]
+	[TableColumn("housingContributionInfoIdUpkeepCost04")]
 	public uint HousingContributionInfoIdUpkeepCost04 { get; set; }
 
-	[Column("gameFormulaIdHousingBuildBonus")]
+	[TableColumn("gameFormulaIdHousingBuildBonus")]
 	public uint GameFormulaIdHousingBuildBonus { get; set; }
 
-	[Column("screenshotSprite00")]
+	[TableColumn("screenshotSprite00")]
 	public string ScreenshotSprite00 { get; set; } = string.Empty;
 
-	[Column("screenshotSprite01")]
+	[TableColumn("screenshotSprite01")]
 	public string ScreenshotSprite01 { get; set; } = string.Empty;
 
-	[Column("screenshotSprite02")]
+	[TableColumn("screenshotSprite02")]
 	public string ScreenshotSprite02 { get; set; } = string.Empty;
 
-	[Column("screenshotSprite03")]
+	[TableColumn("screenshotSprite03")]
 	public string ScreenshotSprite03 { get; set; } = string.Empty;
 
-	[Column("screenshotSprite04")]
+	[TableColumn("screenshotSprite04")]
 	public string ScreenshotSprite04 { get; set; } = string.Empty;
 
-	[Column("housingPlugTypeEnum")]
+	[TableColumn("housingPlugTypeEnum")]
 	public uint HousingPlugTypeEnum { get; set; }
 
-	[Column("accountItemIdUpsell")]
+	[TableColumn("accountItemIdUpsell")]
 	public uint AccountItemIdUpsell { get; set; }
 }

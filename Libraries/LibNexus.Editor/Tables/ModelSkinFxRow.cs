@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelSkinFxRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("suffix")]
+	[TableColumn("suffix")]
 	public string Suffix { get; set; } = string.Empty;
 }

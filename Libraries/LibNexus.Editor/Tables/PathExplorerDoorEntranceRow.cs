@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class PathExplorerDoorEntranceRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("pathExplorerDoorTypeEnumSurface")]
+	[TableColumn("pathExplorerDoorTypeEnumSurface")]
 	public uint PathExplorerDoorTypeEnumSurface { get; set; }
 
-	[Column("pathExplorerDoorTypeEnumMicro")]
+	[TableColumn("pathExplorerDoorTypeEnumMicro")]
 	public uint PathExplorerDoorTypeEnumMicro { get; set; }
 
-	[Column("creature2IdSurface")]
+	[TableColumn("creature2IdSurface")]
 	public uint Creature2IdSurface { get; set; }
 
-	[Column("creature2IdMicro")]
+	[TableColumn("creature2IdMicro")]
 	public uint Creature2IdMicro { get; set; }
 
-	[Column("pathExplorerDoorId")]
+	[TableColumn("pathExplorerDoorId")]
 	public uint PathExplorerDoorId { get; set; }
 
-	[Column("worldLocation2IdSurfaceRevealed")]
+	[TableColumn("worldLocation2IdSurfaceRevealed")]
 	public uint WorldLocation2IdSurfaceRevealed { get; set; }
 }

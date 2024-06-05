@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class ChallengeTierRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("count")]
+	[TableColumn("count")]
 	public uint Count { get; set; }
 }

@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class MaterialRemapRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("materialDataRow")]
+	[TableColumn("materialDataRow")]
 	public uint MaterialDataRow { get; set; }
 
-	[Column("materialSetId")]
+	[TableColumn("materialSetId")]
 	public uint MaterialSetId { get; set; }
 
-	[Column("materialDataRowRemap")]
+	[TableColumn("materialDataRowRemap")]
 	public uint MaterialDataRowRemap { get; set; }
 }

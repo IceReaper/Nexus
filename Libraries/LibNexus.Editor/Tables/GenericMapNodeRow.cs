@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class GenericMapNodeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("genericMapId")]
+	[TableColumn("genericMapId")]
 	public uint GenericMapId { get; set; }
 
-	[Column("worldLocation2Id")]
+	[TableColumn("worldLocation2Id")]
 	public uint WorldLocation2Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("spritePath")]
+	[TableColumn("spritePath")]
 	public string SpritePath { get; set; } = string.Empty;
 
-	[Column("genericMapNodeTypeEnum")]
+	[TableColumn("genericMapNodeTypeEnum")]
 	public uint GenericMapNodeTypeEnum { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

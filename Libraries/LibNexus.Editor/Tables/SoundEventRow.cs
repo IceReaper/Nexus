@@ -4,45 +4,45 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundEventRow
 {
-	[Column("id")]
+	[TableColumn("id")]
 	public uint Id { get; set; }
 
-	[Column("name")]
+	[TableColumn("name")]
 	public string Name { get; set; } = string.Empty;
 
-	[Column("hash")]
+	[TableColumn("hash")]
 	public uint Hash { get; set; }
 
-	[Column("radius")]
+	[TableColumn("radius")]
 	public float Radius { get; set; }
 
-	[Column("soundBankId00")]
+	[TableColumn("soundBankId00")]
 	public uint SoundBankId00 { get; set; }
 
-	[Column("soundBankId01")]
+	[TableColumn("soundBankId01")]
 	public uint SoundBankId01 { get; set; }
 
-	[Column("soundBankId02")]
+	[TableColumn("soundBankId02")]
 	public uint SoundBankId02 { get; set; }
 
-	[Column("soundBankId03")]
+	[TableColumn("soundBankId03")]
 	public uint SoundBankId03 { get; set; }
 
-	[Column("soundBankId04")]
+	[TableColumn("soundBankId04")]
 	public uint SoundBankId04 { get; set; }
 
-	[Column("soundBankId05")]
+	[TableColumn("soundBankId05")]
 	public uint SoundBankId05 { get; set; }
 
-	[Column("soundBankId06")]
+	[TableColumn("soundBankId06")]
 	public uint SoundBankId06 { get; set; }
 
-	[Column("soundBankId07")]
+	[TableColumn("soundBankId07")]
 	public uint SoundBankId07 { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("limitPriority")]
+	[TableColumn("limitPriority")]
 	public uint LimitPriority { get; set; }
 }

@@ -4,51 +4,51 @@ namespace LibNexus.Editor.Tables;
 
 public class RewardTrackRewardsRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("rewardTrackId")]
+	[TableColumn("rewardTrackId")]
 	public uint RewardTrackId { get; set; }
 
-	[Column("rewardPointFlags")]
+	[TableColumn("rewardPointFlags")]
 	public uint RewardPointFlags { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("currencyTypeId")]
+	[TableColumn("currencyTypeId")]
 	public uint CurrencyTypeId { get; set; }
 
-	[Column("currencyAmount")]
+	[TableColumn("currencyAmount")]
 	public uint CurrencyAmount { get; set; }
 
-	[Column("rewardTrackRewardTypeEnum00")]
+	[TableColumn("rewardTrackRewardTypeEnum00")]
 	public uint RewardTrackRewardTypeEnum00 { get; set; }
 
-	[Column("rewardTrackRewardTypeEnum01")]
+	[TableColumn("rewardTrackRewardTypeEnum01")]
 	public uint RewardTrackRewardTypeEnum01 { get; set; }
 
-	[Column("rewardTrackRewardTypeEnum02")]
+	[TableColumn("rewardTrackRewardTypeEnum02")]
 	public uint RewardTrackRewardTypeEnum02 { get; set; }
 
-	[Column("rewardChoiceId00")]
+	[TableColumn("rewardChoiceId00")]
 	public uint RewardChoiceId00 { get; set; }
 
-	[Column("rewardChoiceId01")]
+	[TableColumn("rewardChoiceId01")]
 	public uint RewardChoiceId01 { get; set; }
 
-	[Column("rewardChoiceId02")]
+	[TableColumn("rewardChoiceId02")]
 	public uint RewardChoiceId02 { get; set; }
 
-	[Column("rewardChoiceCount00")]
+	[TableColumn("rewardChoiceCount00")]
 	public uint RewardChoiceCount00 { get; set; }
 
-	[Column("rewardChoiceCount01")]
+	[TableColumn("rewardChoiceCount01")]
 	public uint RewardChoiceCount01 { get; set; }
 
-	[Column("rewardChoiceCount02")]
+	[TableColumn("rewardChoiceCount02")]
 	public uint RewardChoiceCount02 { get; set; }
 }

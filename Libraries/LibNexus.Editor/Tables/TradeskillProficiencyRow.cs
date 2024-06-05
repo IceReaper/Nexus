@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillProficiencyRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("proficiencyFlagEnum")]
+	[TableColumn("proficiencyFlagEnum")]
 	public uint ProficiencyFlagEnum { get; set; }
 }

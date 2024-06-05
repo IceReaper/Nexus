@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class BugSubcategoryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("bugCategoryId")]
+	[TableColumn("bugCategoryId")]
 	public uint BugCategoryId { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 }

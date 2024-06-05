@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemSetBonusRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("requiredPower")]
+	[TableColumn("requiredPower")]
 	public uint RequiredPower { get; set; }
 
-	[Column("unitProperty2Id")]
+	[TableColumn("unitProperty2Id")]
 	public uint UnitProperty2Id { get; set; }
 
-	[Column("scalar")]
+	[TableColumn("scalar")]
 	public float Scalar { get; set; }
 
-	[Column("offset")]
+	[TableColumn("offset")]
 	public float Offset { get; set; }
 
-	[Column("spell4Id")]
+	[TableColumn("spell4Id")]
 	public uint Spell4Id { get; set; }
 }

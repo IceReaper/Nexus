@@ -4,42 +4,42 @@ namespace LibNexus.Editor.Tables;
 
 public class Item2CategoryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("itemProficiencyId")]
+	[TableColumn("itemProficiencyId")]
 	public uint ItemProficiencyId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("tradeSkillId")]
+	[TableColumn("tradeSkillId")]
 	public uint TradeSkillId { get; set; }
 
-	[Column("soundEventIdEquip")]
+	[TableColumn("soundEventIdEquip")]
 	public uint SoundEventIdEquip { get; set; }
 
-	[Column("vendorMultiplier")]
+	[TableColumn("vendorMultiplier")]
 	public float VendorMultiplier { get; set; }
 
-	[Column("turninMultiplier")]
+	[TableColumn("turninMultiplier")]
 	public float TurninMultiplier { get; set; }
 
-	[Column("armorModifier")]
+	[TableColumn("armorModifier")]
 	public float ArmorModifier { get; set; }
 
-	[Column("armorBase")]
+	[TableColumn("armorBase")]
 	public float ArmorBase { get; set; }
 
-	[Column("weaponPowerModifier")]
+	[TableColumn("weaponPowerModifier")]
 	public float WeaponPowerModifier { get; set; }
 
-	[Column("weaponPowerBase")]
+	[TableColumn("weaponPowerBase")]
 	public uint WeaponPowerBase { get; set; }
 
-	[Column("item2FamilyId")]
+	[TableColumn("item2FamilyId")]
 	public uint Item2FamilyId { get; set; }
 }

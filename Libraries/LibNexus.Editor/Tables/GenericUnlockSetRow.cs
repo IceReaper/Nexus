@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class GenericUnlockSetRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("genericUnlockScopeEnum")]
+	[TableColumn("genericUnlockScopeEnum")]
 	public uint GenericUnlockScopeEnum { get; set; }
 
-	[Column("genericUnlockEntryId00")]
+	[TableColumn("genericUnlockEntryId00")]
 	public uint GenericUnlockEntryId00 { get; set; }
 
-	[Column("genericUnlockEntryId01")]
+	[TableColumn("genericUnlockEntryId01")]
 	public uint GenericUnlockEntryId01 { get; set; }
 
-	[Column("genericUnlockEntryId02")]
+	[TableColumn("genericUnlockEntryId02")]
 	public uint GenericUnlockEntryId02 { get; set; }
 
-	[Column("genericUnlockEntryId03")]
+	[TableColumn("genericUnlockEntryId03")]
 	public uint GenericUnlockEntryId03 { get; set; }
 
-	[Column("genericUnlockEntryId04")]
+	[TableColumn("genericUnlockEntryId04")]
 	public uint GenericUnlockEntryId04 { get; set; }
 
-	[Column("genericUnlockEntryId05")]
+	[TableColumn("genericUnlockEntryId05")]
 	public uint GenericUnlockEntryId05 { get; set; }
 }

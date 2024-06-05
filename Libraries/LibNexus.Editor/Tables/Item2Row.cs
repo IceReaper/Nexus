@@ -4,150 +4,150 @@ namespace LibNexus.Editor.Tables;
 
 public class Item2Row
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("itemBudgetId")]
+	[TableColumn("itemBudgetId")]
 	public uint ItemBudgetId { get; set; }
 
-	[Column("itemStatId")]
+	[TableColumn("itemStatId")]
 	public uint ItemStatId { get; set; }
 
-	[Column("itemRuneInstanceId")]
+	[TableColumn("itemRuneInstanceId")]
 	public uint ItemRuneInstanceId { get; set; }
 
-	[Column("itemQualityId")]
+	[TableColumn("itemQualityId")]
 	public uint ItemQualityId { get; set; }
 
-	[Column("itemSpecialId00")]
+	[TableColumn("itemSpecialId00")]
 	public uint ItemSpecialId00 { get; set; }
 
-	[Column("itemImbuementId")]
+	[TableColumn("itemImbuementId")]
 	public uint ItemImbuementId { get; set; }
 
-	[Column("item2FamilyId")]
+	[TableColumn("item2FamilyId")]
 	public uint Item2FamilyId { get; set; }
 
-	[Column("item2CategoryId")]
+	[TableColumn("item2CategoryId")]
 	public uint Item2CategoryId { get; set; }
 
-	[Column("item2TypeId")]
+	[TableColumn("item2TypeId")]
 	public uint Item2TypeId { get; set; }
 
-	[Column("itemDisplayId")]
+	[TableColumn("itemDisplayId")]
 	public uint ItemDisplayId { get; set; }
 
-	[Column("itemSourceId")]
+	[TableColumn("itemSourceId")]
 	public uint ItemSourceId { get; set; }
 
-	[Column("classRequired")]
+	[TableColumn("classRequired")]
 	public uint ClassRequired { get; set; }
 
-	[Column("raceRequired")]
+	[TableColumn("raceRequired")]
 	public uint RaceRequired { get; set; }
 
-	[Column("faction2IdRequired")]
+	[TableColumn("faction2IdRequired")]
 	public uint Faction2IdRequired { get; set; }
 
-	[Column("powerLevel")]
+	[TableColumn("powerLevel")]
 	public uint PowerLevel { get; set; }
 
-	[Column("requiredLevel")]
+	[TableColumn("requiredLevel")]
 	public uint RequiredLevel { get; set; }
 
-	[Column("requiredItemLevel")]
+	[TableColumn("requiredItemLevel")]
 	public uint RequiredItemLevel { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("equippedSlotFlags")]
+	[TableColumn("equippedSlotFlags")]
 	public uint EquippedSlotFlags { get; set; }
 
-	[Column("maxStackCount")]
+	[TableColumn("maxStackCount")]
 	public uint MaxStackCount { get; set; }
 
-	[Column("maxCharges")]
+	[TableColumn("maxCharges")]
 	public uint MaxCharges { get; set; }
 
-	[Column("expirationTimeMinutes")]
+	[TableColumn("expirationTimeMinutes")]
 	public uint ExpirationTimeMinutes { get; set; }
 
-	[Column("quest2IdActivation")]
+	[TableColumn("quest2IdActivation")]
 	public uint Quest2IdActivation { get; set; }
 
-	[Column("quest2IdActivationRequired")]
+	[TableColumn("quest2IdActivationRequired")]
 	public uint Quest2IdActivationRequired { get; set; }
 
-	[Column("questObjectiveActivationRequired")]
+	[TableColumn("questObjectiveActivationRequired")]
 	public uint QuestObjectiveActivationRequired { get; set; }
 
-	[Column("tradeskillAdditiveId")]
+	[TableColumn("tradeskillAdditiveId")]
 	public uint TradeskillAdditiveId { get; set; }
 
-	[Column("tradeskillCatalystId")]
+	[TableColumn("tradeskillCatalystId")]
 	public uint TradeskillCatalystId { get; set; }
 
-	[Column("housingDecorInfoId")]
+	[TableColumn("housingDecorInfoId")]
 	public uint HousingDecorInfoId { get; set; }
 
-	[Column("housingWarplotBossTokenId")]
+	[TableColumn("housingWarplotBossTokenId")]
 	public uint HousingWarplotBossTokenId { get; set; }
 
-	[Column("genericUnlockSetId")]
+	[TableColumn("genericUnlockSetId")]
 	public uint GenericUnlockSetId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("bindFlags")]
+	[TableColumn("bindFlags")]
 	public uint BindFlags { get; set; }
 
-	[Column("buyFromVendorStackCount")]
+	[TableColumn("buyFromVendorStackCount")]
 	public uint BuyFromVendorStackCount { get; set; }
 
-	[Column("currencyTypeId0")]
+	[TableColumn("currencyTypeId0")]
 	public uint CurrencyTypeId0 { get; set; }
 
-	[Column("currencyTypeId1")]
+	[TableColumn("currencyTypeId1")]
 	public uint CurrencyTypeId1 { get; set; }
 
-	[Column("currencyAmount0")]
+	[TableColumn("currencyAmount0")]
 	public uint CurrencyAmount0 { get; set; }
 
-	[Column("currencyAmount1")]
+	[TableColumn("currencyAmount1")]
 	public uint CurrencyAmount1 { get; set; }
 
-	[Column("currencyTypeId0SellToVendor")]
+	[TableColumn("currencyTypeId0SellToVendor")]
 	public uint CurrencyTypeId0SellToVendor { get; set; }
 
-	[Column("currencyTypeId1SellToVendor")]
+	[TableColumn("currencyTypeId1SellToVendor")]
 	public uint CurrencyTypeId1SellToVendor { get; set; }
 
-	[Column("currencyAmount0SellToVendor")]
+	[TableColumn("currencyAmount0SellToVendor")]
 	public uint CurrencyAmount0SellToVendor { get; set; }
 
-	[Column("currencyAmount1SellToVendor")]
+	[TableColumn("currencyAmount1SellToVendor")]
 	public uint CurrencyAmount1SellToVendor { get; set; }
 
-	[Column("itemColorSetId")]
+	[TableColumn("itemColorSetId")]
 	public uint ItemColorSetId { get; set; }
 
-	[Column("supportPowerPercentage")]
+	[TableColumn("supportPowerPercentage")]
 	public float SupportPowerPercentage { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdTooltip")]
+	[TableColumn("localizedTextIdTooltip")]
 	public uint LocalizedTextIdTooltip { get; set; }
 
-	[Column("buttonTemplate")]
+	[TableColumn("buttonTemplate")]
 	public string ButtonTemplate { get; set; } = string.Empty;
 
-	[Column("buttonIcon")]
+	[TableColumn("buttonIcon")]
 	public string ButtonIcon { get; set; } = string.Empty;
 
-	[Column("soundEventIdEquip")]
+	[TableColumn("soundEventIdEquip")]
 	public uint SoundEventIdEquip { get; set; }
 }

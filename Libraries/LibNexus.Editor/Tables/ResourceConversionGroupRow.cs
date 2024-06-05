@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class ResourceConversionGroupRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("resourceConversionId00")]
+	[TableColumn("resourceConversionId00")]
 	public uint ResourceConversionId00 { get; set; }
 
-	[Column("resourceConversionId01")]
+	[TableColumn("resourceConversionId01")]
 	public uint ResourceConversionId01 { get; set; }
 
-	[Column("resourceConversionId02")]
+	[TableColumn("resourceConversionId02")]
 	public uint ResourceConversionId02 { get; set; }
 
-	[Column("resourceConversionId03")]
+	[TableColumn("resourceConversionId03")]
 	public uint ResourceConversionId03 { get; set; }
 
-	[Column("resourceConversionId04")]
+	[TableColumn("resourceConversionId04")]
 	public uint ResourceConversionId04 { get; set; }
 
-	[Column("resourceConversionId05")]
+	[TableColumn("resourceConversionId05")]
 	public uint ResourceConversionId05 { get; set; }
 }

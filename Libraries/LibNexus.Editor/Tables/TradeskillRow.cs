@@ -4,36 +4,36 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("tutorialId")]
+	[TableColumn("tutorialId")]
 	public uint TutorialId { get; set; }
 
-	[Column("achievementCategoryId")]
+	[TableColumn("achievementCategoryId")]
 	public uint AchievementCategoryId { get; set; }
 
-	[Column("maxAdditives")]
+	[TableColumn("maxAdditives")]
 	public uint MaxAdditives { get; set; }
 
-	[Column("localizedTextIdAxisName00")]
+	[TableColumn("localizedTextIdAxisName00")]
 	public uint LocalizedTextIdAxisName00 { get; set; }
 
-	[Column("localizedTextIdAxisName01")]
+	[TableColumn("localizedTextIdAxisName01")]
 	public uint LocalizedTextIdAxisName01 { get; set; }
 
-	[Column("localizedTextIdAxisName02")]
+	[TableColumn("localizedTextIdAxisName02")]
 	public uint LocalizedTextIdAxisName02 { get; set; }
 
-	[Column("localizedTextIdAxisName03")]
+	[TableColumn("localizedTextIdAxisName03")]
 	public uint LocalizedTextIdAxisName03 { get; set; }
 }

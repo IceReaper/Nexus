@@ -4,39 +4,39 @@ namespace LibNexus.Editor.Tables;
 
 public class Creature2ActionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("creatureActionSetId")]
+	[TableColumn("creatureActionSetId")]
 	public uint CreatureActionSetId { get; set; }
 
-	[Column("state")]
+	[TableColumn("state")]
 	public uint State { get; set; }
 
-	[Column("event")]
+	[TableColumn("event")]
 	public uint Event { get; set; }
 
-	[Column("orderIndex")]
+	[TableColumn("orderIndex")]
 	public uint OrderIndex { get; set; }
 
-	[Column("delayMS")]
+	[TableColumn("delayMS")]
 	public uint DelayMs { get; set; }
 
-	[Column("action")]
+	[TableColumn("action")]
 	public uint Action { get; set; }
 
-	[Column("actionData00")]
+	[TableColumn("actionData00")]
 	public uint ActionData00 { get; set; }
 
-	[Column("actionData01")]
+	[TableColumn("actionData01")]
 	public uint ActionData01 { get; set; }
 
-	[Column("visualEffectId")]
+	[TableColumn("visualEffectId")]
 	public uint VisualEffectId { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 }

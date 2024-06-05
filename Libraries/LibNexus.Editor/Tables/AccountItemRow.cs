@@ -4,54 +4,54 @@ namespace LibNexus.Editor.Tables;
 
 public class AccountItemRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("item2Id")]
+	[TableColumn("item2Id")]
 	public uint Item2Id { get; set; }
 
-	[Column("entitlementId")]
+	[TableColumn("entitlementId")]
 	public uint EntitlementId { get; set; }
 
-	[Column("entitlementCount")]
+	[TableColumn("entitlementCount")]
 	public uint EntitlementCount { get; set; }
 
-	[Column("entitlementScopeEnum")]
+	[TableColumn("entitlementScopeEnum")]
 	public uint EntitlementScopeEnum { get; set; }
 
-	[Column("instantEventEnum")]
+	[TableColumn("instantEventEnum")]
 	public uint InstantEventEnum { get; set; }
 
-	[Column("accountCurrencyEnum")]
+	[TableColumn("accountCurrencyEnum")]
 	public uint AccountCurrencyEnum { get; set; }
 
-	[Column("accountCurrencyAmount")]
+	[TableColumn("accountCurrencyAmount")]
 	public ulong AccountCurrencyAmount { get; set; }
 
-	[Column("buttonIcon")]
+	[TableColumn("buttonIcon")]
 	public string ButtonIcon { get; set; } = string.Empty;
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("accountItemCooldownGroupId")]
+	[TableColumn("accountItemCooldownGroupId")]
 	public uint AccountItemCooldownGroupId { get; set; }
 
-	[Column("storeDisplayInfoId")]
+	[TableColumn("storeDisplayInfoId")]
 	public uint StoreDisplayInfoId { get; set; }
 
-	[Column("storeIdentifierUpsell")]
+	[TableColumn("storeIdentifierUpsell")]
 	public string StoreIdentifierUpsell { get; set; } = string.Empty;
 
-	[Column("creature2DisplayGroupIdGacha")]
+	[TableColumn("creature2DisplayGroupIdGacha")]
 	public uint Creature2DisplayGroupIdGacha { get; set; }
 
-	[Column("entitlementIdPurchase")]
+	[TableColumn("entitlementIdPurchase")]
 	public uint EntitlementIdPurchase { get; set; }
 
-	[Column("genericUnlockSetId")]
+	[TableColumn("genericUnlockSetId")]
 	public uint GenericUnlockSetId { get; set; }
 }

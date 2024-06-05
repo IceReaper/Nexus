@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class PlayerNotificationTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("priority")]
+	[TableColumn("priority")]
 	public uint Priority { get; set; }
 
-	[Column("lifetimeMs")]
+	[TableColumn("lifetimeMs")]
 	public uint LifetimeMs { get; set; }
 }

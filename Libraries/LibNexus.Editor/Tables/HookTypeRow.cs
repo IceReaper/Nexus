@@ -4,6 +4,6 @@ namespace LibNexus.Editor.Tables;
 
 public class HookTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 }

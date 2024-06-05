@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class GossipEntryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("gossipSetId")]
+	[TableColumn("gossipSetId")]
 	public uint GossipSetId { get; set; }
 
-	[Column("indexOrder")]
+	[TableColumn("indexOrder")]
 	public uint IndexOrder { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 }

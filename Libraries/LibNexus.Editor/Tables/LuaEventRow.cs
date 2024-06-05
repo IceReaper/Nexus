@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class LuaEventRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("eventName")]
+	[TableColumn("eventName")]
 	public string EventName { get; set; } = string.Empty;
 
-	[Column("parameters")]
+	[TableColumn("parameters")]
 	public string Parameters { get; set; } = string.Empty;
 }

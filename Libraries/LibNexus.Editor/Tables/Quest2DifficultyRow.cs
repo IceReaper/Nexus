@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class Quest2DifficultyRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("xpMultiplier")]
+	[TableColumn("xpMultiplier")]
 	public float XpMultiplier { get; set; }
 
-	[Column("cashRewardMultiplier")]
+	[TableColumn("cashRewardMultiplier")]
 	public float CashRewardMultiplier { get; set; }
 
-	[Column("repRewardMultiplier")]
+	[TableColumn("repRewardMultiplier")]
 	public float RepRewardMultiplier { get; set; }
 }

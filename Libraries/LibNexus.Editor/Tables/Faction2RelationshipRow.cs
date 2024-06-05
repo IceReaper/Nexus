@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class Faction2RelationshipRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("factionId0")]
+	[TableColumn("factionId0")]
 	public uint FactionId0 { get; set; }
 
-	[Column("factionId1")]
+	[TableColumn("factionId1")]
 	public uint FactionId1 { get; set; }
 
-	[Column("factionLevel")]
+	[TableColumn("factionLevel")]
 	public uint FactionLevel { get; set; }
 }

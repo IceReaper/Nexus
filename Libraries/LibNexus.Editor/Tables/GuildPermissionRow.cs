@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class GuildPermissionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("luaVariable")]
+	[TableColumn("luaVariable")]
 	public string LuaVariable { get; set; } = string.Empty;
 
-	[Column("localizedTextIdCommand")]
+	[TableColumn("localizedTextIdCommand")]
 	public uint LocalizedTextIdCommand { get; set; }
 
-	[Column("guildTypeEnumFlags")]
+	[TableColumn("guildTypeEnumFlags")]
 	public uint GuildTypeEnumFlags { get; set; }
 
-	[Column("displayIndex")]
+	[TableColumn("displayIndex")]
 	public uint DisplayIndex { get; set; }
 }

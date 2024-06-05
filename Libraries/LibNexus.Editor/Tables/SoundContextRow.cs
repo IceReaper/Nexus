@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundContextRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("eventId")]
+	[TableColumn("eventId")]
 	public uint EventId { get; set; }
 
-	[Column("type")]
+	[TableColumn("type")]
 	public uint Type { get; set; }
 }

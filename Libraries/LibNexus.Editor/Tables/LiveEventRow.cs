@@ -4,51 +4,51 @@ namespace LibNexus.Editor.Tables;
 
 public class LiveEventRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("liveEventTypeEnum")]
+	[TableColumn("liveEventTypeEnum")]
 	public uint LiveEventTypeEnum { get; set; }
 
-	[Column("maxValue")]
+	[TableColumn("maxValue")]
 	public uint MaxValue { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("liveEventCategoryEnum")]
+	[TableColumn("liveEventCategoryEnum")]
 	public uint LiveEventCategoryEnum { get; set; }
 
-	[Column("liveEventIdParent")]
+	[TableColumn("liveEventIdParent")]
 	public uint LiveEventIdParent { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdSummary")]
+	[TableColumn("localizedTextIdSummary")]
 	public uint LocalizedTextIdSummary { get; set; }
 
-	[Column("iconPath")]
+	[TableColumn("iconPath")]
 	public string IconPath { get; set; } = string.Empty;
 
-	[Column("iconPathButton")]
+	[TableColumn("iconPathButton")]
 	public string IconPathButton { get; set; } = string.Empty;
 
-	[Column("spritePathTitle")]
+	[TableColumn("spritePathTitle")]
 	public string SpritePathTitle { get; set; } = string.Empty;
 
-	[Column("spritePathBackground")]
+	[TableColumn("spritePathBackground")]
 	public string SpritePathBackground { get; set; } = string.Empty;
 
-	[Column("currencyTypeIdEarned")]
+	[TableColumn("currencyTypeIdEarned")]
 	public uint CurrencyTypeIdEarned { get; set; }
 
-	[Column("localizedTextIdCurrencyEarnedTooltip")]
+	[TableColumn("localizedTextIdCurrencyEarnedTooltip")]
 	public uint LocalizedTextIdCurrencyEarnedTooltip { get; set; }
 
-	[Column("worldLocation2IdExile")]
+	[TableColumn("worldLocation2IdExile")]
 	public uint WorldLocation2IdExile { get; set; }
 
-	[Column("worldLocation2IdDominion")]
+	[TableColumn("worldLocation2IdDominion")]
 	public uint WorldLocation2IdDominion { get; set; }
 }

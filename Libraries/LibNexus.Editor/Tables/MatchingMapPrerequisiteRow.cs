@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class MatchingMapPrerequisiteRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("matchingGameMapId")]
+	[TableColumn("matchingGameMapId")]
 	public uint MatchingGameMapId { get; set; }
 
-	[Column("matchingEligibilityFlagEnum")]
+	[TableColumn("matchingEligibilityFlagEnum")]
 	public uint MatchingEligibilityFlagEnum { get; set; }
 }

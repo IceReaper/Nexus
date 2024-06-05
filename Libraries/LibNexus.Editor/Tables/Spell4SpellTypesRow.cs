@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4SpellTypesRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("typeName")]
+	[TableColumn("typeName")]
 	public string TypeName { get; set; } = string.Empty;
 
-	[Column("enumName")]
+	[TableColumn("enumName")]
 	public string EnumName { get; set; } = string.Empty;
 }

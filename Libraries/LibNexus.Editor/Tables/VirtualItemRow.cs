@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class VirtualItemRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("buttonIcon")]
+	[TableColumn("buttonIcon")]
 	public string ButtonIcon { get; set; } = string.Empty;
 
-	[Column("item2TypeId")]
+	[TableColumn("item2TypeId")]
 	public uint Item2TypeId { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdFlavor")]
+	[TableColumn("localizedTextIdFlavor")]
 	public uint LocalizedTextIdFlavor { get; set; }
 
-	[Column("itemQualityId")]
+	[TableColumn("itemQualityId")]
 	public uint ItemQualityId { get; set; }
 }

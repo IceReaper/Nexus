@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using LibNexus.Core.Extensions;
+using System.Security.Cryptography;
 
 namespace LibNexus.Files;
 
@@ -13,6 +14,16 @@ public readonly struct Hash : IEquatable<Hash>
 		Array.Copy(bytes, Bytes, Length);
 	}
 
+	public Hash(Stream stream)
+	{
+		Bytes = stream.ReadBytes(Length);
+	}
+
+	public void Write(Stream stream)
+	{
+		stream.WriteBytes(Bytes);
+	}
+
 	public static Hash Create(byte[] data)
 	{
 		return new Hash(SHA1.HashData(data));
@@ -25,7 +36,7 @@ public readonly struct Hash : IEquatable<Hash>
 
 	public override bool Equals(object? obj)
 	{
-		return obj is Hash fileId && Equals(fileId);
+		return obj is Hash other && Equals(other);
 	}
 
 	public bool Equals(Hash other)

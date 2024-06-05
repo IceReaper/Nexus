@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4TargetAngleRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("targetAngle")]
+	[TableColumn("targetAngle")]
 	public float TargetAngle { get; set; }
 }

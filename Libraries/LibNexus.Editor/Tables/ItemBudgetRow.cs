@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemBudgetRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("budget00")]
+	[TableColumn("budget00")]
 	public float Budget00 { get; set; }
 
-	[Column("budget01")]
+	[TableColumn("budget01")]
 	public float Budget01 { get; set; }
 
-	[Column("budget02")]
+	[TableColumn("budget02")]
 	public float Budget02 { get; set; }
 
-	[Column("budget03")]
+	[TableColumn("budget03")]
 	public float Budget03 { get; set; }
 
-	[Column("budget04")]
+	[TableColumn("budget04")]
 	public float Budget04 { get; set; }
 }

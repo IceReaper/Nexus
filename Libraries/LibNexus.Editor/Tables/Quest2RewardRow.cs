@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class Quest2RewardRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("quest2Id")]
+	[TableColumn("quest2Id")]
 	public uint Quest2Id { get; set; }
 
-	[Column("quest2RewardTypeId")]
+	[TableColumn("quest2RewardTypeId")]
 	public uint Quest2RewardTypeId { get; set; }
 
-	[Column("objectId")]
+	[TableColumn("objectId")]
 	public uint ObjectId { get; set; }
 
-	[Column("objectAmount")]
+	[TableColumn("objectAmount")]
 	public uint ObjectAmount { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class CustomerSurveyRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("customerSurveyTypeEnum")]
+	[TableColumn("customerSurveyTypeEnum")]
 	public uint CustomerSurveyTypeEnum { get; set; }
 
-	[Column("localizedTextIdOverrideTitle")]
+	[TableColumn("localizedTextIdOverrideTitle")]
 	public uint LocalizedTextIdOverrideTitle { get; set; }
 
-	[Column("localizedTextIdQuestion00")]
+	[TableColumn("localizedTextIdQuestion00")]
 	public uint LocalizedTextIdQuestion00 { get; set; }
 
-	[Column("localizedTextIdQuestion01")]
+	[TableColumn("localizedTextIdQuestion01")]
 	public uint LocalizedTextIdQuestion01 { get; set; }
 
-	[Column("localizedTextIdQuestion02")]
+	[TableColumn("localizedTextIdQuestion02")]
 	public uint LocalizedTextIdQuestion02 { get; set; }
 }

@@ -1,7 +1,8 @@
 using LibNexus.Core;
+using LibNexus.Files;
 using NUnit.Framework;
 
-namespace LibNexus.Files.Tests;
+namespace LibNexus.Editor.Tests;
 
 public class FileSystemTests
 {

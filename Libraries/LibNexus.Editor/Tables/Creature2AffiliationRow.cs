@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class Creature2AffiliationRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdTitle")]
+	[TableColumn("localizedTextIdTitle")]
 	public uint LocalizedTextIdTitle { get; set; }
 
-	[Column("miniMapMarkerId")]
+	[TableColumn("miniMapMarkerId")]
 	public uint MiniMapMarkerId { get; set; }
 
-	[Column("overheadIconAssetPath")]
+	[TableColumn("overheadIconAssetPath")]
 	public string OverheadIconAssetPath { get; set; } = string.Empty;
 }

@@ -4,87 +4,87 @@ namespace LibNexus.Editor.Tables;
 
 public class CommunicatorMessagesRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdMessage")]
+	[TableColumn("localizedTextIdMessage")]
 	public uint LocalizedTextIdMessage { get; set; }
 
-	[Column("delay")]
+	[TableColumn("delay")]
 	public uint Delay { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("creatureId")]
+	[TableColumn("creatureId")]
 	public uint CreatureId { get; set; }
 
-	[Column("worldId")]
+	[TableColumn("worldId")]
 	public uint WorldId { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("minLevel")]
+	[TableColumn("minLevel")]
 	public uint MinLevel { get; set; }
 
-	[Column("maxLevel")]
+	[TableColumn("maxLevel")]
 	public uint MaxLevel { get; set; }
 
-	[Column("quest00")]
+	[TableColumn("quest00")]
 	public uint Quest00 { get; set; }
 
-	[Column("quest01")]
+	[TableColumn("quest01")]
 	public uint Quest01 { get; set; }
 
-	[Column("quest02")]
+	[TableColumn("quest02")]
 	public uint Quest02 { get; set; }
 
-	[Column("state00")]
+	[TableColumn("state00")]
 	public uint State00 { get; set; }
 
-	[Column("state01")]
+	[TableColumn("state01")]
 	public uint State01 { get; set; }
 
-	[Column("state02")]
+	[TableColumn("state02")]
 	public uint State02 { get; set; }
 
-	[Column("factionId")]
+	[TableColumn("factionId")]
 	public uint FactionId { get; set; }
 
-	[Column("classId")]
+	[TableColumn("classId")]
 	public uint ClassId { get; set; }
 
-	[Column("raceId")]
+	[TableColumn("raceId")]
 	public uint RaceId { get; set; }
 
-	[Column("factionIdReputation")]
+	[TableColumn("factionIdReputation")]
 	public uint FactionIdReputation { get; set; }
 
-	[Column("reputationMin")]
+	[TableColumn("reputationMin")]
 	public uint ReputationMin { get; set; }
 
-	[Column("reputationMax")]
+	[TableColumn("reputationMax")]
 	public uint ReputationMax { get; set; }
 
-	[Column("questIdDelivered")]
+	[TableColumn("questIdDelivered")]
 	public uint QuestIdDelivered { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("displayDuration")]
+	[TableColumn("displayDuration")]
 	public uint DisplayDuration { get; set; }
 
-	[Column("communicatorMessagesIdNext")]
+	[TableColumn("communicatorMessagesIdNext")]
 	public uint CommunicatorMessagesIdNext { get; set; }
 
-	[Column("communicatorPortraitPlacementEnum")]
+	[TableColumn("communicatorPortraitPlacementEnum")]
 	public uint CommunicatorPortraitPlacementEnum { get; set; }
 
-	[Column("communicatorOverlayEnum")]
+	[TableColumn("communicatorOverlayEnum")]
 	public uint CommunicatorOverlayEnum { get; set; }
 
-	[Column("communicatorBackgroundEnum")]
+	[TableColumn("communicatorBackgroundEnum")]
 	public uint CommunicatorBackgroundEnum { get; set; }
 }

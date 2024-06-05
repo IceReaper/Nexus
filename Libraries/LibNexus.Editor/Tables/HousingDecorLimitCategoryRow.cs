@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingDecorLimitCategoryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("decorLimit")]
+	[TableColumn("decorLimit")]
 	public uint DecorLimit { get; set; }
 }

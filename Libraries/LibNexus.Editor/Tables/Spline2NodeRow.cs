@@ -4,45 +4,45 @@ namespace LibNexus.Editor.Tables;
 
 public class Spline2NodeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("splineId")]
+	[TableColumn("splineId")]
 	public uint SplineId { get; set; }
 
-	[Column("ordinal")]
+	[TableColumn("ordinal")]
 	public uint Ordinal { get; set; }
 
-	[Column("position0")]
+	[TableColumn("position0")]
 	public float Position0 { get; set; }
 
-	[Column("position1")]
+	[TableColumn("position1")]
 	public float Position1 { get; set; }
 
-	[Column("position2")]
+	[TableColumn("position2")]
 	public float Position2 { get; set; }
 
-	[Column("facing0")]
+	[TableColumn("facing0")]
 	public float Facing0 { get; set; }
 
-	[Column("facing1")]
+	[TableColumn("facing1")]
 	public float Facing1 { get; set; }
 
-	[Column("facing2")]
+	[TableColumn("facing2")]
 	public float Facing2 { get; set; }
 
-	[Column("facing3")]
+	[TableColumn("facing3")]
 	public float Facing3 { get; set; }
 
-	[Column("eventId")]
+	[TableColumn("eventId")]
 	public uint EventId { get; set; }
 
-	[Column("frameTime")]
+	[TableColumn("frameTime")]
 	public float FrameTime { get; set; }
 
-	[Column("delay")]
+	[TableColumn("delay")]
 	public float Delay { get; set; }
 
-	[Column("fovy")]
+	[TableColumn("fovy")]
 	public float Fovy { get; set; }
 }

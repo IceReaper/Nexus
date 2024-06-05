@@ -4,93 +4,93 @@ namespace LibNexus.Editor.Tables;
 
 public class UnitVehicleRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("vehicleTypeEnum")]
+	[TableColumn("vehicleTypeEnum")]
 	public uint VehicleTypeEnum { get; set; }
 
-	[Column("numberPilots")]
+	[TableColumn("numberPilots")]
 	public uint NumberPilots { get; set; }
 
-	[Column("pilotPosture00")]
+	[TableColumn("pilotPosture00")]
 	public uint PilotPosture00 { get; set; }
 
-	[Column("pilotPosture01")]
+	[TableColumn("pilotPosture01")]
 	public uint PilotPosture01 { get; set; }
 
-	[Column("numberPassengers")]
+	[TableColumn("numberPassengers")]
 	public uint NumberPassengers { get; set; }
 
-	[Column("passengerPosture00")]
+	[TableColumn("passengerPosture00")]
 	public uint PassengerPosture00 { get; set; }
 
-	[Column("passengerPosture01")]
+	[TableColumn("passengerPosture01")]
 	public uint PassengerPosture01 { get; set; }
 
-	[Column("passengerPosture02")]
+	[TableColumn("passengerPosture02")]
 	public uint PassengerPosture02 { get; set; }
 
-	[Column("passengerPosture03")]
+	[TableColumn("passengerPosture03")]
 	public uint PassengerPosture03 { get; set; }
 
-	[Column("passengerPosture04")]
+	[TableColumn("passengerPosture04")]
 	public uint PassengerPosture04 { get; set; }
 
-	[Column("passengerPosture05")]
+	[TableColumn("passengerPosture05")]
 	public uint PassengerPosture05 { get; set; }
 
-	[Column("numberGunners")]
+	[TableColumn("numberGunners")]
 	public uint NumberGunners { get; set; }
 
-	[Column("gunnerPosture00")]
+	[TableColumn("gunnerPosture00")]
 	public uint GunnerPosture00 { get; set; }
 
-	[Column("gunnerPosture01")]
+	[TableColumn("gunnerPosture01")]
 	public uint GunnerPosture01 { get; set; }
 
-	[Column("gunnerPosture02")]
+	[TableColumn("gunnerPosture02")]
 	public uint GunnerPosture02 { get; set; }
 
-	[Column("gunnerPosture03")]
+	[TableColumn("gunnerPosture03")]
 	public uint GunnerPosture03 { get; set; }
 
-	[Column("gunnerPosture04")]
+	[TableColumn("gunnerPosture04")]
 	public uint GunnerPosture04 { get; set; }
 
-	[Column("gunnerPosture05")]
+	[TableColumn("gunnerPosture05")]
 	public uint GunnerPosture05 { get; set; }
 
-	[Column("vendorItemPrice")]
+	[TableColumn("vendorItemPrice")]
 	public uint VendorItemPrice { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdTooltip")]
+	[TableColumn("localizedTextIdTooltip")]
 	public uint LocalizedTextIdTooltip { get; set; }
 
-	[Column("buttonIcon")]
+	[TableColumn("buttonIcon")]
 	public string ButtonIcon { get; set; } = string.Empty;
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("soundEventIdTakeoff")]
+	[TableColumn("soundEventIdTakeoff")]
 	public uint SoundEventIdTakeoff { get; set; }
 
-	[Column("soundEventIdLanding")]
+	[TableColumn("soundEventIdLanding")]
 	public uint SoundEventIdLanding { get; set; }
 
-	[Column("waterSurfaceEffectIdMoving")]
+	[TableColumn("waterSurfaceEffectIdMoving")]
 	public uint WaterSurfaceEffectIdMoving { get; set; }
 
-	[Column("waterSurfaceEffectIdStanding")]
+	[TableColumn("waterSurfaceEffectIdStanding")]
 	public uint WaterSurfaceEffectIdStanding { get; set; }
 
-	[Column("waterSurfaceEffectIdJumpIn")]
+	[TableColumn("waterSurfaceEffectIdJumpIn")]
 	public uint WaterSurfaceEffectIdJumpIn { get; set; }
 
-	[Column("waterSurfaceEffectIdJumpOut")]
+	[TableColumn("waterSurfaceEffectIdJumpOut")]
 	public uint WaterSurfaceEffectIdJumpOut { get; set; }
 }

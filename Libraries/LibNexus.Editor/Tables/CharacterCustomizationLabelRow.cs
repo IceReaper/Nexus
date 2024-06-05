@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class CharacterCustomizationLabelRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("faction2Id")]
+	[TableColumn("faction2Id")]
 	public uint Faction2Id { get; set; }
 
-	[Column("displayIndex")]
+	[TableColumn("displayIndex")]
 	public uint DisplayIndex { get; set; }
 }

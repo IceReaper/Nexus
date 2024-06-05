@@ -4,66 +4,66 @@ namespace LibNexus.Editor.Tables;
 
 public class PathMissionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("creature2IdUnlock")]
+	[TableColumn("creature2IdUnlock")]
 	public uint Creature2IdUnlock { get; set; }
 
-	[Column("pathTypeEnum")]
+	[TableColumn("pathTypeEnum")]
 	public uint PathTypeEnum { get; set; }
 
-	[Column("pathMissionTypeEnum")]
+	[TableColumn("pathMissionTypeEnum")]
 	public uint PathMissionTypeEnum { get; set; }
 
-	[Column("pathMissionDisplayTypeEnum")]
+	[TableColumn("pathMissionDisplayTypeEnum")]
 	public uint PathMissionDisplayTypeEnum { get; set; }
 
-	[Column("objectId")]
+	[TableColumn("objectId")]
 	public uint ObjectId { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdSummary")]
+	[TableColumn("localizedTextIdSummary")]
 	public uint LocalizedTextIdSummary { get; set; }
 
-	[Column("pathEpisodeId")]
+	[TableColumn("pathEpisodeId")]
 	public uint PathEpisodeId { get; set; }
 
-	[Column("worldLocation2Id00")]
+	[TableColumn("worldLocation2Id00")]
 	public uint WorldLocation2Id00 { get; set; }
 
-	[Column("worldLocation2Id01")]
+	[TableColumn("worldLocation2Id01")]
 	public uint WorldLocation2Id01 { get; set; }
 
-	[Column("worldLocation2Id02")]
+	[TableColumn("worldLocation2Id02")]
 	public uint WorldLocation2Id02 { get; set; }
 
-	[Column("worldLocation2Id03")]
+	[TableColumn("worldLocation2Id03")]
 	public uint WorldLocation2Id03 { get; set; }
 
-	[Column("pathMissionFlags")]
+	[TableColumn("pathMissionFlags")]
 	public uint PathMissionFlags { get; set; }
 
-	[Column("pathMissionFactionEnum")]
+	[TableColumn("pathMissionFactionEnum")]
 	public uint PathMissionFactionEnum { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("localizedTextIdCommunicator")]
+	[TableColumn("localizedTextIdCommunicator")]
 	public uint LocalizedTextIdCommunicator { get; set; }
 
-	[Column("localizedTextIdUnlock")]
+	[TableColumn("localizedTextIdUnlock")]
 	public uint LocalizedTextIdUnlock { get; set; }
 
-	[Column("localizedTextIdSoldierOrders")]
+	[TableColumn("localizedTextIdSoldierOrders")]
 	public uint LocalizedTextIdSoldierOrders { get; set; }
 
-	[Column("creature2IdContactOverride")]
+	[TableColumn("creature2IdContactOverride")]
 	public uint Creature2IdContactOverride { get; set; }
 
-	[Column("questDirectionId")]
+	[TableColumn("questDirectionId")]
 	public uint QuestDirectionId { get; set; }
 }

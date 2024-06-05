@@ -4,45 +4,45 @@ namespace LibNexus.Editor.Tables;
 
 public class FullScreenEffectRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("texturePath")]
+	[TableColumn("texturePath")]
 	public string TexturePath { get; set; } = string.Empty;
 
-	[Column("modelPath")]
+	[TableColumn("modelPath")]
 	public string ModelPath { get; set; } = string.Empty;
 
-	[Column("priority")]
+	[TableColumn("priority")]
 	public uint Priority { get; set; }
 
-	[Column("fullScreenEffectTypeEnum")]
+	[TableColumn("fullScreenEffectTypeEnum")]
 	public uint FullScreenEffectTypeEnum { get; set; }
 
-	[Column("alphaMinStart")]
+	[TableColumn("alphaMinStart")]
 	public float AlphaMinStart { get; set; }
 
-	[Column("alphaMinEnd")]
+	[TableColumn("alphaMinEnd")]
 	public float AlphaMinEnd { get; set; }
 
-	[Column("alphaStart")]
+	[TableColumn("alphaStart")]
 	public float AlphaStart { get; set; }
 
-	[Column("alphaEnd")]
+	[TableColumn("alphaEnd")]
 	public float AlphaEnd { get; set; }
 
-	[Column("hzStart")]
+	[TableColumn("hzStart")]
 	public float HzStart { get; set; }
 
-	[Column("hzEnd")]
+	[TableColumn("hzEnd")]
 	public float HzEnd { get; set; }
 
-	[Column("saturationStart")]
+	[TableColumn("saturationStart")]
 	public float SaturationStart { get; set; }
 
-	[Column("saturationEnd")]
+	[TableColumn("saturationEnd")]
 	public float SaturationEnd { get; set; }
 }

@@ -4,42 +4,42 @@ namespace LibNexus.Editor.Tables;
 
 public class WorldLocation2Row
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("radius")]
+	[TableColumn("radius")]
 	public float Radius { get; set; }
 
-	[Column("maxVerticalDistance")]
+	[TableColumn("maxVerticalDistance")]
 	public float MaxVerticalDistance { get; set; }
 
-	[Column("position0")]
+	[TableColumn("position0")]
 	public float Position0 { get; set; }
 
-	[Column("position1")]
+	[TableColumn("position1")]
 	public float Position1 { get; set; }
 
-	[Column("position2")]
+	[TableColumn("position2")]
 	public float Position2 { get; set; }
 
-	[Column("facing0")]
+	[TableColumn("facing0")]
 	public float Facing0 { get; set; }
 
-	[Column("facing1")]
+	[TableColumn("facing1")]
 	public float Facing1 { get; set; }
 
-	[Column("facing2")]
+	[TableColumn("facing2")]
 	public float Facing2 { get; set; }
 
-	[Column("facing3")]
+	[TableColumn("facing3")]
 	public float Facing3 { get; set; }
 
-	[Column("worldId")]
+	[TableColumn("worldId")]
 	public uint WorldId { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("phases")]
+	[TableColumn("phases")]
 	public uint Phases { get; set; }
 }

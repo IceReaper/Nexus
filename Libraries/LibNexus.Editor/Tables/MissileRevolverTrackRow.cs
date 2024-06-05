@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class MissileRevolverTrackRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("radius")]
+	[TableColumn("radius")]
 	public float Radius { get; set; }
 
-	[Column("speed")]
+	[TableColumn("speed")]
 	public float Speed { get; set; }
 
-	[Column("speedMultiplier")]
+	[TableColumn("speedMultiplier")]
 	public float SpeedMultiplier { get; set; }
 
-	[Column("scaleMultiplier")]
+	[TableColumn("scaleMultiplier")]
 	public float ScaleMultiplier { get; set; }
 
-	[Column("modelAttachmentIdHeight")]
+	[TableColumn("modelAttachmentIdHeight")]
 	public uint ModelAttachmentIdHeight { get; set; }
 }

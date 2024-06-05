@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class EntitlementRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("maxCount")]
+	[TableColumn("maxCount")]
 	public uint MaxCount { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("spell4IdPersistentBuff")]
+	[TableColumn("spell4IdPersistentBuff")]
 	public uint Spell4IdPersistentBuff { get; set; }
 
-	[Column("characterTitleId")]
+	[TableColumn("characterTitleId")]
 	public uint CharacterTitleId { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("buttonIcon")]
+	[TableColumn("buttonIcon")]
 	public string ButtonIcon { get; set; } = string.Empty;
 }

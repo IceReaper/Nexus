@@ -4,57 +4,57 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingWarplotPlugInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("housingPlugItemId")]
+	[TableColumn("housingPlugItemId")]
 	public uint HousingPlugItemId { get; set; }
 
-	[Column("maintenanceCost")]
+	[TableColumn("maintenanceCost")]
 	public uint MaintenanceCost { get; set; }
 
-	[Column("upgradeCost00")]
+	[TableColumn("upgradeCost00")]
 	public uint UpgradeCost00 { get; set; }
 
-	[Column("upgradeCost01")]
+	[TableColumn("upgradeCost01")]
 	public uint UpgradeCost01 { get; set; }
 
-	[Column("upgradeCost02")]
+	[TableColumn("upgradeCost02")]
 	public uint UpgradeCost02 { get; set; }
 
-	[Column("spell4IdAbility00")]
+	[TableColumn("spell4IdAbility00")]
 	public uint Spell4IdAbility00 { get; set; }
 
-	[Column("spell4IdAbility01")]
+	[TableColumn("spell4IdAbility01")]
 	public uint Spell4IdAbility01 { get; set; }
 
-	[Column("spell4IdAbility02")]
+	[TableColumn("spell4IdAbility02")]
 	public uint Spell4IdAbility02 { get; set; }
 
-	[Column("spell4IdAbility03")]
+	[TableColumn("spell4IdAbility03")]
 	public uint Spell4IdAbility03 { get; set; }
 
-	[Column("spell4IdAbility04")]
+	[TableColumn("spell4IdAbility04")]
 	public uint Spell4IdAbility04 { get; set; }
 
-	[Column("spell4IdAbility05")]
+	[TableColumn("spell4IdAbility05")]
 	public uint Spell4IdAbility05 { get; set; }
 
-	[Column("spell4IdAbility06")]
+	[TableColumn("spell4IdAbility06")]
 	public uint Spell4IdAbility06 { get; set; }
 
-	[Column("spell4IdAbility07")]
+	[TableColumn("spell4IdAbility07")]
 	public uint Spell4IdAbility07 { get; set; }
 
-	[Column("spell4IdAbility08")]
+	[TableColumn("spell4IdAbility08")]
 	public uint Spell4IdAbility08 { get; set; }
 
-	[Column("spell4IdAbility09")]
+	[TableColumn("spell4IdAbility09")]
 	public uint Spell4IdAbility09 { get; set; }
 
-	[Column("spell4IdAbility10")]
+	[TableColumn("spell4IdAbility10")]
 	public uint Spell4IdAbility10 { get; set; }
 
-	[Column("spell4IdAbility11")]
+	[TableColumn("spell4IdAbility11")]
 	public uint Spell4IdAbility11 { get; set; }
 }

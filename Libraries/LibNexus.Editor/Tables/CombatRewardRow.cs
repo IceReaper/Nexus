@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class CombatRewardRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("combatRewardTypeEnum")]
+	[TableColumn("combatRewardTypeEnum")]
 	public uint CombatRewardTypeEnum { get; set; }
 
-	[Column("localizedTextIdCombatFloater")]
+	[TableColumn("localizedTextIdCombatFloater")]
 	public uint LocalizedTextIdCombatFloater { get; set; }
 
-	[Column("localizedTextIdCombatLogMessage")]
+	[TableColumn("localizedTextIdCombatLogMessage")]
 	public uint LocalizedTextIdCombatLogMessage { get; set; }
 
-	[Column("visualEffectIdVisual00")]
+	[TableColumn("visualEffectIdVisual00")]
 	public uint VisualEffectIdVisual00 { get; set; }
 
-	[Column("visualEffectIdVisual01")]
+	[TableColumn("visualEffectIdVisual01")]
 	public uint VisualEffectIdVisual01 { get; set; }
 }

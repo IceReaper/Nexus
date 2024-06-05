@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class PathSoldierSwatRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("creature2Id")]
+	[TableColumn("creature2Id")]
 	public uint Creature2Id { get; set; }
 
-	[Column("targetGroupId")]
+	[TableColumn("targetGroupId")]
 	public uint TargetGroupId { get; set; }
 
-	[Column("count")]
+	[TableColumn("count")]
 	public uint Count { get; set; }
 
-	[Column("virtualItemIdDisplay")]
+	[TableColumn("virtualItemIdDisplay")]
 	public uint VirtualItemIdDisplay { get; set; }
 }

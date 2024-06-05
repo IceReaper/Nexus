@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class CinematicRaceRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("cinematicId")]
+	[TableColumn("cinematicId")]
 	public uint CinematicId { get; set; }
 
-	[Column("raceId")]
+	[TableColumn("raceId")]
 	public uint RaceId { get; set; }
 
-	[Column("maleAssetPath")]
+	[TableColumn("maleAssetPath")]
 	public string MaleAssetPath { get; set; } = string.Empty;
 
-	[Column("femaleAssetPath")]
+	[TableColumn("femaleAssetPath")]
 	public string FemaleAssetPath { get; set; } = string.Empty;
 }

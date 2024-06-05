@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class RewardRotationEssenceRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("accountCurrencyTypeId")]
+	[TableColumn("accountCurrencyTypeId")]
 	public uint AccountCurrencyTypeId { get; set; }
 
-	[Column("minPlayerLevel")]
+	[TableColumn("minPlayerLevel")]
 	public uint MinPlayerLevel { get; set; }
 
-	[Column("worldDifficultyFlags")]
+	[TableColumn("worldDifficultyFlags")]
 	public uint WorldDifficultyFlags { get; set; }
 }

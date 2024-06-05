@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class ComponentRegionRectRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("regionId")]
+	[TableColumn("regionId")]
 	public uint RegionId { get; set; }
 
-	[Column("rectMinX")]
+	[TableColumn("rectMinX")]
 	public uint RectMinX { get; set; }
 
-	[Column("rectMinY")]
+	[TableColumn("rectMinY")]
 	public uint RectMinY { get; set; }
 
-	[Column("rectLimX")]
+	[TableColumn("rectLimX")]
 	public uint RectLimX { get; set; }
 
-	[Column("rectLimY")]
+	[TableColumn("rectLimY")]
 	public uint RectLimY { get; set; }
 
-	[Column("componentLayoutId")]
+	[TableColumn("componentLayoutId")]
 	public uint ComponentLayoutId { get; set; }
 }

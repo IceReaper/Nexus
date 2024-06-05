@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelSequenceTransitionRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("modelSequenceIdFrom")]
+	[TableColumn("modelSequenceIdFrom")]
 	public uint ModelSequenceIdFrom { get; set; }
 
-	[Column("modelSequenceIdTo")]
+	[TableColumn("modelSequenceIdTo")]
 	public uint ModelSequenceIdTo { get; set; }
 
-	[Column("modelSequenceIdTransition")]
+	[TableColumn("modelSequenceIdTransition")]
 	public uint ModelSequenceIdTransition { get; set; }
 }

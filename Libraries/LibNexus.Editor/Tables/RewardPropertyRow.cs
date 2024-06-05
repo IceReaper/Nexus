@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class RewardPropertyRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("rewardModifierValueTypeEnum")]
+	[TableColumn("rewardModifierValueTypeEnum")]
 	public uint RewardModifierValueTypeEnum { get; set; }
 }

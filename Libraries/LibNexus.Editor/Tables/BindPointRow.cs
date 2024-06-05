@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class BindPointRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("bindPointFactionEnum")]
+	[TableColumn("bindPointFactionEnum")]
 	public uint BindPointFactionEnum { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 }

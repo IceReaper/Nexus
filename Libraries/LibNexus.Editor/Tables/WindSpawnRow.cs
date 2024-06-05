@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class WindSpawnRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("intervalMin")]
+	[TableColumn("intervalMin")]
 	public uint IntervalMin { get; set; }
 
-	[Column("intervalMax")]
+	[TableColumn("intervalMax")]
 	public uint IntervalMax { get; set; }
 
-	[Column("directionMin")]
+	[TableColumn("directionMin")]
 	public float DirectionMin { get; set; }
 
-	[Column("directionMax")]
+	[TableColumn("directionMax")]
 	public float DirectionMax { get; set; }
 }

@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemDisplaySourceEntryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("itemSourceId")]
+	[TableColumn("itemSourceId")]
 	public uint ItemSourceId { get; set; }
 
-	[Column("item2TypeId")]
+	[TableColumn("item2TypeId")]
 	public uint Item2TypeId { get; set; }
 
-	[Column("itemMinLevel")]
+	[TableColumn("itemMinLevel")]
 	public uint ItemMinLevel { get; set; }
 
-	[Column("itemMaxLevel")]
+	[TableColumn("itemMaxLevel")]
 	public uint ItemMaxLevel { get; set; }
 
-	[Column("itemDisplayId")]
+	[TableColumn("itemDisplayId")]
 	public uint ItemDisplayId { get; set; }
 
-	[Column("icon")]
+	[TableColumn("icon")]
 	public string Icon { get; set; } = string.Empty;
 }

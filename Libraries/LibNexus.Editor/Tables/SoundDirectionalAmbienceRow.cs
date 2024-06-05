@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundDirectionalAmbienceRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("soundEventIdOutsideStart")]
+	[TableColumn("soundEventIdOutsideStart")]
 	public uint SoundEventIdOutsideStart { get; set; }
 
-	[Column("soundEventIdOutsideStop")]
+	[TableColumn("soundEventIdOutsideStop")]
 	public uint SoundEventIdOutsideStop { get; set; }
 }

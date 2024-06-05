@@ -4,81 +4,81 @@ namespace LibNexus.Editor.Tables;
 
 public class EmotesRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdNoArgToAll")]
+	[TableColumn("localizedTextIdNoArgToAll")]
 	public uint LocalizedTextIdNoArgToAll { get; set; }
 
-	[Column("localizedTextIdNoArgToSelf")]
+	[TableColumn("localizedTextIdNoArgToSelf")]
 	public uint LocalizedTextIdNoArgToSelf { get; set; }
 
-	[Column("NoArgAnim")]
+	[TableColumn("NoArgAnim")]
 	public uint NoArgAnim { get; set; }
 
-	[Column("localizedTextIdArgToAll")]
+	[TableColumn("localizedTextIdArgToAll")]
 	public uint LocalizedTextIdArgToAll { get; set; }
 
-	[Column("localizedTextIdArgToArg")]
+	[TableColumn("localizedTextIdArgToArg")]
 	public uint LocalizedTextIdArgToArg { get; set; }
 
-	[Column("localizedTextIdArgToSelf")]
+	[TableColumn("localizedTextIdArgToSelf")]
 	public uint LocalizedTextIdArgToSelf { get; set; }
 
-	[Column("ArgAnim")]
+	[TableColumn("ArgAnim")]
 	public uint ArgAnim { get; set; }
 
-	[Column("localizedTextIdSelfToAll")]
+	[TableColumn("localizedTextIdSelfToAll")]
 	public uint LocalizedTextIdSelfToAll { get; set; }
 
-	[Column("localizedTextIdSelfToSelf")]
+	[TableColumn("localizedTextIdSelfToSelf")]
 	public uint LocalizedTextIdSelfToSelf { get; set; }
 
-	[Column("SelfAnim")]
+	[TableColumn("SelfAnim")]
 	public uint SelfAnim { get; set; }
 
-	[Column("SheathWeapons")]
+	[TableColumn("SheathWeapons")]
 	public bool SheathWeapons { get; set; }
 
-	[Column("TurnToFace")]
+	[TableColumn("TurnToFace")]
 	public bool TurnToFace { get; set; }
 
-	[Column("TextReplaceable")]
+	[TableColumn("TextReplaceable")]
 	public bool TextReplaceable { get; set; }
 
-	[Column("ChangesStandState")]
+	[TableColumn("ChangesStandState")]
 	public bool ChangesStandState { get; set; }
 
-	[Column("StandState")]
+	[TableColumn("StandState")]
 	public uint StandState { get; set; }
 
-	[Column("localizedTextIdCommand")]
+	[TableColumn("localizedTextIdCommand")]
 	public uint LocalizedTextIdCommand { get; set; }
 
-	[Column("localizedTextIdNotFoundToAll")]
+	[TableColumn("localizedTextIdNotFoundToAll")]
 	public uint LocalizedTextIdNotFoundToAll { get; set; }
 
-	[Column("localizedTextIdNotFoundToSelf")]
+	[TableColumn("localizedTextIdNotFoundToSelf")]
 	public uint LocalizedTextIdNotFoundToSelf { get; set; }
 
-	[Column("NotFoundAnim")]
+	[TableColumn("NotFoundAnim")]
 	public uint NotFoundAnim { get; set; }
 
-	[Column("TextReplaceAnim")]
+	[TableColumn("TextReplaceAnim")]
 	public uint TextReplaceAnim { get; set; }
 
-	[Column("modelSequenceIdStandState")]
+	[TableColumn("modelSequenceIdStandState")]
 	public uint ModelSequenceIdStandState { get; set; }
 
-	[Column("visualEffectId")]
+	[TableColumn("visualEffectId")]
 	public uint VisualEffectId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("universalCommand00")]
+	[TableColumn("universalCommand00")]
 	public string UniversalCommand00 { get; set; } = string.Empty;
 
-	[Column("universalCommand01")]
+	[TableColumn("universalCommand01")]
 	public string UniversalCommand01 { get; set; } = string.Empty;
 }

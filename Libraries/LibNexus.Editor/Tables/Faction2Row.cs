@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class Faction2Row
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("faction2IdParent")]
+	[TableColumn("faction2IdParent")]
 	public uint Faction2IdParent { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdToolTip")]
+	[TableColumn("localizedTextIdToolTip")]
 	public uint LocalizedTextIdToolTip { get; set; }
 
-	[Column("orderIndex")]
+	[TableColumn("orderIndex")]
 	public uint OrderIndex { get; set; }
 
-	[Column("archiveArticleId")]
+	[TableColumn("archiveArticleId")]
 	public uint ArchiveArticleId { get; set; }
 }

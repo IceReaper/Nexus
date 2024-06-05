@@ -4,45 +4,45 @@ namespace LibNexus.Editor.Tables;
 
 public class QuestObjectiveRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("type")]
+	[TableColumn("type")]
 	public uint Type { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("data")]
+	[TableColumn("data")]
 	public uint Data { get; set; }
 
-	[Column("count")]
+	[TableColumn("count")]
 	public uint Count { get; set; }
 
-	[Column("localizedTextIdFull")]
+	[TableColumn("localizedTextIdFull")]
 	public uint LocalizedTextIdFull { get; set; }
 
-	[Column("worldLocationsIdIndicator00")]
+	[TableColumn("worldLocationsIdIndicator00")]
 	public uint WorldLocationsIdIndicator00 { get; set; }
 
-	[Column("worldLocationsIdIndicator01")]
+	[TableColumn("worldLocationsIdIndicator01")]
 	public uint WorldLocationsIdIndicator01 { get; set; }
 
-	[Column("worldLocationsIdIndicator02")]
+	[TableColumn("worldLocationsIdIndicator02")]
 	public uint WorldLocationsIdIndicator02 { get; set; }
 
-	[Column("worldLocationsIdIndicator03")]
+	[TableColumn("worldLocationsIdIndicator03")]
 	public uint WorldLocationsIdIndicator03 { get; set; }
 
-	[Column("maxTimeAllowedMS")]
+	[TableColumn("maxTimeAllowedMS")]
 	public uint MaxTimeAllowedMs { get; set; }
 
-	[Column("localizedTextIdShort")]
+	[TableColumn("localizedTextIdShort")]
 	public uint LocalizedTextIdShort { get; set; }
 
-	[Column("targetGroupIdRewardPane")]
+	[TableColumn("targetGroupIdRewardPane")]
 	public uint TargetGroupIdRewardPane { get; set; }
 
-	[Column("questDirectionId")]
+	[TableColumn("questDirectionId")]
 	public uint QuestDirectionId { get; set; }
 }

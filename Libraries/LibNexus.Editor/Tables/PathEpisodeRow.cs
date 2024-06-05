@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class PathEpisodeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdSummary")]
+	[TableColumn("localizedTextIdSummary")]
 	public uint LocalizedTextIdSummary { get; set; }
 
-	[Column("worldId")]
+	[TableColumn("worldId")]
 	public uint WorldId { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("pathTypeEnum")]
+	[TableColumn("pathTypeEnum")]
 	public uint PathTypeEnum { get; set; }
 }

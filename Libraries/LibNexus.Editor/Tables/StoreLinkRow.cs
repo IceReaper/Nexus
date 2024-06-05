@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class StoreLinkRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("enumName")]
+	[TableColumn("enumName")]
 	public string EnumName { get; set; } = string.Empty;
 
-	[Column("categoryData")]
+	[TableColumn("categoryData")]
 	public uint CategoryData { get; set; }
 
-	[Column("categoryDataPTR")]
+	[TableColumn("categoryDataPTR")]
 	public uint CategoryDataPtr { get; set; }
 
-	[Column("accountItemId")]
+	[TableColumn("accountItemId")]
 	public uint AccountItemId { get; set; }
 }

@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundMusicSetRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("soundEventIdStart")]
+	[TableColumn("soundEventIdStart")]
 	public uint SoundEventIdStart { get; set; }
 
-	[Column("soundEventIdStop")]
+	[TableColumn("soundEventIdStop")]
 	public uint SoundEventIdStop { get; set; }
 
-	[Column("restartDelayMin")]
+	[TableColumn("restartDelayMin")]
 	public float RestartDelayMin { get; set; }
 
-	[Column("restartDelayMax")]
+	[TableColumn("restartDelayMax")]
 	public float RestartDelayMax { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

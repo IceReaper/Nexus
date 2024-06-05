@@ -4,36 +4,36 @@ namespace LibNexus.Editor.Tables;
 
 public class DistanceDamageModifierRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("distancePercent00")]
+	[TableColumn("distancePercent00")]
 	public float DistancePercent00 { get; set; }
 
-	[Column("distancePercent01")]
+	[TableColumn("distancePercent01")]
 	public float DistancePercent01 { get; set; }
 
-	[Column("distancePercent02")]
+	[TableColumn("distancePercent02")]
 	public float DistancePercent02 { get; set; }
 
-	[Column("distancePercent03")]
+	[TableColumn("distancePercent03")]
 	public float DistancePercent03 { get; set; }
 
-	[Column("distancePercent04")]
+	[TableColumn("distancePercent04")]
 	public float DistancePercent04 { get; set; }
 
-	[Column("damageModifier00")]
+	[TableColumn("damageModifier00")]
 	public float DamageModifier00 { get; set; }
 
-	[Column("damageModifier01")]
+	[TableColumn("damageModifier01")]
 	public float DamageModifier01 { get; set; }
 
-	[Column("damageModifier02")]
+	[TableColumn("damageModifier02")]
 	public float DamageModifier02 { get; set; }
 
-	[Column("damageModifier03")]
+	[TableColumn("damageModifier03")]
 	public float DamageModifier03 { get; set; }
 
-	[Column("damageModifier04")]
+	[TableColumn("damageModifier04")]
 	public float DamageModifier04 { get; set; }
 }

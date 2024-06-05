@@ -141,22 +141,51 @@ public class FileSystem : IDisposable
 			Directory.Move(oldPath, newPath);
 	}
 
+	public Identifier? ReadIdentifier(string path)
+	{
+		var file = GetFile(path);
+
+		if (file == null)
+			return null;
+
+		using var stream = GetStream(file, path);
+
+		if (stream == null)
+			return null;
+
+		return stream.Length < Identifier.Size ? null : new Identifier(stream);
+	}
+
 	public byte[]? Read(string path)
+	{
+		var file = GetFile(path);
+
+		if (file == null)
+			return null;
+
+		using var stream = GetStream(file, path);
+
+		return stream?.ReadBytes(file.DecompressedSize);
+	}
+
+	private IndexFile? GetFile(string path)
 	{
 		var file = _index.GetFile(path);
 
 		if (file == null)
 			return null;
 
-		if (!file.Flags.HasFlag(IndexFileFlags.Complete))
-			return null;
+		return file.Flags.HasFlag(IndexFileFlags.Complete) ? file : null;
+	}
 
+	private Stream? GetStream(IndexFile file, string path)
+	{
 		if (_directory != null)
 		{
 			var localPath = Path.Combine(_directory, path);
 
 			if (File.Exists(localPath))
-				return File.ReadAllBytes(localPath);
+				return File.Open(localPath, FileMode.Open, FileAccess.Read);
 		}
 
 		if (_archive == null)
@@ -168,18 +197,16 @@ public class FileSystem : IDisposable
 			return null;
 
 		if (!file.Flags.HasFlag(IndexFileFlags.Compressed))
-			return data;
+			return new MemoryStream(data);
 
 		var properties = new byte[5];
 		Array.Copy(data, properties, properties.Length);
 
-		using var compressedStream = new MemoryStream();
+		var compressedStream = new MemoryStream();
 		compressedStream.Write(data, properties.Length, (int)(file.CompressedSize - (ulong)properties.Length));
 		compressedStream.Position = 0;
 
-		using var lzmaStream = new LzmaStream(properties, compressedStream);
-
-		return lzmaStream.ReadBytes(file.DecompressedSize);
+		return new LzmaStream(properties, compressedStream);
 	}
 
 	public bool Validate(string path)

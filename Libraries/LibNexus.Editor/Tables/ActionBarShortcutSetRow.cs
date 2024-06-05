@@ -4,78 +4,78 @@ namespace LibNexus.Editor.Tables;
 
 public class ActionBarShortcutSetRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("shortcutType00")]
+	[TableColumn("shortcutType00")]
 	public uint ShortcutType00 { get; set; }
 
-	[Column("shortcutType01")]
+	[TableColumn("shortcutType01")]
 	public uint ShortcutType01 { get; set; }
 
-	[Column("shortcutType02")]
+	[TableColumn("shortcutType02")]
 	public uint ShortcutType02 { get; set; }
 
-	[Column("shortcutType03")]
+	[TableColumn("shortcutType03")]
 	public uint ShortcutType03 { get; set; }
 
-	[Column("shortcutType04")]
+	[TableColumn("shortcutType04")]
 	public uint ShortcutType04 { get; set; }
 
-	[Column("shortcutType05")]
+	[TableColumn("shortcutType05")]
 	public uint ShortcutType05 { get; set; }
 
-	[Column("shortcutType06")]
+	[TableColumn("shortcutType06")]
 	public uint ShortcutType06 { get; set; }
 
-	[Column("shortcutType07")]
+	[TableColumn("shortcutType07")]
 	public uint ShortcutType07 { get; set; }
 
-	[Column("shortcutType08")]
+	[TableColumn("shortcutType08")]
 	public uint ShortcutType08 { get; set; }
 
-	[Column("shortcutType09")]
+	[TableColumn("shortcutType09")]
 	public uint ShortcutType09 { get; set; }
 
-	[Column("shortcutType10")]
+	[TableColumn("shortcutType10")]
 	public uint ShortcutType10 { get; set; }
 
-	[Column("shortcutType11")]
+	[TableColumn("shortcutType11")]
 	public uint ShortcutType11 { get; set; }
 
-	[Column("objectId00")]
+	[TableColumn("objectId00")]
 	public uint ObjectId00 { get; set; }
 
-	[Column("objectId01")]
+	[TableColumn("objectId01")]
 	public uint ObjectId01 { get; set; }
 
-	[Column("objectId02")]
+	[TableColumn("objectId02")]
 	public uint ObjectId02 { get; set; }
 
-	[Column("objectId03")]
+	[TableColumn("objectId03")]
 	public uint ObjectId03 { get; set; }
 
-	[Column("objectId04")]
+	[TableColumn("objectId04")]
 	public uint ObjectId04 { get; set; }
 
-	[Column("objectId05")]
+	[TableColumn("objectId05")]
 	public uint ObjectId05 { get; set; }
 
-	[Column("objectId06")]
+	[TableColumn("objectId06")]
 	public uint ObjectId06 { get; set; }
 
-	[Column("objectId07")]
+	[TableColumn("objectId07")]
 	public uint ObjectId07 { get; set; }
 
-	[Column("objectId08")]
+	[TableColumn("objectId08")]
 	public uint ObjectId08 { get; set; }
 
-	[Column("objectId09")]
+	[TableColumn("objectId09")]
 	public uint ObjectId09 { get; set; }
 
-	[Column("objectId10")]
+	[TableColumn("objectId10")]
 	public uint ObjectId10 { get; set; }
 
-	[Column("objectId11")]
+	[TableColumn("objectId11")]
 	public uint ObjectId11 { get; set; }
 }

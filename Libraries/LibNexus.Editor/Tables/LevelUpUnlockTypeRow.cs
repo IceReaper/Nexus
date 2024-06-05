@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class LevelUpUnlockTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 }

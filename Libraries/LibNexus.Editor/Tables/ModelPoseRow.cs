@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelPoseRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("sequenceId")]
+	[TableColumn("sequenceId")]
 	public uint SequenceId { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("modelPoseIdBase")]
+	[TableColumn("modelPoseIdBase")]
 	public uint ModelPoseIdBase { get; set; }
 
-	[Column("modelPoseTypeEnum")]
+	[TableColumn("modelPoseTypeEnum")]
 	public uint ModelPoseTypeEnum { get; set; }
 }

@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4HitResultsRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

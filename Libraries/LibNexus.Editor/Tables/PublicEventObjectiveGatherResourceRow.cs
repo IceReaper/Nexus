@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventObjectiveGatherResourceRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("publicEventObjectiveGatherResourceEnumFlag")]
+	[TableColumn("publicEventObjectiveGatherResourceEnumFlag")]
 	public uint PublicEventObjectiveGatherResourceEnumFlag { get; set; }
 
-	[Column("creature2IdContainer")]
+	[TableColumn("creature2IdContainer")]
 	public uint Creature2IdContainer { get; set; }
 
-	[Column("creature2IdResource")]
+	[TableColumn("creature2IdResource")]
 	public uint Creature2IdResource { get; set; }
 
-	[Column("spell4IdResource")]
+	[TableColumn("spell4IdResource")]
 	public uint Spell4IdResource { get; set; }
 
-	[Column("creature2IdStolenResource")]
+	[TableColumn("creature2IdStolenResource")]
 	public uint Creature2IdStolenResource { get; set; }
 
-	[Column("spell4IdStolenResource")]
+	[TableColumn("spell4IdStolenResource")]
 	public uint Spell4IdStolenResource { get; set; }
 
-	[Column("publicEventObjectiveGatherResourceIdOpposing")]
+	[TableColumn("publicEventObjectiveGatherResourceIdOpposing")]
 	public uint PublicEventObjectiveGatherResourceIdOpposing { get; set; }
 }

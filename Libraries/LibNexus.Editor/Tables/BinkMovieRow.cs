@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class BinkMovieRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("binkMovieAssetPath")]
+	[TableColumn("binkMovieAssetPath")]
 	public string BinkMovieAssetPath { get; set; } = string.Empty;
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

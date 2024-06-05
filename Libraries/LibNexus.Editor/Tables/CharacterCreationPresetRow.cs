@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class CharacterCreationPresetRow
 {
-	[Column("id")]
+	[TableColumn("id")]
 	public uint Id { get; set; }
 
-	[Column("raceId")]
+	[TableColumn("raceId")]
 	public uint RaceId { get; set; }
 
-	[Column("faction2Id")]
+	[TableColumn("faction2Id")]
 	public uint Faction2Id { get; set; }
 
-	[Column("gender")]
+	[TableColumn("gender")]
 	public uint Gender { get; set; }
 
-	[Column("stringPreset")]
+	[TableColumn("stringPreset")]
 	public string StringPreset { get; set; } = string.Empty;
 }

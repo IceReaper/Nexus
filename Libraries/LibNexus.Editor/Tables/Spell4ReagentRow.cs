@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4ReagentRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("reagentType")]
+	[TableColumn("reagentType")]
 	public uint ReagentType { get; set; }
 
-	[Column("reagentTypeObjectId")]
+	[TableColumn("reagentTypeObjectId")]
 	public uint ReagentTypeObjectId { get; set; }
 
-	[Column("reagentCount")]
+	[TableColumn("reagentCount")]
 	public uint ReagentCount { get; set; }
 
-	[Column("consumeReagent")]
+	[TableColumn("consumeReagent")]
 	public bool ConsumeReagent { get; set; }
 }

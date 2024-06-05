@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class ActionSlotPrereqRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("slotIndex")]
+	[TableColumn("slotIndex")]
 	public uint SlotIndex { get; set; }
 
-	[Column("prerequisiteIdUnlock")]
+	[TableColumn("prerequisiteIdUnlock")]
 	public uint PrerequisiteIdUnlock { get; set; }
 }

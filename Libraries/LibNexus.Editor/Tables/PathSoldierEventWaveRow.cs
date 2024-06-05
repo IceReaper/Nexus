@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class PathSoldierEventWaveRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("pathSoldierEventId")]
+	[TableColumn("pathSoldierEventId")]
 	public uint PathSoldierEventId { get; set; }
 
-	[Column("waveIndex")]
+	[TableColumn("waveIndex")]
 	public uint WaveIndex { get; set; }
 
-	[Column("soundZoneKitId")]
+	[TableColumn("soundZoneKitId")]
 	public uint SoundZoneKitId { get; set; }
 }

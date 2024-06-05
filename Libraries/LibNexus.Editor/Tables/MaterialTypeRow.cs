@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class MaterialTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("MaterialFlags")]
+	[TableColumn("MaterialFlags")]
 	public uint MaterialFlags { get; set; }
 }

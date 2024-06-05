@@ -4,48 +4,48 @@ namespace LibNexus.Editor.Tables;
 
 public class WorldWaterLayerRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("RippleColorTex")]
+	[TableColumn("RippleColorTex")]
 	public string RippleColorTex { get; set; } = string.Empty;
 
-	[Column("RippleNormalTex")]
+	[TableColumn("RippleNormalTex")]
 	public string RippleNormalTex { get; set; } = string.Empty;
 
-	[Column("Scale")]
+	[TableColumn("Scale")]
 	public float Scale { get; set; }
 
-	[Column("Rotation")]
+	[TableColumn("Rotation")]
 	public float Rotation { get; set; }
 
-	[Column("Speed")]
+	[TableColumn("Speed")]
 	public float Speed { get; set; }
 
-	[Column("OscFrequency")]
+	[TableColumn("OscFrequency")]
 	public float OscFrequency { get; set; }
 
-	[Column("OscMagnitude")]
+	[TableColumn("OscMagnitude")]
 	public float OscMagnitude { get; set; }
 
-	[Column("OscRotation")]
+	[TableColumn("OscRotation")]
 	public float OscRotation { get; set; }
 
-	[Column("OscPhase")]
+	[TableColumn("OscPhase")]
 	public float OscPhase { get; set; }
 
-	[Column("OscMinLayerWeight")]
+	[TableColumn("OscMinLayerWeight")]
 	public float OscMinLayerWeight { get; set; }
 
-	[Column("OscMaxLayerWeight")]
+	[TableColumn("OscMaxLayerWeight")]
 	public float OscMaxLayerWeight { get; set; }
 
-	[Column("OscLayerWeightPhase")]
+	[TableColumn("OscLayerWeightPhase")]
 	public float OscLayerWeightPhase { get; set; }
 
-	[Column("materialBlend")]
+	[TableColumn("materialBlend")]
 	public float MaterialBlend { get; set; }
 }

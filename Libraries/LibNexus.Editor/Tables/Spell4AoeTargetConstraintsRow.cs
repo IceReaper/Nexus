@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4AoeTargetConstraintsRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("angle")]
+	[TableColumn("angle")]
 	public float Angle { get; set; }
 
-	[Column("targetCount")]
+	[TableColumn("targetCount")]
 	public uint TargetCount { get; set; }
 
-	[Column("minRange")]
+	[TableColumn("minRange")]
 	public float MinRange { get; set; }
 
-	[Column("maxRange")]
+	[TableColumn("maxRange")]
 	public float MaxRange { get; set; }
 
-	[Column("targetSelection")]
+	[TableColumn("targetSelection")]
 	public uint TargetSelection { get; set; }
 }

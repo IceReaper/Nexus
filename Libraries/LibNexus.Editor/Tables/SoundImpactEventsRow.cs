@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundImpactEventsRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("origin")]
+	[TableColumn("origin")]
 	public uint Origin { get; set; }
 
-	[Column("target")]
+	[TableColumn("target")]
 	public uint Target { get; set; }
 
-	[Column("qualifier")]
+	[TableColumn("qualifier")]
 	public uint Qualifier { get; set; }
 
-	[Column("event")]
+	[TableColumn("event")]
 	public uint Event { get; set; }
 }

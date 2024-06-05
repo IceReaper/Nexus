@@ -4,66 +4,66 @@ namespace LibNexus.Editor.Tables;
 
 public class ArchiveEntryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdHeading")]
+	[TableColumn("localizedTextIdHeading")]
 	public uint LocalizedTextIdHeading { get; set; }
 
-	[Column("localizedTextIdText00")]
+	[TableColumn("localizedTextIdText00")]
 	public uint LocalizedTextIdText00 { get; set; }
 
-	[Column("localizedTextIdText01")]
+	[TableColumn("localizedTextIdText01")]
 	public uint LocalizedTextIdText01 { get; set; }
 
-	[Column("localizedTextIdText02")]
+	[TableColumn("localizedTextIdText02")]
 	public uint LocalizedTextIdText02 { get; set; }
 
-	[Column("localizedTextIdText03")]
+	[TableColumn("localizedTextIdText03")]
 	public uint LocalizedTextIdText03 { get; set; }
 
-	[Column("localizedTextIdText04")]
+	[TableColumn("localizedTextIdText04")]
 	public uint LocalizedTextIdText04 { get; set; }
 
-	[Column("localizedTextIdText05")]
+	[TableColumn("localizedTextIdText05")]
 	public uint LocalizedTextIdText05 { get; set; }
 
-	[Column("localizedTextIdTextScientist00")]
+	[TableColumn("localizedTextIdTextScientist00")]
 	public uint LocalizedTextIdTextScientist00 { get; set; }
 
-	[Column("localizedTextIdTextScientist01")]
+	[TableColumn("localizedTextIdTextScientist01")]
 	public uint LocalizedTextIdTextScientist01 { get; set; }
 
-	[Column("localizedTextIdTextScientist02")]
+	[TableColumn("localizedTextIdTextScientist02")]
 	public uint LocalizedTextIdTextScientist02 { get; set; }
 
-	[Column("localizedTextIdTextScientist03")]
+	[TableColumn("localizedTextIdTextScientist03")]
 	public uint LocalizedTextIdTextScientist03 { get; set; }
 
-	[Column("localizedTextIdTextScientist04")]
+	[TableColumn("localizedTextIdTextScientist04")]
 	public uint LocalizedTextIdTextScientist04 { get; set; }
 
-	[Column("localizedTextIdTextScientist05")]
+	[TableColumn("localizedTextIdTextScientist05")]
 	public uint LocalizedTextIdTextScientist05 { get; set; }
 
-	[Column("creature2IdPortrait")]
+	[TableColumn("creature2IdPortrait")]
 	public uint Creature2IdPortrait { get; set; }
 
-	[Column("iconAssetPath")]
+	[TableColumn("iconAssetPath")]
 	public string IconAssetPath { get; set; } = string.Empty;
 
-	[Column("inlineAssetPath")]
+	[TableColumn("inlineAssetPath")]
 	public string InlineAssetPath { get; set; } = string.Empty;
 
-	[Column("archiveEntryTypeEnum")]
+	[TableColumn("archiveEntryTypeEnum")]
 	public uint ArchiveEntryTypeEnum { get; set; }
 
-	[Column("archiveEntryFlags")]
+	[TableColumn("archiveEntryFlags")]
 	public uint ArchiveEntryFlags { get; set; }
 
-	[Column("archiveEntryHeaderEnum")]
+	[TableColumn("archiveEntryHeaderEnum")]
 	public uint ArchiveEntryHeaderEnum { get; set; }
 
-	[Column("characterTitleIdReward")]
+	[TableColumn("characterTitleIdReward")]
 	public uint CharacterTitleIdReward { get; set; }
 }

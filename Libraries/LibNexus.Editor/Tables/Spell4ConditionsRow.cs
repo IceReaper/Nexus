@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4ConditionsRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("conditionMask")]
+	[TableColumn("conditionMask")]
 	public uint ConditionMask { get; set; }
 
-	[Column("conditionValue")]
+	[TableColumn("conditionValue")]
 	public uint ConditionValue { get; set; }
 }

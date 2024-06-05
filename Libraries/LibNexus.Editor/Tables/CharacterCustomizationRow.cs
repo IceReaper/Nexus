@@ -4,33 +4,33 @@ namespace LibNexus.Editor.Tables;
 
 public class CharacterCustomizationRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("raceId")]
+	[TableColumn("raceId")]
 	public uint RaceId { get; set; }
 
-	[Column("gender")]
+	[TableColumn("gender")]
 	public uint Gender { get; set; }
 
-	[Column("itemSlotId")]
+	[TableColumn("itemSlotId")]
 	public uint ItemSlotId { get; set; }
 
-	[Column("itemDisplayId")]
+	[TableColumn("itemDisplayId")]
 	public uint ItemDisplayId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("characterCustomizationLabelId00")]
+	[TableColumn("characterCustomizationLabelId00")]
 	public uint CharacterCustomizationLabelId00 { get; set; }
 
-	[Column("characterCustomizationLabelId01")]
+	[TableColumn("characterCustomizationLabelId01")]
 	public uint CharacterCustomizationLabelId01 { get; set; }
 
-	[Column("value00")]
+	[TableColumn("value00")]
 	public uint Value00 { get; set; }
 
-	[Column("value01")]
+	[TableColumn("value01")]
 	public uint Value01 { get; set; }
 }

@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class RewardPropertyPremiumModifierRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("premiumSystemEnum")]
+	[TableColumn("premiumSystemEnum")]
 	public uint PremiumSystemEnum { get; set; }
 
-	[Column("tier")]
+	[TableColumn("tier")]
 	public uint Tier { get; set; }
 
-	[Column("rewardPropertyId")]
+	[TableColumn("rewardPropertyId")]
 	public uint RewardPropertyId { get; set; }
 
-	[Column("rewardPropertyData")]
+	[TableColumn("rewardPropertyData")]
 	public uint RewardPropertyData { get; set; }
 
-	[Column("modifierValueInt")]
+	[TableColumn("modifierValueInt")]
 	public uint ModifierValueInt { get; set; }
 
-	[Column("modifierValueFloat")]
+	[TableColumn("modifierValueFloat")]
 	public float ModifierValueFloat { get; set; }
 
-	[Column("entitlementIdModifierCount")]
+	[TableColumn("entitlementIdModifierCount")]
 	public uint EntitlementIdModifierCount { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

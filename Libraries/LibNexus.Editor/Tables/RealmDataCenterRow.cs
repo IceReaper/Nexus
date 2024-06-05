@@ -4,45 +4,45 @@ namespace LibNexus.Editor.Tables;
 
 public class RealmDataCenterRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("deploymentRegionEnum")]
+	[TableColumn("deploymentRegionEnum")]
 	public uint DeploymentRegionEnum { get; set; }
 
-	[Column("deploymentTypeEnum")]
+	[TableColumn("deploymentTypeEnum")]
 	public uint DeploymentTypeEnum { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("authServer")]
+	[TableColumn("authServer")]
 	public string AuthServer { get; set; } = string.Empty;
 
-	[Column("ncClientAuthServer")]
+	[TableColumn("ncClientAuthServer")]
 	public string NcClientAuthServer { get; set; } = string.Empty;
 
-	[Column("ncRedirectUrlTemplate")]
+	[TableColumn("ncRedirectUrlTemplate")]
 	public string NcRedirectUrlTemplate { get; set; } = string.Empty;
 
-	[Column("ncRedirectUrlTemplateSignature")]
+	[TableColumn("ncRedirectUrlTemplateSignature")]
 	public string NcRedirectUrlTemplateSignature { get; set; } = string.Empty;
 
-	[Column("ncAppGroupCode")]
+	[TableColumn("ncAppGroupCode")]
 	public string NcAppGroupCode { get; set; } = string.Empty;
 
-	[Column("ncProgramAuth")]
+	[TableColumn("ncProgramAuth")]
 	public uint NcProgramAuth { get; set; }
 
-	[Column("steamSignatureUrlTemplate")]
+	[TableColumn("steamSignatureUrlTemplate")]
 	public string SteamSignatureUrlTemplate { get; set; } = string.Empty;
 
-	[Column("steamNCoinUrlTemplate")]
+	[TableColumn("steamNCoinUrlTemplate")]
 	public string SteamNCoinUrlTemplate { get; set; } = string.Empty;
 
-	[Column("storeBannerDataUrlTemplate")]
+	[TableColumn("storeBannerDataUrlTemplate")]
 	public string StoreBannerDataUrlTemplate { get; set; } = string.Empty;
 }

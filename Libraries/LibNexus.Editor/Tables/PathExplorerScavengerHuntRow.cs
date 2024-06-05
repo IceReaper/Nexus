@@ -4,39 +4,39 @@ namespace LibNexus.Editor.Tables;
 
 public class PathExplorerScavengerHuntRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("creature2IdStart")]
+	[TableColumn("creature2IdStart")]
 	public uint Creature2IdStart { get; set; }
 
-	[Column("pathExplorerScavengerClueId00")]
+	[TableColumn("pathExplorerScavengerClueId00")]
 	public uint PathExplorerScavengerClueId00 { get; set; }
 
-	[Column("pathExplorerScavengerClueId01")]
+	[TableColumn("pathExplorerScavengerClueId01")]
 	public uint PathExplorerScavengerClueId01 { get; set; }
 
-	[Column("pathExplorerScavengerClueId02")]
+	[TableColumn("pathExplorerScavengerClueId02")]
 	public uint PathExplorerScavengerClueId02 { get; set; }
 
-	[Column("pathExplorerScavengerClueId03")]
+	[TableColumn("pathExplorerScavengerClueId03")]
 	public uint PathExplorerScavengerClueId03 { get; set; }
 
-	[Column("pathExplorerScavengerClueId04")]
+	[TableColumn("pathExplorerScavengerClueId04")]
 	public uint PathExplorerScavengerClueId04 { get; set; }
 
-	[Column("pathExplorerScavengerClueId05")]
+	[TableColumn("pathExplorerScavengerClueId05")]
 	public uint PathExplorerScavengerClueId05 { get; set; }
 
-	[Column("pathExplorerScavengerClueId06")]
+	[TableColumn("pathExplorerScavengerClueId06")]
 	public uint PathExplorerScavengerClueId06 { get; set; }
 
-	[Column("localizedTextIdStart")]
+	[TableColumn("localizedTextIdStart")]
 	public uint LocalizedTextIdStart { get; set; }
 
-	[Column("spell4IdRelic")]
+	[TableColumn("spell4IdRelic")]
 	public uint Spell4IdRelic { get; set; }
 
-	[Column("assetPathSprite")]
+	[TableColumn("assetPathSprite")]
 	public string AssetPathSprite { get; set; } = string.Empty;
 }

@@ -4,42 +4,42 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillTierRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("tradeSkillId")]
+	[TableColumn("tradeSkillId")]
 	public uint TradeSkillId { get; set; }
 
-	[Column("tier")]
+	[TableColumn("tier")]
 	public uint Tier { get; set; }
 
-	[Column("requiredXp")]
+	[TableColumn("requiredXp")]
 	public uint RequiredXp { get; set; }
 
-	[Column("learnXp")]
+	[TableColumn("learnXp")]
 	public uint LearnXp { get; set; }
 
-	[Column("craftXp")]
+	[TableColumn("craftXp")]
 	public uint CraftXp { get; set; }
 
-	[Column("firstCraftXp")]
+	[TableColumn("firstCraftXp")]
 	public uint FirstCraftXp { get; set; }
 
-	[Column("questXp")]
+	[TableColumn("questXp")]
 	public uint QuestXp { get; set; }
 
-	[Column("failXp")]
+	[TableColumn("failXp")]
 	public uint FailXp { get; set; }
 
-	[Column("itemLevelMin")]
+	[TableColumn("itemLevelMin")]
 	public uint ItemLevelMin { get; set; }
 
-	[Column("maxAdditives")]
+	[TableColumn("maxAdditives")]
 	public uint MaxAdditives { get; set; }
 
-	[Column("relearnCost")]
+	[TableColumn("relearnCost")]
 	public ulong RelearnCost { get; set; }
 
-	[Column("achievementCategoryId")]
+	[TableColumn("achievementCategoryId")]
 	public uint AchievementCategoryId { get; set; }
 }

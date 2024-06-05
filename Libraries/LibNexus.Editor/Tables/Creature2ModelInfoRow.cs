@@ -4,180 +4,180 @@ namespace LibNexus.Editor.Tables;
 
 public class Creature2ModelInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("assetPath")]
+	[TableColumn("assetPath")]
 	public string AssetPath { get; set; } = string.Empty;
 
-	[Column("assetTexture0")]
+	[TableColumn("assetTexture0")]
 	public string AssetTexture0 { get; set; } = string.Empty;
 
-	[Column("assetTexture1")]
+	[TableColumn("assetTexture1")]
 	public string AssetTexture1 { get; set; } = string.Empty;
 
-	[Column("modelTextureId0")]
+	[TableColumn("modelTextureId0")]
 	public uint ModelTextureId0 { get; set; }
 
-	[Column("modelTextureId1")]
+	[TableColumn("modelTextureId1")]
 	public uint ModelTextureId1 { get; set; }
 
-	[Column("creatureMaterialEnum")]
+	[TableColumn("creatureMaterialEnum")]
 	public uint CreatureMaterialEnum { get; set; }
 
-	[Column("scale")]
+	[TableColumn("scale")]
 	public float Scale { get; set; }
 
-	[Column("hitRadius")]
+	[TableColumn("hitRadius")]
 	public float HitRadius { get; set; }
 
-	[Column("walkLand")]
+	[TableColumn("walkLand")]
 	public float WalkLand { get; set; }
 
-	[Column("walkAir")]
+	[TableColumn("walkAir")]
 	public float WalkAir { get; set; }
 
-	[Column("walkWater")]
+	[TableColumn("walkWater")]
 	public float WalkWater { get; set; }
 
-	[Column("walkHover")]
+	[TableColumn("walkHover")]
 	public float WalkHover { get; set; }
 
-	[Column("runLand")]
+	[TableColumn("runLand")]
 	public float RunLand { get; set; }
 
-	[Column("runAir")]
+	[TableColumn("runAir")]
 	public float RunAir { get; set; }
 
-	[Column("runWater")]
+	[TableColumn("runWater")]
 	public float RunWater { get; set; }
 
-	[Column("runHover")]
+	[TableColumn("runHover")]
 	public float RunHover { get; set; }
 
-	[Column("itemVisualTypeIdFeet")]
+	[TableColumn("itemVisualTypeIdFeet")]
 	public uint ItemVisualTypeIdFeet { get; set; }
 
-	[Column("swimWaterDepth")]
+	[TableColumn("swimWaterDepth")]
 	public float SwimWaterDepth { get; set; }
 
-	[Column("race")]
+	[TableColumn("race")]
 	public uint Race { get; set; }
 
-	[Column("sex")]
+	[TableColumn("sex")]
 	public uint Sex { get; set; }
 
-	[Column("itemDisplayId00")]
+	[TableColumn("itemDisplayId00")]
 	public uint ItemDisplayId00 { get; set; }
 
-	[Column("itemDisplayId01")]
+	[TableColumn("itemDisplayId01")]
 	public uint ItemDisplayId01 { get; set; }
 
-	[Column("itemDisplayId02")]
+	[TableColumn("itemDisplayId02")]
 	public uint ItemDisplayId02 { get; set; }
 
-	[Column("itemDisplayId03")]
+	[TableColumn("itemDisplayId03")]
 	public uint ItemDisplayId03 { get; set; }
 
-	[Column("itemDisplayId04")]
+	[TableColumn("itemDisplayId04")]
 	public uint ItemDisplayId04 { get; set; }
 
-	[Column("itemDisplayId05")]
+	[TableColumn("itemDisplayId05")]
 	public uint ItemDisplayId05 { get; set; }
 
-	[Column("itemDisplayId06")]
+	[TableColumn("itemDisplayId06")]
 	public uint ItemDisplayId06 { get; set; }
 
-	[Column("itemDisplayId07")]
+	[TableColumn("itemDisplayId07")]
 	public uint ItemDisplayId07 { get; set; }
 
-	[Column("itemDisplayId08")]
+	[TableColumn("itemDisplayId08")]
 	public uint ItemDisplayId08 { get; set; }
 
-	[Column("itemDisplayId09")]
+	[TableColumn("itemDisplayId09")]
 	public uint ItemDisplayId09 { get; set; }
 
-	[Column("itemDisplayId10")]
+	[TableColumn("itemDisplayId10")]
 	public uint ItemDisplayId10 { get; set; }
 
-	[Column("itemDisplayId11")]
+	[TableColumn("itemDisplayId11")]
 	public uint ItemDisplayId11 { get; set; }
 
-	[Column("itemDisplayId12")]
+	[TableColumn("itemDisplayId12")]
 	public uint ItemDisplayId12 { get; set; }
 
-	[Column("itemDisplayId13")]
+	[TableColumn("itemDisplayId13")]
 	public uint ItemDisplayId13 { get; set; }
 
-	[Column("itemDisplayId14")]
+	[TableColumn("itemDisplayId14")]
 	public uint ItemDisplayId14 { get; set; }
 
-	[Column("itemDisplayId15")]
+	[TableColumn("itemDisplayId15")]
 	public uint ItemDisplayId15 { get; set; }
 
-	[Column("itemDisplayId16")]
+	[TableColumn("itemDisplayId16")]
 	public uint ItemDisplayId16 { get; set; }
 
-	[Column("itemDisplayId17")]
+	[TableColumn("itemDisplayId17")]
 	public uint ItemDisplayId17 { get; set; }
 
-	[Column("itemDisplayId18")]
+	[TableColumn("itemDisplayId18")]
 	public uint ItemDisplayId18 { get; set; }
 
-	[Column("itemDisplayId19")]
+	[TableColumn("itemDisplayId19")]
 	public uint ItemDisplayId19 { get; set; }
 
-	[Column("modelMeshId00")]
+	[TableColumn("modelMeshId00")]
 	public uint ModelMeshId00 { get; set; }
 
-	[Column("modelMeshId01")]
+	[TableColumn("modelMeshId01")]
 	public uint ModelMeshId01 { get; set; }
 
-	[Column("modelMeshId02")]
+	[TableColumn("modelMeshId02")]
 	public uint ModelMeshId02 { get; set; }
 
-	[Column("modelMeshId03")]
+	[TableColumn("modelMeshId03")]
 	public uint ModelMeshId03 { get; set; }
 
-	[Column("modelMeshId04")]
+	[TableColumn("modelMeshId04")]
 	public uint ModelMeshId04 { get; set; }
 
-	[Column("modelMeshId05")]
+	[TableColumn("modelMeshId05")]
 	public uint ModelMeshId05 { get; set; }
 
-	[Column("modelMeshId06")]
+	[TableColumn("modelMeshId06")]
 	public uint ModelMeshId06 { get; set; }
 
-	[Column("modelMeshId07")]
+	[TableColumn("modelMeshId07")]
 	public uint ModelMeshId07 { get; set; }
 
-	[Column("modelMeshId08")]
+	[TableColumn("modelMeshId08")]
 	public uint ModelMeshId08 { get; set; }
 
-	[Column("modelMeshId09")]
+	[TableColumn("modelMeshId09")]
 	public uint ModelMeshId09 { get; set; }
 
-	[Column("modelMeshId10")]
+	[TableColumn("modelMeshId10")]
 	public uint ModelMeshId10 { get; set; }
 
-	[Column("modelMeshId11")]
+	[TableColumn("modelMeshId11")]
 	public uint ModelMeshId11 { get; set; }
 
-	[Column("modelMeshId12")]
+	[TableColumn("modelMeshId12")]
 	public uint ModelMeshId12 { get; set; }
 
-	[Column("modelMeshId13")]
+	[TableColumn("modelMeshId13")]
 	public uint ModelMeshId13 { get; set; }
 
-	[Column("modelMeshId14")]
+	[TableColumn("modelMeshId14")]
 	public uint ModelMeshId14 { get; set; }
 
-	[Column("modelMeshId15")]
+	[TableColumn("modelMeshId15")]
 	public uint ModelMeshId15 { get; set; }
 
-	[Column("groundOffsetHover")]
+	[TableColumn("groundOffsetHover")]
 	public float GroundOffsetHover { get; set; }
 
-	[Column("groundOffsetFly")]
+	[TableColumn("groundOffsetFly")]
 	public float GroundOffsetFly { get; set; }
 }

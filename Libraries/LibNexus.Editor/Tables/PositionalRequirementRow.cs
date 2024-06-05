@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class PositionalRequirementRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("angleCenter")]
+	[TableColumn("angleCenter")]
 	public uint AngleCenter { get; set; }
 
-	[Column("angleRange")]
+	[TableColumn("angleRange")]
 	public uint AngleRange { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

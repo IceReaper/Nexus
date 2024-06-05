@@ -4,60 +4,60 @@ namespace LibNexus.Editor.Tables;
 
 public class RewardTrackRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("rewardTrackTypeEnum")]
+	[TableColumn("rewardTrackTypeEnum")]
 	public uint RewardTrackTypeEnum { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("localizedTextIdSummary")]
+	[TableColumn("localizedTextIdSummary")]
 	public uint LocalizedTextIdSummary { get; set; }
 
-	[Column("assetPathImage")]
+	[TableColumn("assetPathImage")]
 	public string AssetPathImage { get; set; } = string.Empty;
 
-	[Column("assetPathButtonImage")]
+	[TableColumn("assetPathButtonImage")]
 	public string AssetPathButtonImage { get; set; } = string.Empty;
 
-	[Column("rewardPointCost00")]
+	[TableColumn("rewardPointCost00")]
 	public uint RewardPointCost00 { get; set; }
 
-	[Column("rewardPointCost01")]
+	[TableColumn("rewardPointCost01")]
 	public uint RewardPointCost01 { get; set; }
 
-	[Column("rewardPointCost02")]
+	[TableColumn("rewardPointCost02")]
 	public uint RewardPointCost02 { get; set; }
 
-	[Column("rewardPointCost03")]
+	[TableColumn("rewardPointCost03")]
 	public uint RewardPointCost03 { get; set; }
 
-	[Column("rewardPointCost04")]
+	[TableColumn("rewardPointCost04")]
 	public uint RewardPointCost04 { get; set; }
 
-	[Column("rewardPointCost05")]
+	[TableColumn("rewardPointCost05")]
 	public uint RewardPointCost05 { get; set; }
 
-	[Column("rewardPointCost06")]
+	[TableColumn("rewardPointCost06")]
 	public uint RewardPointCost06 { get; set; }
 
-	[Column("rewardPointCost07")]
+	[TableColumn("rewardPointCost07")]
 	public uint RewardPointCost07 { get; set; }
 
-	[Column("rewardPointCost08")]
+	[TableColumn("rewardPointCost08")]
 	public uint RewardPointCost08 { get; set; }
 
-	[Column("rewardPointCost09")]
+	[TableColumn("rewardPointCost09")]
 	public uint RewardPointCost09 { get; set; }
 
-	[Column("rewardTrackIdParent")]
+	[TableColumn("rewardTrackIdParent")]
 	public uint RewardTrackIdParent { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

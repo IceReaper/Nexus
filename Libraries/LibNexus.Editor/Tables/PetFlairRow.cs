@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class PetFlairRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("unlockBitIndex00")]
+	[TableColumn("unlockBitIndex00")]
 	public uint UnlockBitIndex00 { get; set; }
 
-	[Column("unlockBitIndex01")]
+	[TableColumn("unlockBitIndex01")]
 	public uint UnlockBitIndex01 { get; set; }
 
-	[Column("type")]
+	[TableColumn("type")]
 	public uint Type { get; set; }
 
-	[Column("spell4Id")]
+	[TableColumn("spell4Id")]
 	public uint Spell4Id { get; set; }
 
-	[Column("localizedTextIdTooltip")]
+	[TableColumn("localizedTextIdTooltip")]
 	public uint LocalizedTextIdTooltip { get; set; }
 
-	[Column("itemDisplayId00")]
+	[TableColumn("itemDisplayId00")]
 	public uint ItemDisplayId00 { get; set; }
 
-	[Column("itemDisplayId01")]
+	[TableColumn("itemDisplayId01")]
 	public uint ItemDisplayId01 { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 }

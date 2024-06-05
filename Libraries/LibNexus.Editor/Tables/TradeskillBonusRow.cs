@@ -4,75 +4,75 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillBonusRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("tradeSkillTierId")]
+	[TableColumn("tradeSkillTierId")]
 	public uint TradeSkillTierId { get; set; }
 
-	[Column("achievementId")]
+	[TableColumn("achievementId")]
 	public uint AchievementId { get; set; }
 
-	[Column("iconPath")]
+	[TableColumn("iconPath")]
 	public string IconPath { get; set; } = string.Empty;
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdTooltip")]
+	[TableColumn("localizedTextIdTooltip")]
 	public uint LocalizedTextIdTooltip { get; set; }
 
-	[Column("tradeskillBonusEnum00")]
+	[TableColumn("tradeskillBonusEnum00")]
 	public uint TradeskillBonusEnum00 { get; set; }
 
-	[Column("tradeskillBonusEnum01")]
+	[TableColumn("tradeskillBonusEnum01")]
 	public uint TradeskillBonusEnum01 { get; set; }
 
-	[Column("tradeskillBonusEnum02")]
+	[TableColumn("tradeskillBonusEnum02")]
 	public uint TradeskillBonusEnum02 { get; set; }
 
-	[Column("objectIdPrimary00")]
+	[TableColumn("objectIdPrimary00")]
 	public uint ObjectIdPrimary00 { get; set; }
 
-	[Column("objectIdPrimary01")]
+	[TableColumn("objectIdPrimary01")]
 	public uint ObjectIdPrimary01 { get; set; }
 
-	[Column("objectIdPrimary02")]
+	[TableColumn("objectIdPrimary02")]
 	public uint ObjectIdPrimary02 { get; set; }
 
-	[Column("objectIdSecondary00")]
+	[TableColumn("objectIdSecondary00")]
 	public uint ObjectIdSecondary00 { get; set; }
 
-	[Column("objectIdSecondary01")]
+	[TableColumn("objectIdSecondary01")]
 	public uint ObjectIdSecondary01 { get; set; }
 
-	[Column("objectIdSecondary02")]
+	[TableColumn("objectIdSecondary02")]
 	public uint ObjectIdSecondary02 { get; set; }
 
-	[Column("objectIdTertiary00")]
+	[TableColumn("objectIdTertiary00")]
 	public uint ObjectIdTertiary00 { get; set; }
 
-	[Column("objectIdTertiary01")]
+	[TableColumn("objectIdTertiary01")]
 	public uint ObjectIdTertiary01 { get; set; }
 
-	[Column("objectIdTertiary02")]
+	[TableColumn("objectIdTertiary02")]
 	public uint ObjectIdTertiary02 { get; set; }
 
-	[Column("value00")]
+	[TableColumn("value00")]
 	public float Value00 { get; set; }
 
-	[Column("value01")]
+	[TableColumn("value01")]
 	public float Value01 { get; set; }
 
-	[Column("value02")]
+	[TableColumn("value02")]
 	public float Value02 { get; set; }
 
-	[Column("valueInt00")]
+	[TableColumn("valueInt00")]
 	public uint ValueInt00 { get; set; }
 
-	[Column("valueInt01")]
+	[TableColumn("valueInt01")]
 	public uint ValueInt01 { get; set; }
 
-	[Column("valueInt02")]
+	[TableColumn("valueInt02")]
 	public uint ValueInt02 { get; set; }
 }

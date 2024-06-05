@@ -4,63 +4,63 @@ namespace LibNexus.Editor.Tables;
 
 public class WorldLayerRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("Description")]
+	[TableColumn("Description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("HeightScale")]
+	[TableColumn("HeightScale")]
 	public float HeightScale { get; set; }
 
-	[Column("HeightOffset")]
+	[TableColumn("HeightOffset")]
 	public float HeightOffset { get; set; }
 
-	[Column("ParallaxScale")]
+	[TableColumn("ParallaxScale")]
 	public float ParallaxScale { get; set; }
 
-	[Column("ParallaxOffset")]
+	[TableColumn("ParallaxOffset")]
 	public float ParallaxOffset { get; set; }
 
-	[Column("MetersPerTextureTile")]
+	[TableColumn("MetersPerTextureTile")]
 	public float MetersPerTextureTile { get; set; }
 
-	[Column("ColorMapPath")]
+	[TableColumn("ColorMapPath")]
 	public string ColorMapPath { get; set; } = string.Empty;
 
-	[Column("NormalMapPath")]
+	[TableColumn("NormalMapPath")]
 	public string NormalMapPath { get; set; } = string.Empty;
 
-	[Column("AverageColor")]
+	[TableColumn("AverageColor")]
 	public uint AverageColor { get; set; }
 
-	[Column("Projection")]
+	[TableColumn("Projection")]
 	public uint Projection { get; set; }
 
-	[Column("materialType")]
+	[TableColumn("materialType")]
 	public uint MaterialType { get; set; }
 
-	[Column("worldClutterId00")]
+	[TableColumn("worldClutterId00")]
 	public uint WorldClutterId00 { get; set; }
 
-	[Column("worldClutterId01")]
+	[TableColumn("worldClutterId01")]
 	public uint WorldClutterId01 { get; set; }
 
-	[Column("worldClutterId02")]
+	[TableColumn("worldClutterId02")]
 	public uint WorldClutterId02 { get; set; }
 
-	[Column("worldClutterId03")]
+	[TableColumn("worldClutterId03")]
 	public uint WorldClutterId03 { get; set; }
 
-	[Column("specularPower")]
+	[TableColumn("specularPower")]
 	public float SpecularPower { get; set; }
 
-	[Column("emissiveGlow")]
+	[TableColumn("emissiveGlow")]
 	public uint EmissiveGlow { get; set; }
 
-	[Column("scrollSpeed00")]
+	[TableColumn("scrollSpeed00")]
 	public float ScrollSpeed00 { get; set; }
 
-	[Column("scrollSpeed01")]
+	[TableColumn("scrollSpeed01")]
 	public float ScrollSpeed01 { get; set; }
 }

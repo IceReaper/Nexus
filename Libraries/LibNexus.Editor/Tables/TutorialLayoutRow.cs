@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class TutorialLayoutRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("form")]
+	[TableColumn("form")]
 	public string Form { get; set; } = string.Empty;
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

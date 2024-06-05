@@ -34,38 +34,38 @@ public static class StreamExtensions
 		return Encoding.ASCII.GetString(ReadBytes(stream, sizeof(uint)).Reverse().ToArray());
 	}
 
-	public static string ReadString(this Stream stream)
+	public static string ReadString(this Stream stream, ulong? length = null)
 	{
 		var value = string.Empty;
 
-		while (true)
+		for (var i = 0UL; length == null || i < length; i++)
 		{
 			var character = stream.ReadBytes(sizeof(byte))[0];
 
-			if (character == 0x00)
+			if (length == null && character == 0x00)
 				break;
 
 			value += (char)character;
 		}
 
-		return value;
+		return value.Split('\0')[0];
 	}
 
-	public static string ReadWideString(this Stream stream)
+	public static string ReadWideString(this Stream stream, ulong? length = null)
 	{
 		var value = string.Empty;
 
-		while (true)
+		for (var i = 0UL; length == null || i < length; i++)
 		{
 			var character = BitConverter.ToUInt16(stream.ReadBytes(sizeof(ushort)));
 
-			if (character == 0x00)
+			if (length == null && character == 0x00)
 				break;
 
 			value += (char)character;
 		}
 
-		return value;
+		return value.Split('\0')[0];
 	}
 
 	public static byte[] ReadBytes(this Stream stream, ulong length)
@@ -106,5 +106,11 @@ public static class StreamExtensions
 	public static void WriteBytes(this Stream stream, byte[] value)
 	{
 		stream.Write(value);
+	}
+
+	public static void SkipPadding(this Stream stream, ulong size)
+	{
+		if (stream.Position % (long)size != 0)
+			stream.Position += (long)(size - (ulong)(stream.Position % (long)size));
 	}
 }

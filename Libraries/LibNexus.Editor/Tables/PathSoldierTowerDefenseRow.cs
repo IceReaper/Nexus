@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class PathSoldierTowerDefenseRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("pathSoldierEventId")]
+	[TableColumn("pathSoldierEventId")]
 	public uint PathSoldierEventId { get; set; }
 
-	[Column("buildCost")]
+	[TableColumn("buildCost")]
 	public uint BuildCost { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("worldLocation2IdDisplay")]
+	[TableColumn("worldLocation2IdDisplay")]
 	public uint WorldLocation2IdDisplay { get; set; }
 
-	[Column("towerDefenseBuildType")]
+	[TableColumn("towerDefenseBuildType")]
 	public uint TowerDefenseBuildType { get; set; }
 
-	[Column("spell4Id")]
+	[TableColumn("spell4Id")]
 	public uint Spell4Id { get; set; }
 
-	[Column("soldierTowerDefenseFlags")]
+	[TableColumn("soldierTowerDefenseFlags")]
 	public uint SoldierTowerDefenseFlags { get; set; }
 
-	[Column("soldierTowerDefenseImprovementType")]
+	[TableColumn("soldierTowerDefenseImprovementType")]
 	public uint SoldierTowerDefenseImprovementType { get; set; }
 }

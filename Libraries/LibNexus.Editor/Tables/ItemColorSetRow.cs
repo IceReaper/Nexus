@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemColorSetRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("dyeColorRampId00")]
+	[TableColumn("dyeColorRampId00")]
 	public uint DyeColorRampId00 { get; set; }
 
-	[Column("dyeColorRampId01")]
+	[TableColumn("dyeColorRampId01")]
 	public uint DyeColorRampId01 { get; set; }
 
-	[Column("dyeColorRampId02")]
+	[TableColumn("dyeColorRampId02")]
 	public uint DyeColorRampId02 { get; set; }
 }

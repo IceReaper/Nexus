@@ -1,125 +1,47 @@
 using LibNexus.Core.Extensions;
-using System.Reflection;
+using LibNexus.Core.Streams;
+using System.Collections.ObjectModel;
 
 namespace LibNexus.Files.TableFiles;
 
-public class Table<T> : TableBase
+public class Table
 {
-	public Dictionary<uint, T?> Rows { get; } = [];
+	private static readonly Identifier Identifier = new("DTBL", 0);
+
+	protected Stream Data { get; }
+
+	protected TableHeader Header { get; }
+
+	public string Name { get; }
+	public Collection<TableColumn> Columns { get; } = [];
 
 	public Table(Stream stream)
-		: base(stream)
 	{
-		if (Header.RowsOffset == 0)
-			return;
+		FileFormatException.ThrowIf<Table>(nameof(Identifier), new Identifier(stream) != Identifier);
+		Header = new TableHeader(stream);
+		Data = new SegmentStream(stream, Identifier.Size + TableHeader.Size, stream.Length - Identifier.Size - TableHeader.Size, true);
 
-		var rowsPosition = ContentStart + Header.RowsOffset;
+		FileFormatException.ThrowIf<Table>(nameof(Header.NameOffset), (ulong)Data.Position != Header.NameOffset);
+		Name = Data.ReadWideString(Header.NameLength);
+		Data.SkipPadding(16);
 
-		if ((ulong)Stream.Position != rowsPosition)
-			throw new Exception("Table: Invalid rows offset");
+		FileFormatException.ThrowIf<Table>(nameof(Header.ColumnsOffset), (ulong)Data.Position != Header.ColumnsOffset);
+		Data.Position += (long)(Header.Columns * TableColumn.Stride);
+		Data.SkipPadding(16);
 
-		Stream.Position += (long)(Header.Rows * Header.RowLength);
-
+		var columnNamesPosition = (ulong)Data.Position;
 		var strings = new Dictionary<ulong, string>();
 
-		while ((ulong)Stream.Position < rowsPosition + Header.RowsLength)
-			strings.Add((ulong)Stream.Position - rowsPosition, Stream.ReadWideString());
-
-		SkipPadding();
-
-		var idMapPosition = ContentStart + Header.IdMapOffset;
-
-		if ((ulong)Stream.Position != idMapPosition)
-			throw new Exception("Table: Invalid id map offset");
-
-		Stream.Position = (long)rowsPosition;
-
-		var properties = typeof(T).GetProperties()
-			.ToDictionary(
-				static property => property,
-				static property => property.GetCustomAttribute<ColumnAttribute>() ?? throw new Exception("Table: Invalid property")
-			);
-
-		var rows = new List<T>();
-
-		for (var i = 0U; i < Header.Rows; i++)
+		for (var i = 0UL; i < Header.Columns; i++)
 		{
-			rows.Add(ReadRow(properties, strings, out var rowLength));
-
-			// TODO Not empty on TradeskillTier
-			Stream.ReadBytes(Header.RowLength - rowLength);
+			strings.Add((ulong)Data.Position - columnNamesPosition, Data.ReadWideString());
+			Data.SkipPadding(16);
 		}
 
-		Stream.Position = (long)idMapPosition;
+		FileFormatException.ThrowIf<Table>(nameof(Header.RowsOffset), Header.RowsOffset != 0 && (ulong)Data.Position != Header.RowsOffset);
+		Data.Position = (long)Header.ColumnsOffset;
 
-		for (var i = 0U; i < Header.AutoIncrement; i++)
-		{
-			var id = Stream.ReadUInt32();
-
-			Rows.Add(i, id == uint.MaxValue ? default : rows[(int)id]);
-		}
-	}
-
-	private T ReadRow(Dictionary<PropertyInfo, ColumnAttribute> properties, Dictionary<ulong, string> strings, out ulong rowLength)
-	{
-		var row = Activator.CreateInstance<T>();
-		rowLength = 0;
-
-		foreach (var column in Columns)
-		{
-			var property = properties.FirstOrDefault(entry => entry.Value.Name == column.Name).Key ?? throw new Exception("Table: Invalid column");
-
-			object value;
-
-			switch (column.Type)
-			{
-				case TableColumnType.Uint:
-					value = Stream.ReadUInt32();
-					rowLength += 4;
-
-					break;
-
-				case TableColumnType.Float:
-					value = Stream.ReadSingle();
-					rowLength += 4;
-
-					break;
-
-				case TableColumnType.Bool:
-					value = Stream.ReadUInt32() != 0;
-					rowLength += 4;
-
-					break;
-
-				case TableColumnType.Ulong:
-					value = Stream.ReadUInt64();
-					rowLength += 8;
-
-					break;
-
-				case TableColumnType.String:
-				{
-					var offsetOrZero = Stream.ReadUInt32();
-					var textOffset = offsetOrZero != 0 ? offsetOrZero : Stream.ReadUInt32();
-					var unk1 = Stream.ReadUInt32();
-
-					value = strings[textOffset];
-
-					if (unk1 != 0)
-						throw new Exception("Table: Invalid unk1");
-
-					rowLength += (ulong)(offsetOrZero != 0 ? 8 : 12);
-
-					break;
-				}
-
-				default:
-					throw new ArgumentOutOfRangeException(Enum.GetName(column.Type));
-			}
-
-			property.SetValue(row, value);
-		}
-
-		return row;
+		for (var i = 0UL; i < Header.Columns; i++)
+			Columns.Add(new TableColumn(Data, strings));
 	}
 }

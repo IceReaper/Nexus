@@ -4,36 +4,36 @@ namespace LibNexus.Editor.Tables;
 
 public class PathRewardRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("pathRewardTypeEnum")]
+	[TableColumn("pathRewardTypeEnum")]
 	public uint PathRewardTypeEnum { get; set; }
 
-	[Column("objectId")]
+	[TableColumn("objectId")]
 	public uint ObjectId { get; set; }
 
-	[Column("spell4Id")]
+	[TableColumn("spell4Id")]
 	public uint Spell4Id { get; set; }
 
-	[Column("item2Id")]
+	[TableColumn("item2Id")]
 	public uint Item2Id { get; set; }
 
-	[Column("quest2Id")]
+	[TableColumn("quest2Id")]
 	public uint Quest2Id { get; set; }
 
-	[Column("characterTitleId")]
+	[TableColumn("characterTitleId")]
 	public uint CharacterTitleId { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("count")]
+	[TableColumn("count")]
 	public uint Count { get; set; }
 
-	[Column("pathRewardFlags")]
+	[TableColumn("pathRewardFlags")]
 	public uint PathRewardFlags { get; set; }
 
-	[Column("pathScientistScanBotProfileId")]
+	[TableColumn("pathScientistScanBotProfileId")]
 	public uint PathScientistScanBotProfileId { get; set; }
 }

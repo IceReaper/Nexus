@@ -4,6 +4,8 @@ namespace LibNexus.Files.TranslationsFiles;
 
 public class TranslationsHeader
 {
+	public const uint Size = 88;
+
 	public uint Id { get; }
 	public ulong NameLength { get; }
 	public ulong NameOffset { get; }
@@ -11,15 +13,15 @@ public class TranslationsHeader
 	public ulong CodeOffset { get; }
 	public ulong DescriptionLength { get; }
 	public ulong DescriptionOffset { get; }
-	public ulong TranslationsAmount { get; set; }
+	public ulong TranslationsAmount { get; }
 	public ulong TranslationsOffset { get; }
-	public ulong StringsWideCharacter { get; set; }
-	public ulong StringsOffset { get; set; }
+	public ulong CharactersAmount { get; }
+	public ulong CharactersOffset { get; }
 
 	public TranslationsHeader(Stream stream)
 	{
 		Id = stream.ReadUInt32();
-		stream.ReadUInt32(); // TODO
+		stream.ReadUInt32(); // TODO What is this?!
 		NameLength = stream.ReadUInt64();
 		NameOffset = stream.ReadUInt64();
 		CodeLength = stream.ReadUInt64();
@@ -28,7 +30,7 @@ public class TranslationsHeader
 		DescriptionOffset = stream.ReadUInt64();
 		TranslationsAmount = stream.ReadUInt64();
 		TranslationsOffset = stream.ReadUInt64();
-		StringsWideCharacter = stream.ReadUInt64();
-		StringsOffset = stream.ReadUInt64();
+		CharactersAmount = stream.ReadUInt64();
+		CharactersOffset = stream.ReadUInt64();
 	}
 }

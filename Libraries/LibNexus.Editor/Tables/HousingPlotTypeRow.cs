@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingPlotTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("maxPlacedDecor")]
+	[TableColumn("maxPlacedDecor")]
 	public uint MaxPlacedDecor { get; set; }
 }

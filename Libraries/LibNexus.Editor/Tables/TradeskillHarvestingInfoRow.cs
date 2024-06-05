@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillHarvestingInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("tradeSkillTierId")]
+	[TableColumn("tradeSkillTierId")]
 	public uint TradeSkillTierId { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("miniMapMarkerId")]
+	[TableColumn("miniMapMarkerId")]
 	public uint MiniMapMarkerId { get; set; }
 }

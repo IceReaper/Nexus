@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class MapZoneLevelBandRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("mapZoneHexGroupId")]
+	[TableColumn("mapZoneHexGroupId")]
 	public uint MapZoneHexGroupId { get; set; }
 
-	[Column("levelMin")]
+	[TableColumn("levelMin")]
 	public uint LevelMin { get; set; }
 
-	[Column("levelMax")]
+	[TableColumn("levelMax")]
 	public uint LevelMax { get; set; }
 
-	[Column("labelX")]
+	[TableColumn("labelX")]
 	public uint LabelX { get; set; }
 
-	[Column("labelZ")]
+	[TableColumn("labelZ")]
 	public uint LabelZ { get; set; }
 }

@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class VitalRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdDisplayText")]
+	[TableColumn("localizedTextIdDisplayText")]
 	public uint LocalizedTextIdDisplayText { get; set; }
 }

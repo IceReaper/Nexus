@@ -4,33 +4,33 @@ namespace LibNexus.Editor.Tables;
 
 public class LootPinataInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("item2Id")]
+	[TableColumn("item2Id")]
 	public uint Item2Id { get; set; }
 
-	[Column("item2TypeId")]
+	[TableColumn("item2TypeId")]
 	public uint Item2TypeId { get; set; }
 
-	[Column("item2CategoryId")]
+	[TableColumn("item2CategoryId")]
 	public uint Item2CategoryId { get; set; }
 
-	[Column("item2FamilyId")]
+	[TableColumn("item2FamilyId")]
 	public uint Item2FamilyId { get; set; }
 
-	[Column("virtualItemId")]
+	[TableColumn("virtualItemId")]
 	public uint VirtualItemId { get; set; }
 
-	[Column("accountCurrencyTypeId")]
+	[TableColumn("accountCurrencyTypeId")]
 	public uint AccountCurrencyTypeId { get; set; }
 
-	[Column("creature2IdChest")]
+	[TableColumn("creature2IdChest")]
 	public uint Creature2IdChest { get; set; }
 
-	[Column("mass")]
+	[TableColumn("mass")]
 	public float Mass { get; set; }
 
-	[Column("soundEventId")]
+	[TableColumn("soundEventId")]
 	public uint SoundEventId { get; set; }
 }

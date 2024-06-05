@@ -4,87 +4,87 @@ namespace LibNexus.Editor.Tables;
 
 public class CharacterCreationRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("classId")]
+	[TableColumn("classId")]
 	public uint ClassId { get; set; }
 
-	[Column("raceId")]
+	[TableColumn("raceId")]
 	public uint RaceId { get; set; }
 
-	[Column("sex")]
+	[TableColumn("sex")]
 	public uint Sex { get; set; }
 
-	[Column("factionId")]
+	[TableColumn("factionId")]
 	public uint FactionId { get; set; }
 
-	[Column("costumeOnly")]
+	[TableColumn("costumeOnly")]
 	public bool CostumeOnly { get; set; }
 
-	[Column("itemId0")]
+	[TableColumn("itemId0")]
 	public uint ItemId0 { get; set; }
 
-	[Column("itemId01")]
+	[TableColumn("itemId01")]
 	public uint ItemId01 { get; set; }
 
-	[Column("itemId02")]
+	[TableColumn("itemId02")]
 	public uint ItemId02 { get; set; }
 
-	[Column("itemId03")]
+	[TableColumn("itemId03")]
 	public uint ItemId03 { get; set; }
 
-	[Column("itemId04")]
+	[TableColumn("itemId04")]
 	public uint ItemId04 { get; set; }
 
-	[Column("itemId05")]
+	[TableColumn("itemId05")]
 	public uint ItemId05 { get; set; }
 
-	[Column("itemId06")]
+	[TableColumn("itemId06")]
 	public uint ItemId06 { get; set; }
 
-	[Column("itemId07")]
+	[TableColumn("itemId07")]
 	public uint ItemId07 { get; set; }
 
-	[Column("itemId08")]
+	[TableColumn("itemId08")]
 	public uint ItemId08 { get; set; }
 
-	[Column("itemId09")]
+	[TableColumn("itemId09")]
 	public uint ItemId09 { get; set; }
 
-	[Column("itemId010")]
+	[TableColumn("itemId010")]
 	public uint ItemId010 { get; set; }
 
-	[Column("itemId011")]
+	[TableColumn("itemId011")]
 	public uint ItemId011 { get; set; }
 
-	[Column("itemId012")]
+	[TableColumn("itemId012")]
 	public uint ItemId012 { get; set; }
 
-	[Column("itemId013")]
+	[TableColumn("itemId013")]
 	public uint ItemId013 { get; set; }
 
-	[Column("itemId014")]
+	[TableColumn("itemId014")]
 	public uint ItemId014 { get; set; }
 
-	[Column("itemId015")]
+	[TableColumn("itemId015")]
 	public uint ItemId015 { get; set; }
 
-	[Column("enabled")]
+	[TableColumn("enabled")]
 	public bool Enabled { get; set; }
 
-	[Column("characterCreationStartEnum")]
+	[TableColumn("characterCreationStartEnum")]
 	public uint CharacterCreationStartEnum { get; set; }
 
-	[Column("xp")]
+	[TableColumn("xp")]
 	public uint Xp { get; set; }
 
-	[Column("accountCurrencyTypeIdCost")]
+	[TableColumn("accountCurrencyTypeIdCost")]
 	public uint AccountCurrencyTypeIdCost { get; set; }
 
-	[Column("accountCurrencyAmountCost")]
+	[TableColumn("accountCurrencyAmountCost")]
 	public uint AccountCurrencyAmountCost { get; set; }
 
-	[Column("entitlementIdRequired")]
+	[TableColumn("entitlementIdRequired")]
 	public uint EntitlementIdRequired { get; set; }
 }

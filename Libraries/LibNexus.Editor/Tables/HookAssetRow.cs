@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class HookAssetRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("asset")]
+	[TableColumn("asset")]
 	public string Asset { get; set; } = string.Empty;
 
-	[Column("scale")]
+	[TableColumn("scale")]
 	public float Scale { get; set; }
 
-	[Column("offsetX")]
+	[TableColumn("offsetX")]
 	public float OffsetX { get; set; }
 
-	[Column("offsetY")]
+	[TableColumn("offsetY")]
 	public float OffsetY { get; set; }
 
-	[Column("offsetZ")]
+	[TableColumn("offsetZ")]
 	public float OffsetZ { get; set; }
 
-	[Column("rotationX")]
+	[TableColumn("rotationX")]
 	public float RotationX { get; set; }
 
-	[Column("rotationY")]
+	[TableColumn("rotationY")]
 	public float RotationY { get; set; }
 
-	[Column("rotationZ")]
+	[TableColumn("rotationZ")]
 	public float RotationZ { get; set; }
 }

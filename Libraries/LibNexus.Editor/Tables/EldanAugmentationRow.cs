@@ -4,39 +4,39 @@ namespace LibNexus.Editor.Tables;
 
 public class EldanAugmentationRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("displayRow")]
+	[TableColumn("displayRow")]
 	public uint DisplayRow { get; set; }
 
-	[Column("displayColumn")]
+	[TableColumn("displayColumn")]
 	public uint DisplayColumn { get; set; }
 
-	[Column("classId")]
+	[TableColumn("classId")]
 	public uint ClassId { get; set; }
 
-	[Column("powerCost")]
+	[TableColumn("powerCost")]
 	public uint PowerCost { get; set; }
 
-	[Column("eldanAugmentationIdRequired")]
+	[TableColumn("eldanAugmentationIdRequired")]
 	public uint EldanAugmentationIdRequired { get; set; }
 
-	[Column("spell4IdAugment")]
+	[TableColumn("spell4IdAugment")]
 	public uint Spell4IdAugment { get; set; }
 
-	[Column("item2IdUnlock")]
+	[TableColumn("item2IdUnlock")]
 	public uint Item2IdUnlock { get; set; }
 
-	[Column("eldanAugmentationCategoryId")]
+	[TableColumn("eldanAugmentationCategoryId")]
 	public uint EldanAugmentationCategoryId { get; set; }
 
-	[Column("categoryTier")]
+	[TableColumn("categoryTier")]
 	public uint CategoryTier { get; set; }
 
-	[Column("localizedTextIdTitle")]
+	[TableColumn("localizedTextIdTitle")]
 	public uint LocalizedTextIdTitle { get; set; }
 
-	[Column("localizedTextIdTooltip")]
+	[TableColumn("localizedTextIdTooltip")]
 	public uint LocalizedTextIdTooltip { get; set; }
 }

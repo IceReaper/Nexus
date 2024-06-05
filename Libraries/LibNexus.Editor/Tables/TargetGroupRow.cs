@@ -4,33 +4,33 @@ namespace LibNexus.Editor.Tables;
 
 public class TargetGroupRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdDisplayString")]
+	[TableColumn("localizedTextIdDisplayString")]
 	public uint LocalizedTextIdDisplayString { get; set; }
 
-	[Column("type")]
+	[TableColumn("type")]
 	public uint Type { get; set; }
 
-	[Column("data0")]
+	[TableColumn("data0")]
 	public uint Data0 { get; set; }
 
-	[Column("data1")]
+	[TableColumn("data1")]
 	public uint Data1 { get; set; }
 
-	[Column("data2")]
+	[TableColumn("data2")]
 	public uint Data2 { get; set; }
 
-	[Column("data3")]
+	[TableColumn("data3")]
 	public uint Data3 { get; set; }
 
-	[Column("data4")]
+	[TableColumn("data4")]
 	public uint Data4 { get; set; }
 
-	[Column("data5")]
+	[TableColumn("data5")]
 	public uint Data5 { get; set; }
 
-	[Column("data6")]
+	[TableColumn("data6")]
 	public uint Data6 { get; set; }
 }

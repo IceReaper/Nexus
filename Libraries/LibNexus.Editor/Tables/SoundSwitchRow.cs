@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundSwitchRow
 {
-	[Column("id")]
+	[TableColumn("id")]
 	public uint Id { get; set; }
 
-	[Column("nameHash")]
+	[TableColumn("nameHash")]
 	public uint NameHash { get; set; }
 
-	[Column("groupHash")]
+	[TableColumn("groupHash")]
 	public uint GroupHash { get; set; }
 }

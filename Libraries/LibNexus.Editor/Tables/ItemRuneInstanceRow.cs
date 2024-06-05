@@ -4,42 +4,42 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemRuneInstanceRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("definedSocketCount")]
+	[TableColumn("definedSocketCount")]
 	public uint DefinedSocketCount { get; set; }
 
-	[Column("definedSocketType00")]
+	[TableColumn("definedSocketType00")]
 	public uint DefinedSocketType00 { get; set; }
 
-	[Column("definedSocketType01")]
+	[TableColumn("definedSocketType01")]
 	public uint DefinedSocketType01 { get; set; }
 
-	[Column("definedSocketType02")]
+	[TableColumn("definedSocketType02")]
 	public uint DefinedSocketType02 { get; set; }
 
-	[Column("definedSocketType03")]
+	[TableColumn("definedSocketType03")]
 	public uint DefinedSocketType03 { get; set; }
 
-	[Column("definedSocketType04")]
+	[TableColumn("definedSocketType04")]
 	public uint DefinedSocketType04 { get; set; }
 
-	[Column("definedSocketType05")]
+	[TableColumn("definedSocketType05")]
 	public uint DefinedSocketType05 { get; set; }
 
-	[Column("definedSocketType06")]
+	[TableColumn("definedSocketType06")]
 	public uint DefinedSocketType06 { get; set; }
 
-	[Column("definedSocketType07")]
+	[TableColumn("definedSocketType07")]
 	public uint DefinedSocketType07 { get; set; }
 
-	[Column("itemSetId")]
+	[TableColumn("itemSetId")]
 	public uint ItemSetId { get; set; }
 
-	[Column("itemSetPower")]
+	[TableColumn("itemSetPower")]
 	public uint ItemSetPower { get; set; }
 
-	[Column("socketCountMax")]
+	[TableColumn("socketCountMax")]
 	public uint SocketCountMax { get; set; }
 }

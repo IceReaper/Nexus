@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class MatchingGameMapRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("matchingGameMapEnumFlags")]
+	[TableColumn("matchingGameMapEnumFlags")]
 	public uint MatchingGameMapEnumFlags { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("matchingGameTypeId")]
+	[TableColumn("matchingGameTypeId")]
 	public uint MatchingGameTypeId { get; set; }
 
-	[Column("worldId")]
+	[TableColumn("worldId")]
 	public uint WorldId { get; set; }
 
-	[Column("recommendedItemLevel")]
+	[TableColumn("recommendedItemLevel")]
 	public uint RecommendedItemLevel { get; set; }
 
-	[Column("achievementCategoryId")]
+	[TableColumn("achievementCategoryId")]
 	public uint AchievementCategoryId { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 }

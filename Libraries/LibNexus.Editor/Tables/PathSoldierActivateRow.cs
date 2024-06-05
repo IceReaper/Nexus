@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class PathSoldierActivateRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("creature2Id")]
+	[TableColumn("creature2Id")]
 	public uint Creature2Id { get; set; }
 
-	[Column("targetGroupId")]
+	[TableColumn("targetGroupId")]
 	public uint TargetGroupId { get; set; }
 
-	[Column("count")]
+	[TableColumn("count")]
 	public uint Count { get; set; }
 
-	[Column("soldierActivateModeEnum")]
+	[TableColumn("soldierActivateModeEnum")]
 	public uint SoldierActivateModeEnum { get; set; }
 }

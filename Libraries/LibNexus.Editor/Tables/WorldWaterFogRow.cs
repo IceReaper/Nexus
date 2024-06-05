@@ -4,33 +4,33 @@ namespace LibNexus.Editor.Tables;
 
 public class WorldWaterFogRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("fogStart")]
+	[TableColumn("fogStart")]
 	public float FogStart { get; set; }
 
-	[Column("fogEnd")]
+	[TableColumn("fogEnd")]
 	public float FogEnd { get; set; }
 
-	[Column("fogStartUW")]
+	[TableColumn("fogStartUW")]
 	public float FogStartUw { get; set; }
 
-	[Column("fogEndUW")]
+	[TableColumn("fogEndUW")]
 	public float FogEndUw { get; set; }
 
-	[Column("modStart")]
+	[TableColumn("modStart")]
 	public float ModStart { get; set; }
 
-	[Column("modEnd")]
+	[TableColumn("modEnd")]
 	public float ModEnd { get; set; }
 
-	[Column("modStartUW")]
+	[TableColumn("modStartUW")]
 	public float ModStartUw { get; set; }
 
-	[Column("modEndUW")]
+	[TableColumn("modEndUW")]
 	public float ModEndUw { get; set; }
 
-	[Column("skyColorIndex")]
+	[TableColumn("skyColorIndex")]
 	public uint SkyColorIndex { get; set; }
 }

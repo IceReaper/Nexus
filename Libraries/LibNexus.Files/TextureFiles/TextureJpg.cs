@@ -1,7 +1,7 @@
 namespace LibNexus.Files.TextureFiles;
 
 // TODO refactor
-public static class Jpg
+public static class TextureJpg
 {
 	private sealed class BitStream
 	{
@@ -196,56 +196,23 @@ public static class Jpg
 	private static readonly float[][] LuminanceQuantizationTables = new float[100][];
 	private static readonly float[][] ChrominanceQuantizationTables = new float[100][];
 
-	private static Dictionary<long, byte> _dcLuminanceTable = [];
-	private static Dictionary<long, byte> _acLuminanceTable = [];
-	private static Dictionary<long, byte> _dcChrominanceTable = [];
-	private static Dictionary<long, byte> _acChrominanceTable = [];
+	private static readonly Dictionary<long, byte> DcLuminanceTable;
+	private static readonly Dictionary<long, byte> AcLuminanceTable;
+	private static readonly Dictionary<long, byte> DcChrominanceTable;
+	private static readonly Dictionary<long, byte> AcChrominanceTable;
 
-	private static bool _initialized;
-
-	public static byte[] Read(byte[] data, uint width, uint height, uint format, JpgLayer[] layers)
+	static TextureJpg()
 	{
-		Initialize();
-
-		var luminanceQuantizationTable = new float[4][];
-		var chrominanceQuantizationTable = new float[4][];
-
-		byte[] qualityLevels = [layers[0].Quality, layers[1].Quality, layers[2].Quality, layers[3].Quality];
-
-		for (var i = 0u; i < 4; i++)
-		{
-			luminanceQuantizationTable[i] = LuminanceQuantizationTables[qualityLevels[i]];
-			chrominanceQuantizationTable[i] = ChrominanceQuantizationTables[qualityLevels[i]];
-		}
-
-		var bitStream = new BitStream(data);
-
-		return format switch
-		{
-			0 => DecompressFormat0((int)width, (int)height, bitStream, luminanceQuantizationTable, chrominanceQuantizationTable),
-			1 => DecompressFormat1((int)width, (int)height, bitStream, layers, luminanceQuantizationTable),
-			2 => DecompressFormat2((int)width, (int)height, bitStream, layers, luminanceQuantizationTable, chrominanceQuantizationTable),
-			_ => throw new Exception("Jpg: Invalid format")
-		};
-	}
-
-	private static void Initialize()
-	{
-		if (_initialized)
-			return;
-
-		_dcLuminanceTable = GenerateHuffmanTable(DcLuminanceLengths, MaxAcdcLength, DcLuminanceValues);
-		_acLuminanceTable = GenerateHuffmanTable(AcLuminanceLengths, MaxAcdcLength, AcLuminanceValues);
-		_dcChrominanceTable = GenerateHuffmanTable(DcChrominanceLengths, MaxAcdcLength, DcChrominanceValues);
-		_acChrominanceTable = GenerateHuffmanTable(AcChrominanceLengths, MaxAcdcLength, AcChrominanceValues);
+		DcLuminanceTable = GenerateHuffmanTable(DcLuminanceLengths, MaxAcdcLength, DcLuminanceValues);
+		AcLuminanceTable = GenerateHuffmanTable(AcLuminanceLengths, MaxAcdcLength, AcLuminanceValues);
+		DcChrominanceTable = GenerateHuffmanTable(DcChrominanceLengths, MaxAcdcLength, DcChrominanceValues);
+		AcChrominanceTable = GenerateHuffmanTable(AcChrominanceLengths, MaxAcdcLength, AcChrominanceValues);
 
 		for (byte i = 0; i < 100; i++)
 		{
 			LuminanceQuantizationTables[i] = GenerateQuantizationTable(i, LumQuantizationTemplate);
 			ChrominanceQuantizationTables[i] = GenerateQuantizationTable(i, ChromaQuantizationTemplate);
 		}
-
-		_initialized = true;
 	}
 
 	private static Dictionary<long, byte> GenerateHuffmanTable(byte[] lengths, uint numLengths, byte[] values)
@@ -282,6 +249,30 @@ public static class Jpg
 		return table;
 	}
 
+	public static byte[] Read(byte[] data, uint width, uint height, uint format, TextureJpgLayer[] layers)
+	{
+		var luminanceQuantizationTable = new float[4][];
+		var chrominanceQuantizationTable = new float[4][];
+
+		byte[] qualityLevels = [layers[0].Quality, layers[1].Quality, layers[2].Quality, layers[3].Quality];
+
+		for (var i = 0u; i < 4; i++)
+		{
+			luminanceQuantizationTable[i] = LuminanceQuantizationTables[qualityLevels[i]];
+			chrominanceQuantizationTable[i] = ChrominanceQuantizationTables[qualityLevels[i]];
+		}
+
+		var bitStream = new BitStream(data);
+
+		return format switch
+		{
+			0 => DecompressFormat0((int)width, (int)height, bitStream, luminanceQuantizationTable, chrominanceQuantizationTable),
+			1 => DecompressFormat1((int)width, (int)height, bitStream, layers, luminanceQuantizationTable),
+			2 => DecompressFormat2((int)width, (int)height, bitStream, layers, luminanceQuantizationTable, chrominanceQuantizationTable),
+			_ => throw new FileFormatException(typeof(Texture), nameof(TextureHeader.JpgFormat))
+		};
+	}
+
 	private static byte[] DecompressFormat0(int width, int height, BitStream stream, float[][] luminosityQuantization, float[][] chrominanceQuantization)
 	{
 		var luminance0 = new short[4][];
@@ -303,8 +294,8 @@ public static class Jpg
 					previousDc[0] = ProcessBlock(
 						previousDc[0],
 						stream,
-						_dcLuminanceTable,
-						_acLuminanceTable,
+						DcLuminanceTable,
+						AcLuminanceTable,
 						luminosityQuantization[0],
 						true,
 						out luminance0[i]
@@ -314,8 +305,8 @@ public static class Jpg
 				previousDc[1] = ProcessBlock(
 					previousDc[1],
 					stream,
-					_dcChrominanceTable,
-					_acChrominanceTable,
+					DcChrominanceTable,
+					AcChrominanceTable,
 					chrominanceQuantization[1],
 					false,
 					out var chrominance0
@@ -324,8 +315,8 @@ public static class Jpg
 				previousDc[2] = ProcessBlock(
 					previousDc[2],
 					stream,
-					_dcChrominanceTable,
-					_acChrominanceTable,
+					DcChrominanceTable,
+					AcChrominanceTable,
 					chrominanceQuantization[2],
 					false,
 					out var chrominance1
@@ -336,8 +327,8 @@ public static class Jpg
 					previousDc[3] = ProcessBlock(
 						previousDc[3],
 						stream,
-						_dcLuminanceTable,
-						_acLuminanceTable,
+						DcLuminanceTable,
+						AcLuminanceTable,
 						luminosityQuantization[3],
 						true,
 						out luminance1[i]
@@ -370,7 +361,7 @@ public static class Jpg
 		return pixels;
 	}
 
-	private static byte[] DecompressFormat1(int width, int height, BitStream stream, JpgLayer[] layerInfo, float[][] luminosityQuantization)
+	private static byte[] DecompressFormat1(int width, int height, BitStream stream, TextureJpgLayer[] layerInfo, float[][] luminosityQuantization)
 	{
 		var luminance = new short[4][];
 
@@ -385,16 +376,16 @@ public static class Jpg
 		{
 			for (var x = 0; x < mipWidth / 8; x++)
 			{
-				previousDc[0] = ProcessBlock(previousDc[0], stream, _dcLuminanceTable, _acLuminanceTable, luminosityQuantization[0], true, out luminance[0]);
-				previousDc[1] = ProcessBlock(previousDc[1], stream, _dcLuminanceTable, _acLuminanceTable, luminosityQuantization[1], true, out luminance[1]);
+				previousDc[0] = ProcessBlock(previousDc[0], stream, DcLuminanceTable, AcLuminanceTable, luminosityQuantization[0], true, out luminance[0]);
+				previousDc[1] = ProcessBlock(previousDc[1], stream, DcLuminanceTable, AcLuminanceTable, luminosityQuantization[1], true, out luminance[1]);
 
 				if (layerInfo[2].HasReplacement == 0)
 				{
 					previousDc[2] = ProcessBlock(
 						previousDc[2],
 						stream,
-						_dcLuminanceTable,
-						_acLuminanceTable,
+						DcLuminanceTable,
+						AcLuminanceTable,
 						luminosityQuantization[2],
 						true,
 						out luminance[2]
@@ -406,8 +397,8 @@ public static class Jpg
 					previousDc[3] = ProcessBlock(
 						previousDc[3],
 						stream,
-						_dcLuminanceTable,
-						_acLuminanceTable,
+						DcLuminanceTable,
+						AcLuminanceTable,
 						luminosityQuantization[3],
 						true,
 						out luminance[3]
@@ -449,7 +440,7 @@ public static class Jpg
 		int width,
 		int height,
 		BitStream stream,
-		JpgLayer[] layerInfo,
+		TextureJpgLayer[] layerInfo,
 		float[][] luminosityQuantization,
 		float[][] chrominanceQuantization
 	)
@@ -465,13 +456,13 @@ public static class Jpg
 		{
 			for (var x = 0; x < mipWidth / 8; x++)
 			{
-				previousDc[0] = ProcessBlock(previousDc[0], stream, _dcLuminanceTable, _acLuminanceTable, luminosityQuantization[0], true, out var luminance0);
+				previousDc[0] = ProcessBlock(previousDc[0], stream, DcLuminanceTable, AcLuminanceTable, luminosityQuantization[0], true, out var luminance0);
 
 				previousDc[1] = ProcessBlock(
 					previousDc[1],
 					stream,
-					_dcChrominanceTable,
-					_acChrominanceTable,
+					DcChrominanceTable,
+					AcChrominanceTable,
 					chrominanceQuantization[1],
 					false,
 					out var chrominance0
@@ -480,8 +471,8 @@ public static class Jpg
 				previousDc[2] = ProcessBlock(
 					previousDc[2],
 					stream,
-					_dcChrominanceTable,
-					_acChrominanceTable,
+					DcChrominanceTable,
+					AcChrominanceTable,
 					chrominanceQuantization[2],
 					false,
 					out var chrominance1
@@ -490,7 +481,7 @@ public static class Jpg
 				short[]? luminance1 = null;
 
 				if (layerInfo[3].HasReplacement == 0)
-					previousDc[3] = ProcessBlock(previousDc[3], stream, _dcLuminanceTable, _acLuminanceTable, luminosityQuantization[3], true, out luminance1);
+					previousDc[3] = ProcessBlock(previousDc[3], stream, DcLuminanceTable, AcLuminanceTable, luminosityQuantization[3], true, out luminance1);
 
 				var colors = DecodeColorBlockFormat2(luminance0, luminance1, chrominance0, chrominance1);
 

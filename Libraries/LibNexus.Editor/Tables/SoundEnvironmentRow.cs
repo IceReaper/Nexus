@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class SoundEnvironmentRow
 {
-	[Column("id")]
+	[TableColumn("id")]
 	public uint Id { get; set; }
 
-	[Column("hash")]
+	[TableColumn("hash")]
 	public uint Hash { get; set; }
 }

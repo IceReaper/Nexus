@@ -4,45 +4,45 @@ namespace LibNexus.Editor.Tables;
 
 public class MapZoneRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("mapContinentId")]
+	[TableColumn("mapContinentId")]
 	public uint MapContinentId { get; set; }
 
-	[Column("folder")]
+	[TableColumn("folder")]
 	public string Folder { get; set; } = string.Empty;
 
-	[Column("hexMinX")]
+	[TableColumn("hexMinX")]
 	public uint HexMinX { get; set; }
 
-	[Column("hexMinY")]
+	[TableColumn("hexMinY")]
 	public uint HexMinY { get; set; }
 
-	[Column("hexLimX")]
+	[TableColumn("hexLimX")]
 	public uint HexLimX { get; set; }
 
-	[Column("hexLimY")]
+	[TableColumn("hexLimY")]
 	public uint HexLimY { get; set; }
 
-	[Column("version")]
+	[TableColumn("version")]
 	public uint Version { get; set; }
 
-	[Column("mapZoneIdParent")]
+	[TableColumn("mapZoneIdParent")]
 	public uint MapZoneIdParent { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("prerequisiteIdVisibility")]
+	[TableColumn("prerequisiteIdVisibility")]
 	public uint PrerequisiteIdVisibility { get; set; }
 
-	[Column("rewardTrackId")]
+	[TableColumn("rewardTrackId")]
 	public uint RewardTrackId { get; set; }
 }

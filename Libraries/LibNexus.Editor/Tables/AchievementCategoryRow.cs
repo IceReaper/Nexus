@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class AchievementCategoryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("localizedTextIdFullName")]
+	[TableColumn("localizedTextIdFullName")]
 	public uint LocalizedTextIdFullName { get; set; }
 
-	[Column("achievementCategoryIdParent")]
+	[TableColumn("achievementCategoryIdParent")]
 	public uint AchievementCategoryIdParent { get; set; }
 }

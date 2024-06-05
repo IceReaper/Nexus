@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillTalentTierRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("tradeSkillId")]
+	[TableColumn("tradeSkillId")]
 	public uint TradeSkillId { get; set; }
 
-	[Column("pointsToUnlock")]
+	[TableColumn("pointsToUnlock")]
 	public uint PointsToUnlock { get; set; }
 
-	[Column("respecCost")]
+	[TableColumn("respecCost")]
 	public uint RespecCost { get; set; }
 
-	[Column("tradeSkillBonusId00")]
+	[TableColumn("tradeSkillBonusId00")]
 	public uint TradeSkillBonusId00 { get; set; }
 
-	[Column("tradeSkillBonusId01")]
+	[TableColumn("tradeSkillBonusId01")]
 	public uint TradeSkillBonusId01 { get; set; }
 
-	[Column("tradeSkillBonusId02")]
+	[TableColumn("tradeSkillBonusId02")]
 	public uint TradeSkillBonusId02 { get; set; }
 
-	[Column("tradeSkillBonusId03")]
+	[TableColumn("tradeSkillBonusId03")]
 	public uint TradeSkillBonusId03 { get; set; }
 
-	[Column("tradeSkillBonusId04")]
+	[TableColumn("tradeSkillBonusId04")]
 	public uint TradeSkillBonusId04 { get; set; }
 }

@@ -4,39 +4,39 @@ namespace LibNexus.Editor.Tables;
 
 public class GuildPerkRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdTitle")]
+	[TableColumn("localizedTextIdTitle")]
 	public uint LocalizedTextIdTitle { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("luaSprite")]
+	[TableColumn("luaSprite")]
 	public string LuaSprite { get; set; } = string.Empty;
 
-	[Column("luaName")]
+	[TableColumn("luaName")]
 	public string LuaName { get; set; } = string.Empty;
 
-	[Column("purchaseInfluenceCost")]
+	[TableColumn("purchaseInfluenceCost")]
 	public uint PurchaseInfluenceCost { get; set; }
 
-	[Column("activateInfluenceCost")]
+	[TableColumn("activateInfluenceCost")]
 	public uint ActivateInfluenceCost { get; set; }
 
-	[Column("spell4IdActivate")]
+	[TableColumn("spell4IdActivate")]
 	public uint Spell4IdActivate { get; set; }
 
-	[Column("guildPerkIdRequired00")]
+	[TableColumn("guildPerkIdRequired00")]
 	public uint GuildPerkIdRequired00 { get; set; }
 
-	[Column("guildPerkIdRequired01")]
+	[TableColumn("guildPerkIdRequired01")]
 	public uint GuildPerkIdRequired01 { get; set; }
 
-	[Column("guildPerkIdRequired02")]
+	[TableColumn("guildPerkIdRequired02")]
 	public uint GuildPerkIdRequired02 { get; set; }
 
-	[Column("achievementIdRequired")]
+	[TableColumn("achievementIdRequired")]
 	public uint AchievementIdRequired { get; set; }
 }

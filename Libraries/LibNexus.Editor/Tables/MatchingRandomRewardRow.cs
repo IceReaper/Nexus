@@ -4,42 +4,42 @@ namespace LibNexus.Editor.Tables;
 
 public class MatchingRandomRewardRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("matchTypeEnum")]
+	[TableColumn("matchTypeEnum")]
 	public uint MatchTypeEnum { get; set; }
 
-	[Column("item2Id")]
+	[TableColumn("item2Id")]
 	public uint Item2Id { get; set; }
 
-	[Column("itemCount")]
+	[TableColumn("itemCount")]
 	public uint ItemCount { get; set; }
 
-	[Column("currencyTypeId")]
+	[TableColumn("currencyTypeId")]
 	public uint CurrencyTypeId { get; set; }
 
-	[Column("currencyValue")]
+	[TableColumn("currencyValue")]
 	public uint CurrencyValue { get; set; }
 
-	[Column("xpEarned")]
+	[TableColumn("xpEarned")]
 	public uint XpEarned { get; set; }
 
-	[Column("item2IdLevelScale")]
+	[TableColumn("item2IdLevelScale")]
 	public uint Item2IdLevelScale { get; set; }
 
-	[Column("itemCountLevelScale")]
+	[TableColumn("itemCountLevelScale")]
 	public uint ItemCountLevelScale { get; set; }
 
-	[Column("currencyTypeIdLevelScale")]
+	[TableColumn("currencyTypeIdLevelScale")]
 	public uint CurrencyTypeIdLevelScale { get; set; }
 
-	[Column("currencyValueLevelScale")]
+	[TableColumn("currencyValueLevelScale")]
 	public uint CurrencyValueLevelScale { get; set; }
 
-	[Column("xpEarnedLevelScale")]
+	[TableColumn("xpEarnedLevelScale")]
 	public uint XpEarnedLevelScale { get; set; }
 
-	[Column("worldDifficultyEnum")]
+	[TableColumn("worldDifficultyEnum")]
 	public uint WorldDifficultyEnum { get; set; }
 }

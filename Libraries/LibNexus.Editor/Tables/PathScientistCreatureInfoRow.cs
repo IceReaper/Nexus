@@ -4,45 +4,45 @@ namespace LibNexus.Editor.Tables;
 
 public class PathScientistCreatureInfoRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("scientistCreatureFlags")]
+	[TableColumn("scientistCreatureFlags")]
 	public uint ScientistCreatureFlags { get; set; }
 
-	[Column("displayIcon")]
+	[TableColumn("displayIcon")]
 	public string DisplayIcon { get; set; } = string.Empty;
 
-	[Column("prerequisiteIdScan")]
+	[TableColumn("prerequisiteIdScan")]
 	public uint PrerequisiteIdScan { get; set; }
 
-	[Column("prerequisiteIdRawScan")]
+	[TableColumn("prerequisiteIdRawScan")]
 	public uint PrerequisiteIdRawScan { get; set; }
 
-	[Column("prerequisiteIdScanCreature")]
+	[TableColumn("prerequisiteIdScanCreature")]
 	public uint PrerequisiteIdScanCreature { get; set; }
 
-	[Column("prerequisiteIdRawScanCreature")]
+	[TableColumn("prerequisiteIdRawScanCreature")]
 	public uint PrerequisiteIdRawScanCreature { get; set; }
 
-	[Column("spell4IdBuff00")]
+	[TableColumn("spell4IdBuff00")]
 	public uint Spell4IdBuff00 { get; set; }
 
-	[Column("spell4IdBuff01")]
+	[TableColumn("spell4IdBuff01")]
 	public uint Spell4IdBuff01 { get; set; }
 
-	[Column("spell4IdBuff02")]
+	[TableColumn("spell4IdBuff02")]
 	public uint Spell4IdBuff02 { get; set; }
 
-	[Column("spell4IdBuff03")]
+	[TableColumn("spell4IdBuff03")]
 	public uint Spell4IdBuff03 { get; set; }
 
-	[Column("checklistCount")]
+	[TableColumn("checklistCount")]
 	public uint ChecklistCount { get; set; }
 
-	[Column("scientistCreatureTypeEnum")]
+	[TableColumn("scientistCreatureTypeEnum")]
 	public uint ScientistCreatureTypeEnum { get; set; }
 
-	[Column("lootId")]
+	[TableColumn("lootId")]
 	public uint LootId { get; set; }
 }

@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class MapZoneHexRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("mapZoneId")]
+	[TableColumn("mapZoneId")]
 	public uint MapZoneId { get; set; }
 
-	[Column("pos0")]
+	[TableColumn("pos0")]
 	public uint Pos0 { get; set; }
 
-	[Column("pos1")]
+	[TableColumn("pos1")]
 	public uint Pos1 { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class LevelDifferentialAttributeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdDescription")]
+	[TableColumn("localizedTextIdDescription")]
 	public uint LocalizedTextIdDescription { get; set; }
 
-	[Column("levelDifferentialValue")]
+	[TableColumn("levelDifferentialValue")]
 	public uint LevelDifferentialValue { get; set; }
 
-	[Column("questXpMultiplier")]
+	[TableColumn("questXpMultiplier")]
 	public float QuestXpMultiplier { get; set; }
 }

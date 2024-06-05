@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class MaterialDataRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("row")]
+	[TableColumn("row")]
 	public uint Row { get; set; }
 
-	[Column("materialTypeId")]
+	[TableColumn("materialTypeId")]
 	public uint MaterialTypeId { get; set; }
 }

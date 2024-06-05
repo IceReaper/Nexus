@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventRewardModifierRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("publicEventId")]
+	[TableColumn("publicEventId")]
 	public uint PublicEventId { get; set; }
 
-	[Column("rewardPropertyId")]
+	[TableColumn("rewardPropertyId")]
 	public uint RewardPropertyId { get; set; }
 
-	[Column("data")]
+	[TableColumn("data")]
 	public uint Data { get; set; }
 
-	[Column("offset")]
+	[TableColumn("offset")]
 	public float Offset { get; set; }
 }

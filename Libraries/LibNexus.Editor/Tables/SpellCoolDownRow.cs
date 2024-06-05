@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class SpellCoolDownRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("cooldownTime")]
+	[TableColumn("cooldownTime")]
 	public uint CooldownTime { get; set; }
 }

@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class Creature2OverridePropertiesRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("creature2Id")]
+	[TableColumn("creature2Id")]
 	public uint Creature2Id { get; set; }
 
-	[Column("unitPropertyIndex")]
+	[TableColumn("unitPropertyIndex")]
 	public uint UnitPropertyIndex { get; set; }
 
-	[Column("unitPropertyValue")]
+	[TableColumn("unitPropertyValue")]
 	public float UnitPropertyValue { get; set; }
 }

@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class WaterSurfaceEffectRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("emissionDelay")]
+	[TableColumn("emissionDelay")]
 	public uint EmissionDelay { get; set; }
 
-	[Column("worldWaterWakeIdStillWater0")]
+	[TableColumn("worldWaterWakeIdStillWater0")]
 	public uint WorldWaterWakeIdStillWater0 { get; set; }
 
-	[Column("worldWaterWakeIdStillWater1")]
+	[TableColumn("worldWaterWakeIdStillWater1")]
 	public uint WorldWaterWakeIdStillWater1 { get; set; }
 
-	[Column("visualEffectIdParticle0")]
+	[TableColumn("visualEffectIdParticle0")]
 	public uint VisualEffectIdParticle0 { get; set; }
 
-	[Column("visualEffectIdParticle1")]
+	[TableColumn("visualEffectIdParticle1")]
 	public uint VisualEffectIdParticle1 { get; set; }
 
-	[Column("particleFlags0")]
+	[TableColumn("particleFlags0")]
 	public uint ParticleFlags0 { get; set; }
 
-	[Column("particleFlags1")]
+	[TableColumn("particleFlags1")]
 	public uint ParticleFlags1 { get; set; }
 }

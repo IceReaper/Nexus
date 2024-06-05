@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class LanguageRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("languageTag")]
+	[TableColumn("languageTag")]
 	public string LanguageTag { get; set; } = string.Empty;
 
-	[Column("clientLanguageTag")]
+	[TableColumn("clientLanguageTag")]
 	public string ClientLanguageTag { get; set; } = string.Empty;
 
-	[Column("soundAvailabilityIndexFemale")]
+	[TableColumn("soundAvailabilityIndexFemale")]
 	public uint SoundAvailabilityIndexFemale { get; set; }
 }

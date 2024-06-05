@@ -4,51 +4,51 @@ namespace LibNexus.Editor.Tables;
 
 public class PrimalMatrixNodeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("positionX")]
+	[TableColumn("positionX")]
 	public uint PositionX { get; set; }
 
-	[Column("positionY")]
+	[TableColumn("positionY")]
 	public uint PositionY { get; set; }
 
-	[Column("primalMatrixNodeTypeEnum")]
+	[TableColumn("primalMatrixNodeTypeEnum")]
 	public uint PrimalMatrixNodeTypeEnum { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("maxAllocations")]
+	[TableColumn("maxAllocations")]
 	public uint MaxAllocations { get; set; }
 
-	[Column("costRedEssence")]
+	[TableColumn("costRedEssence")]
 	public uint CostRedEssence { get; set; }
 
-	[Column("costBlueEssence")]
+	[TableColumn("costBlueEssence")]
 	public uint CostBlueEssence { get; set; }
 
-	[Column("costGreenEssence")]
+	[TableColumn("costGreenEssence")]
 	public uint CostGreenEssence { get; set; }
 
-	[Column("costPurpleEssence")]
+	[TableColumn("costPurpleEssence")]
 	public uint CostPurpleEssence { get; set; }
 
-	[Column("primalMatrixRewardIdWarrior")]
+	[TableColumn("primalMatrixRewardIdWarrior")]
 	public uint PrimalMatrixRewardIdWarrior { get; set; }
 
-	[Column("primalMatrixRewardIdEngineer")]
+	[TableColumn("primalMatrixRewardIdEngineer")]
 	public uint PrimalMatrixRewardIdEngineer { get; set; }
 
-	[Column("primalMatrixRewardIdEsper")]
+	[TableColumn("primalMatrixRewardIdEsper")]
 	public uint PrimalMatrixRewardIdEsper { get; set; }
 
-	[Column("primalMatrixRewardIdMedic")]
+	[TableColumn("primalMatrixRewardIdMedic")]
 	public uint PrimalMatrixRewardIdMedic { get; set; }
 
-	[Column("primalMatrixRewardIdStalker")]
+	[TableColumn("primalMatrixRewardIdStalker")]
 	public uint PrimalMatrixRewardIdStalker { get; set; }
 
-	[Column("primalMatrixRewardIdSpellslinger")]
+	[TableColumn("primalMatrixRewardIdSpellslinger")]
 	public uint PrimalMatrixRewardIdSpellslinger { get; set; }
 }

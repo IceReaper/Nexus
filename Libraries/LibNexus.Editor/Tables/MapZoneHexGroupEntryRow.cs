@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class MapZoneHexGroupEntryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("mapZoneHexGroupId")]
+	[TableColumn("mapZoneHexGroupId")]
 	public uint MapZoneHexGroupId { get; set; }
 
-	[Column("hexX")]
+	[TableColumn("hexX")]
 	public uint HexX { get; set; }
 
-	[Column("hexY")]
+	[TableColumn("hexY")]
 	public uint HexY { get; set; }
 }

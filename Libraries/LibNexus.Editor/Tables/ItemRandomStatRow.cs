@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemRandomStatRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("itemRandomStatGroupId")]
+	[TableColumn("itemRandomStatGroupId")]
 	public uint ItemRandomStatGroupId { get; set; }
 
-	[Column("weight")]
+	[TableColumn("weight")]
 	public float Weight { get; set; }
 
-	[Column("itemStatTypeEnum")]
+	[TableColumn("itemStatTypeEnum")]
 	public uint ItemStatTypeEnum { get; set; }
 
-	[Column("itemStatData")]
+	[TableColumn("itemStatData")]
 	public uint ItemStatData { get; set; }
 }

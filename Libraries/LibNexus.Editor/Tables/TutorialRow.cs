@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class TutorialRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("tutorialCategoryEnum")]
+	[TableColumn("tutorialCategoryEnum")]
 	public uint TutorialCategoryEnum { get; set; }
 
-	[Column("localizedTextIdContextualPopup")]
+	[TableColumn("localizedTextIdContextualPopup")]
 	public uint LocalizedTextIdContextualPopup { get; set; }
 
-	[Column("tutorialAnchorId")]
+	[TableColumn("tutorialAnchorId")]
 	public uint TutorialAnchorId { get; set; }
 
-	[Column("requiredLevel")]
+	[TableColumn("requiredLevel")]
 	public uint RequiredLevel { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 }

@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class PathExplorerPowerMapRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("distanceThreshold")]
+	[TableColumn("distanceThreshold")]
 	public uint DistanceThreshold { get; set; }
 
-	[Column("collectQuantity")]
+	[TableColumn("collectQuantity")]
 	public uint CollectQuantity { get; set; }
 
-	[Column("victoryPauseMS")]
+	[TableColumn("victoryPauseMS")]
 	public uint VictoryPauseMs { get; set; }
 
-	[Column("worldLocation2IdVisual")]
+	[TableColumn("worldLocation2IdVisual")]
 	public uint WorldLocation2IdVisual { get; set; }
 
-	[Column("visualEffectIdInactive")]
+	[TableColumn("visualEffectIdInactive")]
 	public uint VisualEffectIdInactive { get; set; }
 
-	[Column("localizedTextIdInfo")]
+	[TableColumn("localizedTextIdInfo")]
 	public uint LocalizedTextIdInfo { get; set; }
 }

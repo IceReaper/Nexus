@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class AchievementChecklistRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("achievementId")]
+	[TableColumn("achievementId")]
 	public uint AchievementId { get; set; }
 
-	[Column("bit")]
+	[TableColumn("bit")]
 	public uint Bit { get; set; }
 
-	[Column("objectId")]
+	[TableColumn("objectId")]
 	public uint ObjectId { get; set; }
 
-	[Column("objectIdAlt")]
+	[TableColumn("objectIdAlt")]
 	public uint ObjectIdAlt { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("prerequisiteIdAlt")]
+	[TableColumn("prerequisiteIdAlt")]
 	public uint PrerequisiteIdAlt { get; set; }
 }

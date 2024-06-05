@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class WorldSkyRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("assetPath")]
+	[TableColumn("assetPath")]
 	public string AssetPath { get; set; } = string.Empty;
 
-	[Column("assetPathInFlux")]
+	[TableColumn("assetPathInFlux")]
 	public string AssetPathInFlux { get; set; } = string.Empty;
 
-	[Column("color")]
+	[TableColumn("color")]
 	public uint Color { get; set; }
 }

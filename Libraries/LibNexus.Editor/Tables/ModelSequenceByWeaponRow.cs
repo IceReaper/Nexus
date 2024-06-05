@@ -4,39 +4,39 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelSequenceByWeaponRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("modelSequenceId")]
+	[TableColumn("modelSequenceId")]
 	public uint ModelSequenceId { get; set; }
 
-	[Column("modelSequenceId1H")]
+	[TableColumn("modelSequenceId1H")]
 	public uint ModelSequenceId1H { get; set; }
 
-	[Column("modelSequenceId2H")]
+	[TableColumn("modelSequenceId2H")]
 	public uint ModelSequenceId2H { get; set; }
 
-	[Column("modelSequenceId2HL")]
+	[TableColumn("modelSequenceId2HL")]
 	public uint ModelSequenceId2Hl { get; set; }
 
-	[Column("modelSequenceId2HGun")]
+	[TableColumn("modelSequenceId2HGun")]
 	public uint ModelSequenceId2HGun { get; set; }
 
-	[Column("modelSequenceIdPistols")]
+	[TableColumn("modelSequenceIdPistols")]
 	public uint ModelSequenceIdPistols { get; set; }
 
-	[Column("modelSequenceIdClaws")]
+	[TableColumn("modelSequenceIdClaws")]
 	public uint ModelSequenceIdClaws { get; set; }
 
-	[Column("modelSequenceIdShockPaddles")]
+	[TableColumn("modelSequenceIdShockPaddles")]
 	public uint ModelSequenceIdShockPaddles { get; set; }
 
-	[Column("modelSequenceIdEsper")]
+	[TableColumn("modelSequenceIdEsper")]
 	public uint ModelSequenceIdEsper { get; set; }
 
-	[Column("modelSequenceIdPsyblade")]
+	[TableColumn("modelSequenceIdPsyblade")]
 	public uint ModelSequenceIdPsyblade { get; set; }
 
-	[Column("modelSequenceIdHeavygun")]
+	[TableColumn("modelSequenceIdHeavygun")]
 	public uint ModelSequenceIdHeavygun { get; set; }
 }

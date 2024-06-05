@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class PathSoldierEventRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("pathSoldierEventType")]
+	[TableColumn("pathSoldierEventType")]
 	public uint PathSoldierEventType { get; set; }
 
-	[Column("maxTimeBetweenWaves")]
+	[TableColumn("maxTimeBetweenWaves")]
 	public uint MaxTimeBetweenWaves { get; set; }
 
-	[Column("maxEventTime")]
+	[TableColumn("maxEventTime")]
 	public uint MaxEventTime { get; set; }
 
-	[Column("towerDefenseAllowance")]
+	[TableColumn("towerDefenseAllowance")]
 	public uint TowerDefenseAllowance { get; set; }
 
-	[Column("towerDefenseBuildTimeMS")]
+	[TableColumn("towerDefenseBuildTimeMS")]
 	public uint TowerDefenseBuildTimeMs { get; set; }
 
-	[Column("initialSpawnTime")]
+	[TableColumn("initialSpawnTime")]
 	public uint InitialSpawnTime { get; set; }
 }

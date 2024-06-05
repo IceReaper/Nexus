@@ -4,36 +4,36 @@ namespace LibNexus.Editor.Tables;
 
 public class ItemStatRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("itemStatTypeEnum00")]
+	[TableColumn("itemStatTypeEnum00")]
 	public uint ItemStatTypeEnum00 { get; set; }
 
-	[Column("itemStatTypeEnum01")]
+	[TableColumn("itemStatTypeEnum01")]
 	public uint ItemStatTypeEnum01 { get; set; }
 
-	[Column("itemStatTypeEnum02")]
+	[TableColumn("itemStatTypeEnum02")]
 	public uint ItemStatTypeEnum02 { get; set; }
 
-	[Column("itemStatTypeEnum03")]
+	[TableColumn("itemStatTypeEnum03")]
 	public uint ItemStatTypeEnum03 { get; set; }
 
-	[Column("itemStatTypeEnum04")]
+	[TableColumn("itemStatTypeEnum04")]
 	public uint ItemStatTypeEnum04 { get; set; }
 
-	[Column("itemStatData00")]
+	[TableColumn("itemStatData00")]
 	public uint ItemStatData00 { get; set; }
 
-	[Column("itemStatData01")]
+	[TableColumn("itemStatData01")]
 	public uint ItemStatData01 { get; set; }
 
-	[Column("itemStatData02")]
+	[TableColumn("itemStatData02")]
 	public uint ItemStatData02 { get; set; }
 
-	[Column("itemStatData03")]
+	[TableColumn("itemStatData03")]
 	public uint ItemStatData03 { get; set; }
 
-	[Column("itemStatData04")]
+	[TableColumn("itemStatData04")]
 	public uint ItemStatData04 { get; set; }
 }

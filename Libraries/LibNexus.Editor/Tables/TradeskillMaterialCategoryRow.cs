@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class TradeskillMaterialCategoryRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 }

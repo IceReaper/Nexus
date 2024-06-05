@@ -4,72 +4,72 @@ namespace LibNexus.Editor.Tables;
 
 public class AchievementRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("achievementTypeId")]
+	[TableColumn("achievementTypeId")]
 	public uint AchievementTypeId { get; set; }
 
-	[Column("achievementCategoryId")]
+	[TableColumn("achievementCategoryId")]
 	public uint AchievementCategoryId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("localizedTextIdTitle")]
+	[TableColumn("localizedTextIdTitle")]
 	public uint LocalizedTextIdTitle { get; set; }
 
-	[Column("localizedTextIdDesc")]
+	[TableColumn("localizedTextIdDesc")]
 	public uint LocalizedTextIdDesc { get; set; }
 
-	[Column("localizedTextIdProgress")]
+	[TableColumn("localizedTextIdProgress")]
 	public uint LocalizedTextIdProgress { get; set; }
 
-	[Column("percCompletionToShow")]
+	[TableColumn("percCompletionToShow")]
 	public float PercCompletionToShow { get; set; }
 
-	[Column("objectId")]
+	[TableColumn("objectId")]
 	public uint ObjectId { get; set; }
 
-	[Column("objectIdAlt")]
+	[TableColumn("objectIdAlt")]
 	public uint ObjectIdAlt { get; set; }
 
-	[Column("value")]
+	[TableColumn("value")]
 	public uint Value { get; set; }
 
-	[Column("characterTitleId")]
+	[TableColumn("characterTitleId")]
 	public uint CharacterTitleId { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("prerequisiteIdServer")]
+	[TableColumn("prerequisiteIdServer")]
 	public uint PrerequisiteIdServer { get; set; }
 
-	[Column("prerequisiteIdObjective")]
+	[TableColumn("prerequisiteIdObjective")]
 	public uint PrerequisiteIdObjective { get; set; }
 
-	[Column("prerequisiteIdObjectiveAlt")]
+	[TableColumn("prerequisiteIdObjectiveAlt")]
 	public uint PrerequisiteIdObjectiveAlt { get; set; }
 
-	[Column("achievementIdParentTier")]
+	[TableColumn("achievementIdParentTier")]
 	public uint AchievementIdParentTier { get; set; }
 
-	[Column("orderIndex")]
+	[TableColumn("orderIndex")]
 	public uint OrderIndex { get; set; }
 
-	[Column("achievementGroupId")]
+	[TableColumn("achievementGroupId")]
 	public uint AchievementGroupId { get; set; }
 
-	[Column("achievementSubGroupId")]
+	[TableColumn("achievementSubGroupId")]
 	public uint AchievementSubGroupId { get; set; }
 
-	[Column("achievementPointEnum")]
+	[TableColumn("achievementPointEnum")]
 	public uint AchievementPointEnum { get; set; }
 
-	[Column("steamAchievementName")]
+	[TableColumn("steamAchievementName")]
 	public string SteamAchievementName { get; set; } = string.Empty;
 }

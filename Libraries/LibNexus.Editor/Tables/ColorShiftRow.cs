@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class ColorShiftRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("texturePath")]
+	[TableColumn("texturePath")]
 	public string TexturePath { get; set; } = string.Empty;
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("previewSwatchIcon")]
+	[TableColumn("previewSwatchIcon")]
 	public string PreviewSwatchIcon { get; set; } = string.Empty;
 }

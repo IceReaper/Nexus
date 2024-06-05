@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventObjectiveBombDeploymentRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("creature2IdBomb")]
+	[TableColumn("creature2IdBomb")]
 	public uint Creature2IdBomb { get; set; }
 
-	[Column("spell4IdCarrying")]
+	[TableColumn("spell4IdCarrying")]
 	public uint Spell4IdCarrying { get; set; }
 }

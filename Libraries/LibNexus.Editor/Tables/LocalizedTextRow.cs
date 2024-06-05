@@ -4,24 +4,24 @@ namespace LibNexus.Editor.Tables;
 
 public class LocalizedTextRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("soundEventId")]
+	[TableColumn("soundEventId")]
 	public uint SoundEventId { get; set; }
 
-	[Column("soundEventIdFemale")]
+	[TableColumn("soundEventIdFemale")]
 	public uint SoundEventIdFemale { get; set; }
 
-	[Column("version")]
+	[TableColumn("version")]
 	public uint Version { get; set; }
 
-	[Column("unitVoiceTypeId")]
+	[TableColumn("unitVoiceTypeId")]
 	public uint UnitVoiceTypeId { get; set; }
 
-	[Column("stringContextEnum")]
+	[TableColumn("stringContextEnum")]
 	public uint StringContextEnum { get; set; }
 
-	[Column("soundAvailabilityFlagFemale")]
+	[TableColumn("soundAvailabilityFlagFemale")]
 	public uint SoundAvailabilityFlagFemale { get; set; }
 }

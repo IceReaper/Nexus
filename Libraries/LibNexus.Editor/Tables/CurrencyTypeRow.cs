@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class CurrencyTypeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("iconName")]
+	[TableColumn("iconName")]
 	public string IconName { get; set; } = string.Empty;
 
-	[Column("capAmount")]
+	[TableColumn("capAmount")]
 	public ulong CapAmount { get; set; }
 }

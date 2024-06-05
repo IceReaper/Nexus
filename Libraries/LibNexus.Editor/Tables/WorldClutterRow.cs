@@ -4,141 +4,141 @@ namespace LibNexus.Editor.Tables;
 
 public class WorldClutterRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("Description")]
+	[TableColumn("Description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("density")]
+	[TableColumn("density")]
 	public float Density { get; set; }
 
-	[Column("clutterFlags")]
+	[TableColumn("clutterFlags")]
 	public uint ClutterFlags { get; set; }
 
-	[Column("assetPath0")]
+	[TableColumn("assetPath0")]
 	public string AssetPath0 { get; set; } = string.Empty;
 
-	[Column("assetPath01")]
+	[TableColumn("assetPath01")]
 	public string AssetPath01 { get; set; } = string.Empty;
 
-	[Column("assetPath02")]
+	[TableColumn("assetPath02")]
 	public string AssetPath02 { get; set; } = string.Empty;
 
-	[Column("assetPath03")]
+	[TableColumn("assetPath03")]
 	public string AssetPath03 { get; set; } = string.Empty;
 
-	[Column("assetPath04")]
+	[TableColumn("assetPath04")]
 	public string AssetPath04 { get; set; } = string.Empty;
 
-	[Column("assetPath05")]
+	[TableColumn("assetPath05")]
 	public string AssetPath05 { get; set; } = string.Empty;
 
-	[Column("assetWeight0")]
+	[TableColumn("assetWeight0")]
 	public float AssetWeight0 { get; set; }
 
-	[Column("assetWeight01")]
+	[TableColumn("assetWeight01")]
 	public float AssetWeight01 { get; set; }
 
-	[Column("assetWeight02")]
+	[TableColumn("assetWeight02")]
 	public float AssetWeight02 { get; set; }
 
-	[Column("assetWeight03")]
+	[TableColumn("assetWeight03")]
 	public float AssetWeight03 { get; set; }
 
-	[Column("assetWeight04")]
+	[TableColumn("assetWeight04")]
 	public float AssetWeight04 { get; set; }
 
-	[Column("assetWeight05")]
+	[TableColumn("assetWeight05")]
 	public float AssetWeight05 { get; set; }
 
-	[Column("flag0")]
+	[TableColumn("flag0")]
 	public uint Flag0 { get; set; }
 
-	[Column("flag01")]
+	[TableColumn("flag01")]
 	public uint Flag01 { get; set; }
 
-	[Column("flag02")]
+	[TableColumn("flag02")]
 	public uint Flag02 { get; set; }
 
-	[Column("flag03")]
+	[TableColumn("flag03")]
 	public uint Flag03 { get; set; }
 
-	[Column("flag04")]
+	[TableColumn("flag04")]
 	public uint Flag04 { get; set; }
 
-	[Column("flag05")]
+	[TableColumn("flag05")]
 	public uint Flag05 { get; set; }
 
-	[Column("minScale0")]
+	[TableColumn("minScale0")]
 	public float MinScale0 { get; set; }
 
-	[Column("minScale01")]
+	[TableColumn("minScale01")]
 	public float MinScale01 { get; set; }
 
-	[Column("minScale02")]
+	[TableColumn("minScale02")]
 	public float MinScale02 { get; set; }
 
-	[Column("minScale03")]
+	[TableColumn("minScale03")]
 	public float MinScale03 { get; set; }
 
-	[Column("minScale04")]
+	[TableColumn("minScale04")]
 	public float MinScale04 { get; set; }
 
-	[Column("minScale05")]
+	[TableColumn("minScale05")]
 	public float MinScale05 { get; set; }
 
-	[Column("rotationMin0")]
+	[TableColumn("rotationMin0")]
 	public float RotationMin0 { get; set; }
 
-	[Column("rotationMin01")]
+	[TableColumn("rotationMin01")]
 	public float RotationMin01 { get; set; }
 
-	[Column("rotationMin02")]
+	[TableColumn("rotationMin02")]
 	public float RotationMin02 { get; set; }
 
-	[Column("rotationMin03")]
+	[TableColumn("rotationMin03")]
 	public float RotationMin03 { get; set; }
 
-	[Column("rotationMin04")]
+	[TableColumn("rotationMin04")]
 	public float RotationMin04 { get; set; }
 
-	[Column("rotationMin05")]
+	[TableColumn("rotationMin05")]
 	public float RotationMin05 { get; set; }
 
-	[Column("rotationMax0")]
+	[TableColumn("rotationMax0")]
 	public float RotationMax0 { get; set; }
 
-	[Column("rotationMax01")]
+	[TableColumn("rotationMax01")]
 	public float RotationMax01 { get; set; }
 
-	[Column("rotationMax02")]
+	[TableColumn("rotationMax02")]
 	public float RotationMax02 { get; set; }
 
-	[Column("rotationMax03")]
+	[TableColumn("rotationMax03")]
 	public float RotationMax03 { get; set; }
 
-	[Column("rotationMax04")]
+	[TableColumn("rotationMax04")]
 	public float RotationMax04 { get; set; }
 
-	[Column("rotationMax05")]
+	[TableColumn("rotationMax05")]
 	public float RotationMax05 { get; set; }
 
-	[Column("emissiveGlow00")]
+	[TableColumn("emissiveGlow00")]
 	public uint EmissiveGlow00 { get; set; }
 
-	[Column("emissiveGlow01")]
+	[TableColumn("emissiveGlow01")]
 	public uint EmissiveGlow01 { get; set; }
 
-	[Column("emissiveGlow02")]
+	[TableColumn("emissiveGlow02")]
 	public uint EmissiveGlow02 { get; set; }
 
-	[Column("emissiveGlow03")]
+	[TableColumn("emissiveGlow03")]
 	public uint EmissiveGlow03 { get; set; }
 
-	[Column("emissiveGlow04")]
+	[TableColumn("emissiveGlow04")]
 	public uint EmissiveGlow04 { get; set; }
 
-	[Column("emissiveGlow05")]
+	[TableColumn("emissiveGlow05")]
 	public uint EmissiveGlow05 { get; set; }
 }

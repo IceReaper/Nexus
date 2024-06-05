@@ -4,18 +4,18 @@ namespace LibNexus.Editor.Tables;
 
 public class PvPRatingFloorRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("pvpRatingTypeEnum")]
+	[TableColumn("pvpRatingTypeEnum")]
 	public uint PvpRatingTypeEnum { get; set; }
 
-	[Column("floorValue")]
+	[TableColumn("floorValue")]
 	public uint FloorValue { get; set; }
 
-	[Column("localizedTextIdLabel")]
+	[TableColumn("localizedTextIdLabel")]
 	public uint LocalizedTextIdLabel { get; set; }
 }

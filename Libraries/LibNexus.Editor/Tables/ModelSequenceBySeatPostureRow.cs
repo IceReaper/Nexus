@@ -4,30 +4,30 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelSequenceBySeatPostureRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("modelSequenceId")]
+	[TableColumn("modelSequenceId")]
 	public uint ModelSequenceId { get; set; }
 
-	[Column("modelSequenceIdNarrow")]
+	[TableColumn("modelSequenceIdNarrow")]
 	public uint ModelSequenceIdNarrow { get; set; }
 
-	[Column("modelSequenceIdMedium")]
+	[TableColumn("modelSequenceIdMedium")]
 	public uint ModelSequenceIdMedium { get; set; }
 
-	[Column("modelSequenceIdWide")]
+	[TableColumn("modelSequenceIdWide")]
 	public uint ModelSequenceIdWide { get; set; }
 
-	[Column("modelSequenceIdBike")]
+	[TableColumn("modelSequenceIdBike")]
 	public uint ModelSequenceIdBike { get; set; }
 
-	[Column("modelSequenceIdHoverBoard")]
+	[TableColumn("modelSequenceIdHoverBoard")]
 	public uint ModelSequenceIdHoverBoard { get; set; }
 
-	[Column("modelSequenceIdGlider")]
+	[TableColumn("modelSequenceIdGlider")]
 	public uint ModelSequenceIdGlider { get; set; }
 
-	[Column("modelSequenceIdTank")]
+	[TableColumn("modelSequenceIdTank")]
 	public uint ModelSequenceIdTank { get; set; }
 }

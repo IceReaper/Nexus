@@ -4,27 +4,27 @@ namespace LibNexus.Editor.Tables;
 
 public class ModelEventVisualJoinRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("unitVisualTypeId")]
+	[TableColumn("unitVisualTypeId")]
 	public uint UnitVisualTypeId { get; set; }
 
-	[Column("itemVisualTypeId")]
+	[TableColumn("itemVisualTypeId")]
 	public uint ItemVisualTypeId { get; set; }
 
-	[Column("materialTypeId")]
+	[TableColumn("materialTypeId")]
 	public uint MaterialTypeId { get; set; }
 
-	[Column("modelEventId")]
+	[TableColumn("modelEventId")]
 	public uint ModelEventId { get; set; }
 
-	[Column("visualEffectId")]
+	[TableColumn("visualEffectId")]
 	public uint VisualEffectId { get; set; }
 
-	[Column("modelSequenceId")]
+	[TableColumn("modelSequenceId")]
 	public uint ModelSequenceId { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

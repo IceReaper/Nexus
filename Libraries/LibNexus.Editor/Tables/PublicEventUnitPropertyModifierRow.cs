@@ -4,15 +4,15 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventUnitPropertyModifierRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("publicEventId")]
+	[TableColumn("publicEventId")]
 	public uint PublicEventId { get; set; }
 
-	[Column("unitProperty2Id")]
+	[TableColumn("unitProperty2Id")]
 	public uint UnitProperty2Id { get; set; }
 
-	[Column("scalar")]
+	[TableColumn("scalar")]
 	public float Scalar { get; set; }
 }

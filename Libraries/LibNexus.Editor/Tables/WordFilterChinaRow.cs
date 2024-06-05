@@ -4,9 +4,9 @@ namespace LibNexus.Editor.Tables;
 
 public class WordFilterChinaRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("filter")]
+	[TableColumn("filter")]
 	public string Filter { get; set; } = string.Empty;
 }

@@ -4,48 +4,48 @@ namespace LibNexus.Editor.Tables;
 
 public class WindRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("type")]
+	[TableColumn("type")]
 	public uint Type { get; set; }
 
-	[Column("duration")]
+	[TableColumn("duration")]
 	public uint Duration { get; set; }
 
-	[Column("radiusEnd")]
+	[TableColumn("radiusEnd")]
 	public float RadiusEnd { get; set; }
 
-	[Column("direction")]
+	[TableColumn("direction")]
 	public float Direction { get; set; }
 
-	[Column("directionDelta")]
+	[TableColumn("directionDelta")]
 	public float DirectionDelta { get; set; }
 
-	[Column("blendIn")]
+	[TableColumn("blendIn")]
 	public float BlendIn { get; set; }
 
-	[Column("blendOut")]
+	[TableColumn("blendOut")]
 	public float BlendOut { get; set; }
 
-	[Column("speed")]
+	[TableColumn("speed")]
 	public float Speed { get; set; }
 
-	[Column("sine2DMagnitudeMin")]
+	[TableColumn("sine2DMagnitudeMin")]
 	public float Sine2DMagnitudeMin { get; set; }
 
-	[Column("sine2DMagnitudeMax")]
+	[TableColumn("sine2DMagnitudeMax")]
 	public float Sine2DMagnitudeMax { get; set; }
 
-	[Column("sine2DFrequency")]
+	[TableColumn("sine2DFrequency")]
 	public float Sine2DFrequency { get; set; }
 
-	[Column("sine2DOffsetAngle")]
+	[TableColumn("sine2DOffsetAngle")]
 	public float Sine2DOffsetAngle { get; set; }
 
-	[Column("localRadial")]
+	[TableColumn("localRadial")]
 	public uint LocalRadial { get; set; }
 
-	[Column("localMagnitude")]
+	[TableColumn("localMagnitude")]
 	public float LocalMagnitude { get; set; }
 }

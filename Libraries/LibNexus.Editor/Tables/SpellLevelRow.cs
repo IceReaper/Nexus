@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class SpellLevelRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("classId")]
+	[TableColumn("classId")]
 	public uint ClassId { get; set; }
 
-	[Column("characterLevel")]
+	[TableColumn("characterLevel")]
 	public uint CharacterLevel { get; set; }
 
-	[Column("prerequisiteId")]
+	[TableColumn("prerequisiteId")]
 	public uint PrerequisiteId { get; set; }
 
-	[Column("spell4Id")]
+	[TableColumn("spell4Id")]
 	public uint Spell4Id { get; set; }
 
-	[Column("costMultiplier")]
+	[TableColumn("costMultiplier")]
 	public float CostMultiplier { get; set; }
 }

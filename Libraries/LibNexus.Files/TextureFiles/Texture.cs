@@ -1,92 +1,66 @@
 using LibNexus.Core.Extensions;
+using LibNexus.Core.Streams;
 
 namespace LibNexus.Files.TextureFiles;
 
 public class Texture
 {
-	private const string Magic = "\0GFX";
-	private const uint Version = 3;
+	private static readonly Identifier Identifier = new("\0GFX", 3);
 
-	public uint Width { get; }
-	public uint Height { get; }
-	public uint Sides { get; set; }
-	public uint Depths { get; set; }
-	public byte[][] Pixels { get; }
+	public TextureImage[] Images { get; }
 
 	public Texture(Stream stream)
 	{
-		var magic = stream.ReadWord();
-		var version = stream.ReadUInt32();
-
-		if (magic != Magic)
-			throw new Exception("Texture: Invalid magic");
-
-		if (version != Version)
-			throw new Exception("Texture: Invalid version");
-
+		FileFormatException.ThrowIf<Texture>(nameof(Identifier), new Identifier(stream) != Identifier);
 		var header = new TextureHeader(stream);
-		var jpgHeader = header.IsJpg ? header.Format == 0 ? new JpgHeader(stream) : throw new Exception("Texture: Invalid format") : null;
-		var padding = stream.ReadBytes((ulong)(header.IsJpg ? 4 : 76));
+		using var data = new SegmentStream(stream, Identifier.Size + TextureHeader.Size, stream.Length - Identifier.Size - TextureHeader.Size, true);
 
-		if (padding.Any(static e => e != 0))
-			throw new Exception("Texture: Invalid padding");
+		Images = new TextureImage[header.Sides * header.Depths];
 
-		if (jpgHeader != null && jpgHeader.Sizes.Length != header.MipMaps)
-			throw new Exception("Texture: Invalid sizes");
-
-		Width = header.Width;
-		Height = header.Height;
-		Sides = header.Sides;
-		Depths = header.Depth;
-		Pixels = new byte[Sides * Depths][];
-
-		var mipMaps = header.MipMaps == 0 ? 1 : header.MipMaps;
+		var mipMaps = Math.Max(header.MipMaps, 1);
 
 		for (var mipMap = mipMaps - 1; mipMap > 0; mipMap--)
 		{
 			var factor = 1 << (int)mipMap;
-			var mipWidth = (uint)Math.Max(Width / factor + (Width % factor == 0 ? 0 : 1), 1);
-			var mipHeight = (uint)Math.Max(Height / factor + (Height % factor == 0 ? 0 : 1), 1);
+			var mipWidth = (uint)Math.Max(header.Width / factor + (header.Width % factor == 0 ? 0 : 1), 1);
+			var mipHeight = (uint)Math.Max(header.Height / factor + (header.Height % factor == 0 ? 0 : 1), 1);
 
-			for (var depth = 0; depth < Depths; depth++)
+			for (var i = 0; i < header.Depths * header.Sides; i++)
 			{
-				for (var side = 0; side < Sides; side++)
+				data.Position += header.Format switch
 				{
-					stream.Position += header.Format switch
-					{
-						0 when jpgHeader != null => jpgHeader.Sizes[mipMaps - mipMap - 1],
-						0 => mipWidth * mipHeight * 4,
-						1 => mipWidth * mipHeight * 4,
-						6 => (mipWidth + (4 - mipWidth % 4) % 4) * mipHeight,
-						13 => (mipWidth + 3) / 4 * ((mipHeight + 3) / 4) * 8,
-						15 => (mipWidth + 3) / 4 * ((mipHeight + 3) / 4) * 16,
-						_ => throw new NotSupportedException("Texture: Invalid format")
-					};
-				}
-			}
-		}
-
-		for (var depth = 0; depth < Depths; depth++)
-		{
-			for (var side = 0; side < Sides; side++)
-			{
-				Pixels[depth * Sides + side] = header.Format switch
-				{
-					0 when jpgHeader != null => Jpg.Read(stream.ReadBytes(jpgHeader.Sizes[^1]), Width, Height, jpgHeader.Format, jpgHeader.Layers),
-					0 => ReadBgra32(stream, Width, Height),
-					1 => ReadBgra32(stream, Width, Height),
-					5 => ReadBgra16(stream, Width, Height),
-					6 => ReadGrayscale(stream, Width, Height),
-					13 => ReadDxt(stream, Width, Height, false),
-					15 => ReadDxt(stream, Width, Height, true),
-					18 => ReadGarbage(stream, Width, Height),
-					_ => throw new NotSupportedException("Texture: Invalid format")
+					0 when header.IsJpg => header.JpgSizes[mipMaps - mipMap - 1],
+					0 => mipWidth * mipHeight * 4,
+					1 => mipWidth * mipHeight * 4,
+					6 => (mipWidth + (4 - mipWidth % 4) % 4) * mipHeight,
+					13 => (mipWidth + 3) / 4 * ((mipHeight + 3) / 4) * 8,
+					15 => (mipWidth + 3) / 4 * ((mipHeight + 3) / 4) * 16,
+					_ => throw new FileFormatException(typeof(Texture), nameof(header.Format))
 				};
 			}
 		}
 
-		if (stream.Position < stream.Length)
-			throw new Exception("Texture: Invalid texture");
+		for (var i = 0; i < header.Depths * header.Sides; i++)
+		{
+			Images[i] = new TextureImage(
+				header.Width,
+				header.Height,
+				header.Format switch
+				{
+					0 when header.IsJpg => TextureJpg.Read(data.ReadBytes(header.JpgSizes[^1]), header.Width, header.Height, header.JpgFormat, header.JpgLayers),
+					0 => ReadBgra32(data, header.Width, header.Height),
+					1 => ReadBgra32(data, header.Width, header.Height),
+					5 => ReadBgra16(data, header.Width, header.Height),
+					6 => ReadGrayscale(data, header.Width, header.Height),
+					13 => ReadDxt(data, header.Width, header.Height, false),
+					15 => ReadDxt(data, header.Width, header.Height, true),
+					18 => ReadGarbage(data, header.Width, header.Height),
+					_ => throw new FileFormatException(typeof(Texture), nameof(header.Format))
+				}
+			);
+		}
+
+		FileFormatException.ThrowIf<Texture>(nameof(data), data.Position != data.Length);
 	}
 
 	private static byte[] ReadGarbage(Stream stream, uint width, uint height)

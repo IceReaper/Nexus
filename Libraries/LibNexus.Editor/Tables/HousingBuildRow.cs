@@ -4,69 +4,69 @@ namespace LibNexus.Editor.Tables;
 
 public class HousingBuildRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("description")]
+	[TableColumn("description")]
 	public string Description { get; set; } = string.Empty;
 
-	[Column("assetPath")]
+	[TableColumn("assetPath")]
 	public string AssetPath { get; set; } = string.Empty;
 
-	[Column("constructionEffectsId")]
+	[TableColumn("constructionEffectsId")]
 	public uint ConstructionEffectsId { get; set; }
 
-	[Column("buildPreDelayTimeMS")]
+	[TableColumn("buildPreDelayTimeMS")]
 	public float BuildPreDelayTimeMs { get; set; }
 
-	[Column("buildPostDelayTimeMS")]
+	[TableColumn("buildPostDelayTimeMS")]
 	public float BuildPostDelayTimeMs { get; set; }
 
-	[Column("buildTime00")]
+	[TableColumn("buildTime00")]
 	public float BuildTime00 { get; set; }
 
-	[Column("buildTime01")]
+	[TableColumn("buildTime01")]
 	public float BuildTime01 { get; set; }
 
-	[Column("buildTime02")]
+	[TableColumn("buildTime02")]
 	public float BuildTime02 { get; set; }
 
-	[Column("buildTime03")]
+	[TableColumn("buildTime03")]
 	public float BuildTime03 { get; set; }
 
-	[Column("buildTime04")]
+	[TableColumn("buildTime04")]
 	public float BuildTime04 { get; set; }
 
-	[Column("buildTime05")]
+	[TableColumn("buildTime05")]
 	public float BuildTime05 { get; set; }
 
-	[Column("buildTime06")]
+	[TableColumn("buildTime06")]
 	public float BuildTime06 { get; set; }
 
-	[Column("buildTime07")]
+	[TableColumn("buildTime07")]
 	public float BuildTime07 { get; set; }
 
-	[Column("modelSequenceId00")]
+	[TableColumn("modelSequenceId00")]
 	public uint ModelSequenceId00 { get; set; }
 
-	[Column("modelSequenceId01")]
+	[TableColumn("modelSequenceId01")]
 	public uint ModelSequenceId01 { get; set; }
 
-	[Column("modelSequenceId02")]
+	[TableColumn("modelSequenceId02")]
 	public uint ModelSequenceId02 { get; set; }
 
-	[Column("modelSequenceId03")]
+	[TableColumn("modelSequenceId03")]
 	public uint ModelSequenceId03 { get; set; }
 
-	[Column("modelSequenceId04")]
+	[TableColumn("modelSequenceId04")]
 	public uint ModelSequenceId04 { get; set; }
 
-	[Column("modelSequenceId05")]
+	[TableColumn("modelSequenceId05")]
 	public uint ModelSequenceId05 { get; set; }
 
-	[Column("modelSequenceId06")]
+	[TableColumn("modelSequenceId06")]
 	public uint ModelSequenceId06 { get; set; }
 
-	[Column("modelSequenceId07")]
+	[TableColumn("modelSequenceId07")]
 	public uint ModelSequenceId07 { get; set; }
 }

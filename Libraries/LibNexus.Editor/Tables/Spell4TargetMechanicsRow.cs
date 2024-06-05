@@ -4,12 +4,12 @@ namespace LibNexus.Editor.Tables;
 
 public class Spell4TargetMechanicsRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("targetType")]
+	[TableColumn("targetType")]
 	public uint TargetType { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 }

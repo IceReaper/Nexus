@@ -4,42 +4,42 @@ namespace LibNexus.Editor.Tables;
 
 public class PublicEventRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("worldId")]
+	[TableColumn("worldId")]
 	public uint WorldId { get; set; }
 
-	[Column("worldZoneId")]
+	[TableColumn("worldZoneId")]
 	public uint WorldZoneId { get; set; }
 
-	[Column("localizedTextIdName")]
+	[TableColumn("localizedTextIdName")]
 	public uint LocalizedTextIdName { get; set; }
 
-	[Column("failureTimeMs")]
+	[TableColumn("failureTimeMs")]
 	public uint FailureTimeMs { get; set; }
 
-	[Column("worldLocation2Id")]
+	[TableColumn("worldLocation2Id")]
 	public uint WorldLocation2Id { get; set; }
 
-	[Column("publicEventTypeEnum")]
+	[TableColumn("publicEventTypeEnum")]
 	public uint PublicEventTypeEnum { get; set; }
 
-	[Column("publicEventIdParent")]
+	[TableColumn("publicEventIdParent")]
 	public uint PublicEventIdParent { get; set; }
 
-	[Column("minPlayerLevel")]
+	[TableColumn("minPlayerLevel")]
 	public uint MinPlayerLevel { get; set; }
 
-	[Column("liveEventIdLifetime")]
+	[TableColumn("liveEventIdLifetime")]
 	public uint LiveEventIdLifetime { get; set; }
 
-	[Column("publicEventFlags")]
+	[TableColumn("publicEventFlags")]
 	public uint PublicEventFlags { get; set; }
 
-	[Column("localizedTextIdEnd")]
+	[TableColumn("localizedTextIdEnd")]
 	public uint LocalizedTextIdEnd { get; set; }
 
-	[Column("rewardRotationContentId")]
+	[TableColumn("rewardRotationContentId")]
 	public uint RewardRotationContentId { get; set; }
 }

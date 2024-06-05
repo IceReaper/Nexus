@@ -4,21 +4,21 @@ namespace LibNexus.Editor.Tables;
 
 public class XpPerLevelRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("minXpForLevel")]
+	[TableColumn("minXpForLevel")]
 	public uint MinXpForLevel { get; set; }
 
-	[Column("baseQuestXpPerLevel")]
+	[TableColumn("baseQuestXpPerLevel")]
 	public uint BaseQuestXpPerLevel { get; set; }
 
-	[Column("abilityPointsPerLevel")]
+	[TableColumn("abilityPointsPerLevel")]
 	public uint AbilityPointsPerLevel { get; set; }
 
-	[Column("attributePointsPerLevel")]
+	[TableColumn("attributePointsPerLevel")]
 	public uint AttributePointsPerLevel { get; set; }
 
-	[Column("baseRepRewardPerLevel")]
+	[TableColumn("baseRepRewardPerLevel")]
 	public uint BaseRepRewardPerLevel { get; set; }
 }

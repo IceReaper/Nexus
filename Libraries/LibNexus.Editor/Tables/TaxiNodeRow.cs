@@ -4,36 +4,36 @@ namespace LibNexus.Editor.Tables;
 
 public class TaxiNodeRow
 {
-	[Column("ID")]
+	[TableColumn("ID")]
 	public uint Id { get; set; }
 
-	[Column("localizedTextId")]
+	[TableColumn("localizedTextId")]
 	public uint LocalizedTextId { get; set; }
 
-	[Column("taxiNodeTypeEnum")]
+	[TableColumn("taxiNodeTypeEnum")]
 	public uint TaxiNodeTypeEnum { get; set; }
 
-	[Column("flags")]
+	[TableColumn("flags")]
 	public uint Flags { get; set; }
 
-	[Column("flightPathTypeEnum")]
+	[TableColumn("flightPathTypeEnum")]
 	public uint FlightPathTypeEnum { get; set; }
 
-	[Column("taxiNodeFactionEnum")]
+	[TableColumn("taxiNodeFactionEnum")]
 	public uint TaxiNodeFactionEnum { get; set; }
 
-	[Column("worldLocation2Id")]
+	[TableColumn("worldLocation2Id")]
 	public uint WorldLocation2Id { get; set; }
 
-	[Column("contentTier")]
+	[TableColumn("contentTier")]
 	public uint ContentTier { get; set; }
 
-	[Column("autoUnlockLevel")]
+	[TableColumn("autoUnlockLevel")]
 	public uint AutoUnlockLevel { get; set; }
 
-	[Column("recommendedMinLevel")]
+	[TableColumn("recommendedMinLevel")]
 	public uint RecommendedMinLevel { get; set; }
 
-	[Column("recommendedMaxLevel")]
+	[TableColumn("recommendedMaxLevel")]
 	public uint RecommendedMaxLevel { get; set; }
 }
