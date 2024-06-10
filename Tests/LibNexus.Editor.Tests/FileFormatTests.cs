@@ -10,6 +10,7 @@ namespace LibNexus.Editor.Tests;
 
 public class FileFormatTests
 {
+	// TODO create a local AppSettings.json, so i can make an AppSettings.Development.json (on .gitignore) to override it with my local path.
 	private const string ClientPath = "../../../../../A_TestProject/dist/";
 
 	[Test]

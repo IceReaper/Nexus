@@ -10,7 +10,15 @@ public static class ExecutableRunner
 		var tempFile = targetPath[..^4] + ".tmp.exe";
 		File.WriteAllBytes(tempFile, exeBuffer);
 
-		var process = Process.Start(new ProcessStartInfo { FileName = tempFile, Arguments = arguments, WorkingDirectory = Path.GetDirectoryName(targetPath) });
+		var fileName = tempFile;
+
+		if (OperatingSystem.IsLinux())
+		{
+			arguments = $"{tempFile} {arguments}";
+			fileName = "wine";
+		}
+
+		var process = Process.Start(new ProcessStartInfo { FileName = fileName, Arguments = arguments, WorkingDirectory = Path.GetDirectoryName(targetPath) });
 
 		if (process == null)
 			return null;
