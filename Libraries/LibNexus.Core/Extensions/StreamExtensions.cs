@@ -9,6 +9,11 @@ public static class StreamExtensions
 		return stream.ReadBytes(1)[0];
 	}
 
+	public static short ReadInt16(this Stream stream)
+	{
+		return BitConverter.ToInt16(stream.ReadBytes(sizeof(short)));
+	}
+
 	public static ushort ReadUInt16(this Stream stream)
 	{
 		return BitConverter.ToUInt16(stream.ReadBytes(sizeof(ushort)));
@@ -22,6 +27,11 @@ public static class StreamExtensions
 	public static ulong ReadUInt64(this Stream stream)
 	{
 		return BitConverter.ToUInt64(stream.ReadBytes(sizeof(ulong)));
+	}
+
+	public static Half ReadHalf(this Stream stream)
+	{
+		return BitConverter.ToHalf(stream.ReadBytes(2));
 	}
 
 	public static float ReadSingle(this Stream stream)

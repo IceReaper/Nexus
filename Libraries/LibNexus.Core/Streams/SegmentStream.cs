@@ -13,18 +13,26 @@ public class SegmentStream : Stream
 		set => Seek(value, SeekOrigin.Begin);
 	}
 
+#pragma warning disable CA2213
 	private readonly Stream _stream;
+#pragma warning restore CA2213
+
 	private readonly long _position;
-	private readonly bool _leaveOpen;
 
 	private long _length;
 
-	public SegmentStream(Stream stream, long position, long length, bool leaveOpen)
+	public SegmentStream(Stream stream)
+	{
+		_stream = stream;
+		_position = stream.Position;
+		_length = stream.Length - stream.Position;
+	}
+
+	public SegmentStream(Stream stream, long position, long length)
 	{
 		_stream = stream;
 		_position = position;
 		_length = length;
-		_leaveOpen = leaveOpen;
 	}
 
 	public override void Flush()
@@ -71,13 +79,5 @@ public class SegmentStream : Stream
 			throw new ArgumentException("Cannot write past the end of the stream.");
 
 		_stream.Write(buffer, offset, count);
-	}
-
-	protected override void Dispose(bool disposing)
-	{
-		base.Dispose(disposing);
-
-		if (disposing && !_leaveOpen)
-			_stream.Dispose();
 	}
 }

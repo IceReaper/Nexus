@@ -7,60 +7,81 @@ public class Texture
 {
 	private static readonly Identifier Identifier = new("\0GFX", 3);
 
+	private readonly TextureHeader _header;
+
 	public TextureImage[] Images { get; }
 
 	public Texture(Stream stream)
 	{
 		FileFormatException.ThrowIf<Texture>(nameof(Identifier), new Identifier(stream) != Identifier);
-		var header = new TextureHeader(stream);
-		using var data = new SegmentStream(stream, Identifier.Size + TextureHeader.Size, stream.Length - Identifier.Size - TextureHeader.Size, true);
 
-		Images = new TextureImage[header.Sides * header.Depths];
+		_header = new TextureHeader(stream);
 
-		var mipMaps = Math.Max(header.MipMaps, 1);
+		using var dataStream = new SegmentStream(stream);
+
+		SkipMips(dataStream);
+		Images = ReadImages(dataStream);
+
+		FileFormatException.ThrowIf<Texture>(nameof(stream), stream.Position != stream.Length);
+	}
+
+	private void SkipMips(SegmentStream dataStream)
+	{
+		var mipMaps = Math.Max(_header.MipMaps, 1);
 
 		for (var mipMap = mipMaps - 1; mipMap > 0; mipMap--)
 		{
 			var factor = 1 << (int)mipMap;
-			var mipWidth = (uint)Math.Max(header.Width / factor + (header.Width % factor == 0 ? 0 : 1), 1);
-			var mipHeight = (uint)Math.Max(header.Height / factor + (header.Height % factor == 0 ? 0 : 1), 1);
+			var mipWidth = (uint)Math.Max(_header.Width / factor + (_header.Width % factor == 0 ? 0 : 1), 1);
+			var mipHeight = (uint)Math.Max(_header.Height / factor + (_header.Height % factor == 0 ? 0 : 1), 1);
 
-			for (var i = 0; i < header.Depths * header.Sides; i++)
+			for (var i = 0; i < _header.Depth * _header.Sides; i++)
 			{
-				data.Position += header.Format switch
+				dataStream.Position += _header.Format switch
 				{
-					0 when header.IsJpg => header.JpgSizes[mipMaps - mipMap - 1],
+					0 when _header.IsJpg => _header.JpgSizes[mipMaps - mipMap - 1],
 					0 => mipWidth * mipHeight * 4,
 					1 => mipWidth * mipHeight * 4,
 					6 => (mipWidth + (4 - mipWidth % 4) % 4) * mipHeight,
 					13 => (mipWidth + 3) / 4 * ((mipHeight + 3) / 4) * 8,
 					15 => (mipWidth + 3) / 4 * ((mipHeight + 3) / 4) * 16,
-					_ => throw new FileFormatException(typeof(Texture), nameof(header.Format))
+					_ => throw new FileFormatException(typeof(Texture), nameof(_header.Format))
 				};
 			}
 		}
+	}
 
-		for (var i = 0; i < header.Depths * header.Sides; i++)
+	private TextureImage[] ReadImages(SegmentStream dataStream)
+	{
+		var images = new TextureImage[_header.Sides * _header.Depth];
+
+		for (var i = 0; i < _header.Depth * _header.Sides; i++)
 		{
-			Images[i] = new TextureImage(
-				header.Width,
-				header.Height,
-				header.Format switch
+			images[i] = new TextureImage(
+				_header.Width,
+				_header.Height,
+				_header.Format switch
 				{
-					0 when header.IsJpg => TextureJpg.Read(data.ReadBytes(header.JpgSizes[^1]), header.Width, header.Height, header.JpgFormat, header.JpgLayers),
-					0 => ReadBgra32(data, header.Width, header.Height),
-					1 => ReadBgra32(data, header.Width, header.Height),
-					5 => ReadBgra16(data, header.Width, header.Height),
-					6 => ReadGrayscale(data, header.Width, header.Height),
-					13 => ReadDxt(data, header.Width, header.Height, false),
-					15 => ReadDxt(data, header.Width, header.Height, true),
-					18 => ReadGarbage(data, header.Width, header.Height),
-					_ => throw new FileFormatException(typeof(Texture), nameof(header.Format))
+					0 when _header.IsJpg => TextureJpg.Read(
+						dataStream.ReadBytes(_header.JpgSizes[^1]),
+						_header.Width,
+						_header.Height,
+						_header.JpgFormat,
+						_header.JpgLayers
+					),
+					0 => ReadBgra32(dataStream, _header.Width, _header.Height),
+					1 => ReadBgra32(dataStream, _header.Width, _header.Height),
+					5 => ReadBgra16(dataStream, _header.Width, _header.Height),
+					6 => ReadGrayscale(dataStream, _header.Width, _header.Height),
+					13 => ReadDxt(dataStream, _header.Width, _header.Height, false),
+					15 => ReadDxt(dataStream, _header.Width, _header.Height, true),
+					18 => ReadGarbage(dataStream, _header.Width, _header.Height),
+					_ => throw new FileFormatException(typeof(Texture), nameof(_header.Format))
 				}
 			);
 		}
 
-		FileFormatException.ThrowIf<Texture>(nameof(data), data.Position != data.Length);
+		return images;
 	}
 
 	private static byte[] ReadGarbage(Stream stream, uint width, uint height)

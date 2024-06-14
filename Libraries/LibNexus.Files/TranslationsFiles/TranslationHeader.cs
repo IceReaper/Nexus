@@ -2,10 +2,8 @@ using LibNexus.Core.Extensions;
 
 namespace LibNexus.Files.TranslationsFiles;
 
-public class TranslationsHeader
+public class TranslationHeader
 {
-	public const uint Size = 88;
-
 	public uint Id { get; }
 	public ulong NameLength { get; }
 	public ulong NameOffset { get; }
@@ -15,13 +13,13 @@ public class TranslationsHeader
 	public ulong DescriptionOffset { get; }
 	public ulong TranslationsAmount { get; }
 	public ulong TranslationsOffset { get; }
-	public ulong CharactersAmount { get; }
-	public ulong CharactersOffset { get; }
+	public ulong StringsLength { get; }
+	public ulong StringsOffset { get; }
 
-	public TranslationsHeader(Stream stream)
+	public TranslationHeader(Stream stream)
 	{
 		Id = stream.ReadUInt32();
-		stream.ReadUInt32(); // TODO What is this?!
+		var unk = stream.ReadUInt32(); // TODO What is this?! Maybe an .tbl id?
 		NameLength = stream.ReadUInt64();
 		NameOffset = stream.ReadUInt64();
 		CodeLength = stream.ReadUInt64();
@@ -30,7 +28,7 @@ public class TranslationsHeader
 		DescriptionOffset = stream.ReadUInt64();
 		TranslationsAmount = stream.ReadUInt64();
 		TranslationsOffset = stream.ReadUInt64();
-		CharactersAmount = stream.ReadUInt64();
-		CharactersOffset = stream.ReadUInt64();
+		StringsLength = stream.ReadUInt64();
+		StringsOffset = stream.ReadUInt64();
 	}
 }

@@ -15,7 +15,7 @@ public class TableHeader
 	public ulong RowsLength { get; }
 	public ulong RowsOffset { get; }
 	public ulong AutoIncrement { get; }
-	public ulong IdMapOffset { get; }
+	public ulong IdListOffset { get; }
 
 	public TableHeader(Stream stream)
 	{
@@ -28,7 +28,7 @@ public class TableHeader
 		RowsLength = stream.ReadUInt64();
 		RowsOffset = stream.ReadUInt64();
 		AutoIncrement = stream.ReadUInt64();
-		IdMapOffset = stream.ReadUInt64();
+		IdListOffset = stream.ReadUInt64();
 
 		FileFormatException.ThrowIf<Table>("unused", stream.ReadUInt64() != 0);
 	}

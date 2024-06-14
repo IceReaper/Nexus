@@ -1,6 +1,7 @@
 using LibNexus.Core;
 using LibNexus.Editor.Tables;
 using LibNexus.Files;
+using LibNexus.Files.ModelFiles;
 using LibNexus.Files.TableFiles;
 using LibNexus.Files.TextureFiles;
 using LibNexus.Files.TranslationsFiles;
@@ -18,7 +19,7 @@ public class FileFormatTests
 	{
 		using var fileSystem = await FileSystem.Create(new Progress(), Path.Combine(ClientPath, "Patch/ClientDataEN"), true, null, CancellationToken.None);
 
-		Assert.That(() => new Translations(new MemoryStream(fileSystem.Read("en-US.bin") ?? throw new Exception())), Throws.Nothing);
+		Assert.That(() => new Translation(new MemoryStream(fileSystem.Read("en-US.bin") ?? throw new Exception())), Throws.Nothing);
 	}
 
 	[Test]
@@ -117,5 +118,13 @@ public class FileFormatTests
 		using var fileSystem = await FileSystem.Create(new Progress(), Path.Combine(ClientPath, "Patch/ClientData"), true, null, CancellationToken.None);
 
 		Assert.That(() => new TableWithRows<Item2Row>(new MemoryStream(fileSystem.Read("DB/Item2.tbl") ?? throw new Exception())), Throws.Nothing);
+	}
+
+	[Test]
+	public async Task TestModel()
+	{
+		using var fileSystem = await FileSystem.Create(new Progress(), Path.Combine(ClientPath, "Patch/ClientData"), true, null, CancellationToken.None);
+
+		Assert.That(() => new Model(new MemoryStream(fileSystem.Read("Art/Dev/Temp/Glue_Screen_001.m3") ?? throw new Exception())), Throws.Nothing);
 	}
 }

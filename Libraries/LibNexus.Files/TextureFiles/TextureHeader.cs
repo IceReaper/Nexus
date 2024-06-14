@@ -8,7 +8,7 @@ public class TextureHeader
 
 	public uint Width { get; }
 	public uint Height { get; }
-	public uint Depths { get; }
+	public uint Depth { get; }
 	public uint Sides { get; }
 	public uint MipMaps { get; }
 	public uint Format { get; }
@@ -21,7 +21,7 @@ public class TextureHeader
 	{
 		Width = stream.ReadUInt32();
 		Height = stream.ReadUInt32();
-		Depths = stream.ReadUInt32(); // TODO is this really "Depth"? Only used on color lookup tables!
+		Depth = stream.ReadUInt32();
 		Sides = stream.ReadUInt32();
 		MipMaps = stream.ReadUInt32();
 		Format = stream.ReadUInt32();

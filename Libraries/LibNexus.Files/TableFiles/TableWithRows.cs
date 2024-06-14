@@ -1,26 +1,41 @@
 using LibNexus.Core.Extensions;
+using LibNexus.Core.Streams;
 using System.Reflection;
 
 namespace LibNexus.Files.TableFiles;
 
 public class TableWithRows<T> : Table
+	where T : notnull
 {
-	public Dictionary<uint, T?> Rows { get; } = [];
+	public Dictionary<uint, T?> Rows { get; }
 
 	public TableWithRows(Stream stream)
 		: base(stream)
 	{
-		Data.Position = (long)(Header.RowsOffset + Header.Rows * Header.RowLength);
+		var rows = ReadRows();
+		var strings = ReadStrings();
+		var idList = ReadIdList();
 
-		var strings = new Dictionary<ulong, string>();
+		FileFormatException.ThrowIf<Table>(nameof(stream), stream.Position != stream.Length);
 
-		while ((ulong)Data.Position < Header.RowsOffset + Header.RowsLength)
-			strings.Add((ulong)Data.Position - Header.RowsOffset, Data.ReadWideString());
+		Rows = idList.Select(static (id, index) => new { Index = (uint)index, Id = id })
+			.ToDictionary(
+				static entry => entry.Index,
+				entry =>
+				{
+					if (entry.Id == uint.MaxValue)
+						return default;
 
-		stream.SkipPadding(16);
+					rows[entry.Id].SetStrings(strings);
 
-		FileFormatException.ThrowIf<Table>(nameof(Header.IdMapOffset), Header.IdMapOffset != 0 && (ulong)Data.Position != Header.IdMapOffset);
-		Data.Position = (long)Header.RowsOffset;
+					return rows[entry.Id].Row;
+				}
+			);
+	}
+
+	private (T Row, Action<Dictionary<ulong, string>> SetStrings)[] ReadRows()
+	{
+		FileFormatException.ThrowIf<Table>(nameof(Header.RowsOffset), Header.RowsOffset != 0 && (ulong)DataStream.Position != Header.RowsOffset);
 
 		var properties = typeof(T).GetProperties()
 			.ToDictionary(
@@ -28,74 +43,67 @@ public class TableWithRows<T> : Table
 				static property => property.GetCustomAttribute<TableColumnAttribute>() ?? throw new FileFormatException(typeof(T), property.Name)
 			);
 
-		var rows = new List<T>();
+		var rows = new (T, Action<Dictionary<ulong, string>>)[Header.Rows];
 
 		for (var i = 0U; i < Header.Rows; i++)
 		{
 			// TODO if we can properly calculate the padding, we can skip the calculation for performance reasons!
-			rows.Add(ReadRow(properties, strings, out var rowLength));
-			Data.ReadBytes(Header.RowLength - rowLength); // TODO Not empty on TradeskillTier ?! TODO does this align to any Padding logic?
+			rows[i] = ReadRow(properties, out var rowLength);
+			DataStream.ReadBytes(Header.RowLength - rowLength); // TODO Not empty on TradeskillTier ?! TODO does this align to any Padding logic?
 		}
 
-		Data.Position = (long)Header.IdMapOffset;
+		DataStream.SkipPadding(16);
 
-		for (var i = 0U; i < Header.AutoIncrement; i++)
-		{
-			var id = Data.ReadUInt32();
-
-			Rows.Add(i, id == uint.MaxValue ? default : rows[(int)id]);
-		}
-
-		stream.SkipPadding(16);
-
-		FileFormatException.ThrowIf<Table>(nameof(Data), Data.Position != Data.Length);
+		return rows;
 	}
 
-	private T ReadRow(Dictionary<PropertyInfo, TableColumnAttribute> properties, Dictionary<ulong, string> strings, out ulong rowLength)
+	private (T Row, Action<Dictionary<ulong, string>> SetStrings) ReadRow(Dictionary<PropertyInfo, TableColumnAttribute> properties, out ulong rowLength)
 	{
 		var row = Activator.CreateInstance<T>();
+		var setStrings = new List<Action<Dictionary<ulong, string>>>();
 		rowLength = 0;
 
-		foreach (var column in Columns)
+		foreach (var (name, column) in Columns)
 		{
-			var property = properties.FirstOrDefault(entry => entry.Value.Name == column.Name).Key ?? throw new FileFormatException(typeof(T), column.Name);
+			var property = properties.FirstOrDefault(entry => entry.Value.Name == name).Key ?? throw new FileFormatException(typeof(T), name);
 
-			object value;
+			object? value;
 
 			switch (column.Type)
 			{
 				case TableColumnType.Uint:
-					value = Data.ReadUInt32();
+					value = DataStream.ReadUInt32();
 					rowLength += 4;
 
 					break;
 
 				case TableColumnType.Float:
-					value = Data.ReadSingle();
+					value = DataStream.ReadSingle();
 					rowLength += 4;
 
 					break;
 
 				case TableColumnType.Bool:
-					value = Data.ReadUInt32() != 0;
+					value = DataStream.ReadUInt32() != 0;
 					rowLength += 4;
 
 					break;
 
 				case TableColumnType.Ulong:
-					value = Data.ReadUInt64();
+					value = DataStream.ReadUInt64();
 					rowLength += 8;
 
 					break;
 
 				case TableColumnType.String:
 				{
-					var offsetOrZero = Data.ReadUInt32();
-					var textOffset = offsetOrZero != 0 ? offsetOrZero : Data.ReadUInt32();
-					var unk1 = Data.ReadUInt32();
+					var offsetOrZero = DataStream.ReadUInt32();
+					var textOffset = offsetOrZero != 0 ? offsetOrZero : DataStream.ReadUInt32();
+					var unk1 = DataStream.ReadUInt32();
 
 					rowLength += (ulong)(offsetOrZero != 0 ? 8 : 12);
-					value = strings[textOffset];
+					setStrings.Add(strings => property.SetValue(row, strings[textOffset]));
+					value = null;
 					FileFormatException.ThrowIf<Table>(nameof(unk1), unk1 != 0);
 
 					break;
@@ -105,9 +113,37 @@ public class TableWithRows<T> : Table
 					throw new FileFormatException(typeof(T), nameof(column.Type));
 			}
 
-			property.SetValue(row, value);
+			if (value != null)
+				property.SetValue(row, value);
 		}
 
-		return row;
+		return (row, strings => setStrings.ForEach(setString => setString(strings)));
+	}
+
+	private Dictionary<ulong, string> ReadStrings()
+	{
+		using var rowsStream = new SegmentStream(DataStream, (long)Header.RowsOffset, (long)Header.RowsLength);
+
+		var strings = new Dictionary<ulong, string>();
+
+		while (rowsStream.Position < rowsStream.Length)
+			strings.Add((ulong)rowsStream.Position, DataStream.ReadWideString());
+
+		DataStream.SkipPadding(16);
+
+		return strings;
+	}
+
+	private IEnumerable<uint> ReadIdList()
+	{
+		FileFormatException.ThrowIf<Table>(nameof(Header.IdListOffset), Header.IdListOffset != 0 && (ulong)DataStream.Position != Header.IdListOffset);
+		var idList = new uint[Header.AutoIncrement];
+
+		for (var i = 0U; i < Header.AutoIncrement; i++)
+			idList[i] = DataStream.ReadUInt32();
+
+		DataStream.SkipPadding(16);
+
+		return idList;
 	}
 }
