@@ -9,8 +9,10 @@ public class ModelGeometryVertex
 	public Vector3 Tangent { get; }
 	public Vector3 Normal { get; }
 	public Vector3 Bitangent { get; }
-	public Vector4 Color { get; }
+	public Vector4 Color1 { get; }
+	public Vector4 Color2 { get; }
 	public Vector2 Uv { get; }
+	public byte[] Bones { get; } = [];
 
 	public ModelGeometryVertex(Stream stream, ModelGeometryVertexFlags vertexFlags, IReadOnlyList<ModelGeometryVertexFieldType> vertexFieldTypes)
 	{
@@ -26,13 +28,16 @@ public class ModelGeometryVertex
 		if (vertexFlags.HasFlag(ModelGeometryVertexFlags.Bitangent))
 			Bitangent = ReadVector3(stream, vertexFieldTypes[3]);
 
-		FileFormatException.ThrowIf<Model>(nameof(vertexFlags), vertexFlags.HasFlag(ModelGeometryVertexFlags.Unk0010));
+		if (vertexFlags.HasFlag(ModelGeometryVertexFlags.Bones))
+			Bones = stream.ReadBytes(4).Where(static b => b != byte.MaxValue).ToArray();
+
 		FileFormatException.ThrowIf<Model>(nameof(vertexFlags), vertexFlags.HasFlag(ModelGeometryVertexFlags.Unk0020));
 
-		if (vertexFlags.HasFlag(ModelGeometryVertexFlags.Color))
-			Color = ReadVector4(stream, vertexFieldTypes[6]);
+		if (vertexFlags.HasFlag(ModelGeometryVertexFlags.Color1))
+			Color1 = ReadVector4(stream, vertexFieldTypes[6]);
 
-		FileFormatException.ThrowIf<Model>(nameof(vertexFlags), vertexFlags.HasFlag(ModelGeometryVertexFlags.Unk0080));
+		if (vertexFlags.HasFlag(ModelGeometryVertexFlags.Color2))
+			Color2 = ReadVector4(stream, vertexFieldTypes[7]);
 
 		if (vertexFlags.HasFlag(ModelGeometryVertexFlags.Uv))
 			Uv = ReadVector2(stream, vertexFieldTypes[8]);

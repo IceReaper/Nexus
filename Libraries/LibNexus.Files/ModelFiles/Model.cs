@@ -8,7 +8,7 @@ public class Model
 	private static readonly Identifier Identifier = new("MODL", 100);
 
 	public (ModelTexture Texture, string File)[] Textures { get; } = [];
-	public (ModelMaterialHeader Header, ModelMaterialData Data)[] Materials { get; } = [];
+	public (ModelMaterialHeader Header, ModelMaterialLayer[] Layers)[] Materials { get; } = [];
 	public ModelGeometry Geometry { get; }
 
 	private readonly ModelHeader _header;
@@ -88,10 +88,9 @@ public class Model
 			FileFormatException.ThrowIf<Model>(nameof(_header.Unk28), dataStream.Position != (long)_header.Unk28.Offset);
 
 			for (var i = 0UL; i < _header.Unk28.Count; i++)
-			{
-				stream.ReadBytes(16); // TODO
-				dataStream.SkipPadding(16);
-			}
+				stream.ReadUInt16(); // TODO Bone related?
+
+			dataStream.SkipPadding(16);
 		}
 
 		if (_header.Textures.Count != 0)
@@ -161,28 +160,32 @@ public class Model
 		return textures.Select(texture => (texture, strings[texture.FileOffset])).ToArray();
 	}
 
-	private (ModelMaterialHeader Header, ModelMaterialData Data)[] ReadMaterials(SegmentStream stream)
+	private (ModelMaterialHeader Header, ModelMaterialLayer[] Layers)[] ReadMaterials(SegmentStream stream)
 	{
 		FileFormatException.ThrowIf<Model>(nameof(_header.Materials), stream.Position != (long)_header.Materials.Offset);
 
-		var materialHeaders = new ModelMaterialHeader[_header.Materials.Count];
+		var materials = new (ModelMaterialHeader Header, ModelMaterialLayer[] Layers)[_header.Materials.Count];
 
 		for (var i = 0UL; i < _header.Materials.Count; i++)
 		{
-			materialHeaders[i] = new ModelMaterialHeader(stream);
+			var header = new ModelMaterialHeader(stream);
+			materials[i] = (header, new ModelMaterialLayer[header.Layers]);
 			stream.SkipPadding(16);
 		}
 
 		using var materialsStream = new SegmentStream(stream);
-		var materialData = new Dictionary<uint, ModelMaterialData>();
 
-		for (var i = 0UL; i < _header.Materials.Count; i++)
+		foreach (var (header, layers) in materials)
 		{
-			materialData.Add((uint)materialsStream.Position, new ModelMaterialData(materialsStream));
+			FileFormatException.ThrowIf<Model>(nameof(header.LayersOffset), materialsStream.Position != (long)header.LayersOffset);
+
+			for (var j = 0UL; j < header.Layers; j++)
+				layers[j] = new ModelMaterialLayer(materialsStream);
+
 			materialsStream.SkipPadding(16);
 		}
 
-		return materialHeaders.Select(materialHeader => (materialHeader, materialData[materialHeader.DataOffset])).ToArray();
+		return materials;
 	}
 
 	private ModelGeometry ReadGeometry(SegmentStream stream)
