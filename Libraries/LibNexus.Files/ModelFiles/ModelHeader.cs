@@ -45,6 +45,11 @@ public class ModelHeader
 	public ModelChunk Geometry { get; }
 	public ModelChunk Unk39 { get; }
 	public ModelChunk Unk40 { get; }
+	public ModelChunk Unk41 { get; }
+	public ModelChunk Unk42 { get; }
+	public ModelChunk Unk43 { get; }
+	public ModelChunk Unk44 { get; }
+	public ModelChunk Unk45 { get; }
 
 	public ModelHeader(Stream stream)
 	{
@@ -90,7 +95,13 @@ public class ModelHeader
 		Geometry = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
 		Unk39 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
 		Unk40 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
-
-		stream.ReadBytes(944); // TODO
+		stream.ReadBytes(152); // TODO
+		Unk41 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
+		Unk42 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
+		Unk43 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
+		stream.ReadBytes(328); // TODO
+		Unk44 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
+		Unk45 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
+		stream.ReadBytes(384); // TODO
 	}
 }

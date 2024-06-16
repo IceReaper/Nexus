@@ -7,9 +7,9 @@ public class Model
 {
 	private static readonly Identifier Identifier = new("MODL", 100);
 
-	public (ModelBone Bone, ModelBoneAnimation Animation)[] Bones { get; } = [];
-	public (ModelTexture Texture, string File)[] Textures { get; } = [];
-	public (ModelMaterialHeader Header, ModelMaterialLayer[] Layers)[] Materials { get; } = [];
+	public ModelBone[] Bones { get; } = [];
+	public ModelTexture[] Textures { get; } = [];
+	public ModelMaterial[] Materials { get; } = [];
 	public ModelGeometry Geometry { get; }
 
 	private readonly ModelHeader _header;
@@ -126,18 +126,88 @@ public class Model
 			}
 		}
 
+		if (_header.Unk41.Count != 0)
+		{
+			FileFormatException.ThrowIf<Model>(nameof(_header.Unk41), dataStream.Position != (long)_header.Unk41.Offset);
+
+			for (var i = 0UL; i < _header.Unk41.Count; i++)
+				stream.ReadBytes(552); // TODO
+
+			dataStream.SkipPadding(16);
+		}
+
+		if (_header.Unk42.Count != 0)
+		{
+			FileFormatException.ThrowIf<Model>(nameof(_header.Unk42), dataStream.Position != (long)_header.Unk42.Offset);
+
+			for (var i = 0UL; i < _header.Unk42.Count; i++)
+				stream.ReadBytes(96); // TODO
+
+			dataStream.SkipPadding(16);
+		}
+
+		if (_header.Unk43.Count != 0)
+		{
+			FileFormatException.ThrowIf<Model>(nameof(_header.Unk43), dataStream.Position != (long)_header.Unk43.Offset);
+
+			for (var i = 0UL; i < _header.Unk43.Count; i++)
+				stream.ReadBytes(4); // TODO
+
+			dataStream.SkipPadding(16);
+		}
+
+		if (_header.Unk44.Count != 0)
+		{
+			FileFormatException.ThrowIf<Model>(nameof(_header.Unk44), dataStream.Position != (long)_header.Unk44.Offset);
+
+			var headers = new List<(ulong Count1, ulong Offset1, ulong Count2, ulong Offset2, ulong Count3, ulong Offset3, ulong Count4, ulong Offset4)>();
+
+			for (var i = 0UL; i < _header.Unk44.Count; i++)
+			{
+				headers.Add(
+					(dataStream.ReadUInt64(), dataStream.ReadUInt64(), dataStream.ReadUInt64(), dataStream.ReadUInt64(), dataStream.ReadUInt64(),
+						dataStream.ReadUInt64(), dataStream.ReadUInt64(), dataStream.ReadUInt64())
+				);
+
+				dataStream.SkipPadding(16);
+			}
+
+			using var bodyStream = new SegmentStream(dataStream);
+
+			foreach (var header in headers)
+			{
+				FileFormatException.ThrowIf<Model>(nameof(header.Offset1), bodyStream.Position != (long)header.Offset1);
+				bodyStream.ReadBytes(header.Count1 * 16); // TODO
+				bodyStream.SkipPadding(16);
+
+				FileFormatException.ThrowIf<Model>(nameof(header.Offset2), bodyStream.Position != (long)header.Offset2);
+				bodyStream.ReadBytes(header.Count2 * 12); // TODO
+				bodyStream.SkipPadding(16);
+
+				FileFormatException.ThrowIf<Model>(nameof(header.Offset3), bodyStream.Position != (long)header.Offset3);
+				bodyStream.ReadBytes(header.Count3 * 4); // TODO
+				bodyStream.SkipPadding(16);
+
+				FileFormatException.ThrowIf<Model>(nameof(header.Offset4), bodyStream.Position != (long)header.Offset4);
+				bodyStream.ReadBytes(header.Count4 * 20); // TODO
+				bodyStream.SkipPadding(16);
+			}
+		}
+
+		FileFormatException.ThrowIf<Model>(nameof(_header.Unk45), _header.Unk45.Count != 0);
+
 		FileFormatException.ThrowIf<Model>(nameof(dataStream), dataStream.Position != dataStream.Length);
 	}
 
-	private (ModelBone Bone, ModelBoneAnimation Animation)[] ReadBones(SegmentStream stream)
+	private ModelBone[] ReadBones(SegmentStream stream)
 	{
 		FileFormatException.ThrowIf<Model>(nameof(_header.Bones), stream.Position != (long)_header.Bones.Offset);
 
-		var bones = new ModelBone[_header.Bones.Count];
+		var headers = new ModelBoneHeader[_header.Bones.Count];
 
 		for (var i = 0UL; i < _header.Bones.Count; i++)
 		{
-			bones[i] = new ModelBone(stream);
+			headers[i] = new ModelBoneHeader(stream);
 			stream.SkipPadding(16);
 		}
 
@@ -146,63 +216,91 @@ public class Model
 
 		for (var i = 0UL; i < _header.Bones.Count; i++)
 		{
-			animations[i] = new ModelBoneAnimation(animationsStream, bones[i]);
+			animations[i] = new ModelBoneAnimation(animationsStream, headers[i]);
 			stream.SkipPadding(16);
 		}
 
-		return Enumerable.Range(0, (int)_header.Bones.Count).Select(i => (bones[i], animations[i])).ToArray();
+		return Enumerable.Range(0, (int)_header.Bones.Count).Select(i => new ModelBone(headers[i], animations[i])).ToArray();
 	}
 
-	private (ModelTexture Texture, string File)[] ReadTextures(Stream stream)
+	private ModelTexture[] ReadTextures(Stream stream)
 	{
 		FileFormatException.ThrowIf<Model>(nameof(_header.Textures), stream.Position != (long)_header.Textures.Offset);
 
-		var textures = new ModelTexture[_header.Textures.Count];
+		var headers = new ModelTextureHeader[_header.Textures.Count];
 
 		for (var i = 0UL; i < _header.Textures.Count; i++)
 		{
-			textures[i] = new ModelTexture(stream);
+			headers[i] = new ModelTextureHeader(stream);
 			stream.SkipPadding(16);
 		}
 
 		using var texturesStream = new SegmentStream(stream);
-		var strings = new Dictionary<ulong, string>();
+		var paths = new Dictionary<ulong, string>();
 
 		for (var i = 0UL; i < _header.Textures.Count; i++)
 		{
-			strings.Add((ulong)texturesStream.Position, texturesStream.ReadWideString());
+			paths.Add((ulong)texturesStream.Position, texturesStream.ReadWideString());
 			texturesStream.SkipPadding(16);
 		}
 
-		return textures.Select(texture => (texture, strings[texture.FileOffset])).ToArray();
+		return Enumerable.Range(0, (int)_header.Textures.Count).Select(i => new ModelTexture(headers[i], paths[headers[i].FileOffset])).ToArray();
 	}
 
-	private (ModelMaterialHeader Header, ModelMaterialLayer[] Layers)[] ReadMaterials(SegmentStream stream)
+	private ModelMaterial[] ReadMaterials(SegmentStream stream)
 	{
 		FileFormatException.ThrowIf<Model>(nameof(_header.Materials), stream.Position != (long)_header.Materials.Offset);
 
-		var materials = new (ModelMaterialHeader Header, ModelMaterialLayer[] Layers)[_header.Materials.Count];
+		var headers = new ModelMaterialHeader[_header.Materials.Count];
 
 		for (var i = 0UL; i < _header.Materials.Count; i++)
 		{
-			var header = new ModelMaterialHeader(stream);
-			materials[i] = (header, new ModelMaterialLayer[header.Layers]);
+			headers[i] = new ModelMaterialHeader(stream);
 			stream.SkipPadding(16);
 		}
 
-		using var materialsStream = new SegmentStream(stream);
+		using var layersStream = new SegmentStream(stream);
 
-		foreach (var (header, layers) in materials)
+		var layers = new ModelMaterialLayer[_header.Materials.Count][];
+
+		for (var i = 0; i < headers.Length; i++)
 		{
-			FileFormatException.ThrowIf<Model>(nameof(header.LayersOffset), materialsStream.Position != (long)header.LayersOffset);
+			var header = headers[i];
+
+			FileFormatException.ThrowIf<Model>(nameof(header.LayersOffset), layersStream.Position != (long)header.LayersOffset);
+
+			layers[i] = new ModelMaterialLayer[header.Layers];
+			var layerHeaders = new ModelMaterialLayerHeader[header.Layers];
 
 			for (var j = 0UL; j < header.Layers; j++)
-				layers[j] = new ModelMaterialLayer(materialsStream);
+				layerHeaders[j] = new ModelMaterialLayerHeader(layersStream);
 
-			materialsStream.SkipPadding(16);
+			var chunkStream = new SegmentStream(stream);
+
+			for (var j = 0; j < layerHeaders.Length; j++)
+			{
+				var layerHeader = layerHeaders[j];
+				var datas = new byte[layerHeader.Chunks.Length][];
+
+				for (var k = 0; k < layerHeader.Chunks.Length; k++)
+				{
+					var chunk = layerHeader.Chunks[k];
+
+					if (!chunk.Active)
+						continue;
+
+					FileFormatException.ThrowIf<Model>(nameof(chunk.Offset), chunkStream.Position != (long)chunk.Offset);
+
+					datas[k] = chunkStream.ReadBytes((chunk.LastValue - chunk.Offset) * 2); // TODO
+				}
+
+				layers[i][j] = new ModelMaterialLayer(layerHeader, datas);
+			}
+
+			layersStream.SkipPadding(16);
 		}
 
-		return materials;
+		return Enumerable.Range(0, (int)_header.Materials.Count).Select(i => new ModelMaterial(headers[i], layers[i])).ToArray();
 	}
 
 	private ModelGeometry ReadGeometry(SegmentStream stream)
