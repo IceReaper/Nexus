@@ -29,7 +29,7 @@ public class ModelHeader
 	public ModelChunk Unk22 { get; }
 	public ModelChunk Unk23 { get; }
 	public ModelChunk Unk24 { get; }
-	public ModelChunk Unk25 { get; }
+	public ModelChunk Bones { get; }
 	public ModelChunk Unk26 { get; }
 	public ModelChunk Unk27 { get; }
 	public ModelChunk Unk28 { get; }
@@ -74,7 +74,7 @@ public class ModelHeader
 		Unk22 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
 		Unk23 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
 		Unk24 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
-		Unk25 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
+		Bones = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
 		Unk26 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
 		Unk27 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());
 		Unk28 = new ModelChunk(stream.ReadUInt64(), stream.ReadUInt64());

@@ -7,6 +7,7 @@ public class Model
 {
 	private static readonly Identifier Identifier = new("MODL", 100);
 
+	public (ModelBone Bone, ModelBoneAnimation Animation)[] Bones { get; } = [];
 	public (ModelTexture Texture, string File)[] Textures { get; } = [];
 	public (ModelMaterialHeader Header, ModelMaterialLayer[] Layers)[] Materials { get; } = [];
 	public ModelGeometry Geometry { get; }
@@ -69,16 +70,8 @@ public class Model
 		FileFormatException.ThrowIf<Model>(nameof(_header.Unk23), _header.Unk23.Count != 0);
 		FileFormatException.ThrowIf<Model>(nameof(_header.Unk24), _header.Unk24.Count != 0);
 
-		if (_header.Unk25.Count != 0)
-		{
-			FileFormatException.ThrowIf<Model>(nameof(_header.Unk25), dataStream.Position != (long)_header.Unk25.Offset);
-
-			for (var i = 0UL; i < _header.Unk25.Count; i++)
-			{
-				stream.ReadBytes(352); // TODO
-				dataStream.SkipPadding(16);
-			}
-		}
+		if (_header.Bones.Count != 0)
+			Bones = ReadBones(dataStream);
 
 		FileFormatException.ThrowIf<Model>(nameof(_header.Unk26), _header.Unk26.Count != 0);
 		FileFormatException.ThrowIf<Model>(nameof(_header.Unk27), _header.Unk27.Count != 0);
@@ -134,6 +127,30 @@ public class Model
 		}
 
 		FileFormatException.ThrowIf<Model>(nameof(dataStream), dataStream.Position != dataStream.Length);
+	}
+
+	private (ModelBone Bone, ModelBoneAnimation Animation)[] ReadBones(SegmentStream stream)
+	{
+		FileFormatException.ThrowIf<Model>(nameof(_header.Bones), stream.Position != (long)_header.Bones.Offset);
+
+		var bones = new ModelBone[_header.Bones.Count];
+
+		for (var i = 0UL; i < _header.Bones.Count; i++)
+		{
+			bones[i] = new ModelBone(stream);
+			stream.SkipPadding(16);
+		}
+
+		using var animationsStream = new SegmentStream(stream);
+		var animations = new ModelBoneAnimation[_header.Bones.Count];
+
+		for (var i = 0UL; i < _header.Bones.Count; i++)
+		{
+			animations[i] = new ModelBoneAnimation(animationsStream, bones[i]);
+			stream.SkipPadding(16);
+		}
+
+		return Enumerable.Range(0, (int)_header.Bones.Count).Select(i => (bones[i], animations[i])).ToArray();
 	}
 
 	private (ModelTexture Texture, string File)[] ReadTextures(Stream stream)
